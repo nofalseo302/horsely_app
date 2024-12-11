@@ -163,6 +163,7 @@ class AppAr {
     AppStrings.totaloffer: "جميع العروض",
     AppStrings.viewdetails: "عرض التفاصيل",
     AppStrings.reject: "رفض",
+    AppStrings.description: "الوصف",
     AppStrings.accept: "قبول",
     AppStrings.viewall: "المزيد",
   };
