@@ -22,7 +22,7 @@ class HomeBody extends StatelessWidget {
           const SizedBox(height: 20),
           Container(
             decoration: BoxDecoration(
-              color: const Color(0xffB7DACC).withOpacity(0.1),
+              color: const Color(0xffb7dacc).withOpacity(0.1),
               borderRadius: BorderRadius.circular(17),
               border:
                   Border.all(color: const Color(0xffB7DACC).withOpacity(0.3)),

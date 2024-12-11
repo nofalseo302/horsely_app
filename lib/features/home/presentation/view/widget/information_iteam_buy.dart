@@ -32,6 +32,7 @@ class Infromation extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
               height: 16,
@@ -57,19 +58,28 @@ class Infromation extends StatelessWidget {
             const SizedBox(
               height: 12,
             ),
-            Row(
-              children: [
-                Text(
-                  "$titel  ",
-                  style: AppStyles.semibold14(context)
-                      .copyWith(color: const Color(0xff8A8A8A)),
-                ),
-                const IteamPayWay(),
-                const SizedBox(
-                  width: 8,
-                ),
-                const IteamPayWay(),
-              ],
+            FittedBox(
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 120,
+                    child: Text(
+                      "$titel   :   ",
+                      style: AppStyles.semibold14(context)
+                          .copyWith(color: const Color(0xff8A8A8A)),
+                    ),
+                  ),
+                  const Row(
+                    children: [
+                      IteamPayWay(),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      IteamPayWay(),
+                    ],
+                  )
+                ],
+              ),
             ),
             const SizedBox(
               height: 30,

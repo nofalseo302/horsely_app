@@ -3,10 +3,7 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 
 class HeaderButtomSheet extends StatelessWidget {
-  const HeaderButtomSheet({
-    super.key,
-    required this.titel,
-  });
+  const HeaderButtomSheet({super.key, required this.titel});
   final String titel;
   @override
   Widget build(BuildContext context) {

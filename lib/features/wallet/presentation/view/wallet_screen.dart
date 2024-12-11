@@ -15,22 +15,14 @@ class WalletScreen extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
         children: [
-          const SizedBox(
-            height: 30,
-          ),
+          const SizedBox(height: 30),
           const HeaderWallet(),
-          const SizedBox(
-            height: 70,
-          ),
-          HeaderSection(
-            titel: AppStrings.lastTranaction.tr,
-          ),
+          const SizedBox(height: 40),
+          HeaderSection(titel: AppStrings.lastTranaction.tr),
           Expanded(
             child: ListView.builder(
               itemBuilder: (BuildContext context, int index) {
-                return const IteamLastTranaction(
-                  isincome: false,
-                );
+                return IteamLastTranaction(isincome: index % 2 == 0);
               },
             ),
           )

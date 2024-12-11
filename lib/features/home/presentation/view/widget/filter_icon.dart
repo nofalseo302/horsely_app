@@ -40,7 +40,7 @@ class FilterIcon extends StatelessWidget {
                 onChanged: onSaved,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return ;
+                    return;
                   }
                   return null;
                 },
@@ -48,7 +48,7 @@ class FilterIcon extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: hintText,
                   hintStyle: AppStyles.semibold14(context).copyWith(
-                    color: Colors.grey,
+                    color: const Color(0xffB5B5B5).withOpacity(.7),
                   ),
                   border: InputBorder.none, // إزالة الحدود
                 ),

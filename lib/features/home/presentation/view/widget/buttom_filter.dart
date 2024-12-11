@@ -12,8 +12,10 @@ class ButtonInfilter extends StatelessWidget {
   Widget build(BuildContext context) {
     final SliderController controller = Get.put(SliderController());
     return Container(
+      margin: const EdgeInsets.symmetric(vertical: 3),
       decoration: BoxDecoration(
-        border: const Border(left: BorderSide(color: Color(0xffD9D9D9))),
+        border:
+            const Border(left: BorderSide(width: 1, color: Color(0xffD9D9D9))),
         borderRadius: BorderRadius.circular(0),
         color: Colors.white,
       ),

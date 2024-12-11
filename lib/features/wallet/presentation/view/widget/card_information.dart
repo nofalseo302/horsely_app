@@ -14,7 +14,7 @@ class CardInformation extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0),
         child: ListTile(
           leading: const CircleAvatar(
             backgroundImage: AssetImage("assets/png/company.png"),
@@ -26,7 +26,7 @@ class CardInformation extends StatelessWidget {
           ),
           subtitle: Text(
             "AhmedHussen19@gmail.com",
-            style: AppStyles.semibold16(context)
+            style: AppStyles.semibold14(context)
                 .copyWith(color: const Color(0xff545454)),
           ),
         ),

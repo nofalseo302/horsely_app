@@ -62,7 +62,7 @@ class SellerInformation extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: const Color(0xff199800).withOpacity(.15)),
-          child: SvgPicture.asset(AppImages.chats),
+          child: Image.asset(AppImages.chats),
         ),
       ),
     );

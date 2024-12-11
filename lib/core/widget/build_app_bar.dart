@@ -5,6 +5,7 @@ import 'package:horsely_app/core/utils/app_text_styles.dart';
 
 AppBar buildAppBar({required String titel, required BuildContext context}) {
   return AppBar(
+    backgroundColor: Colors.white,
     centerTitle: true,
     title: Text(
       titel,
@@ -14,7 +15,7 @@ AppBar buildAppBar({required String titel, required BuildContext context}) {
       padding: const EdgeInsets.all(8.0),
       child: Container(
           decoration: BoxDecoration(
-            color: Colors.grey.shade300,
+            color: const Color(0xffE9EFF5),
             borderRadius: BorderRadius.circular(11),
           ),
           child: GestureDetector(

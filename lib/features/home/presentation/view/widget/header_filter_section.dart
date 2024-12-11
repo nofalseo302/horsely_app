@@ -24,12 +24,14 @@ class HeaderFilterSection extends StatelessWidget {
         const Spacer(),
         Text(
           AppStrings.viewall.tr,
-          style: AppStyles.semibold14(context),
+          style: AppStyles.semibold14(context).copyWith(
+            fontWeight: FontWeight.w600,
+          ),
         ),
-        const SizedBox(width: 5),
-        IconButton(
-            onPressed: onPressed,
-            icon: Icon(getCurrentLanguage() == "ar"
+        //const SizedBox(width: 5),
+        GestureDetector(
+            onTap: onPressed,
+            child: Icon(getCurrentLanguage() == "ar"
                 ? Icons.keyboard_arrow_left
                 : Icons.keyboard_arrow_right)),
       ],

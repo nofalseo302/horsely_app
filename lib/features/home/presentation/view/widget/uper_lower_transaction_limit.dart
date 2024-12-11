@@ -25,7 +25,6 @@ class CustomSliderTranactionWidget extends StatelessWidget {
             activeColor: AppColors.primaryColor,
             inactiveColor: Colors.grey,
             onChanged: (SfRangeValues newValues) {
-              // تحديث القيم الأدنى والأعلى باستخدام GetX
               controller.updateValuestranactionlimit(
                   newValues.start, newValues.end);
             },

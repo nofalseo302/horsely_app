@@ -100,15 +100,15 @@ class FilterWidget extends StatelessWidget {
       children: [
         Expanded(
             child: CustomButton(
-                onButtonPressed: () => Get.back(),
-                buttonText: AppStrings.search.tr)),
-        const SizedBox(width: 10),
-        Expanded(
-            child: CustomButton(
                 backgroundColor: AppColors.backgray,
                 textColor: Colors.black,
                 onButtonPressed: () => Get.back(),
                 buttonText: AppStrings.cancel.tr)),
+        const SizedBox(width: 10),
+        Expanded(
+            child: CustomButton(
+                onButtonPressed: () => Get.back(),
+                buttonText: AppStrings.search.tr)),
       ],
     );
   }

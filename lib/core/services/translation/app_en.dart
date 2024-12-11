@@ -132,7 +132,7 @@ class AppEn {
     AppStrings.selectyouroption: "Select your option",
     AppStrings.bankaccount: "Bank account",
     AppStrings.banktransfer: "Bank transfer",
-    AppStrings.sendmony: "Send amount",
+    AppStrings.sendmony: "Send Money",
     AppStrings.suretransfer: "Are you sure you want to send to",
     AppStrings.tax: "Tax",
     AppStrings.close: "Close",
@@ -161,6 +161,7 @@ class AppEn {
     AppStrings.curencytype: "Currency type",
     AppStrings.history: "History",
     AppStrings.totaloffer: "Total offers",
-    AppStrings.viewdetails: "View details"
+    AppStrings.viewdetails: "View details",
+    AppStrings.viewall: "View all",
   };
 }
