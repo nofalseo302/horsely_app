@@ -15,6 +15,23 @@ class BodyWelcome extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
+      foregroundDecoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color.fromRGBO(104, 104, 104, 0), // Transparent gray
+            Color.fromRGBO(2, 2, 2, 0.375), // Semi-transparent black
+            Color.fromRGBO(2, 2, 2, 0.375), // Semi-transparent black
+            Color.fromRGBO(2, 2, 2, 0.375), // Semi-transparent black
+            Color.fromRGBO(2, 2, 2, 0.375), // Semi-transparent black
+          ],
+          stops: [
+            0.0,
+            0.5,
+          ],
+        ),
+      ),
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(AppImages.welcomebackground),
@@ -27,9 +44,7 @@ class BodyWelcome extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             SafeArea(
               child: Text(
                 AppStrings.welcome.tr,
@@ -47,8 +62,8 @@ class BodyWelcome extends StatelessWidget {
             const Spacer(),
             Container(
               decoration: BoxDecoration(
-                color: const Color(0xffffffff).withOpacity(.2),
-                border: Border.all(color: Colors.white.withOpacity(.5)),
+                color: const Color(0xffffffff).withOpacity(.05),
+                border: Border.all(color: Colors.white.withOpacity(.04)),
                 borderRadius: BorderRadius.circular(24),
               ),
               child: Padding(

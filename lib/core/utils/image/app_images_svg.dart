@@ -3,6 +3,8 @@ class AppImages {
   static const String onboarding2 = "assets/png/onbording2.png";
   static const String onboarding3 = "assets/png/onbordin3.png";
   static const welcomebackground = "assets/png/backgroundwelcomscreen.png";
+  static const welcomebackgroundWithGradint =
+      "assets/png/backgroundwelcomscreenwithgradint.png";
   static const homeicon = "assets/svg/home 04.svg";
   static const walleticon = "assets/svg/wallet.svg";
   static const wallet = "assets/svg/wallet.svg";
@@ -47,4 +49,8 @@ class AppImages {
   static const pindingcompletdata = "assets/png/time 1.png";
   static const camer = "assets/png/Cmera.png";
   static const send = "assets/png/Send.png";
+  static const arrowBack = "assets/png/arback.png";
+  static const arrowRight = "assets/png/arrow right.png";
+  static const eyeDisable = "assets/png/eye-disable.png";
+  static const eye = "assets/png/eye.png";
 }

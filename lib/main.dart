@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -14,15 +15,20 @@ import 'core/services/cache/cash_keys.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await CashHelper.init(); // تأكد من أن التطبيق جاهز للعمل
-  await GetStorage.init(); // تهيئة GetStorage
-  getCurrentLanguage(); // استعادة اللغة المحفوظة
+  await CashHelper.init();
+  await GetStorage.init();
+  getCurrentLanguage();
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]).then((_) {
-    runApp(const HorseleyApp()); // تشغيل التطبيق مباشرة بدون DevicePreview
+    runApp(
+      DevicePreview(
+        enabled: false,
+        builder: (context) => const HorseleyApp(),
+      ),
+    );
   });
 }
 
@@ -43,10 +49,7 @@ class HorseleyApp extends StatelessWidget {
       translations: AppTranslations(),
       locale: Locale(savedLanguage), // اللغة المحفوظة أو الافتراضية
       fallbackLocale: const Locale('en'),
-      supportedLocales: const [
-        Locale('en'),
-        Locale('ar'),
-      ],
+      supportedLocales: const [Locale('en'), Locale('ar')],
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -54,7 +57,7 @@ class HorseleyApp extends StatelessWidget {
       ],
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: fontFamily),
-      initialRoute: Routes.home, // getInitRout(),
+      initialRoute: Routes.onBoarding, // getInitRout(),
       getPages: AppPages.pages,
     );
   }

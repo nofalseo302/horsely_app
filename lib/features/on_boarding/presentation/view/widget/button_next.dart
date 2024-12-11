@@ -7,6 +7,8 @@ import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/features/on_boarding/presentation/manager/controler/on_boarding_controler.dart';
 
+import '../../../../../core/utils/image/app_images_svg.dart';
+
 class ButtonNext extends StatelessWidget {
   const ButtonNext({
     super.key,
@@ -49,8 +51,8 @@ class ButtonNext extends StatelessWidget {
         Expanded(
           child: CustomButton(
             icon: getCurrentLanguage() == "en"
-                ? "assets/png/arrow right.png"
-                : "assets/png/arback.png",
+                ? AppImages.arrowRight
+                : AppImages.arrowBack,
             buttonText: AppStrings.nextButton.tr,
             onButtonPressed: () {
               if (controller.currentPage.value < 2) {

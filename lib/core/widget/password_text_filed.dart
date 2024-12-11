@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
 
 class PasswordField extends StatefulWidget {
@@ -33,15 +34,7 @@ class _PasswordFieldState extends State<PasswordField> {
           obscureText = !obscureText;
           setState(() {});
         },
-        child: obscureText
-            ? const Icon(
-                Icons.remove_red_eye,
-                color: Color(0xffC9CECF),
-              )
-            : const Icon(
-                Icons.visibility_off,
-                color: Color(0xffC9CECF),
-              ),
+        child: Image.asset(!obscureText ? AppImages.eye : AppImages.eyeDisable),
       ),
       hintText: "",
       textInputType: TextInputType.visiblePassword,

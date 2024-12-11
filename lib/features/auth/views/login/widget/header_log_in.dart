@@ -19,7 +19,7 @@ class HeaderLogin extends StatelessWidget {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(AppImages.welcomebackground),
+            image: AssetImage(AppImages.welcomebackgroundWithGradint),
             fit: BoxFit.cover, // لجعل الصورة تغطي كامل العرض والارتفاع
           ),
         ),
@@ -34,7 +34,7 @@ class HeaderLogin extends StatelessWidget {
                 ),
                 Text(
                   AppStrings.login.tr,
-                  style: AppStyles.semibold20(context)
+                  style: AppStyles.semibold24(context)
                       .copyWith(color: Colors.white),
                 ),
                 const SizedBox(
@@ -42,8 +42,8 @@ class HeaderLogin extends StatelessWidget {
                 ),
                 Text(
                   AppStrings.subtitellogin.tr,
-                  style: AppStyles.semibold14(context)
-                      .copyWith(color: Colors.white),
+                  style: AppStyles.semibold16(context)
+                      .copyWith(color: Colors.white.withOpacity(.9)),
                 ),
               ],
             ),

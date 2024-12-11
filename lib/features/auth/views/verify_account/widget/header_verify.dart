@@ -19,7 +19,7 @@ class HeaderVerify extends GetView<OtpController> {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(AppImages.welcomebackground),
+            image: AssetImage(AppImages.welcomebackgroundWithGradint),
             fit: BoxFit.cover, // لجعل الصورة تغطي كامل العرض والارتفاع
           ),
         ),
@@ -38,14 +38,12 @@ class HeaderVerify extends GetView<OtpController> {
                 ),
                 Text(
                   AppStrings.Acountverify.tr,
-                  style: AppStyles.semibold20(context)
+                  style: AppStyles.semibold22(context)
                       .copyWith(color: Colors.white),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  AppStrings.verifyinstruction.tr +
-                      controller.email +
-                      AppStrings.thisCodeisvalidForTwoMinutes.tr,
+                  '${AppStrings.verifyinstruction.tr}\n${controller.email}\n${AppStrings.thisCodeisvalidForTwoMinutes.tr}',
                   style: AppStyles.semibold14(context)
                       .copyWith(color: Colors.white),
                 ),
