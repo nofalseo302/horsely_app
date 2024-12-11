@@ -20,7 +20,7 @@ class HeaderRestPassword extends StatelessWidget {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(AppImages.welcomebackground),
+            image: AssetImage(AppImages.welcomebackgroundWithGradint),
             fit: BoxFit.cover, // لجعل الصورة تغطي كامل العرض والارتفاع
           ),
         ),
@@ -39,7 +39,7 @@ class HeaderRestPassword extends StatelessWidget {
                 ),
                 Text(
                   AppStrings.newspassword.tr,
-                  style: AppStyles.semibold20(context)
+                  style: AppStyles.semibold22(context)
                       .copyWith(color: Colors.white),
                 ),
                 const SizedBox(

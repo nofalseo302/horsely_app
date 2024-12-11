@@ -8,9 +8,7 @@ import 'package:horsely_app/core/widget/titel_widget.dart';
 import '../../../logic/controller/forget_password_controller.dart';
 
 class FromEnterEmail extends GetView<ForgetPasswordController> {
-  const FromEnterEmail({
-    super.key,
-  });
+  const FromEnterEmail({super.key});
 
   @override
   Widget build(BuildContext context) {

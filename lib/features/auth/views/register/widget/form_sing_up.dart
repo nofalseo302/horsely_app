@@ -80,7 +80,7 @@ class FormSingUp extends GetView<RegisterController> {
             },
             buttonText: AppStrings.creataccount.tr,
           ),
-          const SizedBox(height: 33),
+          const SizedBox(height: 20),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -100,7 +100,18 @@ class FormSingUp extends GetView<RegisterController> {
                 ),
               )
             ],
-          )
+          ),
+          const SizedBox(height: 40),
+          Center(
+            child: Text(
+              '''
+      By using the app and logging in, you agree to the Terms of Service and Privacy Policy.
+      ''',
+              textAlign: TextAlign.center,
+              style: AppStyles.semibold12(context)
+                  .copyWith(color: const Color(0xff8A8A8A)),
+            ),
+          ),
         ],
       ),
     );

@@ -19,7 +19,7 @@ class HeaderSingUp extends StatelessWidget {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(AppImages.welcomebackground),
+            image: AssetImage(AppImages.welcomebackgroundWithGradint),
             fit: BoxFit.cover, // لجعل الصورة تغطي كامل العرض والارتفاع
           ),
         ),
@@ -29,12 +29,10 @@ class HeaderSingUp extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 60,
-                ),
+                const SizedBox(height: 60),
                 Text(
-                  AppStrings.creataccount.tr,
-                  style: AppStyles.semibold20(context)
+                  AppStrings.creatnewaccount.tr,
+                  style: AppStyles.semibold22(context)
                       .copyWith(color: Colors.white),
                 ),
                 const SizedBox(

@@ -20,7 +20,7 @@ class HeaderEnterEmil extends StatelessWidget {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(AppImages.welcomebackground),
+            image: AssetImage(AppImages.welcomebackgroundWithGradint),
             fit: BoxFit.cover, // لجعل الصورة تغطي كامل العرض والارتفاع
           ),
         ),
@@ -30,21 +30,15 @@ class HeaderEnterEmil extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 40,
-                ),
+                const SizedBox(height: 40),
                 IconBack(),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 Text(
                   AppStrings.accountrecvied.tr,
-                  style: AppStyles.semibold20(context)
+                  style: AppStyles.semibold22(context)
                       .copyWith(color: Colors.white),
                 ),
-                const SizedBox(
-                  height: 8,
-                ),
+                const SizedBox(height: 8),
                 Text(
                   AppStrings.accountrecviedinstraction.tr,
                   style: AppStyles.semibold14(context)

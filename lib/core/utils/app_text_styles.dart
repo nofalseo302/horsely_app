@@ -9,19 +9,26 @@ abstract class AppStyles {
     );
   }
 
+  static TextStyle semibold22(context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 22),
+      fontWeight: FontWeight.w600,
+    );
+  }
+
   static TextStyle semibold12(context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 12),
       fontWeight: FontWeight.w600,
     );
   }
+
   static TextStyle semibold18(context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 18),
       fontWeight: FontWeight.w600,
     );
   }
-  
 
   static TextStyle semibold14(context) {
     return TextStyle(
@@ -50,6 +57,7 @@ abstract class AppStyles {
         fontWeight: FontWeight.w600,
         color: Colors.white);
   }
+
   static TextStyle regulare10(context) {
     return TextStyle(
         fontSize: getResponsiveFontSize(context, fontSize: 10),

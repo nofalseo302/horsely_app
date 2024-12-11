@@ -24,7 +24,7 @@ class IteamPageView extends StatelessWidget {
                 TextSpan(
                     text: pageViewIteamEntity.titel,
                     style: AppStyles.semibold24(context)
-                        .copyWith(color: const Color(0xffd4D221E))),
+                        .copyWith(color: const Color(0xffd4d221e))),
                 TextSpan(
                     text: pageViewIteamEntity.diferrenttitel,
                     style: AppStyles.semibold24(context)
