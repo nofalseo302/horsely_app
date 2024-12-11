@@ -5,9 +5,10 @@ import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 
 class IteamTransaction extends StatelessWidget {
   const IteamTransaction({
-    super.key,required this.onTap,
+    super.key,
+    required this.onTap,
   });
- final void Function()? onTap;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -60,7 +61,7 @@ class IteamTransaction extends StatelessWidget {
               ),
               Text("+12.03% ",
                   style: AppStyles.semibold16(context).copyWith(
-                    color: AppColors.primaryColor.withOpacity(.5),
+                    color: AppColors.primaryColor,
                   )),
               Text(
                 "Revenue for August 2024",
