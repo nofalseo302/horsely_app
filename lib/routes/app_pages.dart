@@ -26,13 +26,13 @@ import 'package:horsely_app/features/auth/views/rest_password/presentation/view/
 import 'package:horsely_app/features/sell_details/presentation/view/sell_details.dart';
 import 'package:horsely_app/features/auth/views/register/sing_up_screen.dart';
 import 'package:horsely_app/features/support/presentation/view/support_sceen.dart';
-import 'package:horsely_app/features/tranaction_details/presentation/view/transaction_details_screen.dart';
-import 'package:horsely_app/features/transaction/presentation/view/teanaction_screen.dart';
-import 'package:horsely_app/features/transaction_buyer/presentation/view/transaction_buyer_screen.dart';
-import 'package:horsely_app/features/transaction_history/presentation/view/transaction_history_screen.dart';
+import 'package:horsely_app/features/transactions/tranaction_details/presentation/view/transaction_details_screen.dart';
+import 'package:horsely_app/features/transactions/transaction/presentation/view/teanaction_screen.dart';
+import 'package:horsely_app/features/transactions/transaction_buyer/presentation/view/transaction_buyer_screen.dart';
+import 'package:horsely_app/features/transactions/transaction_history/presentation/view/transaction_history_screen.dart';
 import 'package:horsely_app/features/verification_status/presentation/view/widget/verification_status_screen.dart';
 import 'package:horsely_app/features/auth/views/verify_account/view/verify_account_screen.dart';
-import 'package:horsely_app/features/welcome/presentation/view/welcome_screen.dart';
+import 'package:horsely_app/features/on_boarding/welcome/presentation/view/welcome_screen.dart';
 import 'package:horsely_app/features/withdraw/presentation/view/withdraw_screen.dart';
 
 import '../features/auth/logic/binding/forget_password_binding.dart';
