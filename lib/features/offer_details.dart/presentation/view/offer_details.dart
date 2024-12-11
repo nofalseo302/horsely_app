@@ -29,13 +29,9 @@ class BodyOfferDetails extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
         children: [
-          const SizedBox(
-            height: 24,
-          ),
+          const SizedBox(height: 24),
           const SellerInformation(),
-          const SizedBox(
-            height: 8,
-          ),
+          const SizedBox(height: 8),
           Infromation(
             titel: AppStrings.paymethod.tr,
             vule: '',
@@ -43,18 +39,14 @@ class BodyOfferDetails extends StatelessWidget {
           const Spacer(),
           CustomButton(
               onButtonPressed: () {}, buttonText: AppStrings.accept.tr),
-          const SizedBox(
-            height: 16,
-          ),
+          const SizedBox(height: 16),
           CustomButton(
             onButtonPressed: () {},
             buttonText: AppStrings.reject.tr,
             backgroundColor: const Color(0xFFD20000).withOpacity(.05),
             textColor: Colors.red,
           ),
-          const SizedBox(
-            height: 16,
-          )
+          const SizedBox(height: 16)
         ],
       ),
     );
