@@ -1,0 +1,35 @@
+class Routes {
+  static const onBoarding = "/onBoarding";
+  static const home = '/home';
+  static const login = '/login';
+  static const register = '/singup';
+  static const welcome = '/welcome';
+  static const forgetPassword = '/emailRest';
+  static const verifyAccount = '/verify';
+  static const restpassword = '/restpassword';
+  static const otpForgetPassword = '/verifyrest';
+  static const pindingcompletedata = '/pindingcompletdata';
+  static const completedata = "/completedata";
+  static const pindingreviewscreen = "/pindingreviewscreen";
+  static const notifactionscreen = "/notifactionscreen";
+  static const buydetails = "/buydetails";
+  static const accountSeting = "/buydetails";
+  static const informationAboutUser = "/buydetails";
+  static const selldetails = "/selldetails";
+  static const deposit = "/deposit";
+  static const withdraw = "/WithdrawScreen";
+  static const transactiondetails = "/transactiondetails";
+  static const transation = "/transaction";
+  static const transactionbuyer = "/transactionbuyer";
+  static const myorder = "/myorder";
+  static const transactionhoistry = "/transactionhistory";
+  static const notifactionseting = "/notifactionseting";
+  static const verificationstatus = "/verificationstatus";
+  static const pincode = "/pincode";
+  static const support = "/support";
+  static const informationscreen = "/informationscreen";
+  static const changelaunge = "/changelaunge";
+  static const livechat = "/livechat";
+  static const seting = "/seting";
+  static const history = "/history";
+}
