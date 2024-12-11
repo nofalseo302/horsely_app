@@ -14,22 +14,26 @@ class IteamLastTranaction extends StatelessWidget {
       contentPadding: EdgeInsets.zero,
       leading: CircleAvatar(
         radius: 25,
-        backgroundColor:
-            isincome ? const Color(0xffE8F3EF) : const Color(0xffD20000).withOpacity(.1),
+        backgroundColor: isincome
+            ? const Color(0xffE8F3EF)
+            : const Color(0xffD20000).withOpacity(.1),
         child: Center(
           child: Image.asset(
-            "assets/png/money-income.png",
+            !isincome
+                ? 'assets/png/money-profit.png'
+                : "assets/png/money-income.png",
             color: isincome ? AppColors.primaryColor : const Color(0xffD20000),
           ),
         ),
       ),
       title: Text(
         "Today 2:30 PM",
-        style: AppStyles.semibold12(context).copyWith(color: const Color(0xff545454)),
+        style: AppStyles.semibold12(context)
+            .copyWith(color: const Color(0xff545454)),
       ),
       subtitle: Text(
         "Depoit",
-        style: AppStyles.semibold16(context),
+        style: AppStyles.semibold16(context).copyWith(color: AppColors.black),
       ),
       trailing: Text(
         "\$2.801,28",

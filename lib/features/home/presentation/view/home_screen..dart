@@ -12,24 +12,14 @@ import 'package:horsely_app/features/home/presentation/view/widget/home_body.dar
 import 'package:horsely_app/features/profit/presentation/view/profit_screen.dart';
 import 'package:horsely_app/features/wallet/presentation/view/wallet_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends GetView<HomeControler> {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final HomeControler homeController = Get.find<HomeControler>();
-
-    // قائمة أسماء العناوين بناءً على الـ index
-    final List<String> appBarTitles = [
-      "Make P2P",
-      AppStrings.wallet.tr,
-      "",
-      AppStrings.profit.tr,
-      AppStrings.myprofile.tr
-    ];
-
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         actions: [
           GestureDetector(
             onTap: () {
@@ -43,7 +33,7 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(11),
                     boxShadow: [
                       BoxShadow(
-                          color: Colors.black.withOpacity(.25), blurRadius: 1),
+                          color: Colors.black.withOpacity(.2), blurRadius: 1),
                     ]),
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -55,10 +45,9 @@ class HomeScreen extends StatelessWidget {
         ],
         elevation: 0,
         centerTitle: true,
-        // تغيير العنوان بناءً على الـ selindex
         title: GetBuilder<HomeControler>(
           builder: (controller) => Text(
-            appBarTitles[controller.selindex],
+            controller.appBarTitles[controller.selindex],
             style: AppStyles.semibold18(context).copyWith(color: Colors.black),
           ),
         ),
@@ -69,13 +58,14 @@ class HomeScreen extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
       bottomNavigationBar: GetBuilder<HomeControler>(
-        init: HomeControler(),
         builder: (controller) => BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          currentIndex: homeController.selindex,
+          backgroundColor: Colors.white,
+          elevation: 0,
+          currentIndex: controller.selindex,
           selectedItemColor: AppColors.primaryColor,
           unselectedItemColor: Colors.grey,
-          onTap: homeController.onItemTapped,
+          onTap: controller.onItemTapped,
           items: [
             BottomNavigationBarItem(
               icon: SvgPicture.asset(

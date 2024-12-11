@@ -36,9 +36,9 @@ class LastTranaction extends StatelessWidget {
                     ),
                   ]),
               child: ListView.builder(
-                  itemBuilder: (context, index) => const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20.0),
-                        child: IteamLastTranaction(isincome: true),
+                  itemBuilder: (context, index) => Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: IteamLastTranaction(isincome: index % 2 == 0),
                       )),
             ),
           ),

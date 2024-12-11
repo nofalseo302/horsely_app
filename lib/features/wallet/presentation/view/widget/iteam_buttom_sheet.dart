@@ -13,35 +13,38 @@ class ItamButtomSheet extends StatelessWidget {
   final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(13),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black.withOpacity(.25),
-                blurRadius: 4,
-                spreadRadius: -1),
-          ]),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 18.0, top: 9, right: 0, bottom: 9),
-        child: Row(
-          children: [
-            Image.asset(image),
-            const SizedBox(
-              width: 24,
-            ),
-            Text(
-              titel,
-              style: AppStyles.semibold16(context),
-            ),
-            const Spacer(),
-            IconButton(
-                onPressed: onPressed,
-                icon: getCurrentLanguage() == "ar"
-                    ? const Icon(Icons.keyboard_arrow_left)
-                    : const Icon(Icons.keyboard_arrow_right))
-          ],
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(13),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black.withOpacity(.25),
+                  blurRadius: 4,
+                  spreadRadius: -1),
+            ]),
+        child: Padding(
+          padding:
+              const EdgeInsets.only(left: 18.0, top: 9, right: 0, bottom: 9),
+          child: Row(
+            children: [
+              Image.asset(image),
+              const SizedBox(
+                width: 24,
+              ),
+              Text(
+                titel,
+                style: AppStyles.semibold16(context),
+              ),
+              const Spacer(),
+              getCurrentLanguage() == "ar"
+                  ? const Icon(Icons.keyboard_arrow_left)
+                  : const Icon(Icons.keyboard_arrow_right),
+              const SizedBox(width: 8),
+            ],
+          ),
         ),
       ),
     );

@@ -164,5 +164,6 @@ class AppAr {
     AppStrings.viewdetails: "عرض التفاصيل",
     AppStrings.reject: "رفض",
     AppStrings.accept: "قبول",
+    AppStrings.viewall: "المزيد",
   };
 }

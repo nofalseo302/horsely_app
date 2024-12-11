@@ -18,7 +18,6 @@ void main() async {
   await CashHelper.init();
   await GetStorage.init();
   getCurrentLanguage();
-
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -57,7 +56,7 @@ class HorseleyApp extends StatelessWidget {
       ],
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: fontFamily),
-      initialRoute: Routes.onBoarding, // getInitRout(),
+      initialRoute: Routes.home, // getInitRout(),
       getPages: AppPages.pages,
     );
   }

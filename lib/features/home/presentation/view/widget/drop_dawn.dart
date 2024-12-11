@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/controler/drop_dawn_controler.dart';
+import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 
 class CustomAnimatedDropdown extends StatelessWidget {
   final List<String> items; // قائمة العناصر
@@ -33,7 +34,7 @@ class CustomAnimatedDropdown extends StatelessWidget {
                       ? null
                       : dropdownController.selectedItem.value,
                   hint: Text(titiel),
-                  icon: const Icon(Icons.arrow_drop_down),
+                  icon: Image.asset(AppImages.arrowDown),
                   isExpanded: true,
                   items: items.map((String item) {
                     return DropdownMenuItem<String>(

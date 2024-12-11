@@ -21,7 +21,8 @@ class ShapeChoose extends StatelessWidget {
               style:
                   AppStyles.semibold12(context).copyWith(color: Colors.white),
             ),
-            const Icon(Icons.close, color: Colors.white),
+            const SizedBox(width: 8),
+            const Icon(size: 20, Icons.close, color: Colors.white),
           ],
         ),
       ),
