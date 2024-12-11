@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
+import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/features/wallet/presentation/view/manager/controler/code_Controler.dart';
 
 class EncryptedTextRow extends StatelessWidget {
@@ -35,18 +36,12 @@ class EncryptedTextRow extends StatelessWidget {
           ],
         ),
         const Spacer(),
-        IconButton(
-          icon: GetBuilder<TextController>(
-            builder: (_) => Icon(
-              controller.isObscured
-                  ? Icons.visibility_off
-                  : Icons.visibility, // تبديل الأيقونة
-            ),
-          ),
-          onPressed: () {
-            controller.toggleVisibility(); // تبديل حالة إخفاء/إظهار النص
-          },
-        ),
+        GestureDetector(onTap: () {
+          controller.toggleVisibility(); // تبديل حالة إخفاء/إظهار النص
+        }, child: GetBuilder<TextController>(builder: (controller) {
+          return Image.asset(
+              controller.isObscured ? AppImages.eye : AppImages.eyeDisable);
+        })),
       ],
     );
   }

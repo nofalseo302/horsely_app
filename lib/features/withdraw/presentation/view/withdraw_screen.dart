@@ -11,6 +11,7 @@ class WithdrawScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: buildAppBar(titel: AppStrings.withdraw.tr, context: context),
       body: const BodyWithdraw(),
     );

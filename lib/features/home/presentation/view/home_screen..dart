@@ -20,29 +20,6 @@ class HomeScreen extends GetView<HomeControler> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        actions: [
-          GestureDetector(
-            onTap: () {
-              Get.toNamed(Routes.notifactionscreen);
-            },
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: const Color(0xffF8FCFA),
-                    borderRadius: BorderRadius.circular(11),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black.withOpacity(.2), blurRadius: 1),
-                    ]),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Image.asset(AppImages.notifactionHome),
-                ),
-              ),
-            ),
-          )
-        ],
         elevation: 0,
         centerTitle: true,
         title: GetBuilder<HomeControler>(
@@ -50,10 +27,6 @@ class HomeScreen extends GetView<HomeControler> {
             controller.appBarTitles[controller.selindex],
             style: AppStyles.semibold18(context).copyWith(color: Colors.black),
           ),
-        ),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 5.0),
-          child: Image.asset(AppImages.homeLeading),
         ),
       ),
       backgroundColor: Colors.white,

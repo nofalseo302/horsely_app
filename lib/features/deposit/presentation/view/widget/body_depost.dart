@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/custom_namber_text_filed.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
@@ -13,50 +14,61 @@ class BodyDeposit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+    return Container(
+      color: AppColors.white,
+      width: double.infinity,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          const SizedBox(height: 20),
-          TitleAndWidget(
-            title: AppStrings.cardholdername.tr,
-            childWidget: const CustomTextFormField(
-              hintText: "",
-              textInputType: TextInputType.name,
+          Container(
+            width: double.infinity,
+            height: 8,
+            color: AppColors.backgray,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const SizedBox(height: 20),
+                TitleAndWidget(
+                  title: AppStrings.cardholdername.tr,
+                  childWidget: const CustomTextFormField(
+                    hintText: "",
+                    textInputType: TextInputType.name,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                TitleAndWidget(
+                  title: AppStrings.cardnumber.tr,
+                  childWidget: const CustomNumericTextFormField(
+                    hintText: "",
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TitleAndWidget(
+                        title: AppStrings.expirydate.tr,
+                        childWidget: const VisaExpiryDateField(),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: TitleAndWidget(
+                        title: AppStrings.cvv.tr,
+                        childWidget: const CVVField(),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20), // المسافة بين المحتوى والزر
+                // استخدام Spacer لدفع الزر للأسفل
+                // المسافة السفلية
+              ],
             ),
           ),
-          const SizedBox(height: 16),
-          TitleAndWidget(
-            title: AppStrings.cardnumber.tr,
-            childWidget: const CustomNumericTextFormField(
-              hintText: "",
-            ),
-          ),
-          const SizedBox(height: 16),
-          Row(
-            children: [
-              Expanded(
-                child: TitleAndWidget(
-                  title: AppStrings.expirydate.tr,
-                  childWidget: const VisaExpiryDateField(),
-                ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: TitleAndWidget(
-                  title: AppStrings.cvv.tr,
-                  childWidget: const CVVField(),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 20), // المسافة بين المحتوى والزر
-          const Spacer(), // استخدام Spacer لدفع الزر للأسفل
-          CustomButton(
-            onButtonPressed: () {},
-            buttonText: AppStrings.confrim.tr,
-          ),
-          const SizedBox(height: 20), // المسافة السفلية
         ],
       ),
     );
