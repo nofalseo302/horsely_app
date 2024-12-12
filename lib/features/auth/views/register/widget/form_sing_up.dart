@@ -91,7 +91,7 @@ class FormSingUp extends GetView<RegisterController> {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.toNamed(Routes.login);
+                  Get.offNamed(Routes.login);
                 },
                 child: Text(
                   AppStrings.login.tr,

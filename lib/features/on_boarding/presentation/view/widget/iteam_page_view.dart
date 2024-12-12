@@ -12,12 +12,18 @@ class IteamPageView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Align(
-              alignment: Alignment.topCenter,
-              child: SizedBox(
-                  height: MediaQuery.of(context).size.height * .35,
-                  child: Image.asset(pageViewIteamEntity.image))),
+            alignment: Alignment.topCenter,
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height * .35,
+              child: Image.asset(pageViewIteamEntity.image),
+            ),
+          ),
+          const SizedBox(
+            height: 50,
+          ),
           RichText(
             text: TextSpan(
               children: [

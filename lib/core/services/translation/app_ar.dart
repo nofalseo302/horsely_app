@@ -48,6 +48,7 @@ class AppAr {
     AppStrings.thisCodeisvalidForTwoMinutes:
         'سيكون هذا الرمز صالح لمده دقيقتين ',
     AppStrings.send: "ارسال",
+    AppStrings.getStarted: "ابدأ الان",
     AppStrings.home: "الرئيسية",
     AppStrings.wallet: "محفظة",
     AppStrings.profits: "الارباح",

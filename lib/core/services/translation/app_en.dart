@@ -142,6 +142,7 @@ class AppEn {
     AppStrings.percentage: "Percentage",
     AppStrings.price: "Price",
     AppStrings.hoistory: "History",
+    AppStrings.getStarted: "Get Started",
     AppStrings.conintype: "Coin type",
     AppStrings.availbelcoin: "Available coins",
     AppStrings.publish: "Publish",

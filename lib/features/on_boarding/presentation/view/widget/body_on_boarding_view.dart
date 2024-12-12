@@ -56,7 +56,6 @@ class BodyOnBoarding extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 60),
         Expanded(
           child: OnBoardingPageview(pageController: controller.pageController),
         ),
