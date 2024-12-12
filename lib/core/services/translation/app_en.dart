@@ -33,7 +33,7 @@ class AppEn {
     AppStrings.creatnewaccount: "Create a new account",
     AppStrings.filedetails: "Fill in your details to\ncomplete registration",
     AppStrings.name: "Name",
-    AppStrings.contineo: "Confirm",
+    AppStrings.continuee: "Continue",
     AppStrings.accountrecvied: "Account recovery",
     AppStrings.accountrecviedinstraction:
         "Please enter your email so we can\nsend you the code.",

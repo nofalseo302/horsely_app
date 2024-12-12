@@ -3,7 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:horsely_app/core/function/app_launge.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
-import 'package:horsely_app/features/support/domain/entity/support_entity.dart';
+import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
+import 'package:horsely_app/features/account/features/support/domain/entity/support_entity.dart';
 
 class IteamSupport extends StatelessWidget {
   const IteamSupport({
@@ -17,19 +18,22 @@ class IteamSupport extends StatelessWidget {
     return GestureDetector(
       onTap: accountEntity.onPressed,
       child: Container(
-        decoration: BoxDecoration(color: Colors.white, boxShadow: [
-          BoxShadow(
-              color: Colors.black.withOpacity(.25),
-              blurRadius: 4,
-              spreadRadius: -1)
-        ]),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.white,
+          // boxShadow: [
+          //   BoxShadow(
+          //       color: Colors.black.withOpacity(.25),
+          //       blurRadius: 4,
+          //       spreadRadius: -1)
+        ),
         child: ListTile(
           contentPadding: EdgeInsets.zero,
           leading: Padding(
             padding: const EdgeInsets.only(left: 20.0),
             child: CircleAvatar(
                 backgroundColor: AppColors.backgray,
-                child: SvgPicture.asset(accountEntity.image)),
+                child: CustomImageHandler(accountEntity.image)),
           ),
           title: Text(
             accountEntity.titel,

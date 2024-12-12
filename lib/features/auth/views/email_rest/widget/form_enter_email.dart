@@ -30,7 +30,7 @@ class FromEnterEmail extends GetView<ForgetPasswordController> {
                 await controller.checkCredential();
               }
             },
-            buttonText: AppStrings.contineo.tr,
+            buttonText: AppStrings.confrim.tr,
           ),
           const SizedBox(height: 20),
         ],

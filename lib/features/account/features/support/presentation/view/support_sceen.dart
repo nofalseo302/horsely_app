@@ -4,7 +4,7 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/widget/build_app_bar.dart';
 
-import 'package:horsely_app/features/support/presentation/view/widget/body_support.dart';
+import 'package:horsely_app/features/account/features/support/presentation/view/widget/body_support.dart';
 
 class SupportSceen extends StatelessWidget {
   const SupportSceen({super.key});

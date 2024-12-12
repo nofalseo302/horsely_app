@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/widget/send_text_filed.dart';
-import 'package:horsely_app/features/live_chat/presentation/manager/controler/live_Chat_controler.dart';
+import 'package:horsely_app/features/account/features/support/live_chat/presentation/manager/controler/live_Chat_controler.dart';
 
 class SendSection extends StatelessWidget {
   final ScrollController scrollController;

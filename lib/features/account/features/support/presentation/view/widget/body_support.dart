@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/routes/routes.dart';
-import 'package:horsely_app/features/support/domain/entity/support_entity.dart';
-import 'package:horsely_app/features/support/presentation/view/widget/iteam_support.dart';
+import 'package:horsely_app/features/account/features/support/domain/entity/support_entity.dart';
+import 'package:horsely_app/features/account/features/support/presentation/view/widget/iteam_support.dart';
 
 class BodySupport extends StatelessWidget {
   const BodySupport({super.key});

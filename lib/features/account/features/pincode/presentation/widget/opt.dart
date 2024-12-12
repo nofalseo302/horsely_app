@@ -15,12 +15,15 @@ class Opt extends StatelessWidget {
       autoFocus: true,
       fieldHeight: 61,
       fieldWidth: 52,
-      focusedBorderColor: AppColors.primaryColor, // اللون عند التركيز
+
+      focusedBorderColor: AppColors.black,
+      fillColor: AppColors.backGray, // اللون عند التركيز
       borderColor: Colors.black, // اللون الأساسي للحدود
       showFieldAsBox: true,
+      filled: true,
       borderWidth: 1, // سمك الحدود
       borderRadius: BorderRadius.circular(16), // نصف قطر الحدود
-      enabledBorderColor: Colors.black, // لون الحدود للحقول غير النشطة
+      enabledBorderColor: Colors.grey.shade300, // لون الحدود للحقول غير النشطة
       // عند تغيير الرمز
       onCodeChanged: (String code) {},
       // عند إدخال جميع الحقول

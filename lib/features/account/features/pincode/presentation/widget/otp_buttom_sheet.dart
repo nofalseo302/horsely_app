@@ -53,9 +53,9 @@ class OtpButtomSheet extends StatelessWidget {
                   Get.back();
                   Get.bottomSheet(const PinCodeButtomSheet());
                 },
-                buttonText: AppStrings.enter.tr,
-                backgroundColor: Colors.red,
-                borderColor: Colors.red,
+                buttonText: AppStrings.continuee.tr,
+                backgroundColor: AppColors.redColor,
+                borderColor: AppColors.redColor,
                 textColor: Colors.white,
               ),
               const SizedBox(
