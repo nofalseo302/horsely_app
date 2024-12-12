@@ -20,9 +20,6 @@ class BodyAccountSetting extends StatelessWidget {
 
     return Column(
       children: [
-        const SizedBox(
-          height: 8,
-        ),
         IteamAccount(
           accountEntity: AccountEntity(
               titel: AppStrings.accountinformation.tr,
@@ -44,14 +41,15 @@ class BodyAccountSetting extends StatelessWidget {
         ),
         Container(
           decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(8),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.black.withOpacity(.25),
-                    blurRadius: 4,
-                    spreadRadius: -3)
-              ]),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(8),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black.withOpacity(.25),
+                  blurRadius: 4,
+                  spreadRadius: -3)
+            ],
+          ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16),
             child: Column(
@@ -62,7 +60,7 @@ class BodyAccountSetting extends StatelessWidget {
                   style: AppStyles.semibold16(context),
                 ),
                 const SizedBox(
-                  height: 32,
+                  height: 26,
                 ),
                 Obx(() => ItteamLanguage(
                       titel: AppStrings.english.tr,
@@ -74,7 +72,7 @@ class BodyAccountSetting extends StatelessWidget {
                       },
                     )),
                 const SizedBox(
-                  height: 32,
+                  height: 20,
                 ),
                 Obx(() => ItteamLanguage(
                       titel: AppStrings.arabic.tr,

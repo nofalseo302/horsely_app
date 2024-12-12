@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:horsely_app/features/account/features/myorder/logic/binding/my_order_binding.dart';
+import 'package:horsely_app/features/account/features/transaction/logic/binding/transaction_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/login_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/register_binding.dart';
 import 'package:horsely_app/features/notiofaction/logic/binding/notification_binding.dart';
@@ -28,7 +29,7 @@ import 'package:horsely_app/features/sell_details/presentation/view/sell_details
 import 'package:horsely_app/features/auth/views/register/sing_up_screen.dart';
 import 'package:horsely_app/features/support/presentation/view/support_sceen.dart';
 import 'package:horsely_app/features/transactions/tranaction_details/presentation/view/transaction_details_screen.dart';
-import 'package:horsely_app/features/transactions/transaction/presentation/view/teanaction_screen.dart';
+import 'package:horsely_app/features/account/features/transaction/presentation/view/teanaction_screen.dart';
 import 'package:horsely_app/features/transactions/transaction_buyer/presentation/view/transaction_buyer_screen.dart';
 import 'package:horsely_app/features/transactions/transaction_history/presentation/view/transaction_history_screen.dart';
 import 'package:horsely_app/features/account/features/verification_status/presentation/widget/verification_status_screen.dart';
@@ -155,6 +156,7 @@ class AppPages {
       name: Routes.transation,
       page: () => const TeanactionScreen(),
       transition: Transition.leftToRight,
+      binding: TransactionBinding(),
     ),
     GetPage(
       name: Routes.transactionbuyer,

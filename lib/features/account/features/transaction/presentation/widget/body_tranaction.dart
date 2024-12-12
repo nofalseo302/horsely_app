@@ -11,6 +11,7 @@ class BodyTransaction extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: GridView.builder(
+        
           itemCount: 5,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,

@@ -16,6 +16,7 @@ class BodyAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      padding: const EdgeInsets.only(bottom: 4),
       child: Column(
         children: [
           IteamAccount(
@@ -30,9 +31,9 @@ class BodyAccount extends StatelessWidget {
           IteamAccount(
             accountEntity: AccountEntity(
               titel: AppStrings.transaction.tr,
-              image: AppImages.transaction,
+              image: AppImages.coin,
               onPressed: () {
-                Get.toNamed(Routes.transactionbuyer);
+                Get.toNamed(Routes.transation);
               },
             ),
           ),
@@ -57,7 +58,7 @@ class BodyAccount extends StatelessWidget {
           IteamAccount(
             accountEntity: AccountEntity(
               titel: AppStrings.transactionhistory.tr,
-              image: AppImages.transaction,
+              image: AppImages.profit,
               onPressed: () {
                 Get.toNamed(Routes.transactionhoistry);
               },
@@ -107,6 +108,7 @@ class BodyAccount extends StatelessWidget {
             ),
           ),
           IteamAccount(
+            textColor: AppColors.redColor,
             accountEntity: AccountEntity(
               titel: AppStrings.logout.tr,
               image: AppImages.logout,
