@@ -14,7 +14,7 @@ import 'package:horsely_app/features/history/presentation/view/history_screen.da
 import 'package:horsely_app/features/home/presentation/manager/binding/home_binding.dart';
 import 'package:horsely_app/features/home/presentation/view/home_screen..dart';
 import 'package:horsely_app/features/account/features/information_user/presentation/view/information_user_screen.dart';
-import 'package:horsely_app/features/live_chat/presentation/view/llive_chat_screen.dart';
+import 'package:horsely_app/features/account/features/support/live_chat/presentation/view/llive_chat_screen.dart';
 import 'package:horsely_app/features/auth/views/login/login_screen.dart';
 import 'package:horsely_app/features/account/features/myorder/presentation/view/my_order_screeen.dart';
 import 'package:horsely_app/features/account/features/notification_setting/presentation/view/notifaction_seting_screen.dart';
@@ -26,7 +26,7 @@ import 'package:horsely_app/features/pinding_complete_data/presentation/view/pin
 import 'package:horsely_app/features/auth/views/rest_password/presentation/view/rest_password_screen.dart';
 import 'package:horsely_app/features/sell_details/presentation/view/sell_details.dart';
 import 'package:horsely_app/features/auth/views/register/sing_up_screen.dart';
-import 'package:horsely_app/features/support/presentation/view/support_sceen.dart';
+import 'package:horsely_app/features/account/features/support/presentation/view/support_sceen.dart';
 import 'package:horsely_app/features/transactions/tranaction_details/presentation/view/transaction_details_screen.dart';
 import 'package:horsely_app/features/transactions/transaction/presentation/view/teanaction_screen.dart';
 import 'package:horsely_app/features/transactions/transaction_buyer/presentation/view/transaction_buyer_screen.dart';

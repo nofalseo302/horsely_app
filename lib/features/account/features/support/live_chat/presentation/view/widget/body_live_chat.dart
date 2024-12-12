@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:horsely_app/features/live_chat/presentation/manager/controler/live_Chat_controler.dart';
-import 'package:horsely_app/features/live_chat/presentation/view/widget/Iteam_chat_bot.dart';
-import 'package:horsely_app/features/live_chat/presentation/view/widget/iteam_chat_user.dart';
-import 'package:horsely_app/features/live_chat/presentation/view/widget/send_section.dart';
+import 'package:horsely_app/features/account/features/support/live_chat/presentation/manager/controler/live_Chat_controler.dart';
+import 'package:horsely_app/features/account/features/support/live_chat/presentation/view/widget/Iteam_chat_bot.dart';
+import 'package:horsely_app/features/account/features/support/live_chat/presentation/view/widget/iteam_chat_user.dart';
+import 'package:horsely_app/features/account/features/support/live_chat/presentation/view/widget/send_section.dart';
 
 class BodyLiveChat extends StatelessWidget {
   final ScrollController scrollController = ScrollController();
