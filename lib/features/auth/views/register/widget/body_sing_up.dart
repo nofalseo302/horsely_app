@@ -45,7 +45,8 @@ class BodySingUp extends GetView<RegisterController> {
                 ),
               ),
             ),
-          )
+          ),
+          
         ],
       ),
     );

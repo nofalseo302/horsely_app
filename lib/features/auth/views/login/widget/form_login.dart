@@ -43,7 +43,7 @@ class FormLogin extends GetView<LoginController> {
               alignment: Alignment.topRight,
               child: GestureDetector(
                 onTap: () {
-                  Get.toNamed(Routes.forgetPassword);
+                  Get.offNamed(Routes.forgetPassword);
                 },
                 child: Text(
                   AppStrings.forgetpassword.tr,
@@ -72,7 +72,7 @@ class FormLogin extends GetView<LoginController> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Get.toNamed(Routes.register);
+                    Get.offNamed(Routes.register);
                   },
                   child: Text(
                     AppStrings.creataccount.tr,

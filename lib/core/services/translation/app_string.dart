@@ -4,6 +4,7 @@ class AppStrings {
       "buytheTopCryptocurrenciesontheMarket";
   static const String buyBestCryptoAnd = "buybest";
   static const String inmarket = "inmarket";
+  static const String getStarted = "getStarted";
   static const subtitelpageview1 = "subtitelpageview1";
   static const skipe = "skipbutton";
   static const create = "create";
