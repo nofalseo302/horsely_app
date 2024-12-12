@@ -24,7 +24,7 @@ void main() async {
   ]).then((_) {
     runApp(
       DevicePreview(
-        enabled: true,
+        enabled: false,
         builder: (context) => const HorseleyApp(),
       ),
     );
@@ -63,7 +63,7 @@ class HorseleyApp extends StatelessWidget {
           elevation: 0,
         ),
       ),
-      initialRoute: Routes.onBoarding, // getInitRout(),
+      initialRoute: Routes.home, // getInitRout(),
       getPages: AppPages.pages,
     );
   }
