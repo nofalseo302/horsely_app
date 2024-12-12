@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
+import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
 import 'package:horsely_app/features/account/domain/entity/account_entity.dart';
 
 class IteamPincode extends StatelessWidget {
@@ -27,12 +27,12 @@ class IteamPincode extends StatelessWidget {
             padding: const EdgeInsets.only(left: 16.0),
             child: CircleAvatar(
                 backgroundColor: rest ? Color(0xffFBE8E8) : AppColors.backgray,
-                child: SvgPicture.asset(accountEntity.image)),
+                child: CustomImageHandler(accountEntity.image)),
           ),
           title: Text(
             accountEntity.titel,
-            style: AppStyles.semibold16(context)
-                .copyWith(color: rest ? Colors.red : Colors.black),
+            style: AppStyles.regulare16(context)
+                .copyWith(color: rest ? Color(0xffDB1414) : Colors.black),
           ),
         ),
       ),

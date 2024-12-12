@@ -41,7 +41,7 @@ import '../features/auth/logic/binding/forget_password_binding.dart';
 // قم بإضافة جميع الصفحات الأخرى التي تحتاجها هنا
 
 class AppPages {
-  static const initial = Routes.onBoarding; // الصفحة الأولية عند فتح التطبيق
+  static const initial = Routes.pincode; // الصفحة الأولية عند فتح التطبيق
 
   static final pages = [
     GetPage(

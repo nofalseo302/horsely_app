@@ -32,7 +32,7 @@ class AppAr {
     AppStrings.creatnewaccount: "انشاء حساب جديد",
     AppStrings.filedetails: "املأ التفاصيل الخاصة بك لإكمال تسجيلك",
     AppStrings.name: "الاسم",
-    AppStrings.contineo: "تاكيد ",
+    AppStrings.continuee: "متابعة ",
     AppStrings.accountrecvied: " استرداد الحساب",
     AppStrings.accountrecviedinstraction:
         "الرجاء إدخال بريدك الإلكتروني حتى \nنتمكن من إرسال الرمز إليك.",

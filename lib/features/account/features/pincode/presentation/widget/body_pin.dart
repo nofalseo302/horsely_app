@@ -33,6 +33,13 @@ class PincodeBody extends StatelessWidget {
               image: AppImages.restpin,
               onPressed: () {},
               titel: AppStrings.restpin.tr),
+        ),
+        IteamPincode(
+          rest: false,
+          accountEntity: AccountEntity(
+              image: AppImages.appCircle,
+              onPressed: () {},
+              titel: AppStrings.create.tr + " " + AppStrings.pincode.tr),
         )
       ],
     );

@@ -27,6 +27,7 @@ class CustomNumericTextFormField extends StatelessWidget {
         }
         return null;
       },
+
       keyboardType: TextInputType.number, // نوع لوحة المفاتيح للأرقام
       inputFormatters: [
         FilteringTextInputFormatter.digitsOnly
@@ -38,20 +39,20 @@ class CustomNumericTextFormField extends StatelessWidget {
         ),
         hintText: hintText,
         filled: true,
-        fillColor: const Color(0xFFFFFFFF),
+        fillColor: const Color(0xff545454).withOpacity(0.1),
         border: buildBorder(),
         enabledBorder: buildBorder(),
-        focusedBorder: buildBorder(),
+        focusedBorder: buildBorder(Colors.grey.shade900),
       ),
     );
   }
 
-  OutlineInputBorder buildBorder() {
+  OutlineInputBorder buildBorder([Color? borderColor]) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(14),
       borderSide: BorderSide(
         width: 1,
-        color: Colors.grey.shade300,
+        color: borderColor ?? Colors.grey.shade400,
       ),
     );
   }

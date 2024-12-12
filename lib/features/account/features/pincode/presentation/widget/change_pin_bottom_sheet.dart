@@ -31,7 +31,7 @@ class MyButtomSheet extends StatelessWidget {
                 height: 42,
               ),
               Text(
-                "PIN ${AppStrings.pincode.tr}",
+                "${AppStrings.pincode.tr}",
                 style:
                     AppStyles.semibold32(context).copyWith(color: Colors.black),
               ),
@@ -50,8 +50,8 @@ class MyButtomSheet extends StatelessWidget {
                   Get.bottomSheet(const OtpButtomSheet());
                 },
                 buttonText: AppStrings.enter.tr,
-                backgroundColor: Colors.red,
-                borderColor: Colors.red,
+                backgroundColor: AppColors.redColor,
+                borderColor: AppColors.redColor,
                 textColor: Colors.white,
               ),
               const SizedBox(

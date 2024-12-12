@@ -30,7 +30,7 @@ class PinCodeButtomSheet extends StatelessWidget {
                 height: 42,
               ),
               Text(
-                "PIN ${AppStrings.pincode.tr}",
+                "${AppStrings.enter.tr} ${AppStrings.pincode.tr}",
                 style:
                     AppStyles.semibold32(context).copyWith(color: Colors.black),
               ),

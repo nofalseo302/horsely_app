@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:horsely_app/core/function/app_launge.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
+import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
 import 'package:horsely_app/features/support/domain/entity/support_entity.dart';
 
 class IteamSupport extends StatelessWidget {
@@ -29,7 +30,7 @@ class IteamSupport extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20.0),
             child: CircleAvatar(
                 backgroundColor: AppColors.backgray,
-                child: SvgPicture.asset(accountEntity.image)),
+                child: CustomImageHandler(accountEntity.image)),
           ),
           title: Text(
             accountEntity.titel,
