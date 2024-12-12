@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
-<<<<<<<< HEAD:lib/features/transactions/transaction_history/presentation/view/widget/body_transaction_history.dart
 import 'package:horsely_app/features/transactions/transaction_history/presentation/view/widget/iteam_transaction.dart';
-========
-import 'package:horsely_app/features/account/features/transaction_history/presentation/widget/iteam_transaction.dart';
->>>>>>>> origin/Ali:lib/features/account/features/transaction_history/presentation/widget/body_transaction_history.dart
+
 
 class BodyTransactionHistoryScreen extends StatelessWidget {
   const BodyTransactionHistoryScreen({super.key});

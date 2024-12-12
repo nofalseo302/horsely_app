@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
-<<<<<<<< HEAD:lib/features/transactions/transaction_history/presentation/view/widget/iteam_transaction.dart
 import 'package:horsely_app/features/transactions/transaction_history/presentation/view/widget/buttton_buy.dart';
-========
-import 'package:horsely_app/features/account/features/transaction_history/presentation/widget/buttton_buy.dart';
->>>>>>>> origin/Ali:lib/features/account/features/transaction_history/presentation/widget/iteam_transaction.dart
 
 class IteamTranslation extends StatelessWidget {
   const IteamTranslation({

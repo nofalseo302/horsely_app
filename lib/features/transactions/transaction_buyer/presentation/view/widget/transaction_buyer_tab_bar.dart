@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
-<<<<<<<< HEAD:lib/features/transactions/transaction_buyer/presentation/view/widget/transaction_buyer_tab_bar.dart
-import 'package:horsely_app/features/myorder/presentation/view/widget/iteam_order_tap_bar.dart';
-import 'package:horsely_app/features/transactions/transaction_buyer/presentation/manager/transaction_buyer_tab_bar_controler.dart';
-========
 import 'package:horsely_app/features/account/features/myorder/logic/controler/my_order_controller.dart';
 import 'package:horsely_app/features/account/features/myorder/presentation/widget/iteam_order_tap_bar.dart';
->>>>>>>> origin/Ali:lib/features/account/features/myorder/presentation/widget/order_tap_bar.dart
 
 class OrderTapBar extends GetView<MyOrderController> {
   const OrderTapBar({super.key});

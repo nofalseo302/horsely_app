@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:horsely_app/features/account/features/myorder/logic/binding/my_order_binding.dart';
-import 'package:horsely_app/features/account/features/transaction_buyer/logic/binding/transaction_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/login_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/register_binding.dart';
 import 'package:horsely_app/features/notiofaction/logic/binding/notification_binding.dart';
@@ -32,11 +31,6 @@ import 'package:horsely_app/features/transactions/tranaction_details/presentatio
 import 'package:horsely_app/features/transactions/transaction/presentation/view/teanaction_screen.dart';
 import 'package:horsely_app/features/transactions/transaction_buyer/presentation/view/transaction_buyer_screen.dart';
 import 'package:horsely_app/features/transactions/transaction_history/presentation/view/transaction_history_screen.dart';
-import 'package:horsely_app/features/verification_status/presentation/view/widget/verification_status_screen.dart';
-import 'package:horsely_app/features/tranaction_details/presentation/view/transaction_details_screen.dart';
-import 'package:horsely_app/features/transaction/presentation/view/teanaction_screen.dart';
-import 'package:horsely_app/features/account/features/transaction_buyer/presentation/view/transaction_buyer_screen.dart';
-import 'package:horsely_app/features/account/features/transaction_history/presentation/view/transaction_history_screen.dart';
 import 'package:horsely_app/features/account/features/verification_status/presentation/widget/verification_status_screen.dart';
 import 'package:horsely_app/features/auth/views/verify_account/view/verify_account_screen.dart';
 import 'package:horsely_app/features/on_boarding/welcome/presentation/view/welcome_screen.dart';
@@ -166,7 +160,7 @@ class AppPages {
       name: Routes.transactionbuyer,
       page: () => const TransactionBuyerScreen(),
       transition: Transition.leftToRight,
-      binding: TransactionBinding(),
+      // binding: TransactionBinding(),
     ),
     GetPage(
       name: Routes.myorder,
