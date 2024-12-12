@@ -15,6 +15,7 @@ class AppEn {
     AppStrings.differtassets: "Different assets",
     AppStrings.subtitelpageview2: "",
     AppStrings.welcome: "Welcome to \nHorsely",
+    AppStrings.description: "Description",
     AppStrings.trackpitcons:
         "Track the cryptocurrencies and coins you choose to trade.",
     AppStrings.login: "Login",

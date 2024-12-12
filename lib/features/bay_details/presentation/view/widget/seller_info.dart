@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 
@@ -56,13 +57,22 @@ class SellerInformation extends StatelessWidget {
           style: AppStyles.semibold12(context)
               .copyWith(color: const Color(0xff8A8A8A)),
         ),
-        trailing: Container(
-          padding: const EdgeInsets.all(10),
-          width: 48,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: const Color(0xff199800).withOpacity(.15)),
-          child: Image.asset(AppImages.chats),
+        trailing: Badge(
+          padding: EdgeInsets.all(5),
+          offset: const Offset(-2, -5),
+          label: Text(
+            "1",
+            style: AppStyles.semibold12(context).copyWith(color: Colors.white),
+          ),
+          backgroundColor: AppColors.primaryColor,
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            width: 48,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: const Color(0xff199800).withOpacity(.15)),
+            child: Image.asset(AppImages.chats),
+          ),
         ),
       ),
     );

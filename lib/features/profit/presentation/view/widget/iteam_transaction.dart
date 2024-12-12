@@ -48,12 +48,12 @@ class IteamTransaction extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: '\$892.',
-                      style: AppStyles.semibold18(context)
+                      style: AppStyles.semibold24(context)
                           .copyWith(color: Colors.black),
                     ),
                     TextSpan(
                       text: '80',
-                      style: AppStyles.semibold16(context)
+                      style: AppStyles.semibold24(context)
                           .copyWith(color: const Color(0xff8A8A8A)),
                     ),
                   ],

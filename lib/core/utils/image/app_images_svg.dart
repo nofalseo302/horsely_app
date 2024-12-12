@@ -53,6 +53,7 @@ class AppImages {
   static const arrowRight = "assets/png/arrow right.png";
   static const eyeDisable = "assets/png/eye-disable.png";
   static const eye = "assets/png/eye.png";
+  static const appCircle = "assets/png/apps-circle.png";
   static const arrowDown = "assets/png/arrow_down.png";
   static const walletBackground = "assets/png/wallet_background.png";
 }

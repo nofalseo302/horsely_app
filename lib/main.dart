@@ -55,7 +55,14 @@ class HorseleyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: fontFamily),
+      theme: ThemeData(
+        fontFamily: fontFamily,
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: AppBarTheme(
+          surfaceTintColor: Colors.transparent,
+          elevation: 0,
+        ),
+      ),
       initialRoute: Routes.home, // getInitRout(),
       getPages: AppPages.pages,
     );
