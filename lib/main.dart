@@ -58,12 +58,12 @@ class HorseleyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: fontFamily,
         scaffoldBackgroundColor: Colors.white,
-        appBarTheme: AppBarTheme(
+        appBarTheme:const  AppBarTheme(
           surfaceTintColor: Colors.transparent,
           elevation: 0,
         ),
       ),
-      initialRoute: Routes.home, // getInitRout(),
+      initialRoute: Routes.onBoarding, // getInitRout(),
       getPages: AppPages.pages,
     );
   }
