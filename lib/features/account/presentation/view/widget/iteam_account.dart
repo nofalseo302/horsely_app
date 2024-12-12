@@ -11,10 +11,12 @@ class IteamAccount extends StatelessWidget {
     super.key,
     required this.accountEntity,
     this.trailing,
+    this.textColor,
   });
 
   final AccountEntity accountEntity;
   final Widget? trailing;
+  final Color? textColor;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -34,13 +36,14 @@ class IteamAccount extends StatelessWidget {
               padding: const EdgeInsetsDirectional.only(start: 20.0),
               child: CircleAvatar(
                 backgroundColor: AppColors.backgray,
-                // child: SvgPicture.asset(accountEntity.image),
                 child: CustomImage(path: accountEntity.image),
               ),
             ),
             title: Text(
               accountEntity.titel,
-              style: AppStyles.semibold16(context),
+              style: AppStyles.semibold16(context).copyWith(
+                color: textColor ?? Colors.black,
+              ),
             ),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,

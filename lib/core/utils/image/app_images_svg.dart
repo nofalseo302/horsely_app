@@ -49,6 +49,8 @@ class AppImages {
   static const pindingcompletdata = "assets/png/time 1.png";
   static const camer = "assets/png/Cmera.png";
   static const send = "assets/png/Send.png";
+  static const coin = "assets/png/coin.png";
+  static const profit = "assets/png/profit.png";
   static const arrowBack = "assets/png/arback.png";
   static const arrowRight = "assets/png/arrow right.png";
   static const eyeDisable = "assets/png/eye-disable.png";

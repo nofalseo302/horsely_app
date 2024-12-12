@@ -24,7 +24,7 @@ void main() async {
   ]).then((_) {
     runApp(
       DevicePreview(
-        enabled: false,
+        enabled: true,
         builder: (context) => const HorseleyApp(),
       ),
     );

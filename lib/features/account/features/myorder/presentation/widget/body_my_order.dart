@@ -28,7 +28,7 @@ class BodyMyOrder extends GetView<MyOrderController> {
                             crossAxisCount: 2,
                             mainAxisSpacing: 9,
                             crossAxisSpacing: 9,
-                            childAspectRatio: 1.1,
+                            // childAspectRatio: 1.1,
                           ),
                           itemBuilder: (context, index) {
                             return IteamTransaction(
