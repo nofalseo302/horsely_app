@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>688369231954-bitrlk3ohoqatlf219q7k9i99m0q926j.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.688369231954-bitrlk3ohoqatlf219q7k9i99m0q926j</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBwtnqSqGLmFyg-cdxcNT9AXv44DiDjrks</string>
+	<key>GCM_SENDER_ID</key>
+	<string>688369231954</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>nofal.horsly</string>
+	<key>PROJECT_ID</key>
+	<string>crypto-tom</string>
+	<key>STORAGE_BUCKET</key>
+	<string>crypto-tom.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:688369231954:ios:851b11a3359577dcc1578b</string>
+	<key>DATABASE_URL</key>
+	<string>https://crypto-tom-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:horsely_app/core/function/app_launge.dart';
 import 'package:horsely_app/core/services/cache/cash_helper.dart';
+import 'package:horsely_app/core/services/network_service/awesome_notifications_helper.dart';
+import 'package:horsely_app/core/services/network_service/fcm_helper.dart';
 import 'package:horsely_app/core/services/translation/app_translation.dart';
 import 'package:horsely_app/routes/app_pages.dart';
 // ignore: depend_on_referenced_packages
@@ -17,6 +19,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CashHelper.init();
   await GetStorage.init();
+  await FcmHelper.initFcm();
+  await AwesomeNotificationsHelper.init();
   getCurrentLanguage();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -58,7 +62,7 @@ class HorseleyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: fontFamily,
         scaffoldBackgroundColor: Colors.white,
-        appBarTheme:const  AppBarTheme(
+        appBarTheme: const AppBarTheme(
           surfaceTintColor: Colors.transparent,
           elevation: 0,
         ),
