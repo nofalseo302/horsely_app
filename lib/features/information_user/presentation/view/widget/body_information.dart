@@ -8,12 +8,12 @@ import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
 import 'package:horsely_app/core/widget/email_text_filed.dart';
-import 'package:horsely_app/core/widget/phone_wiidget.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
-import 'package:horsely_app/features/information_user/presentation/controler/image_controller.dart';
+import 'package:horsely_app/features/information_user/presentation/controler/profile_controller.dart';
+import 'package:image_picker/image_picker.dart';
 
 class BodyInformationUser extends StatelessWidget {
-  final ImageController imageController = Get.put(ImageController());
+  final ProfileController imageController = Get.put(ProfileController());
 
   BodyInformationUser({super.key});
 
@@ -27,9 +27,7 @@ class BodyInformationUser extends StatelessWidget {
             child: IntrinsicHeight(
               child: Column(
                 children: [
-                  const SizedBox(
-                    height: 12,
-                  ),
+                  const SizedBox(height: 12),
                   Container(
                     decoration: BoxDecoration(
                         color: Colors.white,
@@ -53,9 +51,9 @@ class BodyInformationUser extends StatelessWidget {
                                   return CircleAvatar(
                                     backgroundColor: const Color(0xffEDEDED),
                                     backgroundImage: imageController
-                                            .selectedImagePath.value.isNotEmpty
-                                        ? FileImage(File(imageController
-                                            .selectedImagePath.value))
+                                            .Bgimage.value.isNotEmpty
+                                        ? FileImage(
+                                            File(imageController.Bgimage.value))
                                         : const AssetImage(AppImages.userphoto)
                                             as ImageProvider,
                                     radius: 50,
@@ -88,20 +86,20 @@ class BodyInformationUser extends StatelessWidget {
                           ),
                           TitleAndWidget(
                               title: AppStrings.name.tr,
-                              childWidget: const CustomTextFormField(
+                              childWidget: CustomTextFormField(
                                   hintText: "",
+                                  controller: imageController.nameController,
                                   textInputType: TextInputType.text)),
                           const SizedBox(
                             height: 16,
                           ),
                           TitleAndWidget(
                               title: AppStrings.email.tr,
-                              childWidget: const EmailTextFiled(
+                              childWidget: EmailTextFiled(
                                   hintText: "",
+                                  controller: imageController.emailController,
                                   textInputType: TextInputType.text)),
-                          const SizedBox(
-                            height: 16,
-                          ),
+                          const SizedBox(height: 16),
                           // TitleAndWidget(
                           //     title: AppStrings.phone.tr,
                           //     childWidget: MobileTextfiled(
@@ -116,7 +114,10 @@ class BodyInformationUser extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: CustomButton(
-                        onButtonPressed: () {}, buttonText: "Save"),
+                        onButtonPressed: () async {
+                          await imageController.editProfile();
+                        },
+                        buttonText: "Save"),
                   )
                 ],
               ),
@@ -141,17 +142,17 @@ class BodyInformationUser extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.camera_alt),
               title: const Text("Camera"),
-              onTap: () {
-                imageController.pickImageFromCamera();
-                Get.back(); // لإغلاق الـ BottomSheet
+              onTap: () async {
+                await imageController.pickImage(ImageSource.camera);
+                // Get.back();
               },
             ),
             ListTile(
               leading: const Icon(Icons.photo),
               title: const Text("Gallery"),
-              onTap: () {
-                imageController.pickImageFromGallery();
-                Get.back(); // لإغلاق الـ BottomSheet
+              onTap: () async {
+                await imageController.pickImage(ImageSource.gallery);
+                // Get.back();
               },
             ),
           ],

@@ -6,10 +6,7 @@ import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/features/account/domain/entity/account_entity.dart';
 
 class IteamAccount extends StatelessWidget {
-  const IteamAccount({
-    super.key,
-    required this.accountEntity,
-  });
+  const IteamAccount({super.key, required this.accountEntity});
 
   final AccountEntity accountEntity;
   @override
