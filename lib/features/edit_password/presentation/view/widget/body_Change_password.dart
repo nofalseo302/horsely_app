@@ -3,11 +3,10 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
+import 'package:horsely_app/features/information_user/presentation/controler/change_password_controller.dart';
+import '../../../../../core/widget/password_text_filed.dart';
 
-import '../../../../../../../core/widget/password_text_filed.dart';
-import '../../../../../logic/controller/forget_password_controller.dart';
-
-class BodyChangePassword extends GetView<ForgetPasswordController> {
+class BodyChangePassword extends GetView<EditPasswordController> {
   const BodyChangePassword({super.key});
 
   @override
@@ -27,32 +26,18 @@ class BodyChangePassword extends GetView<ForgetPasswordController> {
             children: [
               TitleAndWidget(
                   title: AppStrings.curentpassword.tr,
-                  childWidget:
-                      PasswordField(controller: controller.passwordController)),
-              const SizedBox(
-                height: 16,
-              ),
+                  childWidget: PasswordField(
+                      controller: controller.currentPasswordController)),
+              const SizedBox(height: 16),
               TitleAndWidget(
                   title: AppStrings.newspassword.tr,
                   childWidget: PasswordField(
                       controller: controller.confirmPasswordController)),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 16),
               TitleAndWidget(
                   title: AppStrings.comfrimnewpassword.tr,
                   childWidget: const PasswordField()),
-              const Spacer(),
-              CustomButton(
-                  onButtonPressed: () async {
-                    if (controller.formKey.currentState!.validate()) {
-                      await controller.resetPassword();
-                    }
-                  },
-                  buttonText: AppStrings.save.tr),
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 16),
             ],
           ),
         ),
