@@ -5,9 +5,10 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/services/cache/cash_helper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
-import '../../../../core/widget/custom_loader.dart';
-import '../../../../core/widget/toast_manager_widget.dart';
-import '../../data/repo/repo/edit_profile_repo.dart';
+
+import '../../../../../../core/widget/custom_loader.dart';
+import '../../../../../../core/widget/toast_manager_widget.dart';
+import '../../../../../information_user/data/repo/repo/edit_profile_repo.dart';
 
 class ProfileController extends GetxController {
   var selectedImagePath = ''.obs;

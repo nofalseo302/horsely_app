@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
-import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
-import 'package:horsely_app/features/information_user/presentation/controler/change_password_controller.dart';
 import '../../../../../core/widget/password_text_filed.dart';
+import '../../../../account/features/information_user/presentation/controler/change_password_controller.dart';
 
 class BodyChangePassword extends GetView<EditPasswordController> {
   const BodyChangePassword({super.key});

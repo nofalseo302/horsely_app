@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/widget/build_app_bar.dart';
+import 'package:horsely_app/features/account/features/information_user/presentation/controler/change_password_controller.dart';
 
 import 'package:horsely_app/features/edit_password/presentation/view/widget/body_Change_password.dart';
 
 import '../../../../core/widget/custom_button.dart';
-import '../../../information_user/presentation/controler/change_password_controller.dart';
 
 class EditPasswordScreen extends GetView<EditPasswordController> {
   const EditPasswordScreen({super.key});
