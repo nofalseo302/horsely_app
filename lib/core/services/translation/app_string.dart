@@ -14,6 +14,7 @@ class AppStrings {
   static const trackpitcons = "trackpitcons";
   static const login = "login";
   static const singup = "singup";
+  static const description = "description";
   static const email = "email";
   static const password = "password";
   static const name = "name";
@@ -26,7 +27,7 @@ class AppStrings {
   static const alreadyhaveaccount = 'alreadyhaveaccount';
   static const creatnewaccount = 'creatnewaccount';
   static const filedetails = 'filedetails';
-  static const contineo = "contineo";
+  static const continuee = "Continue";
   static const accountrecvied = "Accountrecovery";
   static const accountrecviedinstraction = "accountrecviedinstraction";
   static const enteremail = "enteremail";

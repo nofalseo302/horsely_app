@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "688369231954",
+    "firebase_url": "https://crypto-tom-default-rtdb.firebaseio.com",
+    "project_id": "crypto-tom",
+    "storage_bucket": "crypto-tom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688369231954:android:a1a6d84015a44ef2c1578b",
+        "android_client_info": {
+          "package_name": "nofal.horsly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688369231954-hoigotajl7ce57uli76ml98ds2dkn54f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR6qfQ-E_5CSjH1bGIyPfWArUPFxTKoC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "688369231954-hoigotajl7ce57uli76ml98ds2dkn54f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

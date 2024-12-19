@@ -64,6 +64,19 @@ abstract class AppStyles {
         fontWeight: FontWeight.w400,
         color: Colors.white);
   }
+
+  static TextStyle regulare12(context) {
+    return TextStyle(
+        fontSize: getResponsiveFontSize(context, fontSize: 12),
+        fontWeight: FontWeight.w400,
+        color: Colors.white);
+  }
+  static TextStyle regulare16(context) {
+    return TextStyle(
+        fontSize: getResponsiveFontSize(context, fontSize: 16),
+        fontWeight: FontWeight.w400,
+        color: Colors.white);
+  }
 }
 
 // sacleFactor

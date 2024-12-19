@@ -18,7 +18,7 @@ class BodyOnBoarding extends StatelessWidget {
 
     return Column(
       children: [
-        const SizedBox(height: 74),
+        const SizedBox(height: 54),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Obx(() {

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:horsely_app/features/account/presentation/manager/controler/account_controler.dart';
-import 'package:horsely_app/features/accout_seting.dart/presentation/manager/controler/languge_controler.dart';
+import 'package:horsely_app/features/account/presentation/manager/controller/account_controler.dart';
+import 'package:horsely_app/features/account/features/account_setting.dart/presentation/manager/controler/languge_controler.dart';
 import 'package:horsely_app/features/home/presentation/manager/controler/buttom_sheet_controler.dart';
 import 'package:horsely_app/features/home/presentation/manager/controler/home_controler.dart';
 import 'package:horsely_app/features/home/presentation/manager/controler/rating_controler.dart';
@@ -17,7 +17,7 @@ class HomeBinding extends Bindings {
     Get.put<RatingController>(RatingController());
     Get.put<SliderController>(SliderController());
     Get.put<TapBarController>(TapBarController());
-    Get.put<AccountController>(AccountController());
+    // Get.put<AccountController>(AccountController());
     Get.put<TapBarProfitControler>(TapBarProfitControler());
     Get.put<LanguageController>(LanguageController());
 

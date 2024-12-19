@@ -38,7 +38,7 @@ class AppImages {
 
   static const email = "assets/svg/mail.svg";
   static const call = "assets/svg/call.svg";
-  static const chats = "assets/png/chat-notification.png";
+  static const chats = "assets/svg/chat-notification.svg";
   static const exchange = "assets/svg/exchange.svg";
   static const restpin = "assets/svg/del.svg";
   static const filter = "assets/png/filter.png";
@@ -49,10 +49,13 @@ class AppImages {
   static const pindingcompletdata = "assets/png/time 1.png";
   static const camer = "assets/png/Cmera.png";
   static const send = "assets/png/Send.png";
+  static const coin = "assets/png/coin.png";
+  static const profit = "assets/png/profit.png";
   static const arrowBack = "assets/png/arback.png";
   static const arrowRight = "assets/png/arrow right.png";
   static const eyeDisable = "assets/png/eye-disable.png";
   static const eye = "assets/png/eye.png";
+  static const appCircle = "assets/png/apps-circle.png";
   static const arrowDown = "assets/png/arrow_down.png";
   static const walletBackground = "assets/png/wallet_background.png";
 }

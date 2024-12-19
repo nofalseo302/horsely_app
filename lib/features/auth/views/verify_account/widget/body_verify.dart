@@ -59,7 +59,7 @@ class BodyVerifyAccount extends GetView<OtpController> {
                               await controller.verfiyAccount();
                             }
                           },
-                          buttonText: AppStrings.contineo.tr,
+                          buttonText: AppStrings.confrim.tr,
                         ),
                         const SizedBox(height: 20),
                         Row(

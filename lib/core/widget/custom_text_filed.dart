@@ -10,35 +10,59 @@ class CustomTextFormField extends StatelessWidget {
       this.suffixIcon,
       this.onSaved,
       this.controller,
+      this.title,
+      this.spacing,
+      this.maxLines = 1,
       this.obscureText = false,
       this.validator});
   final String hintText;
   final TextInputType textInputType;
   final Widget? suffixIcon;
+  final String? title;
+  final double? spacing;
   final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
   final bool obscureText;
+  final int maxLines;
   final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      obscureText: obscureText,
-      onChanged: onSaved,
-      validator: validator,
-      keyboardType: textInputType,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      decoration: InputDecoration(
-        suffixIcon: suffixIcon,
-        hintStyle: AppStyles.semibold14(context).copyWith(
-          color: Colors.grey,
-        ),
-        hintText: hintText,
-        filled: true,
-        fillColor: const Color(0xFFFFFFFF),
-        border: buildBorder(),
-        enabledBorder: buildBorder(),
-        focusedBorder: buildBorder(),
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: spacing ?? 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          title == null
+              ? SizedBox()
+              : Padding(
+                  padding: const EdgeInsets.only(bottom: 16),
+                  child: Text(
+                    title!,
+                    style: AppStyles.semibold16(context),
+                  ),
+                ),
+          TextFormField(
+            controller: controller,
+            obscureText: obscureText,
+            onChanged: onSaved,
+            validator: validator,
+            keyboardType: textInputType,
+            maxLines: maxLines,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            decoration: InputDecoration(
+              suffixIcon: suffixIcon,
+              hintStyle: AppStyles.semibold14(context).copyWith(
+                color: Colors.grey,
+              ),
+              hintText: hintText,
+              filled: true,
+              fillColor: const Color(0xFFFFFFFF),
+              border: buildBorder(),
+              enabledBorder: buildBorder(),
+              focusedBorder: buildBorder(),
+            ),
+          ),
+        ],
       ),
     );
   }

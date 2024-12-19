@@ -15,6 +15,7 @@ class AppEn {
     AppStrings.differtassets: "Different assets",
     AppStrings.subtitelpageview2: "",
     AppStrings.welcome: "Welcome to \nHorsely",
+    AppStrings.description: "Description",
     AppStrings.trackpitcons:
         "Track the cryptocurrencies and coins you choose to trade.",
     AppStrings.login: "Login",
@@ -32,7 +33,7 @@ class AppEn {
     AppStrings.creatnewaccount: "Create a new account",
     AppStrings.filedetails: "Fill in your details to\ncomplete registration",
     AppStrings.name: "Name",
-    AppStrings.contineo: "Confirm",
+    AppStrings.continuee: "Continue",
     AppStrings.accountrecvied: "Account recovery",
     AppStrings.accountrecviedinstraction:
         "Please enter your email so we can\nsend you the code.",

@@ -45,11 +45,12 @@ class BodySellDetails extends StatelessWidget {
               height: 16,
             ),
             TitleAndWidget(
-                title: AppStrings.paymentseected.tr,
-                childWidget: CustomAnimatedDropdown(
-                  items: const ["InstaPay", "Vodafone Cash"],
-                  titiel: AppStrings.chooseway.tr,
-                )),
+              title: AppStrings.paymentseected.tr,
+              childWidget: CustomAnimatedDropdown(
+                items: const ["InstaPay", "Vodafone Cash"],
+                titiel: AppStrings.chooseway.tr,
+              ),
+            ),
             const SizedBox(
               height: 20,
             ),
