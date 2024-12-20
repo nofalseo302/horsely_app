@@ -17,7 +17,7 @@ class LanguageController extends GetxController {
     // استرجاع اللغة المحفوظة
     currentLanguage.value = box.read('language') ?? 'en';
     var locale = Locale(currentLanguage.value);
-    Get.updateLocale(locale);
+    // Get.updateLocale(locale);
   }
 
   void changeLanguage(String languageCode) {
