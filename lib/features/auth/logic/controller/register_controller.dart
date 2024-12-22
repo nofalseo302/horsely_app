@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/auth/data/repo/register_repo.dart';
@@ -34,6 +35,7 @@ class RegisterController extends GetxController {
       ToastManager.showError(l.message);
     }, (r) async {
       ToastManager.showSuccess(r.message ?? '', true);
+
       Get.toNamed(
         Routes.verifyAccount,
         arguments: {
