@@ -24,12 +24,33 @@ class AppValidationFunctions {
     return null;
   }
 
+  static String? nameValidationFunction(String? email) {
+    if (email!.isEmpty) {
+      return Get.locale!.languageCode == 'ar'
+          ? 'الاسم  لا يمكن أن يكون فارغًا!'
+          : "name can't be empty!";
+    }
+
+    // Regular expression for a valid email address
+    final RegExp nameRegExp = RegExp(
+      r'^[a-zA-Z\u0621-\u064A\u0660-\u0669 ]{3,50}$',
+    );
+
+    if (!nameRegExp.hasMatch(email)) {
+      return Get.locale!.languageCode == 'ar'
+          ? "الرجاء ادخال اسم صحيح"
+          : 'Please enter a valid name ';
+    }
+
+    return null;
+  }
+
   static String? passwordValidationFunction(String? password) {
     if (password == '') {
       return Get.locale!.languageCode == 'ar'
           ? 'كلمة المرور لا يمكن ان تكون فارغة !'
           : "Password can't be empty";
-    } else if (password!.length < 6) {
+    } else if (password!.length < 8) {
       return Get.locale!.languageCode == 'ar'
           ? '!كلمة المرور يجب ان تحتوي اكثر من 8 ارقام او حروف'
           : "Password must have more than 8 charachters";

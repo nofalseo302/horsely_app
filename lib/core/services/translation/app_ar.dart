@@ -132,6 +132,8 @@ class AppAr {
     AppStrings.cardnumber: "رقم البطاقة",
     AppStrings.selectyouroption: "حدد خيارك",
     AppStrings.bankaccount: "حساب بنكي",
+    AppStrings.pleaseEnterPhoneNamber: "ادخل رقم الهاتف",
+    AppStrings.passwordDoesNotMatch: "كلمة المرور غير متطابقة",
     AppStrings.banktransfer: "تحويل بنكي",
     AppStrings.sendmony: "ارسال المبلغ",
     AppStrings.suretransfer: "هل أنت متأكد أنك تريد الإرسال إلى",

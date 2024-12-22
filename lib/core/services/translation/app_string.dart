@@ -11,6 +11,7 @@ class AppStrings {
   static const portfoolio = "portfolio";
   static const differtassets = "differtassets";
   static const subtitelpageview2 = "subtitelpageview2";
+  static const pleaseEnterPhoneNamber = "pleasEnterPhoneNamber";
   static const welcome = "welcome";
   static const trackpitcons = "trackpitcons";
   static const login = "login";
@@ -18,6 +19,7 @@ class AppStrings {
   static const description = "description";
   static const email = "email";
   static const password = "password";
+  static const passwordDoesNotMatch = "password Does Not Match";
   static const name = "name";
   static const forgetpassword = "forgetpassword";
   static const donthaveaccount = "donthaveaccount";
