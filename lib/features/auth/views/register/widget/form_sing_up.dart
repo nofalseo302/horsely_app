@@ -3,11 +3,12 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
+import 'package:horsely_app/core/utils/app_validation_functions.dart';
+import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/auth/logic/controller/register_controller.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
-import 'package:horsely_app/core/widget/email_text_filed.dart';
 import 'package:horsely_app/core/widget/password_text_filed.dart';
 import 'package:horsely_app/core/widget/phone_wiidget.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
@@ -24,12 +25,8 @@ class FormSingUp extends GetView<RegisterController> {
           TitleAndWidget(
             title: AppStrings.name.tr,
             childWidget: CustomTextFormField(
-              validator: (p0) {
-                if (p0!.isEmpty) {
-                  return "Please enter your name";
-                }
-                return null;
-              },
+              validator: (email) =>
+                  AppValidationFunctions.nameValidationFunction(email),
               controller: controller.nameController,
               onSaved: (p1) {},
               hintText: "",
@@ -39,7 +36,9 @@ class FormSingUp extends GetView<RegisterController> {
           const SizedBox(height: 16),
           TitleAndWidget(
             title: AppStrings.email.tr,
-            childWidget: EmailTextFiled(
+            childWidget: CustomTextFormField(
+              validator: (email) =>
+                  AppValidationFunctions.emailValidationFunction(email),
               controller: controller.emailController,
               onSaved: (p0) {},
               hintText: "",
@@ -50,6 +49,8 @@ class FormSingUp extends GetView<RegisterController> {
           TitleAndWidget(
             title: AppStrings.phone.tr,
             childWidget: MobileTextfiled(
+              validator: (value) =>
+                  AppValidationFunctions.phoneValidationFunction(value),
               title: AppStrings.phone.tr,
               controller: controller.phoneController,
               countryController: controller.countryCodeController,
@@ -59,6 +60,8 @@ class FormSingUp extends GetView<RegisterController> {
           TitleAndWidget(
             title: AppStrings.password.tr,
             childWidget: PasswordField(
+              validator: (email) =>
+                  AppValidationFunctions.passwordValidationFunction(email),
               controller: controller.passwordController,
               onSaved: (p0) {},
             ),
@@ -67,6 +70,18 @@ class FormSingUp extends GetView<RegisterController> {
           TitleAndWidget(
             title: AppStrings.comfrimpassword.tr,
             childWidget: PasswordField(
+              validator: (email) {
+                if (email!.isEmpty) {
+                  return Get.locale!.languageCode == 'ar'
+                      ? 'كلمه السر  لا يمكن أن يكون فارغًا!'
+                      : "password can't be empty!";
+                }
+                if (controller.passwordController.text !=
+                    controller.confirmPasswordController.text) {
+                  return AppStrings.passwordDoesNotMatch.tr;
+                }
+                return null;
+              },
               controller: controller.confirmPasswordController,
               onSaved: (p0) {},
             ),
@@ -74,8 +89,11 @@ class FormSingUp extends GetView<RegisterController> {
           const SizedBox(height: 30),
           CustomButton(
             onButtonPressed: () async {
-              if (controller.formkey.currentState!.validate()) {
+              if (controller.formkey.currentState!.validate() &&
+                  controller.phoneController.text.isNotEmpty) {
                 await controller.register();
+              } else {
+                ToastManager.showError(AppStrings.pleaseEnterPhoneNamber.tr);
               }
             },
             buttonText: AppStrings.creataccount.tr,

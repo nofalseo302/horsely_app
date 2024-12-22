@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_validation_functions.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
@@ -8,8 +10,9 @@ class PasswordField extends StatefulWidget {
     super.key,
     this.onSaved,
     this.controller,
+    this.validator,
   });
-
+  final String? Function(String?)? validator;
   final void Function(String?)? onSaved;
   final TextEditingController? controller;
   @override
@@ -21,14 +24,7 @@ class _PasswordFieldState extends State<PasswordField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
-      validator: (p0) {
-        if (p0 == null || p0.isEmpty) {
-          return "Please enter your password";
-        } else {
-          return AppValidationFunctions.passwordValidationFunction(p0);
-        }
-     
-      },
+      validator: widget.validator,
       controller: widget.controller,
       obscureText: obscureText,
       onSaved: widget.onSaved,
@@ -39,7 +35,7 @@ class _PasswordFieldState extends State<PasswordField> {
         },
         child: Image.asset(!obscureText ? AppImages.eye : AppImages.eyeDisable),
       ),
-      hintText: "",
+      hintText: AppStrings.password.tr,
       textInputType: TextInputType.visiblePassword,
     );
   }

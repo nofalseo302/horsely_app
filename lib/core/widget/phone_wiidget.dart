@@ -50,6 +50,12 @@ class MobileTextfiled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IntlPhoneField(
+      inputFormatters: [
+        LengthLimitingTextInputFormatter(10),
+        FilteringTextInputFormatter.allow(
+          RegExp(r'[1-9]'),
+        )
+      ],
       validator: (value) async {
         if ((value?.completeNumber ?? "").isEmpty ||
             (controller?.text ?? '').isEmpty) {

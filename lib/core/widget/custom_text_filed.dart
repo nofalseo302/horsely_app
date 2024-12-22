@@ -33,7 +33,7 @@ class CustomTextFormField extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           title == null
-              ? SizedBox()
+              ? const SizedBox()
               : Padding(
                   padding: const EdgeInsets.only(bottom: 16),
                   child: Text(
@@ -42,6 +42,7 @@ class CustomTextFormField extends StatelessWidget {
                   ),
                 ),
           TextFormField(
+            obscuringCharacter: "*",
             controller: controller,
             obscureText: obscureText,
             onChanged: onSaved,
