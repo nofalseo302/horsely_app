@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:horsely_app/features/account/features/information_user/logic/binding/account_settings.dart';
+import 'package:horsely_app/features/account/features/information_user/logic/controler/image_controller.dart';
 import 'package:horsely_app/features/account/features/myorder/logic/binding/my_order_binding.dart';
 import 'package:horsely_app/features/account/features/transaction/logic/binding/transaction_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/login_binding.dart';
@@ -199,6 +201,7 @@ class AppPages {
       name: Routes.informationscreen,
       page: () => const InformationUserScreen(),
       transition: Transition.leftToRight,
+      binding: AccountSettings(),
     ),
     GetPage(
       name: Routes.changelaunge,
