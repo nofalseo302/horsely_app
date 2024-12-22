@@ -41,7 +41,6 @@ class FormLogin extends GetView<LoginController> {
                 childWidget: PasswordField(
                   controller: controller.passwordController,
                   onSaved: (p0) {},
-                  
                 )),
             const SizedBox(height: 8),
             Align(
@@ -80,7 +79,7 @@ class FormLogin extends GetView<LoginController> {
                     Get.offNamed(Routes.register);
                   },
                   child: Text(
-                    AppStrings.creataccount.tr,
+                    ' ${AppStrings.creataccount.tr} ',
                     style: AppStyles.semibold14(context)
                         .copyWith(color: AppColors.primaryColor),
                   ),
