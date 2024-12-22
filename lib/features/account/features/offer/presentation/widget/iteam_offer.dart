@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
@@ -14,7 +13,7 @@ class IteamOffer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 0.0),
+      padding: EdgeInsets.zero,
       child: Container(
         decoration: BoxDecoration(
             border: Border.all(color: Colors.black.withOpacity(.1)),

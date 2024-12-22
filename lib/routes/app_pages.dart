@@ -7,7 +7,7 @@ import 'package:horsely_app/features/notiofaction/logic/binding/notification_bin
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/features/account/features/account_setting.dart/presentation/view/account_seting.dart';
 import 'package:horsely_app/features/bay_details/presentation/view/buy_details_screen.dart';
-import 'package:horsely_app/features/auth/views/change_password/presentation/view/change_password_screen.dart';
+import 'package:horsely_app/features/edit_password/presentation/view/change_password_screen.dart';
 import 'package:horsely_app/features/complete_data/presentation/view/complet_data_Screen.dart';
 import 'package:horsely_app/features/deposit/presentation/view/deposit_screen.dart';
 import 'package:horsely_app/features/auth/views/email_rest/view/email_rest_password_screen.dart';
@@ -202,7 +202,7 @@ class AppPages {
     ),
     GetPage(
       name: Routes.changelaunge,
-      page: () => const ChangePassword(),
+      page: () => const EditPasswordScreen(),
       transition: Transition.leftToRight,
     ),
     GetPage(
