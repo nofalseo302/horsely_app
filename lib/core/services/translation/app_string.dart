@@ -15,6 +15,7 @@ class AppStrings {
   static const welcome = "welcome";
   static const trackpitcons = "trackpitcons";
   static const login = "login";
+  static const privacyPolicy = "privacyPolicy";
   static const singup = "singup";
   static const description = "description";
   static const email = "email";

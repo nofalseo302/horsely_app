@@ -5,6 +5,8 @@ import 'package:horsely_app/features/account/features/transaction/logic/binding/
 import 'package:horsely_app/features/auth/logic/binding/login_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/register_binding.dart';
 import 'package:horsely_app/features/notiofaction/logic/binding/notification_binding.dart';
+import 'package:horsely_app/features/settings/privacyAndPolicy/logic/binding/privacy_and_policy_binding.dart';
+import 'package:horsely_app/features/settings/privacyAndPolicy/view/privacyAndPolicy.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/features/account/features/account_setting.dart/presentation/view/account_seting.dart';
 import 'package:horsely_app/features/bay_details/presentation/view/buy_details_screen.dart';
@@ -220,6 +222,12 @@ class AppPages {
     GetPage(
       name: Routes.history,
       page: () => const HistoryScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: Routes.privacy,
+      page: () => const PrivacyPolicyScreen(),
+      binding: PrivacyAndPolicyBinding(),
       transition: Transition.leftToRight,
     ),
   ];

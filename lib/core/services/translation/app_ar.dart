@@ -54,6 +54,7 @@ class AppAr {
     AppStrings.profits: "الارباح",
     AppStrings.myprofile: " الحساب",
     AppStrings.buy: "شراء",
+    AppStrings.privacyPolicy: "سياسة الخصوصية",
     AppStrings.sell: "بيع",
     AppStrings.amount: "المبلغ",
     AppStrings.orderlimit: "حد الطلب",
