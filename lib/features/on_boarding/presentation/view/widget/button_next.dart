@@ -48,22 +48,27 @@ class ButtonNext extends StatelessWidget {
                   .shrink(); // إذا لم يكن في الصفحة 2 أو 3، لا تعرض الـ Container
         }),
         const SizedBox(width: 8),
-        Expanded(
-          child: CustomButton(
-            icon: getCurrentLanguage() == "en"
-                ? AppImages.arrowRight
-                : AppImages.arrowBack,
-            buttonText: AppStrings.nextButton.tr,
-            onButtonPressed: () {
-              if (controller.currentPage.value < 2) {
-                controller.pageController.nextPage(
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeInOut,
-                );
-              } else {
-                Get.toNamed(Routes.welcome);
-              }
-            },
+        Obx(
+          () => Expanded(
+            child: CustomButton(
+              icon: getCurrentLanguage() == "en"
+                  ? AppImages.arrowRight
+                  : AppImages.arrowBack,
+              // buttonText: AppStrings.nextButton.tr,
+              buttonText: controller.currentPage.value < 2
+                  ? AppStrings.nextButton.tr
+                  : AppStrings.getStarted.tr,
+              onButtonPressed: () {
+                if (controller.currentPage.value < 2) {
+                  controller.pageController.nextPage(
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                  );
+                } else {
+                  Get.toNamed(Routes.welcome);
+                }
+              },
+            ),
           ),
         ),
       ],

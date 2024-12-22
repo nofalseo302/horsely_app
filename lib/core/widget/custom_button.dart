@@ -24,22 +24,21 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 60,
+      height: 56,
       child: TextButton(
         style: TextButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(17),
+            borderRadius: BorderRadius.circular(15),
             side: BorderSide(
-              color: borderColor ?? Colors.transparent, // لون الإطار
+              color: borderColor ?? Colors.transparent,
             ),
           ),
-          backgroundColor:
-              backgroundColor ?? AppColors.primaryColor, // لون الزر الافتراضي
+          backgroundColor: backgroundColor ?? AppColors.primaryColor,
         ),
         onPressed: onButtonPressed,
         child: FittedBox(
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center, // توسيط المحتوى
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
                 child: FittedBox(

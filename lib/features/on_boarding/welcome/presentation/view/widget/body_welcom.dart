@@ -15,23 +15,26 @@ class BodyWelcome extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      foregroundDecoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color.fromRGBO(104, 104, 104, 0), // Transparent gray
-            Color.fromRGBO(2, 2, 2, 0.375), // Semi-transparent black
-            Color.fromRGBO(2, 2, 2, 0.375), // Semi-transparent black
-            Color.fromRGBO(2, 2, 2, 0.375), // Semi-transparent black
-            Color.fromRGBO(2, 2, 2, 0.375), // Semi-transparent black
-          ],
-          stops: [
-            0.0,
-            0.5,
-          ],
-        ),
-      ),
+      // foregroundDecoration: const BoxDecoration(
+      //   gradient: LinearGradient(
+      //     begin: Alignment.topCenter,
+      //     end: Alignment.bottomCenter,
+      //     colors: [
+      //       Color(0x00686868),
+      //       Color(0x5F020202),
+      //       Color(0x5F020202),
+      //       Color(0x5F020202),
+      //       Color(0x5F020202),
+      //     ],
+      //     stops: [
+      //       0.0,
+      //       // 0.0,
+      //       // 0.5,
+      //       // 0.5,
+      //       0.5,
+      //     ],
+      //   ),
+      // ),
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(AppImages.welcomebackground),
