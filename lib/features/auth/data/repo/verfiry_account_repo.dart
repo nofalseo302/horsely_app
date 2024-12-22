@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 
 import 'package:dio/dio.dart' as d;
 import 'package:get/get.dart';
+import 'package:horsely_app/core/services/cache/user_service.dart';
 import '../../../../core/models/errors/error_message_model.dart';
 import '../../../../core/models/errors/exceptions.dart';
 import '../../../../core/services/network_service/api_service.dart';
@@ -26,6 +27,7 @@ class VerfiryAccountRepo {
       );
 
       if (response.statusCode == 200) {
+        UserService.to.setUser(response.data);
         return Right(response.data['message']);
       } else {
         return Left(ResponseMessage(

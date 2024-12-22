@@ -79,7 +79,7 @@ class HorseleyApp extends StatelessWidget {
   String getRoute(UserModel? userModel) {
     if (userModel == null) {
       return Routes.login;
-    } else if (userModel.data?.emailVerifiedAt == false) {
+    } else if (userModel.data?.emailVerifiedAt != false) {
       return Routes.verifyAccount;
     } else if (userModel.data?.isPlanSubscribe == false) {
       return Routes.pindingcompletedata;

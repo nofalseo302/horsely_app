@@ -5,6 +5,7 @@ import 'package:horsely_app/core/services/cache/cash_helper.dart';
 import 'package:horsely_app/core/services/cache/cash_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 
 import '../../../../core/widget/custom_loader.dart';
@@ -23,14 +24,16 @@ class OtpController extends GetxController {
 
   Future<void> verfiyAccount() async {
     startLoading();
-    var result = await _verfiryAccountRepo.verfiryAccount(
-      code: codeController.text.trim(),
-    );
+    var result = await _verfiryAccountRepo.verfiryAccount(code: '1234'
+        //TODO to be Changed later
+        // codeController.text.trim(),
+        );
     stopLoading();
     result.fold((l) {
       ToastManager.showSuccess(l.message, false);
     }, (r) async {
       Get.offAllNamed(Routes.home);
+      // UserService.to.setUser(r);
       ToastManager.showSuccess(r, true);
     });
   }
