@@ -11,7 +11,7 @@ import 'package:horsely_app/core/widget/custom_text_filed.dart';
 import 'package:horsely_app/core/widget/email_text_filed.dart';
 import 'package:horsely_app/core/widget/phone_wiidget.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
-import 'package:horsely_app/features/account/features/information_user/logic/controler/image_controller.dart';
+ import 'package:horsely_app/features/account/features/information_user/presentation/controler/image_controller.dart';
 
 class BodyInformationUser extends GetView<ImageController> {
   // final ImageController imageController = Get.put(ImageController());
