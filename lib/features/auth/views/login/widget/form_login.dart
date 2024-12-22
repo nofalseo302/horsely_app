@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
+import 'package:horsely_app/core/utils/app_validation_functions.dart';
+import 'package:horsely_app/core/widget/custom_text_filed.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/email_text_filed.dart';
@@ -24,11 +26,13 @@ class FormLogin extends GetView<LoginController> {
           children: [
             TitleAndWidget(
                 title: AppStrings.email.tr,
-                childWidget: EmailTextFiled(
-                    controller: controller.emailController,
-                    onSaved: (p0) {},
-                    hintText: "",
-                    textInputType: TextInputType.emailAddress)),
+                childWidget: CustomTextFormField(
+                  hintText: AppStrings.enteremail.tr,
+                  textInputType: TextInputType.emailAddress,
+                  controller: controller.emailController,
+                  validator: (email) =>
+                      AppValidationFunctions.emailValidationFunction(email),
+                )),
             const SizedBox(
               height: 16,
             ),
@@ -37,6 +41,7 @@ class FormLogin extends GetView<LoginController> {
                 childWidget: PasswordField(
                   controller: controller.passwordController,
                   onSaved: (p0) {},
+                  
                 )),
             const SizedBox(height: 8),
             Align(

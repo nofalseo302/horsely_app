@@ -38,8 +38,6 @@ class HorseleyApp extends StatelessWidget {
     String savedLanguage = box.read('language') ?? 'en';
 
     String fontFamily = savedLanguage == 'en' ? 'popains' : 'Cairo';
-    CashHelper.setData(CacheKeys.token,
-        '''eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V2b2xhLmNvZGVlbGxhLmNvbS9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTczMzY2NzU1NCwiZXhwIjoxNzM0MjcyMzU0LCJuYmYiOjE3MzM2Njc1NTQsImp0aSI6IlJJeHFMRzRJc2hmQkhIeGkiLCJzdWIiOiIyIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.QJC9YE3PCDMx_QLIMXLoI61HhgF4XZdj1d-L1HDO-Kc''');
     return GetMaterialApp(
       translations: AppTranslations(),
       locale: Locale(savedLanguage),
@@ -59,14 +57,14 @@ class HorseleyApp extends StatelessWidget {
           elevation: 0,
         ),
       ),
-      initialRoute: Routes.home, // getInitRout(),
+      initialRoute: getInitRout(), // getInitRout(),
       getPages: AppPages.pages,
     );
   }
 
   getInitRout() {
     return CashHelper.getData(CacheKeys.token) != null
-        ? Routes.informationAboutUser
+        ? Routes.welcome
         : Routes.welcome;
   }
 }

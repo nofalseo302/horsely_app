@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:horsely_app/core/utils/app_validation_functions.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
 
@@ -23,8 +24,10 @@ class _PasswordFieldState extends State<PasswordField> {
       validator: (p0) {
         if (p0 == null || p0.isEmpty) {
           return "Please enter your password";
+        } else {
+          return AppValidationFunctions.passwordValidationFunction(p0);
         }
-        return null;
+     
       },
       controller: widget.controller,
       obscureText: obscureText,
