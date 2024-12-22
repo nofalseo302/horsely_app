@@ -53,7 +53,7 @@ class MobileTextfiled extends StatelessWidget {
       inputFormatters: [
         LengthLimitingTextInputFormatter(10),
         FilteringTextInputFormatter.allow(
-          RegExp(r'[1-9]'),
+          RegExp(r'[0-9]'),
         )
       ],
       validator: (value) async {

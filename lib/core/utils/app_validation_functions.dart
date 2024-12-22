@@ -50,7 +50,7 @@ class AppValidationFunctions {
       return Get.locale!.languageCode == 'ar'
           ? 'كلمة المرور لا يمكن ان تكون فارغة !'
           : "Password can't be empty";
-    } else if (password!.length < 6) {
+    } else if (password!.length < 8) {
       return Get.locale!.languageCode == 'ar'
           ? '!كلمة المرور يجب ان تحتوي اكثر من 8 ارقام او حروف'
           : "Password must have more than 8 charachters";
