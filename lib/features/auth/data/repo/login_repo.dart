@@ -12,12 +12,6 @@ import '../../../../core/services/translation/app_string.dart';
 import '../model/user_model.dart';
 
 class LoginRepo {
-  static final LoginRepo _instance = LoginRepo._internal();
-  LoginRepo._internal();
-  factory LoginRepo() {
-    return _instance;
-  }
-
   final DioImpl _dioImpl = DioImpl();
   Future<Either<ResponseMessage, UserModel>> login(
       {required String email,

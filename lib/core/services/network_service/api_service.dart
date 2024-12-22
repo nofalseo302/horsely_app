@@ -8,6 +8,7 @@ import 'package:get/get.dart' as g;
 import 'package:dio/src/multipart_file.dart' as multipart_file;
 import 'package:horsely_app/core/services/network_service/endpoints.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/routes/routes.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -82,7 +83,7 @@ class DioImpl extends DioHelper {
       if (!isMultipart) 'Content-Type': 'application/json',
       if (!isMultipart) 'Accept': 'application/json',
       "x-version": '1.0',
-      "x-lang": CashHelper.getData(CacheKeys.languageCode) ?? 'ar',
+      "x-lang": CashHelper.getData(CacheKeys.languageCode) ?? 'en',
       'Authorization': 'Bearer ${await CashHelper.getData(CacheKeys.token)}',
     };
 //just for test
@@ -123,10 +124,10 @@ class DioImpl extends DioHelper {
       if (!isMultipart) 'Accept': 'application/json',
       if (isMultipart) 'Accept': '*/*',
       "x-version": appVersion,
-      "x-lang": await CashHelper.getData(CacheKeys.languageCode) ?? 'ar',
-
-      // if (await CashHelper.checkToken())
-      'Authorization': 'Bearer ${await CashHelper.getData(CacheKeys.token)}',
+      "x-lang": await CashHelper.getData(CacheKeys.languageCode) ?? 'en',
+//${await CashHelper.getData(CacheKeys.token)
+      //TODO: REOME token
+      'Authorization': 'Bearer ${await CashHelper.getData(CacheKeys.token)}'
     };
 
     return await request(
@@ -170,7 +171,7 @@ class DioImpl extends DioHelper {
               'Accept': 'application/json',
               'Authorization': 'bearer ' + await CashHelper.getData("token"),
               "x-version": '1.0',
-              "x-lang": CashHelper.getData(CacheKeys.languageCode) ?? 'ar',
+              "x-lang": CashHelper.getData(CacheKeys.languageCode) ?? 'en',
             }),
             data: formData));
   }
@@ -245,7 +246,7 @@ extension on DioHelper {
   }
 
   resetCredintails() {
-    // g.Get.offAllNamed(Routes.login);
-    // CashHelper.sharedPreferences!.clear();
+    g.Get.offAllNamed(Routes.login);
+    CashHelper.sharedPreferences!.clear();
   }
 }
