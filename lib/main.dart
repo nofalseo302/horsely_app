@@ -21,16 +21,11 @@ import 'core/services/cache/cash_keys.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CashHelper.init();
+
   await GetStorage.init();
   await FcmHelper.initFcm();
   UserModel? userModel;
-  if (CashHelper.getData(CacheKeys.userModel) == null) {
-    userModel = null;
-  } else {
-    await Get.putAsync(() => UserService().init());
-    userModel = UserService.to.currentUser?.value;
-    print('---->${userModel?.data?.id}');
-  }
+  await Get.putAsync(() => UserService().init());
   await AwesomeNotificationsHelper.init();
   getCurrentLanguage();
   SystemChrome.setPreferredOrientations(
