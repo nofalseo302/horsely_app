@@ -26,4 +26,10 @@ class UserService extends GetxService {
 
     return unit;
   }
+
+  Future setUser(UserModel userModel) async {
+    CashHelper.setData(CacheKeys.userModel, json.encode(userModel.toJson()));
+    currentUser?.value = userModel;
+    return unit;
+  }
 }

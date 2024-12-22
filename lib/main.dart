@@ -28,28 +28,27 @@ void main() async {
     userModel = null;
   } else {
     await Get.putAsync(() => UserService().init());
-    userModel = UserModel.fromJson(
-        json.decode(CashHelper.getData(CacheKeys.userModel)));
-    print('---->${userModel.data?.id}');
+    userModel = UserService.to.currentUser?.value;
+    print('---->${userModel?.data?.id}');
   }
   await AwesomeNotificationsHelper.init();
   getCurrentLanguage();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {
     runApp(
-      DevicePreview(enabled: false, builder: (context) => const HorseleyApp()),
+      DevicePreview(
+          enabled: false,
+          builder: (context) => HorseleyApp(userModel: userModel)),
     );
   });
 }
 
 class HorseleyApp extends StatelessWidget {
-  const HorseleyApp({super.key});
-
+  HorseleyApp({super.key, this.userModel});
+  final box = GetStorage();
+  final UserModel? userModel;
   @override
   Widget build(BuildContext context) {
-    final box = GetStorage();
-    UserModel? userModel;
-
     String savedLanguage = box.read('language') ?? 'en';
 
     String fontFamily = savedLanguage == 'en' ? 'popains' : 'Cairo';
