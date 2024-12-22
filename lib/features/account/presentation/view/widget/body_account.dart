@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/cache/cash_helper.dart';
+import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
@@ -115,7 +116,7 @@ class BodyAccount extends StatelessWidget {
               image: AppImages.logout,
               onPressed: () {
                 CashHelper.sharedPreferences?.clear();
-                
+                UserService.to.currentUser = null;
                 Get.offAllNamed(Routes.login);
               },
             ),
