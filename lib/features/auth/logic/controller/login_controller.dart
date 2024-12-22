@@ -30,6 +30,7 @@ class LoginController extends GetxController {
         Get.offAllNamed(Routes.home);
       } else {
         ToastManager.showSuccess(r.message ?? '', true);
+        await UserService.to.setUser(r);
         Get.toNamed(
           Routes.verifyAccount,
           arguments: {
