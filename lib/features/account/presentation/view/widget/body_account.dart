@@ -7,9 +7,11 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
+import 'package:horsely_app/features/account/delete_account/view/delete_account_bottom_sheet.dart';
 import 'package:horsely_app/features/account/domain/entity/account_entity.dart';
 import 'package:horsely_app/features/account/presentation/manager/controller/account_controler.dart';
 import 'package:horsely_app/features/account/presentation/view/widget/iteam_account.dart';
+import 'package:horsely_app/features/account/presentation/view/widget/logout_bottom_sheet.dart';
 import 'package:horsely_app/routes/routes.dart';
 
 class BodyAccount extends StatelessWidget {
@@ -106,7 +108,9 @@ class BodyAccount extends StatelessWidget {
             accountEntity: AccountEntity(
               titel: AppStrings.deleteaccount.tr,
               image: AppImages.deletaccount,
-              onPressed: () {},
+              onPressed: () {
+                Get.bottomSheet(const DeleteAccountBottomSheet());
+              },
             ),
           ),
           IteamAccount(
@@ -115,9 +119,7 @@ class BodyAccount extends StatelessWidget {
               titel: AppStrings.logout.tr,
               image: AppImages.logout,
               onPressed: () {
-                CashHelper.sharedPreferences?.clear();
-                UserService.to.currentUser = null;
-                Get.offAllNamed(Routes.login);
+                Get.bottomSheet(const LogoutBottomSheet());
               },
             ),
           ),

@@ -3,10 +3,14 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 class AppEn {
   static Map<String, String> translation = {
     AppStrings.skipe: "Skip",
+    AppStrings.no: AppStrings.no,
+      AppStrings.enterThePasswordToDelete: 'أدخل كلمة السر لحذف الحساب',
+
     AppStrings.nextButton: "Next",
     AppStrings.buytheTopCryptocurrenciesontheMarket:
         "Buy the top cryptocurrencies in the market",
     AppStrings.buyBestCryptoAnd: "Buy the best",
+    AppStrings.areYouSureToLogOut: AppStrings.areYouSureToLogOut,
     AppStrings.inmarket: "in the market",
     AppStrings.subtitelpageview1:
         "Track the best cryptocurrencies and coins you choose to trade. The best cryptocurrencies are available here on Blockto",
@@ -16,6 +20,8 @@ class AppEn {
     AppStrings.subtitelpageview2: "",
     AppStrings.welcome: "Welcome to \nHorsely",
     AppStrings.description: "Description",
+    AppStrings.areYouSureWantToDeleteAccount:
+        AppStrings.areYouSureWantToDeleteAccount,
     AppStrings.trackpitcons:
         "Track the cryptocurrencies and coins you choose to trade.",
     AppStrings.login: "Login",
