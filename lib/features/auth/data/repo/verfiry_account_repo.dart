@@ -18,7 +18,7 @@ class VerfiryAccountRepo {
   }
 
   final DioImpl _dioImpl = DioImpl();
-  Future<Either<ResponseMessage, String>> verfiryAccount({
+  Future<Either<ResponseMessage, UserModel>> verfiryAccount({
     required String code,
   }) async {
     try {
@@ -30,7 +30,7 @@ class VerfiryAccountRepo {
       if (response.statusCode == 200) {
         //
         UserService.to.setUser(UserModel.fromJson(response.data));
-        return Right(response.data['message']);
+        return Right(response.data);
       } else {
         return Left(ResponseMessage(
             message: response.data['message'].toString(),

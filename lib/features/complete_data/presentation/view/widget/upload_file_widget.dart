@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
-import 'package:horsely_app/features/complete_data/presentation/manager/controler/file_controler.dart';
+import 'package:horsely_app/features/complete_data/manager/controller/complete_data_controller.dart';
 
 class AddFile extends StatelessWidget {
   final bool showError;
@@ -19,7 +19,8 @@ class AddFile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // استخدام Get.find بدلاً من Get.put
-    final FileController fileController = Get.put(FileController());
+    final CompleteDataController fileController =
+        Get.put(CompleteDataController());
 
     return GestureDetector(
       onTap: () async {

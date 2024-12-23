@@ -14,6 +14,7 @@ class OtpVerifaction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Pinput(
+      length: 6,
       defaultPinTheme: PinTheme(
         width: 75,
         height: 75,
@@ -45,7 +46,7 @@ class OtpVerifaction extends StatelessWidget {
       },
       pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
       showCursor: true,
-      onCompleted: (pin) => print(pin),
+      onCompleted: (pin) => onSubmit!(pin),
     );
   }
 }

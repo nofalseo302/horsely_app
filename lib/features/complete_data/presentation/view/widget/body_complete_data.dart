@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/features/complete_data/manager/controller/complete_data_controller.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
@@ -8,7 +9,7 @@ import 'package:horsely_app/core/widget/titel_widget.dart';
 import 'package:horsely_app/features/complete_data/presentation/view/widget/shape_file-upload.dart';
 import 'package:horsely_app/features/complete_data/presentation/view/widget/upload_file_widget.dart';
 
-class BodyCompletData extends StatelessWidget {
+class BodyCompletData extends GetView<CompleteDataController> {
   const BodyCompletData({super.key});
 
   @override
@@ -78,10 +79,11 @@ class BodyCompletData extends StatelessWidget {
                         height: 20,
                       ),
                       CustomButton(
-                          onButtonPressed: () {
-                            Get.toNamed(Routes.home);
-                          },
-                          buttonText: AppStrings.complete.tr)
+                        onButtonPressed: () {
+                          // Get.toNamed(Routes.home);
+                        },
+                        buttonText: AppStrings.complete.tr,
+                      )
                     ],
                   ),
                 ),
