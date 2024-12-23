@@ -96,6 +96,7 @@ class FormSingUp extends GetView<RegisterController> {
                 ToastManager.showError(AppStrings.pleaseEnterPhoneNamber.tr);
               }
             },
+            
             buttonText: AppStrings.creataccount.tr,
           ),
           const SizedBox(height: 20),

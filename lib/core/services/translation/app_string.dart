@@ -1,5 +1,8 @@
 class AppStrings {
   static const String nextButton = 'next';
+  static const String no = 'No';
+  static const String enterThePasswordToDelete = 'أدخل كلمة السر لحذف الحساب';
+
   static const String buytheTopCryptocurrenciesontheMarket =
       "buytheTopCryptocurrenciesontheMarket";
   static const String buyBestCryptoAnd = "buybest";
@@ -8,6 +11,10 @@ class AppStrings {
   static const subtitelpageview1 = "subtitelpageview1";
   static const skipe = "skipbutton";
   static const create = "create";
+  static const String areYouSureToLogOut = 'Are you sure to log out?';
+  static const String areYouSureWantToDeleteAccount =
+      'do you  want to delete this account?';
+
   static const portfoolio = "portfolio";
   static const differtassets = "differtassets";
   static const subtitelpageview2 = "subtitelpageview2";

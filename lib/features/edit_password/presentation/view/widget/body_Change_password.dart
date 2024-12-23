@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/core/utils/app_validation_functions.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
 import '../../../../../core/widget/password_text_filed.dart';
 
@@ -23,15 +24,29 @@ class BodyChangePassword extends StatelessWidget {
             children: [
               TitleAndWidget(
                   title: AppStrings.curentpassword.tr,
-                  childWidget: PasswordField()),
+                  childWidget: PasswordField(
+                      validator: (p0) {
+                        return AppValidationFunctions
+                            .passwordValidationFunction(p0);
+                      },
+                      controller: controller.currentPasswordController)),
               const SizedBox(height: 16),
               TitleAndWidget(
                   title: AppStrings.newspassword.tr,
-                  childWidget: PasswordField()),
+                  childWidget: PasswordField(
+                      controller: controller.newPasswordController)),
               const SizedBox(height: 16),
               TitleAndWidget(
                   title: AppStrings.comfrimnewpassword.tr,
-                  childWidget: const PasswordField()),
+                  childWidget: PasswordField(
+                    controller: controller.confirmPasswordController,
+                    validator: (p0) {
+                      if (p0 != controller.newPasswordController.text) {
+                        return AppStrings.passwordDoesNotMatch.tr;
+                      }
+                      return null;
+                    },
+                  )),
               const SizedBox(height: 16),
             ],
           ),

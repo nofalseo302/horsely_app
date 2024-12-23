@@ -4,16 +4,20 @@ class AppAr {
   static Map<String, String> translation = {
     AppStrings.skipe: "تخطي",
     AppStrings.nextButton: "التالي",
+    AppStrings.no: "لا",
     AppStrings.buytheTopCryptocurrenciesontheMarket:
         "شراء العملات الرئيسية من السوق",
     AppStrings.buyBestCryptoAnd: "اشترِ الأفضل",
+    AppStrings.enterThePasswordToDelete: "ادخل كلمة المرور لحذف الحساب",
     AppStrings.inmarket: "في السوق",
+    AppStrings.areYouSureToLogOut: 'هل تريد تسجيل الخروج؟',
     AppStrings.subtitelpageview1:
         "تتبع أفضل العملات المشفرة والعملات المعدنية التي تختارها للتداول. أفضل العملات المشفرة المتوفرة هنا على Blockto",
     AppStrings.create: "انشاء",
     AppStrings.portfoolio: "محفظة",
     AppStrings.differtassets: "العملات المتفاوتة",
     AppStrings.subtitelpageview2: "",
+    AppStrings.areYouSureWantToDeleteAccount: "هل تريد حذف الحساب؟",
     AppStrings.welcome: "مرحبًا بك في \n Horsely",
     AppStrings.trackpitcons:
         "تتبع العملات المشفرة والعملات المعدنية التي تختارها للتداول. ",
