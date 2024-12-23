@@ -64,6 +64,7 @@ class HorseleyApp extends StatelessWidget {
         ),
       ),
       initialRoute: getRoute(userModel), // getInitRout(),
+      // initialRoute: Routes.verifyAccount,
       getPages: AppPages.pages,
     );
   }
