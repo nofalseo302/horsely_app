@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
+import 'package:horsely_app/features/auth/data/model/user_model/user_model.dart';
 
 import '../../../../core/widget/custom_loader.dart';
 import '../../../../routes/routes.dart';
-import '../../data/model/user_model.dart';
 import '../../data/repo/verfiry_account_repo.dart';
 
 class OtpController extends GetxController {
@@ -24,9 +24,9 @@ class OtpController extends GetxController {
 
   Future<void> verfiyAccount() async {
     startLoading();
-    var result = await _verfiryAccountRepo.verfiryAccount(code: '1234'
-        //TODO to be Changed later
-        // codeController.text.trim(),
+    var result = await _verfiryAccountRepo.verfiryAccount(code: 
+       
+        codeController.text.trim(),
         );
     stopLoading();
     result.fold((l) {

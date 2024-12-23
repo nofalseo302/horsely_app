@@ -9,11 +9,11 @@ import 'package:horsely_app/core/models/errors/exceptions.dart';
 import 'package:horsely_app/core/services/cache/cash_helper.dart';
 import 'package:horsely_app/core/services/cache/cash_keys.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/features/auth/data/model/user_model/user_model.dart';
 
 import '../../../../../core/models/errors/error_message_model.dart';
 import '../../../../../core/services/network_service/api_service.dart';
 import '../../../../../core/services/network_service/endpoints.dart';
-import '../../../../auth/data/model/user_model.dart';
 import 'package:get/get.dart';
 
 class EditProfileRepo {

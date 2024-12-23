@@ -6,7 +6,6 @@ import 'package:horsely_app/core/widget/build_app_bar.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/features/account/features/transaction/presentation/widget/body_tranaction.dart';
 
-
 class TransactionBuyerScreen extends StatelessWidget {
   const TransactionBuyerScreen({super.key});
 

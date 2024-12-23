@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/handel_image_and_pick_image/image_paker_services.dart';
 
-
 class ImageController extends GetxController {
   var selectedImagePath = ''.obs; // مراقبة للصورة المختارة
   final ImagePickerService _imagePickerService = ImagePickerService();

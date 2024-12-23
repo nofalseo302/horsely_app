@@ -65,7 +65,8 @@ class DefaultFirebaseOptions {
     projectId: 'crypto-tom',
     databaseURL: 'https://crypto-tom-default-rtdb.firebaseio.com',
     storageBucket: 'crypto-tom.appspot.com',
-    iosClientId: '688369231954-bitrlk3ohoqatlf219q7k9i99m0q926j.apps.googleusercontent.com',
+    iosClientId:
+        '688369231954-bitrlk3ohoqatlf219q7k9i99m0q926j.apps.googleusercontent.com',
     iosBundleId: 'nofal.horsly',
   );
 }

@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
@@ -11,12 +10,10 @@ import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/services/network_service/awesome_notifications_helper.dart';
 import 'package:horsely_app/core/services/network_service/fcm_helper.dart';
 import 'package:horsely_app/core/services/translation/app_translation.dart';
-import 'package:horsely_app/features/account/presentation/view/account_screen.dart';
-import 'package:horsely_app/features/auth/data/model/user_model.dart';
+import 'package:horsely_app/features/auth/data/model/user_model/user_model.dart';
 import 'package:horsely_app/routes/app_pages.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:horsely_app/routes/routes.dart';
-import 'core/services/cache/cash_keys.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -72,15 +69,18 @@ class HorseleyApp extends StatelessWidget {
     );
   }
 
-  String getRoute(UserModel? userModel) {
+ 
+}
+ String getRoute(UserModel? userModel) {
     if (userModel == null) {
       return Routes.login;
-    } else if (userModel.data?.emailVerifiedAt == false) {
+    } else if (userModel.data?.isActiveAccount == false) {
       return Routes.verifyAccount;
-    } else if (userModel.data?.isPlanSubscribe == false) {
+    } else if (userModel.data?.isComplete == false) {
+      return Routes.completedata;
+    } else if (userModel.data?.completeDataStatus != 'approved') {
       return Routes.pindingcompletedata;
     } else {
       return Routes.home;
     }
   }
-}
