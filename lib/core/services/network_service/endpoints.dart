@@ -5,7 +5,7 @@ import 'package:dio/dio.dart' as d;
 
 class EndPoints {
   ////             Auth    /////////////
-  static const baseUrl = "https://evola.codeella.com/api";
+  static const baseUrl = "https://crepto.codeella.com/api";
   static const profile = "$baseUrl/profile";
   static const login = "/auth/login";
   static const register = "/auth/register";
