@@ -1,4 +1,3 @@
-
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -68,19 +67,18 @@ class HorseleyApp extends StatelessWidget {
       getPages: AppPages.pages,
     );
   }
-
- 
 }
- String getRoute(UserModel? userModel) {
-    if (userModel == null) {
-      return Routes.login;
-    } else if (userModel.data?.isActiveAccount == false) {
-      return Routes.verifyAccount;
-    } else if (userModel.data?.isComplete == false) {
-      return Routes.completedata;
-    } else if (userModel.data?.completeDataStatus != 'approved') {
-      return Routes.pindingcompletedata;
-    } else {
-      return Routes.home;
-    }
+
+String getRoute(UserModel? userModel) {
+  if (userModel == null) {
+    return Routes.login;
+  } else if (userModel.data?.isActiveAccount == false) {
+    return Routes.verifyAccount;
+  } else if (userModel.data?.isComplete == false) {
+    return Routes.completedata;
+  } else if (userModel.data?.completeDataStatus != 'approved') {
+    return Routes.pindingcompletedata;
+  } else {
+    return Routes.home;
   }
+}
