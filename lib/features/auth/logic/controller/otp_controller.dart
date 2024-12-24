@@ -33,7 +33,7 @@ class OtpController extends GetxController {
       ToastManager.showSuccess(l.message, false);
     }, (r) async {
       // Get.offAllNamed(Routes.home);
-      getRoute(r);
+      Get.offAllNamed(getRoute(r));
       // UserService.to.setUser(r);
       ToastManager.showSuccess(r.message ?? "", true);
     });

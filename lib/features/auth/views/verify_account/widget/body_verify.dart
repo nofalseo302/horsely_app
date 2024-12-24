@@ -49,17 +49,23 @@ class BodyVerifyAccount extends GetView<OtpController> {
                     ),
                     child: Column(
                       children: [
-                        FittedBox(child: OtpVerifaction(onSubmit: (s) {
+                        FittedBox(
+                            child: OtpVerifaction(onChange: (p0) {
+                          controller.isValid.value = p0.length == 6;
+                        }, onSubmit: (s) {
                           controller.codeController.text = s;
                         })),
                         const SizedBox(height: 30),
-                        CustomButton(
-                          onButtonPressed: () async {
-                            if (controller.formKey.currentState!.validate()) {
-                              await controller.verfiyAccount();
-                            }
-                          },
-                          buttonText: AppStrings.confrim.tr,
+                        Obx(
+                          () => CustomButton(
+                            enabled: controller.isValid.value,
+                            onButtonPressed: () async {
+                              if (controller.formKey.currentState!.validate()) {
+                                await controller.verfiyAccount();
+                              }
+                            },
+                            buttonText: AppStrings.confrim.tr,
+                          ),
                         ),
                         const SizedBox(height: 20),
                         Row(

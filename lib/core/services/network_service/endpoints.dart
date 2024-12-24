@@ -12,7 +12,7 @@ class EndPoints {
   static const register = "/auth/register";
   static const logout = "/auth/logout";
   static const verfiryAccount = "$baseUrl/auth/verify-account";
-  static const resendCode = "$baseUrl/auth/verify-email/re-send-code";
+  static const resendCode = "$baseUrl/auth/verify-account/re-send-code";
   static const checkCredential = '/forget-password/check-credential';
   static const forgetPasswordCheckOtp = '/forget-password/check-otp';
   static const forgetPasswordReset = '/forget-password/reset-password';

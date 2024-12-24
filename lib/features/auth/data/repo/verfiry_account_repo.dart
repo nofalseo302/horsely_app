@@ -30,7 +30,7 @@ class VerfiryAccountRepo {
       if (response.statusCode == 200) {
         //
         UserService.to.setUser(UserModel.fromJson(response.data));
-        return Right(response.data);
+        return Right(UserModel.fromJson(response.data));
       } else {
         return Left(ResponseMessage(
             message: response.data['message'].toString(),
