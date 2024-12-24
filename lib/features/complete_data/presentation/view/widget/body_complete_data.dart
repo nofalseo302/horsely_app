@@ -15,13 +15,11 @@ class BodyCompletData extends GetView<CompleteDataController> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 10,
-          ),
-          Expanded(
-            child: Container(
+      key: controller.formKey,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
               width: double.infinity,
               decoration: BoxDecoration(
                   color: Colors.white,
@@ -39,34 +37,66 @@ class BodyCompletData extends GetView<CompleteDataController> {
                   child: Column(
                     children: [
                       TitleAndWidget(
-                          title: AppStrings.jobtype.tr,
-                          childWidget: const CustomTextFormField(
-                              hintText: "",
-                              textInputType: TextInputType.multiline)),
+                        title: AppStrings.jobtype.tr,
+                        childWidget: CustomTextFormField(
+                          hintText: "",
+                          textInputType: TextInputType.multiline,
+                          validator: (p0) {
+                            if (p0!.isEmpty) {
+                              return AppStrings.requiredField.tr;
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
                       const SizedBox(
                         height: 16,
                       ),
                       TitleAndWidget(
-                          title: AppStrings.workaddress.tr,
-                          childWidget: const CustomTextFormField(
-                              hintText: "",
-                              textInputType: TextInputType.multiline)),
+                        title: AppStrings.workaddress.tr,
+                        childWidget: CustomTextFormField(
+                          hintText: "",
+                          textInputType: TextInputType.multiline,
+                          validator: (p0) {
+                            if (p0!.isEmpty) {
+                              return AppStrings.requiredField.tr;
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
                       const SizedBox(
                         height: 16,
                       ),
                       TitleAndWidget(
-                          title: AppStrings.companyname.tr,
-                          childWidget: const CustomTextFormField(
-                              hintText: "",
-                              textInputType: TextInputType.multiline)),
+                        title: AppStrings.companyname.tr,
+                        childWidget: CustomTextFormField(
+                          hintText: "",
+                          textInputType: TextInputType.multiline,
+                          validator: (p0) {
+                            if (p0!.isEmpty) {
+                              return AppStrings.requiredField.tr;
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
                       const SizedBox(
                         height: 16,
                       ),
                       TitleAndWidget(
-                          title: AppStrings.taxnamber.tr,
-                          childWidget: const CustomTextFormField(
-                              hintText: "",
-                              textInputType: TextInputType.multiline)),
+                        title: AppStrings.taxnamber.tr,
+                        childWidget: CustomTextFormField(
+                          hintText: "",
+                          textInputType: TextInputType.multiline,
+                          validator: (p0) {
+                            if (p0!.isEmpty) {
+                              return AppStrings.requiredField.tr;
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
                       const SizedBox(
                         height: 16,
                       ),
@@ -81,6 +111,9 @@ class BodyCompletData extends GetView<CompleteDataController> {
                       CustomButton(
                         onButtonPressed: () {
                           // Get.toNamed(Routes.home);
+                          if (controller.formKey.currentState!.validate()) {
+                            controller.submit();
+                          }
                         },
                         buttonText: AppStrings.complete.tr,
                       )
@@ -88,9 +121,9 @@ class BodyCompletData extends GetView<CompleteDataController> {
                   ),
                 ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

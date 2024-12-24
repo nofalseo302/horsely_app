@@ -12,13 +12,16 @@ class ShapeFileupload extends GetView<CompleteDataController> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 0.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Obx(() {
-            return controller.hasSelectedFile
-                ? DottedBorder(
-                    radius: const Radius.circular(12), // تحديد الريديس هنا
+      child: Obx(() {
+        return controller.hasSelectedFile
+            ? ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: controller.selectedFile.length,
+                itemBuilder: (context, index) => Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: DottedBorder(
+                    radius: const Radius.circular(12),
                     dashPattern: const [8, 4],
                     color: const Color(0xff707070),
                     strokeWidth: 1,
@@ -39,31 +42,31 @@ class ShapeFileupload extends GetView<CompleteDataController> {
                           ),
                         ),
                         title: Text(
-                          controller.selectedFile.value!.path
+                          controller.selectedFile[index]!.path
                               .split('/')
                               .last, // اسم الملف
                           style: AppStyles.semibold14(context)
                               .copyWith(color: const Color(0xff6C7176)),
                         ),
                         subtitle: Text(
-                          "${(controller.selectedFile.value!.lengthSync() / 1024).toStringAsFixed(2)} KB", // حجم الملف بالكيلوبايت
+                          "${(controller.selectedFile[index]!.lengthSync() / 1024).toStringAsFixed(2)} KB", // حجم الملف بالكيلوبايت
                           style: AppStyles.regulare10(context)
                               .copyWith(color: const Color(0xff6C7176)),
                         ),
                         trailing: GestureDetector(
                           onTap: () {
                             // حذف الملف
-                            controller.removeFile();
+                            controller.removeFile(index);
                           },
                           child: const Icon(Icons.close),
                         ),
                       ),
                     ),
-                  )
-                : const SizedBox.shrink(); // إخفاء الودجت إذا لم يتم اختيار ملف
-          }),
-        ],
-      ),
+                  ),
+                ),
+              )
+            : const SizedBox.shrink(); // إخفاء الودجت إذا لم يتم اختيار ملف
+      }),
     );
   }
 }

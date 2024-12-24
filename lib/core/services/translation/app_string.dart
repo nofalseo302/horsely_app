@@ -11,11 +11,13 @@ class AppStrings {
   static const subtitelpageview1 = "subtitelpageview1";
   static const skipe = "skipbutton";
   static const create = "create";
+  static const uploadOnly5Images = "uploadOnly5Images";
   static const String areYouSureToLogOut = 'Are you sure to log out?';
   static const String areYouSureWantToDeleteAccount =
       'do you  want to delete this account?';
 
   static const portfoolio = "portfolio";
+  static const requiredField = "requiredField";
   static const differtassets = "differtassets";
   static const subtitelpageview2 = "subtitelpageview2";
   static const pleaseEnterPhoneNamber = "pleasEnterPhoneNamber";
