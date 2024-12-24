@@ -16,7 +16,7 @@ class TransactionBuyerScreen extends StatelessWidget {
       appBar: buildAppBar(titel: AppStrings.transaction.tr, context: context),
       body: const BodyTransaction(),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: CustomButton(
           onButtonPressed: () {},
           buttonText: AppStrings.publish.tr,

@@ -14,7 +14,7 @@ class LogoutBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: Get.width,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20),

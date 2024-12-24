@@ -7,7 +7,7 @@ import 'package:horsely_app/features/account/features/support/live_chat/presenta
 class SendSection extends StatelessWidget {
   final ScrollController scrollController;
 
-  SendSection({required this.scrollController});
+  const SendSection({super.key, required this.scrollController});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class SendSection extends StatelessWidget {
               height: 50,
               child: SendTextFiled(
                 controller: messageController, // Pass the controller here
-                suffixIcon: Icon(Icons.emoji_emotions_outlined,
+                suffixIcon: const Icon(Icons.emoji_emotions_outlined,
                     color: Color(0xff28303F)),
                 hintText: "Message...",
                 textInputType: TextInputType.text,
@@ -49,18 +49,18 @@ class SendSection extends StatelessWidget {
                 // تمرير القائمة إلى الأسفل لرؤية الرسالة المضافة
                 scrollController.animateTo(
                   scrollController.position.maxScrollExtent,
-                  duration: Duration(milliseconds: 300),
+                  duration: const Duration(milliseconds: 300),
                   curve: Curves.easeOut,
                 );
 
                 // إضافة رد روبوت (اختياري - يمكنك تخصيص الرد)
-                Future.delayed(Duration(seconds: 1), () {
+                Future.delayed(const Duration(seconds: 1), () {
                   controller.addMessage("This is a bot response", 'bot');
 
                   // تمرير القائمة إلى الأسفل لرؤية رد الروبوت
                   scrollController.animateTo(
                     scrollController.position.maxScrollExtent,
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                     curve: Curves.easeOut,
                   );
                 });

@@ -32,7 +32,7 @@ class HeaderVerify extends GetView<OtpController> {
                 const SizedBox(
                   height: 40,
                 ),
-                IconBack(),
+                const IconBack(),
                 const SizedBox(
                   height: 20,
                 ),

@@ -16,7 +16,7 @@ class ShapeFileupload extends GetView<CompleteDataController> {
         return controller.hasSelectedFile
             ? ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: controller.selectedFile.length,
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),

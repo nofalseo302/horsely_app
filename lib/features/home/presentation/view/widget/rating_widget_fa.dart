@@ -16,7 +16,7 @@ class RatingWidget extends StatelessWidget {
           style: AppStyles.semibold16(context),
         ),
         const Spacer(),
-        Radio(value: false, groupValue: [], onChanged: (s) {}),
+        Radio(value: false, groupValue: const [], onChanged: (s) {}),
       ],
     );
   }

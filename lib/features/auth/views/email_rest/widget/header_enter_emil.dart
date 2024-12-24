@@ -31,7 +31,7 @@ class HeaderEnterEmil extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 40),
-                IconBack(),
+                const IconBack(),
                 const SizedBox(height: 20),
                 Text(
                   AppStrings.accountrecvied.tr,

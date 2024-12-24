@@ -1,13 +1,10 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/cache/user_service.dart';
-import 'package:horsely_app/core/services/network_service/fcm_helper.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/auth/data/repo/register_repo.dart';
-import 'package:horsely_app/firebase_options.dart';
 
 import '../../../../routes/routes.dart';
 

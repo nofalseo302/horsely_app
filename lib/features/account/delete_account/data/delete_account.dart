@@ -13,7 +13,7 @@ class DeleteAccountRepo {
       {required String password}) async {
     try {
       d.Response response = await dioImpl.post(
-        endPoint: EndPoints.profile + '/delete',
+        endPoint: '${EndPoints.profile}/delete',
         data: {'password': password},
       );
 

@@ -13,7 +13,7 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/features/auth/data/model/user_model/user_model.dart';
 
 class CompleteDataRepo {
-  DioImpl _dioImpl = DioImpl();
+  final DioImpl _dioImpl = DioImpl();
   Future<Either<ResponseMessage, UserModel>> completeData(
       {required d.FormData data}) async {
     try {

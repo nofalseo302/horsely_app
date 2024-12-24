@@ -5,13 +5,11 @@ import 'package:horsely_app/core/services/cache/cash_helper.dart';
 import 'package:horsely_app/core/services/cache/cash_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/auth/data/model/user_model/user_model.dart';
 import 'package:horsely_app/main.dart';
 
 import '../../../../core/widget/custom_loader.dart';
-import '../../../../routes/routes.dart';
 import '../../data/repo/verfiry_account_repo.dart';
 
 class OtpController extends GetxController {

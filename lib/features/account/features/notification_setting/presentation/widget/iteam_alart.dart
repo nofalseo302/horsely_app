@@ -16,8 +16,8 @@ class ItamAlart extends StatelessWidget {
           titel,
           style: AppStyles.semibold14(context),
         ),
-        Spacer(),
-        ReadReceiptToggle()
+        const Spacer(),
+        const ReadReceiptToggle()
       ],
     );
   }

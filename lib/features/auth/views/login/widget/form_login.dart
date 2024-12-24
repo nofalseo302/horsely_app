@@ -7,7 +7,6 @@ import 'package:horsely_app/core/utils/app_validation_functions.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
-import 'package:horsely_app/core/widget/email_text_filed.dart';
 import 'package:horsely_app/core/widget/password_text_filed.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
 

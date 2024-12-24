@@ -19,7 +19,7 @@ class ConfirmPasswordBottomSheet extends GetView<DeleteAccountController> {
         return SingleChildScrollView(
           child: Container(
             width: Get.width,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: AppColors.white,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20),
@@ -60,7 +60,7 @@ class ConfirmPasswordBottomSheet extends GetView<DeleteAccountController> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 PasswordField(
@@ -70,7 +70,7 @@ class ConfirmPasswordBottomSheet extends GetView<DeleteAccountController> {
                         value);
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 Row(
@@ -89,7 +89,7 @@ class ConfirmPasswordBottomSheet extends GetView<DeleteAccountController> {
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 9,
                     ),
                     Expanded(
@@ -102,7 +102,7 @@ class ConfirmPasswordBottomSheet extends GetView<DeleteAccountController> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 )
               ],

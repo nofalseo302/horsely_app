@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 
 class ReadReceiptToggle extends StatefulWidget {
+  const ReadReceiptToggle({super.key});
+
   @override
   _ReadReceiptToggleState createState() => _ReadReceiptToggleState();
 }
@@ -23,7 +25,7 @@ class _ReadReceiptToggleState extends State<ReadReceiptToggle> {
         activeTrackColor: AppColors.primaryColor,
         inactiveTrackColor: AppColors.backGray,
         inactiveThumbColor: AppColors.white,
-        thumbColor: WidgetStatePropertyAll<Color>(AppColors.white),
+        thumbColor: const WidgetStatePropertyAll<Color>(AppColors.white),
         value: isReadReceiptsEnabled,
         onChanged: (value) {
           setState(() {

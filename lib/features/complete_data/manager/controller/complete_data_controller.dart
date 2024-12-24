@@ -1,15 +1,9 @@
-import 'dart:convert';
 import 'dart:io';
 
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart' as d;
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:horsely_app/core/services/cache/cash_helper.dart';
-import 'package:horsely_app/core/services/cache/cash_keys.dart';
-import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/complete_data/data/repo/complete_data_repo.dart';
@@ -43,14 +37,14 @@ class CompleteDataController extends GetxController {
 
     if (result != null) {
       // selectedFile.value = File(result.files.single.path!);
-      result.files.forEach((element) {
+      for (var element in result.files) {
         if (selectedFile.length < 5) {
           selectedFile.add(File(element.path!));
         } else {
           ToastManager.showError(AppStrings.uploadOnly5Images.tr);
-          return;
+          continue;
         }
-      });
+      }
     }
   }
 

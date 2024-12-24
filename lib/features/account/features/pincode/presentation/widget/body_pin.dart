@@ -39,7 +39,7 @@ class PincodeBody extends StatelessWidget {
           accountEntity: AccountEntity(
               image: AppImages.appCircle,
               onPressed: () {},
-              titel: AppStrings.create.tr + " " + AppStrings.pincode.tr),
+              titel: "${AppStrings.create.tr} ${AppStrings.pincode.tr}"),
         )
       ],
     );

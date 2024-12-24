@@ -26,13 +26,13 @@ class IteamPincode extends StatelessWidget {
           leading: Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: CircleAvatar(
-                backgroundColor: rest ? Color(0xffFBE8E8) : AppColors.backgray,
+                backgroundColor: rest ? const Color(0xffFBE8E8) : AppColors.backgray,
                 child: CustomImageHandler(accountEntity.image)),
           ),
           title: Text(
             accountEntity.titel,
             style: AppStyles.regulare16(context)
-                .copyWith(color: rest ? Color(0xffDB1414) : Colors.black),
+                .copyWith(color: rest ? const Color(0xffDB1414) : Colors.black),
           ),
         ),
       ),

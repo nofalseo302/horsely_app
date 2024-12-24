@@ -14,7 +14,7 @@ class VerificationStatusScreen extends StatelessWidget {
       backgroundColor: AppColors.backGroundScaffold,
       appBar: buildAppBar(
           titel: AppStrings.verificationstatus.tr, context: context),
-      body: BodyVerificationStatus(),
+      body: const BodyVerificationStatus(),
     );
   }
 }

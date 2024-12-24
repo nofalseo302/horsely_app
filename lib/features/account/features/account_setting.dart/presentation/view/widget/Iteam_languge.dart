@@ -21,7 +21,7 @@ class ItteamLanguage extends StatelessWidget {
           titel,
           style: AppStyles.semibold14(context),
         ),
-        Spacer(),
+        const Spacer(),
         GestureDetector(
             onTap: onTap,
             child: SvgPicture.asset(

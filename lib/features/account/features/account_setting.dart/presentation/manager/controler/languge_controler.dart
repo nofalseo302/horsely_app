@@ -1,7 +1,6 @@
 import 'dart:ui';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart'; // استيراد GetStorage
-import 'package:horsely_app/features/account/presentation/manager/controller/account_controler.dart';
 import 'package:horsely_app/features/profit/presentation/manager/controler/tap_bar_profit_controler.dart';
 
 class LanguageController extends GetxController {
