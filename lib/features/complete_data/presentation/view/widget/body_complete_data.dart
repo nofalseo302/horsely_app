@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/complete_data/manager/controller/complete_data_controller.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
@@ -39,6 +40,7 @@ class BodyCompletData extends GetView<CompleteDataController> {
                       TitleAndWidget(
                         title: AppStrings.jobtype.tr,
                         childWidget: CustomTextFormField(
+                          controller: controller.jobType,
                           hintText: "",
                           textInputType: TextInputType.multiline,
                           validator: (p0) {
@@ -56,6 +58,7 @@ class BodyCompletData extends GetView<CompleteDataController> {
                         title: AppStrings.workaddress.tr,
                         childWidget: CustomTextFormField(
                           hintText: "",
+                          controller: controller.workAddress,
                           textInputType: TextInputType.multiline,
                           validator: (p0) {
                             if (p0!.isEmpty) {
@@ -72,6 +75,7 @@ class BodyCompletData extends GetView<CompleteDataController> {
                         title: AppStrings.companyname.tr,
                         childWidget: CustomTextFormField(
                           hintText: "",
+                          controller: controller.companyName,
                           textInputType: TextInputType.multiline,
                           validator: (p0) {
                             if (p0!.isEmpty) {
@@ -88,6 +92,7 @@ class BodyCompletData extends GetView<CompleteDataController> {
                         title: AppStrings.taxnamber.tr,
                         childWidget: CustomTextFormField(
                           hintText: "",
+                          controller: controller.taxNumber,
                           textInputType: TextInputType.multiline,
                           validator: (p0) {
                             if (p0!.isEmpty) {
@@ -111,9 +116,14 @@ class BodyCompletData extends GetView<CompleteDataController> {
                       CustomButton(
                         onButtonPressed: () {
                           // Get.toNamed(Routes.home);
-                          if (controller.formKey.currentState!.validate()) {
-                            controller.submit();
+                          if (!controller.formKey.currentState!.validate()) {
+                            return;
                           }
+                          if (controller.selectedFile.isEmpty) {
+                            ToastManager.showError(AppStrings.uploadFile.tr);
+                            return;
+                          }
+                          controller.submit();
                         },
                         buttonText: AppStrings.complete.tr,
                       )

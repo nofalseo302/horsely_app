@@ -60,6 +60,7 @@ class AppAr {
     AppStrings.myprofile: " الحساب",
     AppStrings.buy: "شراء",
     AppStrings.sell: "بيع",
+    AppStrings.uploadFile: "يجب رفع الملفات ",
     AppStrings.requiredField: "هذا الحقل مطلوب",
     AppStrings.amount: "المبلغ",
     AppStrings.orderlimit: "حد الطلب",

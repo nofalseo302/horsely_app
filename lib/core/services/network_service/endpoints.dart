@@ -8,7 +8,7 @@ class EndPoints {
   static const baseUrl = "https://crepto.codeella.com/api";
   static const profile = "$baseUrl/profile";
   static const login = "/auth/login";
-  static const completeData = "/auth/complete-data";
+  static const completeData = "/complete-data";
   static const register = "/auth/register";
   static const logout = "/auth/logout";
   static const verfiryAccount = "$baseUrl/auth/verify-account";

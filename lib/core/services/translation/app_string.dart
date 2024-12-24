@@ -22,6 +22,7 @@ class AppStrings {
   static const subtitelpageview2 = "subtitelpageview2";
   static const pleaseEnterPhoneNamber = "pleasEnterPhoneNamber";
   static const welcome = "welcome";
+  static const uploadFile = "uploadFile";
   static const trackpitcons = "trackpitcons";
   static const login = "login";
   static const singup = "singup";
