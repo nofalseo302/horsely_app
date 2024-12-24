@@ -102,6 +102,11 @@ class AppPages {
       transition: Transition.leftToRight,
     ),
     GetPage(
+      name: Routes.pindingreviewscreen,
+      page: () => const PendingReviewScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
       name: Routes.completedata,
       page: () => const CompletDataScreen(),
       binding: CompleteDataBinding(),
