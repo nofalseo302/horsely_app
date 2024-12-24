@@ -67,7 +67,8 @@ class CompleteDataController extends GetxController {
         'work_address': workAddress.text.trim(),
         'company_name': companyName.text.trim(),
         'tax_number': taxNumber.text.trim(),
-        // 'attachments[]': "", //max 5
+        // 'attachments[]': "",
+        ////max 5
       },
     );
     for (var element in selectedFile) {

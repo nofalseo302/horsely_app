@@ -57,14 +57,13 @@ class BodyCompletData extends GetView<CompleteDataController> {
                       TitleAndWidget(
                         title: AppStrings.workaddress.tr,
                         childWidget: CustomTextFormField(
-                          hintText: "",
+                          hintText: AppStrings.workaddress.tr,
                           controller: controller.workAddress,
                           textInputType: TextInputType.multiline,
                           validator: (p0) {
-                            if (p0!.isEmpty) {
-                              return AppStrings.requiredField.tr;
-                            }
-                            return null;
+                            return AppValidationFunctions
+                                .stringValidationFunction(
+                                    p0, AppStrings.workaddress.tr);
                           },
                         ),
                       ),
@@ -74,14 +73,13 @@ class BodyCompletData extends GetView<CompleteDataController> {
                       TitleAndWidget(
                         title: AppStrings.companyname.tr,
                         childWidget: CustomTextFormField(
-                          hintText: "",
+                          hintText: AppStrings.companyname.tr,
                           controller: controller.companyName,
                           textInputType: TextInputType.multiline,
                           validator: (p0) {
-                            if (p0!.isEmpty) {
-                              return AppStrings.requiredField.tr;
-                            }
-                            return null;
+                            return AppValidationFunctions
+                                .stringValidationFunction(
+                                    p0, AppStrings.companyname.tr);
                           },
                         ),
                       ),
@@ -91,14 +89,13 @@ class BodyCompletData extends GetView<CompleteDataController> {
                       TitleAndWidget(
                         title: AppStrings.taxnamber.tr,
                         childWidget: CustomTextFormField(
-                          hintText: "",
+                          hintText: AppStrings.taxnamber.tr,
                           controller: controller.taxNumber,
                           textInputType: TextInputType.multiline,
                           validator: (p0) {
-                            if (p0!.isEmpty) {
-                              return AppStrings.requiredField.tr;
-                            }
-                            return null;
+                            return AppValidationFunctions
+                                .stringValidationFunction(
+                                    p0, AppStrings.taxnamber.tr);
                           },
                         ),
                       ),
