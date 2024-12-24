@@ -5,12 +5,14 @@ import 'package:get/get.dart';
 import 'package:dio/dio.dart' as d;
 import 'package:file_picker/file_picker.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
+import 'package:horsely_app/features/complete_data/data/model/complete_data/attachment.dart';
 import 'package:horsely_app/features/complete_data/data/repo/complete_data_repo.dart';
 import 'package:horsely_app/main.dart';
 
 class CompleteDataController extends GetxController {
-  RxList<File?> selectedFile = RxList<File?>();
+  RxList<Attachment?> selectedFile = RxList<Attachment?>();
   TextEditingController jobType = TextEditingController();
   TextEditingController workAddress = TextEditingController();
   TextEditingController companyName = TextEditingController();
@@ -39,7 +41,12 @@ class CompleteDataController extends GetxController {
       // selectedFile.value = File(result.files.single.path!);
       for (var element in result.files) {
         if (selectedFile.length < 5) {
-          selectedFile.add(File(element.path!));
+          selectedFile.add(
+            Attachment(
+              path: element.path.toString(),
+              id: 0,
+            ),
+          );
         } else {
           ToastManager.showError(AppStrings.uploadOnly5Images.tr);
           continue;
@@ -64,12 +71,14 @@ class CompleteDataController extends GetxController {
       },
     );
     for (var element in selectedFile) {
-      formData.files.add(
-        MapEntry(
-          'attachments[]',
-          d.MultipartFile.fromFileSync(element!.path),
-        ),
-      );
+      if (!element!.path!.contains('http')) {
+        formData.files.add(
+          MapEntry(
+            'attachments[]',
+            d.MultipartFile.fromFileSync(File(element!.path!).path),
+          ),
+        );
+      }
     }
     var res = await completeDataRepo.completeData(data: formData);
     res.fold(
@@ -79,5 +88,48 @@ class CompleteDataController extends GetxController {
         Get.offAllNamed(getRoute(r));
       },
     );
+  }
+
+  getData() async {
+    var res = await completeDataRepo.getCompleteData();
+    res.fold(
+      (l) => ToastManager.showError(l.message),
+      (r) {
+        // getRoute(r);
+        jobType.text = r.data?.jobType ?? '';
+        workAddress.text = r.data?.workAddress ?? '';
+        companyName.text = r.data?.companyName ?? '';
+        taxNumber.text = r.data?.taxNumber ?? '';
+        r.data?.attachments?.forEach((element) {
+          selectedFile.add(element);
+        });
+        // Get.offAllNamed(getRoute(r));
+      },
+    );
+  }
+
+  deleteImage({
+    required String id,
+  }) async {
+    var res = await completeDataRepo.deleteImage(id: id); //delete-image
+    res.fold(
+      (l) => ToastManager.showError(l.message),
+      (r) {
+        // getRoute(r);
+        selectedFile.removeWhere((element) => element!.id == int.parse(id));
+        ToastManager.showSuccess(r, true);
+        // Get.offAllNamed(getRoute(r));
+      },
+    );
+  }
+
+  @override
+  void onInit() {
+    if (Get.arguments['isEdit'] == true) {
+      // print("object");
+      getData();
+    }
+
+    super.onInit();
   }
 }

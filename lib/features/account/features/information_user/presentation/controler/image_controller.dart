@@ -9,12 +9,11 @@ import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/services/handel_image_and_pick_image/image_paker_services.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
-import 'package:horsely_app/features/auth/data/model/user_model.dart';
 import 'package:dio/dio.dart' as d;
 import 'package:dio/src/multipart_file.dart' as multipart_file;
+import 'package:horsely_app/features/auth/data/model/user_model/user_model.dart';
 import 'package:horsely_app/features/information_user/data/repo/repo/edit_profile_repo.dart';
 import 'package:horsely_app/routes/routes.dart';
-
 
 class ImageController extends GetxController {
   var selectedImagePath = ''.obs;
@@ -68,7 +67,7 @@ class ImageController extends GetxController {
       res.fold(
         (l) => ToastManager.showError(l.message),
         (r) {
-          if (!r.data!.emailVerifiedAt!) {
+          if (!r.data!.isActiveAccount!) {
             CashHelper.sharedPreferences?.clear();
             Get.offAllNamed(Routes.login);
           } else {

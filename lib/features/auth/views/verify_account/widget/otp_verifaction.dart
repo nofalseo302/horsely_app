@@ -46,7 +46,7 @@ class OtpVerifaction extends StatelessWidget {
       onChanged: onChange,
       validator: (s) {
         return null;
-      
+
         // return s == '2222' ? null : 'Pin is incorrect';
       },
       pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,

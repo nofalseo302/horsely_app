@@ -82,7 +82,7 @@ String getRoute(UserModel? userModel) {
   } else if (userModel.data?.isComplete == false) {
     return Routes.pindingcompletedata;
   } else if (userModel.data?.completeDataStatus != 'approved') {
-     return Routes.pindingreviewscreen;
+    return Routes.pindingreviewscreen;
   } else {
     return Routes.home;
   }

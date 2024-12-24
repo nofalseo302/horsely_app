@@ -11,6 +11,7 @@ class AppStrings {
   static const subtitelpageview1 = "subtitelpageview1";
   static const skipe = "skipbutton";
   static const create = "create";
+  static const approved = "approved";
 
   static const uploadOnly5Images = "uploadOnly5Images";
   static const String areYouSureToLogOut = 'Are you sure to log out?';
@@ -122,6 +123,7 @@ class AppStrings {
   static const sendcodemeasagge = "sendcodemeasagge";
   static const pending = "pending";
   static const messagepinding = "messagep";
+  static const approvedMessage = "approvedMessage";
   static const viewdoumention = "viewdoumention";
   static const pushnotifaction = "pushnotifaction";
   static const pricealerts = "pricealerts";

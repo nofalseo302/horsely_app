@@ -26,7 +26,8 @@ class IteamPincode extends StatelessWidget {
           leading: Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: CircleAvatar(
-                backgroundColor: rest ? const Color(0xffFBE8E8) : AppColors.backgray,
+                backgroundColor:
+                    rest ? const Color(0xffFBE8E8) : AppColors.backgray,
                 child: CustomImageHandler(accountEntity.image)),
           ),
           title: Text(

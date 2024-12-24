@@ -61,7 +61,7 @@ class ProfileController extends GetxController {
       res.fold(
         (l) => ToastManager.showError(l.message),
         (r) {
-          CashHelper.sharedPreferences?.clear();
+          // CashHelper.sharedPreferences?.clear();
 
           // userModel = UserModel.fromJson(
           //     json.decode(CashHelper.getData(CacheKeys.userModel)));

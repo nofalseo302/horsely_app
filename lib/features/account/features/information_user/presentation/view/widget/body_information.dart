@@ -10,7 +10,7 @@ import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
 import 'package:horsely_app/core/widget/email_text_filed.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
- import 'package:horsely_app/features/account/features/information_user/presentation/controler/image_controller.dart';
+import 'package:horsely_app/features/account/features/information_user/presentation/controler/image_controller.dart';
 
 class BodyInformationUser extends GetView<ImageController> {
   // final ImageController imageController = Get.put(ImageController());
@@ -110,7 +110,6 @@ class BodyInformationUser extends GetView<ImageController> {
                               title: AppStrings.email.tr,
                               childWidget: EmailTextFiled(
                                 hintText: "",
-                                
                                 controller: controller.emailController,
                                 textInputType: TextInputType.text,
                               ),

@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:horsely_app/features/account/features/information_user/logic/binding/account_settings.dart';
 import 'package:horsely_app/features/account/features/myorder/logic/binding/my_order_binding.dart';
 import 'package:horsely_app/features/account/features/transaction/logic/binding/transaction_binding.dart';
+import 'package:horsely_app/features/account/features/verification_status/logic/binding/verification_status_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/login_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/register_binding.dart';
 import 'package:horsely_app/features/complete_data/manager/binding/complete_data_binding.dart';
@@ -193,6 +194,7 @@ class AppPages {
     GetPage(
       name: Routes.verificationstatus,
       page: () => const VerificationStatusScreen(),
+      binding: VerificationStatusBinding(),
       transition: Transition.leftToRight,
     ),
     GetPage(
