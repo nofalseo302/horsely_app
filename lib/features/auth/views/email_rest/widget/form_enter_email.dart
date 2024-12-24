@@ -26,7 +26,7 @@ class FromEnterEmail extends GetView<ForgetPasswordController> {
           const SizedBox(height: 30),
           CustomButton(
             onButtonPressed: () async {
-              if (controller.formKey.currentState!.validate()) {
+              if (controller.formKey2.currentState!.validate()) {
                 await controller.checkCredential();
               }
             },

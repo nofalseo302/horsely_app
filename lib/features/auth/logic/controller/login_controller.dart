@@ -37,7 +37,7 @@ class LoginController extends GetxController {
           },
         );
       } else {
-        getRoute(r);
+        Get.offAllNamed(getRoute(r));
       }
     });
   }
