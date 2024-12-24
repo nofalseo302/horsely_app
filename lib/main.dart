@@ -9,6 +9,7 @@ import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/services/network_service/awesome_notifications_helper.dart';
 import 'package:horsely_app/core/services/network_service/fcm_helper.dart';
 import 'package:horsely_app/core/services/translation/app_translation.dart';
+import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/features/auth/data/model/user_model/user_model.dart';
 import 'package:horsely_app/routes/app_pages.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -57,6 +58,10 @@ class HorseleyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: fontFamily,
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: AppColors.white,
+          
+        ),
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: const AppBarTheme(
           surfaceTintColor: Colors.transparent,
@@ -64,6 +69,7 @@ class HorseleyApp extends StatelessWidget {
         ),
       ),
       initialRoute: getRoute(userModel), // getInitRout(),
+      // initialRoute: Routes.verifyAccount,
       getPages: AppPages.pages,
     );
   }

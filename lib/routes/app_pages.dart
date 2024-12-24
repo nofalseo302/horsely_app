@@ -3,6 +3,7 @@ import 'package:horsely_app/features/account/features/myorder/logic/binding/my_o
 import 'package:horsely_app/features/account/features/transaction/logic/binding/transaction_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/login_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/register_binding.dart';
+import 'package:horsely_app/features/complete_data/manager/binding/complete_data_binding.dart';
 import 'package:horsely_app/features/notiofaction/logic/binding/notification_binding.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/features/account/features/account_setting.dart/presentation/view/account_seting.dart';
@@ -103,6 +104,7 @@ class AppPages {
     GetPage(
       name: Routes.completedata,
       page: () => const CompletDataScreen(),
+      binding: CompleteDataBinding(),
       transition: Transition.leftToRight,
     ),
     GetPage(
