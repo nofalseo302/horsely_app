@@ -6,9 +6,8 @@ import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 class IteamChatBot extends StatelessWidget {
   const IteamChatBot({
     super.key,
-   
   });
-  
+
   @override
   Widget build(BuildContext context) {
     return Column(

@@ -15,6 +15,7 @@ import 'package:dio/src/multipart_file.dart' as multipart_file;
 import 'package:horsely_app/features/information_user/data/repo/repo/edit_profile_repo.dart';
 import 'package:horsely_app/routes/routes.dart';
 
+
 class ImageController extends GetxController {
   var selectedImagePath = ''.obs;
   final ImagePickerService _imagePickerService = ImagePickerService();

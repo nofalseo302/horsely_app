@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/function/app_launge.dart';
 
 class IconBack extends StatelessWidget {
+  const IconBack({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,8 +24,8 @@ class IconBack extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: getCurrentLanguage() == "ar"
-                ? Icon(Icons.keyboard_arrow_right, color: Colors.white)
-                : Icon(Icons.keyboard_arrow_left, color: Colors.white),
+                ? const Icon(Icons.keyboard_arrow_right, color: Colors.white)
+                : const Icon(Icons.keyboard_arrow_left, color: Colors.white),
           )),
     );
   }

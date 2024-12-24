@@ -56,7 +56,7 @@ class AccountController extends GetxController {
             Get.toNamed(Routes.verificationstatus);
           }),
       AccountEntity(
-          titel: "${AppStrings.pincode.tr}",
+          titel: AppStrings.pincode.tr,
           image: AppImages.pincode,
           onPressed: () {
             Get.toNamed(Routes.pincode);

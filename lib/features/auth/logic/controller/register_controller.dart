@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/cache/user_service.dart';
@@ -21,15 +22,15 @@ class RegisterController extends GetxController {
   TextEditingController confirmPasswordController = TextEditingController();
   Future<void> register() async {
     startLoading();
+
     var result = await _registerRepo.register(
         phoneNumber: phoneController.text.trim(),
         countryCode: countryCodeController.text.trim(),
         name: nameController.text.trim(),
         confirmpassword: confirmPasswordController.text.trim(),
-        date: '2000-12-08 11:50:22',
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
-        fcmToken: 'fcmToken');
+        fcmToken: await FirebaseMessaging.instance.getToken() ?? "");
     stopLoading();
     result.fold((l) {
       ToastManager.showError(l.message);

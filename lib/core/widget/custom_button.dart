@@ -7,6 +7,7 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.onButtonPressed,
     required this.buttonText,
+    this.enabled = true,
     this.icon, // يمكن أن تكون أيقونة أو مسار صورة
     this.backgroundColor, // لون الزر كمعامل اختياري
     this.textColor, // لون النص كمعامل اختياري
@@ -15,6 +16,7 @@ class CustomButton extends StatelessWidget {
 
   final VoidCallback onButtonPressed;
   final String buttonText;
+  final bool enabled;
   final dynamic icon; // يمكن أن تكون أيقونة (IconData) أو مسار صورة (String)
   final Color? backgroundColor; // يمكن تخصيص لون الزر
   final Color? textColor; // يمكن تخصيص لون النص
@@ -27,6 +29,7 @@ class CustomButton extends StatelessWidget {
       height: 56,
       child: TextButton(
         style: TextButton.styleFrom(
+          
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
             side: BorderSide(
@@ -35,7 +38,7 @@ class CustomButton extends StatelessWidget {
           ),
           backgroundColor: backgroundColor ?? AppColors.primaryColor,
         ),
-        onPressed: onButtonPressed,
+        onPressed: enabled ? onButtonPressed : null,
         child: FittedBox(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

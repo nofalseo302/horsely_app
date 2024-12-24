@@ -4,8 +4,7 @@ class AppEn {
   static Map<String, String> translation = {
     AppStrings.skipe: "Skip",
     AppStrings.no: AppStrings.no,
-      AppStrings.enterThePasswordToDelete: 'أدخل كلمة السر لحذف الحساب',
-
+    AppStrings.enterThePasswordToDelete: 'أدخل كلمة السر لحذف الحساب',
     AppStrings.nextButton: "Next",
     AppStrings.buytheTopCryptocurrenciesontheMarket:
         "Buy the top cryptocurrencies in the market",
@@ -121,7 +120,7 @@ class AppEn {
     AppStrings.sendcodemeasagge: "We have sent a code to",
     AppStrings.pending: "Pending",
     AppStrings.messagepinding:
-        "Please complete your documents to proceed with login",
+        "Please complete your documents to proceed with the login process",
     AppStrings.viewdoumention: "View my documents",
     AppStrings.accountupdate: "Account updates",
     AppStrings.pricealerts: "Price alerts",
@@ -145,10 +144,13 @@ class AppEn {
     AppStrings.suretransfer: "Are you sure you want to send to",
     AppStrings.tax: "Tax",
     AppStrings.close: "Close",
+    AppStrings.uploadOnly5Images: "Upload Only 5 Images",
     AppStrings.enterdata: "Enter data",
     AppStrings.time: "Time",
     AppStrings.percentage: "Percentage",
     AppStrings.price: "Price",
+    AppStrings.requiredField: "Required Field",
+    AppStrings.uploadFile: "You must upload a file",
     AppStrings.hoistory: "History",
     AppStrings.getStarted: "Get Started",
     AppStrings.conintype: "Coin type",

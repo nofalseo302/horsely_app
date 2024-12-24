@@ -5,6 +5,8 @@ import 'package:horsely_app/features/history/presentation/view/widget/header_his
 import 'package:horsely_app/features/history/presentation/view/widget/my_tabel.dart';
 
 class BodyHistory extends StatelessWidget {
+  const BodyHistory({super.key});
+
   @override
   Widget build(BuildContext context) {
     final TapBarHistoryControler controller = Get.put(TapBarHistoryControler());
@@ -27,7 +29,7 @@ class BodyHistory extends StatelessWidget {
                   blurRadius: 4,
                   spreadRadius: -3)
             ]),
-        child: TabelHistory(
+        child: const TabelHistory(
           data: [
             ["3:05 PM", "910.10", "+1.21%"],
             ["4:00 PM", "820.50", "+0.95%"],

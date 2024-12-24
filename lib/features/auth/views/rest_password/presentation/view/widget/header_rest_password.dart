@@ -33,7 +33,7 @@ class HeaderRestPassword extends StatelessWidget {
                 const SizedBox(
                   height: 40,
                 ),
-                IconBack(),
+                const IconBack(),
                 const SizedBox(
                   height: 20,
                 ),

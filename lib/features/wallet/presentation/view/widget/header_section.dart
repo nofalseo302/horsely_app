@@ -22,7 +22,7 @@ class HeaderSection extends StatelessWidget {
         const Spacer(),
         GestureDetector(
           onTap: () {
-            Get.to(LastTranaction());
+            Get.to(const LastTranaction());
           },
           child: Text(
             AppStrings.seeall.tr,

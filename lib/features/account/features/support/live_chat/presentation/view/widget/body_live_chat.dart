@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:horsely_app/features/account/features/support/live_chat/presentation/manager/controler/live_Chat_controler.dart';
 import 'package:horsely_app/features/account/features/support/live_chat/presentation/view/widget/Iteam_chat_bot.dart';
 import 'package:horsely_app/features/account/features/support/live_chat/presentation/view/widget/iteam_chat_user.dart';
@@ -8,6 +7,8 @@ import 'package:horsely_app/features/account/features/support/live_chat/presenta
 
 class BodyLiveChat extends StatelessWidget {
   final ScrollController scrollController = ScrollController();
+
+  BodyLiveChat({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class BodyLiveChat extends StatelessWidget {
                 itemBuilder: (context, index) {
                   var message = controller.messages[index];
                   if (message['sender'] == 'bot') {
-                    return IteamChatBot();
+                    return const IteamChatBot();
                   } else {
                     return IteamChatUser(message: message['message']!);
                   }
@@ -35,7 +36,7 @@ class BodyLiveChat extends StatelessWidget {
             ),
           ),
           SendSection(scrollController: scrollController),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
         ],
       ),
     );

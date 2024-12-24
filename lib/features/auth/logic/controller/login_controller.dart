@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/cache/user_service.dart';
+import 'package:horsely_app/main.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
@@ -25,11 +26,7 @@ class LoginController extends GetxController {
     result.fold((l) {
       ToastManager.showSuccess(l.message, false);
     }, (r) async {
-      if (r.data?.emailVerifiedAt == true) {
-        ToastManager.showSuccess(r.message ?? '', true);
-        await UserService.to.setUser(r);
-        Get.offAllNamed(Routes.home);
-      } else {
+      if (r.data?.isActiveAccount == false) {
         ToastManager.showSuccess(r.message ?? '', true);
         await UserService.to.setUser(r);
         Get.toNamed(
@@ -39,6 +36,8 @@ class LoginController extends GetxController {
             'isPasswordScreen': false,
           },
         );
+      } else {
+        getRoute(r);
       }
     });
   }

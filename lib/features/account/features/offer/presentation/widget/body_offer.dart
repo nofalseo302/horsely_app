@@ -42,8 +42,8 @@ class BodyOffer extends StatelessWidget {
                   Expanded(
                     child: ListView.builder(
                       itemCount: 14,
-                      itemBuilder: (context, index) => Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      itemBuilder: (context, index) => const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 8.0),
                         child: IteamOffer(),
                       ),
                     ),

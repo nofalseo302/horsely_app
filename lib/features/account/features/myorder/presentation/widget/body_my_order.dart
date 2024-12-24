@@ -33,7 +33,7 @@ class BodyMyOrder extends GetView<MyOrderController> {
                           itemBuilder: (context, index) {
                             return IteamTransaction(
                               onTap: () {
-                                Get.to(() => OfferScreen());
+                                Get.to(() => const OfferScreen());
                               },
                             );
                           }),
@@ -51,7 +51,7 @@ class BodyMyOrder extends GetView<MyOrderController> {
                           itemBuilder: (context, index) {
                             return IteamTransaction(
                               onTap: () {
-                                Get.to(() => OfferScreen());
+                                Get.to(() => const OfferScreen());
                               },
                             );
                           }),

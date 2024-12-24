@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
@@ -31,7 +30,7 @@ class MyButtomSheet extends StatelessWidget {
                 height: 42,
               ),
               Text(
-                "${AppStrings.pincode.tr}",
+                AppStrings.pincode.tr,
                 style:
                     AppStyles.semibold32(context).copyWith(color: Colors.black),
               ),

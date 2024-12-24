@@ -31,8 +31,8 @@ class HeaderHistory extends StatelessWidget {
               children: List.generate(
                 controller.iteamtapbar.length,
                 (index) => Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 4.0, vertical: 16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 4.0, vertical: 16),
                   child: ItamTapBarProfit(
                     nameiteam: controller.iteamtapbar[index],
                     isactive: controller.activeIndex.value == index,

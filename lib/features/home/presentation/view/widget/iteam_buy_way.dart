@@ -14,8 +14,8 @@ class IteamPayWay extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3),
         child: Text(
           "InstaPay",
-          style:
-              AppStyles.semibold12(context).copyWith(color: const Color(0xff00AC1C)),
+          style: AppStyles.semibold12(context)
+              .copyWith(color: const Color(0xff00AC1C)),
         ),
       ),
     );

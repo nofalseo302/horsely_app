@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/features/pinding_complete_data/presentation/view/widget/pending_complete_data_body.dart';
 
 class PindingCompleteDataScreen extends StatelessWidget {
@@ -7,6 +8,7 @@ class PindingCompleteDataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      backgroundColor: AppColors.white,
       body: BendingCompletDataBody(),
     );
   }
