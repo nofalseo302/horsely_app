@@ -24,7 +24,9 @@ class ForgetPasswordRepo {
     try {
       d.Response response = await _dioImpl.post(
         endPoint: EndPoints.checkCredential,
-        data: {'mobile_or_email': email},
+        data: {
+          'mobile_or_email': email,
+        },
       );
 
       if (response.statusCode == 200) {

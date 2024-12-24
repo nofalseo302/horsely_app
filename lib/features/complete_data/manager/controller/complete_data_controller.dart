@@ -61,8 +61,6 @@ class CompleteDataController extends GetxController {
         'work_address': workAddress.text.trim(),
         'company_name': companyName.text.trim(),
         'tax_number': taxNumber.text.trim(),
-        // 'attachments[]': "",
-        ////max 5
       },
     );
     for (var element in selectedFile) {
@@ -77,7 +75,8 @@ class CompleteDataController extends GetxController {
     res.fold(
       (l) => ToastManager.showError(l.message),
       (r) {
-        getRoute(r);
+        // getRoute(r);
+        Get.offAllNamed(getRoute(r));
       },
     );
   }

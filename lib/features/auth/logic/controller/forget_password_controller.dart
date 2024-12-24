@@ -15,6 +15,7 @@ class ForgetPasswordController extends GetxController {
   var emailController = TextEditingController();
   var confirmPasswordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
+  var formKey2 = GlobalKey<FormState>();
   // var newPasswordKormKey = GlobalKey<FormState>();
   final VerfiryAccountRepo _verfiryAccountRepo = VerfiryAccountRepo();
 
@@ -58,26 +59,31 @@ class ForgetPasswordController extends GetxController {
     });
   }
 
-  Future<void> forgetPasswordCheckOtp() async {
+  Future<void> forgetPasswordCheckOtp({
+    String? otp,
+  }) async {
     startLoading();
     var result = await _forgetPasswordRepo.forgetPasswordCheckOtp(
-      otp: codeController.trim(),
+      otp: otp ?? codeController.trim(),
       email: emailController.text.trim(),
     );
     stopLoading();
     result.fold((l) {
       ToastManager.showSuccess(l.message, false);
     }, (r) async {
-      Get.toNamed(Routes.restpassword);
+      Get.toNamed(Routes.restpassword, arguments: {
+        "otp": otp ?? codeController.trim(),
+      });
       ToastManager.showSuccess(r, true);
     });
   }
 
   Future<void> resetPassword() async {
+    String otp = Get.arguments['otp'];
     startLoading();
     var result = await _forgetPasswordRepo.resetPassword(
       email: emailController.text.trim(),
-      otp: codeController.trim(),
+      otp: otp,
       password: passwordController.text.trim(),
       passwordConfirmation: confirmPasswordController.text.trim(),
     );
@@ -86,6 +92,7 @@ class ForgetPasswordController extends GetxController {
       ToastManager.showSuccess(l.message, false);
     }, (r) {
       Get.offAllNamed(Routes.login);
+      ToastManager.showSuccess(r.message.toString(), true);
     });
   }
 
