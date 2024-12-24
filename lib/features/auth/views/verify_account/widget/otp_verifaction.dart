@@ -8,8 +8,10 @@ class OtpVerifaction extends StatelessWidget {
   const OtpVerifaction({
     super.key,
     required this.onSubmit,
+    required this.onChange,
   });
   final void Function(String)? onSubmit;
+  final void Function(String)? onChange;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,7 @@ class OtpVerifaction extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
       ),
+      onChanged: onChange,
       validator: (s) {
         // return s == '2222' ? null : 'Pin is incorrect';
       },
