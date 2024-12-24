@@ -17,10 +17,11 @@ class LoginController extends GetxController {
   Future<void> login() async {
     startLoading();
     var result = await _loginRepo.login(
-        email: emailController.text.trim(),
-        mobileCountryCode: "+20",
-        password: passwordController.text.trim(),
-        fcmToken: 'fcmToken');
+      email: emailController.text.trim(),
+      mobileCountryCode: "+20",
+      password: passwordController.text.trim(),
+      fcmToken: 'fcmToken',
+    );
     stopLoading();
     result.fold((l) {
       ToastManager.showSuccess(l.message, false);

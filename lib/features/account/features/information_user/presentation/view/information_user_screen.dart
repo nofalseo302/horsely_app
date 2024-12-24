@@ -3,10 +3,11 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 
 import 'package:horsely_app/core/widget/build_app_bar.dart';
+import 'package:horsely_app/features/account/features/information_user/presentation/controler/image_controller.dart';
 
 import 'package:horsely_app/features/account/features/information_user/presentation/view/widget/body_information.dart';
 
-class InformationUserScreen extends StatelessWidget {
+class InformationUserScreen extends GetView<ImageController> {
   const InformationUserScreen({super.key});
 
   @override

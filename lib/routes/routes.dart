@@ -14,6 +14,7 @@ class Routes {
   static const notifactionscreen = "/notifactionscreen";
   static const buydetails = "/buydetails";
   static const accountSeting = "/buydetails";
+  static const privacy = "/privacy";
   static const informationAboutUser = "/buydetails";
   static const selldetails = "/selldetails";
   static const deposit = "/deposit";

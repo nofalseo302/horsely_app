@@ -4,9 +4,8 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_validation_functions.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
 import '../../../../../core/widget/password_text_filed.dart';
-import '../../../../account/features/information_user/presentation/controler/change_password_controller.dart';
 
-class BodyChangePassword extends GetView<EditPasswordController> {
+class BodyChangePassword extends StatelessWidget {
   const BodyChangePassword({super.key});
 
   @override
@@ -21,7 +20,6 @@ class BodyChangePassword extends GetView<EditPasswordController> {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 9),
         child: Form(
-          key: controller.formKey,
           child: Column(
             children: [
               TitleAndWidget(

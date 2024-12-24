@@ -154,6 +154,7 @@ class AppEn {
     AppStrings.hoistory: "History",
     AppStrings.getStarted: "Get Started",
     AppStrings.conintype: "Coin type",
+    AppStrings.privacyPolicy: "Privacy Policy",
     AppStrings.availbelcoin: "Available coins",
     AppStrings.publish: "Publish",
     AppStrings.currency: "Currency",

@@ -59,6 +59,7 @@ class AppAr {
     AppStrings.profits: "الارباح",
     AppStrings.myprofile: " الحساب",
     AppStrings.buy: "شراء",
+    AppStrings.privacyPolicy: "سياسة الخصوصية",
     AppStrings.sell: "بيع",
     AppStrings.uploadFile: "يجب رفع الملفات ",
     AppStrings.requiredField: "هذا الحقل مطلوب",

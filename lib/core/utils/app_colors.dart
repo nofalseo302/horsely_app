@@ -9,4 +9,6 @@ class AppColors {
   static const Color black = Colors.black;
   static const Color white = Colors.white;
   static const Color backGray = Color(0xffE9EFF5);
+
+  static var bgGrey;
 }

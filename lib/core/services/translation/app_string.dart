@@ -11,6 +11,7 @@ class AppStrings {
   static const subtitelpageview1 = "subtitelpageview1";
   static const skipe = "skipbutton";
   static const create = "create";
+
   static const uploadOnly5Images = "uploadOnly5Images";
   static const String areYouSureToLogOut = 'Are you sure to log out?';
   static const String areYouSureWantToDeleteAccount =
@@ -25,6 +26,7 @@ class AppStrings {
   static const uploadFile = "uploadFile";
   static const trackpitcons = "trackpitcons";
   static const login = "login";
+  static const privacyPolicy = "privacyPolicy";
   static const singup = "singup";
   static const description = "description";
   static const email = "email";
