@@ -120,7 +120,7 @@ class AppEn {
     AppStrings.sendcodemeasagge: "We have sent a code to",
     AppStrings.pending: "Pending",
     AppStrings.messagepinding:
-        "Please complete your documents to proceed with login",
+        "Please complete your documents to proceed with the login process",
     AppStrings.viewdoumention: "View my documents",
     AppStrings.accountupdate: "Account updates",
     AppStrings.pricealerts: "Price alerts",

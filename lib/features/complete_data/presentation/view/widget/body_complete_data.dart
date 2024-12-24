@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/core/utils/app_validation_functions.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/complete_data/manager/controller/complete_data_controller.dart';
 import 'package:horsely_app/routes/routes.dart';
@@ -41,13 +42,12 @@ class BodyCompletData extends GetView<CompleteDataController> {
                         title: AppStrings.jobtype.tr,
                         childWidget: CustomTextFormField(
                           controller: controller.jobType,
-                          hintText: "",
+                          hintText: AppStrings.jobtype.tr,
                           textInputType: TextInputType.multiline,
                           validator: (p0) {
-                            if (p0!.isEmpty) {
-                              return AppStrings.requiredField.tr;
-                            }
-                            return null;
+                            return AppValidationFunctions
+                                .stringValidationFunction(
+                                    p0, AppStrings.jobtype.tr);
                           },
                         ),
                       ),
