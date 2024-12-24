@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
+import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
 import 'package:horsely_app/features/complete_data/manager/controller/complete_data_controller.dart';
 
 class ShapeFileupload extends GetView<CompleteDataController> {
@@ -38,25 +41,36 @@ class ShapeFileupload extends GetView<CompleteDataController> {
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Image.asset(AppImages.file),
+                            child: CustomImageHandler(
+                              AppImages.file,
+                            ),
                           ),
                         ),
                         title: Text(
-                          controller.selectedFile[index]!.path
+                          controller.selectedFile[index]!.path!
                               .split('/')
                               .last, // اسم الملف
                           style: AppStyles.semibold14(context)
                               .copyWith(color: const Color(0xff6C7176)),
                         ),
                         subtitle: Text(
-                          "${(controller.selectedFile[index]!.lengthSync() / 1024).toStringAsFixed(2)} KB", // حجم الملف بالكيلوبايت
+                          controller.selectedFile[index]!.path!.contains('http')
+                              ? ""
+                              : "${(File(controller.selectedFile[index]!.path!).lengthSync() / 1024).toStringAsFixed(2)} KB",
                           style: AppStyles.regulare10(context)
                               .copyWith(color: const Color(0xff6C7176)),
                         ),
                         trailing: GestureDetector(
                           onTap: () {
-                            // حذف الملف
-                            controller.removeFile(index);
+                            if (controller.selectedFile[index]!.path!
+                                .contains('http')) {
+                              controller.deleteImage(
+                                id: controller.selectedFile[index]!.id
+                                    .toString(),
+                              );
+                            } else {
+                              controller.removeFile(index);
+                            }
                           },
                           child: const Icon(Icons.close),
                         ),

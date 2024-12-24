@@ -7,7 +7,11 @@ class CustomAnimatedDropdown extends StatelessWidget {
   final String? value;
   final Function(String?)? onChanged;
   const CustomAnimatedDropdown(
-      {super.key, required this.items, required this.titiel, this.value, this.onChanged});
+      {super.key,
+      required this.items,
+      required this.titiel,
+      this.value,
+      this.onChanged});
 
   @override
   Widget build(BuildContext context) {

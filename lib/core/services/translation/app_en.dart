@@ -14,7 +14,9 @@ class AppEn {
     AppStrings.subtitelpageview1:
         "Track the best cryptocurrencies and coins you choose to trade. The best cryptocurrencies are available here on Blockto",
     AppStrings.create: "Create",
+    AppStrings.approvedMessage: "Congrats, your account has been approved",
     AppStrings.portfoolio: "Portfolio",
+    AppStrings.approved: "Approved",
     AppStrings.differtassets: "Different assets",
     AppStrings.subtitelpageview2: "",
     AppStrings.welcome: "Welcome to \nHorsely",

@@ -26,8 +26,9 @@ class EditProfileRepo {
       d.Response response = await _dioImpl.post(
           endPoint: '${EndPoints.profile}/update/information', data: data);
       if (response.statusCode == 200) {
+        UserModel userModel = UserModel.fromJson(response.data);
         CashHelper.setData(CacheKeys.userModel, json.encode(response.data));
-        return Right(UserModel.fromJson(response.data));
+        return Right(userModel);
       } else {
         return Left(ResponseMessage.fromJson(response.data));
       }
