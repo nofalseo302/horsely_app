@@ -150,6 +150,7 @@ class AppEn {
     AppStrings.percentage: "Percentage",
     AppStrings.price: "Price",
     AppStrings.requiredField: "Required Field",
+    AppStrings.uploadFile: "You must upload a file",
     AppStrings.hoistory: "History",
     AppStrings.getStarted: "Get Started",
     AppStrings.conintype: "Coin type",

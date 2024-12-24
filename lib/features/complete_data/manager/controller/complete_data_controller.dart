@@ -13,6 +13,7 @@ import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/complete_data/data/repo/complete_data_repo.dart';
+import 'package:horsely_app/main.dart';
 
 class CompleteDataController extends GetxController {
   RxList<File?> selectedFile = RxList<File?>();
@@ -81,7 +82,7 @@ class CompleteDataController extends GetxController {
     res.fold(
       (l) => ToastManager.showError(l.message),
       (r) {
-        print("object");
+        getRoute(r);
       },
     );
   }

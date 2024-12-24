@@ -25,9 +25,12 @@ class CompleteDataRepo {
         UserModel model = UserModel.fromJson(response.data);
         return Right(model);
       } else {
-        return Left(ResponseMessage(
+        return Left(
+          ResponseMessage(
             message: response.data['message'].toString(),
-            status: response.data['status']));
+            status: response.data['status'],
+          ),
+        );
       }
     } on PrimaryServerException catch (e) {
       return Left(ResponseMessage(message: e.message, status: false));
