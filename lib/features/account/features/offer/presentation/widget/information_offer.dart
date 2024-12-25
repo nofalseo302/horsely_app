@@ -79,7 +79,7 @@ class InformationOffer extends StatelessWidget {
             ),
             CustomButton(
                 onButtonPressed: () {
-                  Get.to(() => OfferDetails());
+                  Get.to(() => const OfferDetails());
                 },
                 buttonText: AppStrings.viewdetails.tr),
             // ignore: prefer_const_constructors

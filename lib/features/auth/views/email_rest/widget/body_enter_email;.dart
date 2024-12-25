@@ -24,7 +24,7 @@ class BodyEnterEmail extends GetView<ForgetPasswordController> {
             left: 0,
             right: 0,
             child: Form(
-              key: controller.formKey,
+              key: controller.formKey2,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Container(

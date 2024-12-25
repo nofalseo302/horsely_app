@@ -55,13 +55,13 @@ class IteamChatUser extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 4,
         ),
         Text(
           "2:43PM ",
-          style:
-              AppStyles.semibold14(context).copyWith(color: Color(0xff8A8A8A)),
+          style: AppStyles.semibold14(context)
+              .copyWith(color: const Color(0xff8A8A8A)),
         )
       ],
     );

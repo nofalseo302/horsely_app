@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:horsely_app/features/account/presentation/manager/controller/account_controler.dart';
 import 'package:horsely_app/features/account/features/account_setting.dart/presentation/manager/controler/languge_controler.dart';
 import 'package:horsely_app/features/home/presentation/manager/controler/buttom_sheet_controler.dart';
 import 'package:horsely_app/features/home/presentation/manager/controler/home_controler.dart';

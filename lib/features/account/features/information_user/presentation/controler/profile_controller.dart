@@ -3,6 +3,7 @@ import 'package:dio/dio.dart' as d;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/cache/cash_helper.dart';
+import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -60,16 +61,14 @@ class ProfileController extends GetxController {
       res.fold(
         (l) => ToastManager.showError(l.message),
         (r) {
-          if (!r.data!.emailVerifiedAt!) {
-            CashHelper.sharedPreferences?.clear();
-          } else {
-            // userModel = UserModel.fromJson(
-            //     json.decode(CashHelper.getData(CacheKeys.userModel)));
-            // name = userModel.data?.name;
-            // email = userModel.data?.email;
-            // image = userModel.data?.image;
-          }
+          // CashHelper.sharedPreferences?.clear();
 
+          // userModel = UserModel.fromJson(
+          //     json.decode(CashHelper.getData(CacheKeys.userModel)));
+          // name = userModel.data?.name;
+          // email = userModel.data?.email;
+          // image = userModel.data?.image;
+          UserService.to.setUser(r);
           ToastManager.showSuccess(r.message.toString(), true);
         },
       );

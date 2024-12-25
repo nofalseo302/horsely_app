@@ -58,7 +58,6 @@ class TeanactionScreen extends GetView<TransactionController> {
                 ),
               ),
             ),
-
             SizedBox(height: 8),
             Obx(
               () => TitleAndWidget(
@@ -118,7 +117,6 @@ class TeanactionScreen extends GetView<TransactionController> {
               maxLines: 5,
               textInputType: TextInputType.text,
             ),
-            
           ],
         ),
       ),

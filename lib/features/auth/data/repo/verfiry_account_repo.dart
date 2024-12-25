@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart' as d;
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/cache/user_service.dart';
-import 'package:horsely_app/features/auth/data/model/user_model.dart';
+import 'package:horsely_app/features/auth/data/model/user_model/user_model.dart';
 import '../../../../core/models/errors/error_message_model.dart';
 import '../../../../core/models/errors/exceptions.dart';
 import '../../../../core/services/network_service/api_service.dart';
@@ -18,7 +18,7 @@ class VerfiryAccountRepo {
   }
 
   final DioImpl _dioImpl = DioImpl();
-  Future<Either<ResponseMessage, String>> verfiryAccount({
+  Future<Either<ResponseMessage, UserModel>> verfiryAccount({
     required String code,
   }) async {
     try {
@@ -28,6 +28,9 @@ class VerfiryAccountRepo {
       );
 
       if (response.statusCode == 200) {
+        //
+        UserService.to.setUser(UserModel.fromJson(response.data));
+        return Right(UserModel.fromJson(response.data));
         UserService.to.setUser(UserModel.fromJson(response.data));
         return Right(response.data['message']);
       } else {

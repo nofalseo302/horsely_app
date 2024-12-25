@@ -28,8 +28,8 @@ class GraphInformation extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
           children: [
-            SizedBox(height: 250, child: LiveChart()),
-            SizedBox(
+            const SizedBox(height: 250, child: LiveChart()),
+            const SizedBox(
               height: 2,
             ),
             FittedBox(

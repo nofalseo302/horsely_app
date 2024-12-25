@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
-import 'package:horsely_app/features/complete_data/presentation/manager/controler/file_controler.dart';
+import 'package:horsely_app/features/complete_data/manager/controller/complete_data_controller.dart';
 
-class AddFile extends StatelessWidget {
+class AddFile extends GetView<CompleteDataController> {
   final bool showError;
   final void Function(File)? onFileSelected;
 
@@ -19,14 +19,10 @@ class AddFile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // استخدام Get.find بدلاً من Get.put
-    final FileController fileController = Get.put(FileController());
 
     return GestureDetector(
       onTap: () async {
-        await fileController.pickFile();
-        if (fileController.hasSelectedFile && onFileSelected != null) {
-          onFileSelected!(fileController.selectedFile.value!);
-        }
+        await controller.pickFile();
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 0.0),
@@ -35,7 +31,7 @@ class AddFile extends StatelessWidget {
           children: [
             DottedBorder(
               dashPattern: const [8, 4],
-              color: showError && !fileController.hasSelectedFile
+              color: showError && !controller.hasSelectedFile
                   ? Colors.red
                   : const Color(0xffD2D5DA),
               strokeWidth: 1,
@@ -79,7 +75,7 @@ class AddFile extends StatelessWidget {
                 ),
               ),
             ),
-            if (showError && !fileController.hasSelectedFile)
+            if (showError && !controller.hasSelectedFile)
               const Padding(
                 padding: EdgeInsets.only(top: 8.0),
                 child: Text(

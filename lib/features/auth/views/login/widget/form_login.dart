@@ -7,7 +7,6 @@ import 'package:horsely_app/core/utils/app_validation_functions.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
-import 'package:horsely_app/core/widget/email_text_filed.dart';
 import 'package:horsely_app/core/widget/password_text_filed.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
 
@@ -49,7 +48,7 @@ class FormLogin extends GetView<LoginController> {
               alignment: Alignment.topRight,
               child: GestureDetector(
                 onTap: () {
-                  Get.offNamed(Routes.forgetPassword);
+                  Get.toNamed(Routes.forgetPassword);
                 },
                 child: Text(
                   AppStrings.forgetpassword.tr,

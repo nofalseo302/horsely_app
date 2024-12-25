@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/custom_namber_text_filed.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
-import 'package:horsely_app/core/widget/phone_wiidget.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/drop_dawn.dart';
 

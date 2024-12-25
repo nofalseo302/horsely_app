@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CVVField extends StatelessWidget {
-  const CVVField({Key? key, this.onSaved}) : super(key: key);
+  const CVVField({super.key, this.onSaved});
 
   final void Function(String?)? onSaved;
 

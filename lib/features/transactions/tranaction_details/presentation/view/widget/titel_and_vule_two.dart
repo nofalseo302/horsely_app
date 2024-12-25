@@ -37,7 +37,7 @@ class TitelAndVuleTwo extends StatelessWidget {
           child: FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(
-              "$titel",
+              titel,
               style: AppStyles.semibold16(context)
                   .copyWith(color: const Color(0xff8A8A8A)),
             ),
@@ -57,7 +57,8 @@ class TitelAndVuleTwo extends StatelessWidget {
                 TextSpan(
                   text: secondValue, // القيمة الثانية
                   style: AppStyles.semibold12(context).copyWith(
-                    color: Color(0xff8A8A8A), // استخدام الدالة للحصول على اللون
+                    color: const Color(
+                        0xff8A8A8A), // استخدام الدالة للحصول على اللون
                   ),
                 ),
               ],

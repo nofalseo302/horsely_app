@@ -1,9 +1,14 @@
 import 'package:get/get.dart';
+import 'package:horsely_app/features/account/features/information_user/logic/binding/account_settings.dart';
 import 'package:horsely_app/features/account/features/myorder/logic/binding/my_order_binding.dart';
 import 'package:horsely_app/features/account/features/transaction/logic/binding/transaction_binding.dart';
+import 'package:horsely_app/features/account/features/verification_status/logic/binding/verification_status_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/login_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/register_binding.dart';
+import 'package:horsely_app/features/complete_data/manager/binding/complete_data_binding.dart';
 import 'package:horsely_app/features/notiofaction/logic/binding/notification_binding.dart';
+import 'package:horsely_app/features/settings/privacyAndPolicy/logic/binding/privacy_and_policy_binding.dart';
+import 'package:horsely_app/features/settings/privacyAndPolicy/view/privacyAndPolicy.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/features/account/features/account_setting.dart/presentation/view/account_seting.dart';
 import 'package:horsely_app/features/bay_details/presentation/view/buy_details_screen.dart';
@@ -101,8 +106,14 @@ class AppPages {
       transition: Transition.leftToRight,
     ),
     GetPage(
+      name: Routes.pindingreviewscreen,
+      page: () => const PendingReviewScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
       name: Routes.completedata,
       page: () => const CompletDataScreen(),
+      binding: CompleteDataBinding(),
       transition: Transition.leftToRight,
     ),
     GetPage(
@@ -183,6 +194,7 @@ class AppPages {
     GetPage(
       name: Routes.verificationstatus,
       page: () => const VerificationStatusScreen(),
+      binding: VerificationStatusBinding(),
       transition: Transition.leftToRight,
     ),
     GetPage(
@@ -199,6 +211,7 @@ class AppPages {
       name: Routes.informationscreen,
       page: () => const InformationUserScreen(),
       transition: Transition.leftToRight,
+      binding: AccountSettings(),
     ),
     GetPage(
       name: Routes.changelaunge,
@@ -218,6 +231,12 @@ class AppPages {
     GetPage(
       name: Routes.history,
       page: () => const HistoryScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: Routes.privacy,
+      page: () => const PrivacyPolicyScreen(),
+      binding: PrivacyAndPolicyBinding(),
       transition: Transition.leftToRight,
     ),
   ];

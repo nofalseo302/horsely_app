@@ -50,7 +50,7 @@ class HistorySection extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            TabelHistory(data: const [
+            const TabelHistory(data: [
               ["3:05 PM", "910.10", "+1.21%"],
               ["4:00 PM", "820.50", "+0.95%"],
               ["5:15 PM", "450.75", "-0.50%"],

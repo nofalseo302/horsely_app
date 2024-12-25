@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
+import 'package:horsely_app/features/auth/logic/controller/forget_password_controller.dart';
 import 'package:horsely_app/features/auth/views/verify_account/widget/otp_verifaction.dart';
 import 'package:horsely_app/features/auth/views/verify_account/widget/time_down_widget.dart';
 
@@ -49,17 +50,29 @@ class BodyVerifyAccount extends GetView<OtpController> {
                     ),
                     child: Column(
                       children: [
-                        FittedBox(child: OtpVerifaction(onSubmit: (s) {
+                        FittedBox(
+                            child: OtpVerifaction(onChange: (p0) {
+                          controller.isValid.value = p0.length == 6;
+                        }, onSubmit: (s) {
                           controller.codeController.text = s;
                         })),
                         const SizedBox(height: 30),
-                        CustomButton(
-                          onButtonPressed: () async {
-                            if (controller.formKey.currentState!.validate()) {
-                              await controller.verfiyAccount();
-                            }
-                          },
-                          buttonText: AppStrings.confrim.tr,
+                        Obx(
+                          () => CustomButton(
+                            enabled: controller.isValid.value,
+                            onButtonPressed: () async {
+                              if (controller.formKey.currentState!.validate()) {
+                                if (Get.arguments['isPasswordScreen']) {
+                                  Get.find<ForgetPasswordController>()
+                                      .forgetPasswordCheckOtp(
+                                          otp: controller.codeController.text);
+                                  return;
+                                }
+                                await controller.verfiyAccount();
+                              }
+                            },
+                            buttonText: AppStrings.confrim.tr,
+                          ),
                         ),
                         const SizedBox(height: 20),
                         Row(

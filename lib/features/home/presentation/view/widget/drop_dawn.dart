@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:horsely_app/core/controler/drop_dawn_controler.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 
 class CustomAnimatedDropdown extends StatelessWidget {
@@ -9,7 +7,11 @@ class CustomAnimatedDropdown extends StatelessWidget {
   final String? value;
   final Function(String?)? onChanged;
   const CustomAnimatedDropdown(
-      {required this.items, required this.titiel, this.value, this.onChanged});
+      {super.key,
+      required this.items,
+      required this.titiel,
+      this.value,
+      this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class CustomAnimatedDropdown extends StatelessWidget {
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
-          value: value == null ? null : value,
+          value: value,
           hint: Text(titiel),
           icon: Image.asset(AppImages.arrowDown),
           isExpanded: true,

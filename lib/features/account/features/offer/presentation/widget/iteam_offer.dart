@@ -63,7 +63,7 @@ class IteamOffer extends StatelessWidget {
                       .copyWith(color: const Color(0xff8A8A8A)),
                 ),
                 trailing: Badge(
-                  padding: EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
                   offset: const Offset(-2, -5),
                   label: Text(
                     "1",

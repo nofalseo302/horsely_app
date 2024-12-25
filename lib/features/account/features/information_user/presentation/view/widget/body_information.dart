@@ -5,17 +5,17 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
+import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
 import 'package:horsely_app/core/widget/email_text_filed.dart';
-import 'package:horsely_app/core/widget/phone_wiidget.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
 import 'package:horsely_app/features/account/features/information_user/presentation/controler/image_controller.dart';
 
-class BodyInformationUser extends StatelessWidget {
-  final ImageController imageController = Get.put(ImageController());
+class BodyInformationUser extends GetView<ImageController> {
+  // final ImageController imageController = Get.put(ImageController());
 
-  BodyInformationUser({super.key});
+  const BodyInformationUser({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,100 +25,120 @@ class BodyInformationUser extends StatelessWidget {
           child: ConstrainedBox(
             constraints: BoxConstraints(minHeight: constraints.maxHeight),
             child: IntrinsicHeight(
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.black.withOpacity(.25),
-                              blurRadius: 4,
-                              spreadRadius: -3)
-                        ]),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20.0, vertical: 20),
-                      child: Column(
-                        children: [
-                          Align(
-                            child: GestureDetector(
-                              onTap: () => _showImageSourceBottomSheet(context),
-                              child: Stack(children: [
-                                Obx(() {
-                                  return CircleAvatar(
-                                    backgroundColor: const Color(0xffEDEDED),
-                                    backgroundImage: imageController
-                                            .selectedImagePath.value.isNotEmpty
-                                        ? FileImage(File(imageController
-                                            .selectedImagePath.value))
-                                        : const AssetImage(AppImages.userphoto)
-                                            as ImageProvider,
-                                    radius: 50,
-                                  );
-                                }),
-                                Positioned(
-                                  top: 0,
-                                  left: 0,
-                                  right: 0,
-                                  bottom: 0,
-                                  child: Container(
-                                      child: Padding(
-                                    padding: const EdgeInsets.all(25.0),
+              child: Form(
+                key: controller.formKey,
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.black.withOpacity(.25),
+                                blurRadius: 4,
+                                spreadRadius: -3)
+                          ]),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20.0, vertical: 20),
+                        child: Column(
+                          children: [
+                            Align(
+                              child: GestureDetector(
+                                onTap: () =>
+                                    _showImageSourceBottomSheet(context),
+                                child: Stack(children: [
+                                  Obx(
+                                    () {
+                                      return ClipOval(
+                                        child: CustomImageHandler(
+                                          controller.selectedImagePath.value
+                                                  .contains('http')
+                                              ? controller
+                                                  .selectedImagePath.value
+                                              : File(controller
+                                                  .selectedImagePath.value),
+                                          width: 120,
+                                          height: 120,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                  Positioned(
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    bottom: 0,
                                     child: Container(
-                                        height: 40,
-                                        width: 40,
-                                        decoration: BoxDecoration(
-                                            color: Colors.black.withOpacity(.5),
-                                            borderRadius:
-                                                BorderRadius.circular(50)),
                                         child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: SvgPicture.asset(
-                                              AppImages.camera),
-                                        )),
-                                  )),
-                                ),
-                              ]),
+                                      padding: const EdgeInsets.all(25.0),
+                                      child: Container(
+                                          height: 40,
+                                          width: 40,
+                                          decoration: BoxDecoration(
+                                              color:
+                                                  Colors.black.withOpacity(.5),
+                                              borderRadius:
+                                                  BorderRadius.circular(50)),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: SvgPicture.asset(
+                                                AppImages.camera),
+                                          )),
+                                    )),
+                                  ),
+                                ]),
+                              ),
                             ),
-                          ),
-                          TitleAndWidget(
+                            TitleAndWidget(
                               title: AppStrings.name.tr,
-                              childWidget: const CustomTextFormField(
-                                  hintText: "",
-                                  textInputType: TextInputType.text)),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          TitleAndWidget(
+                              childWidget: CustomTextFormField(
+                                hintText: "",
+                                controller: controller.nameController,
+                                textInputType: TextInputType.text,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            TitleAndWidget(
                               title: AppStrings.email.tr,
-                              childWidget: const EmailTextFiled(
-                                  hintText: "",
-                                  textInputType: TextInputType.text)),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          // TitleAndWidget(
-                          //     title: AppStrings.phone.tr,
-                          //     childWidget: MobileTextfiled(
+                              childWidget: EmailTextFiled(
+                                hintText: "",
+                                controller: controller.emailController,
+                                textInputType: TextInputType.text,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            // TitleAndWidget(
+                            //     title: AppStrings.phone.tr,
+                            //     childWidget: MobileTextfiled(
 
-                          //       onSaved: (s) {},
-                          //     )),
-                        ],
+                            //       onSaved: (s) {},
+                            //     )),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: CustomButton(
-                        onButtonPressed: () {}, buttonText: "Save"),
-                  )
-                ],
+                    const Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: CustomButton(
+                        onButtonPressed: () {
+                          controller.editProfile();
+                        },
+                        buttonText: AppStrings.save.tr,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
@@ -142,7 +162,7 @@ class BodyInformationUser extends StatelessWidget {
               leading: const Icon(Icons.camera_alt),
               title: const Text("Camera"),
               onTap: () {
-                imageController.pickImageFromCamera();
+                controller.pickImageFromCamera();
                 Get.back(); // لإغلاق الـ BottomSheet
               },
             ),
@@ -150,7 +170,7 @@ class BodyInformationUser extends StatelessWidget {
               leading: const Icon(Icons.photo),
               title: const Text("Gallery"),
               onTap: () {
-                imageController.pickImageFromGallery();
+                controller.pickImageFromGallery();
                 Get.back(); // لإغلاق الـ BottomSheet
               },
             ),

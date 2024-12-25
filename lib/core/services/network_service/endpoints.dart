@@ -5,13 +5,15 @@ import 'package:dio/dio.dart' as d;
 
 class EndPoints {
   ////             Auth    /////////////
-  static const baseUrl = "https://evola.codeella.com/api";
+  static const baseUrl = "https://crepto.codeella.com/api";
   static const profile = "$baseUrl/profile";
   static const login = "/auth/login";
+  static const completeData = "/complete-data";
   static const register = "/auth/register";
+  static const deleteImage = "/delete-image";
   static const logout = "/auth/logout";
   static const verfiryAccount = "$baseUrl/auth/verify-account";
-  static const resendCode = "$baseUrl/auth/verify-email/re-send-code";
+  static const resendCode = "$baseUrl/auth/verify-account/re-send-code";
   static const checkCredential = '/forget-password/check-credential';
   static const forgetPasswordCheckOtp = '/forget-password/check-otp';
   static const forgetPasswordReset = '/forget-password/reset-password';

@@ -29,7 +29,7 @@ class FormSingUp extends GetView<RegisterController> {
                   AppValidationFunctions.nameValidationFunction(email),
               controller: controller.nameController,
               onSaved: (p1) {},
-              hintText: "",
+              hintText: AppStrings.name.tr,
               textInputType: TextInputType.name,
             ),
           ),
@@ -41,7 +41,7 @@ class FormSingUp extends GetView<RegisterController> {
                   AppValidationFunctions.emailValidationFunction(email),
               controller: controller.emailController,
               onSaved: (p0) {},
-              hintText: "",
+              hintText: AppStrings.email.tr,
               textInputType: TextInputType.emailAddress,
             ),
           ),
@@ -107,6 +107,7 @@ class FormSingUp extends GetView<RegisterController> {
                 AppStrings.alreadyhaveaccount.tr,
                 style: AppStyles.semibold14(context),
               ),
+              const SizedBox(width: 5),
               GestureDetector(
                 onTap: () {
                   Get.offNamed(Routes.login);
@@ -121,13 +122,18 @@ class FormSingUp extends GetView<RegisterController> {
           ),
           const SizedBox(height: 40),
           Center(
-            child: Text(
-              '''
-      By using the app and logging in, you agree to the Terms of Service and Privacy Policy.
-      ''',
-              textAlign: TextAlign.center,
-              style: AppStyles.semibold12(context)
-                  .copyWith(color: const Color(0xff8A8A8A)),
+            child: GestureDetector(
+              onTap: () {
+                Get.toNamed(Routes.privacy);
+              },
+              child: Text(
+                '''
+                  By using the app and logging in, you agree to the Terms of Service and Privacy Policy.
+                  ''',
+                textAlign: TextAlign.center,
+                style: AppStyles.semibold12(context)
+                    .copyWith(color: const Color(0xff8A8A8A)),
+              ),
             ),
           ),
         ],

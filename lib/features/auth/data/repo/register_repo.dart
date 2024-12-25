@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
+import 'package:horsely_app/features/auth/data/model/user_model/user_model.dart';
 
 import '../../../../core/models/errors/error_message_model.dart';
 import '../../../../core/models/errors/exceptions.dart';
@@ -10,7 +11,6 @@ import '../../../../core/services/cache/cash_keys.dart';
 import '../../../../core/services/network_service/api_service.dart';
 import '../../../../core/services/network_service/endpoints.dart';
 import '../../../../core/services/translation/app_string.dart';
-import '../model/user_model.dart';
 
 class RegisterRepo {
   static final RegisterRepo _instance = RegisterRepo._internal();
@@ -23,7 +23,6 @@ class RegisterRepo {
   Future<Either<ResponseMessage, UserModel>> register(
       {required String name,
       required String email,
-      required String date,
       required String phoneNumber,
       required String countryCode,
       required String password,
@@ -36,11 +35,13 @@ class RegisterRepo {
           'name': name,
           'mobile': phoneNumber,
           'mobile_country_code': countryCode,
-          'date_of_birth': date,
+
+          // 'date_of_birth': date,
           'email': email,
           'password': password,
           'password_confirmation': confirmpassword,
-          'fcm_token': "fdsfdf",
+
+          'fcm_token': fcmToken,
         },
       );
 

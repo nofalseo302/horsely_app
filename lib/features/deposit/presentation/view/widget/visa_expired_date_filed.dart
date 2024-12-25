@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart'; // حزمة لتنسيق التاريخ
 
 class VisaExpiryDateField extends StatefulWidget {
-  const VisaExpiryDateField({Key? key, this.onSaved}) : super(key: key);
+  const VisaExpiryDateField({super.key, this.onSaved});
 
   final void Function(String?)? onSaved;
 
@@ -11,7 +11,7 @@ class VisaExpiryDateField extends StatefulWidget {
 }
 
 class _VisaExpiryDateFieldState extends State<VisaExpiryDateField> {
-  TextEditingController _dateController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -45,7 +45,8 @@ class _VisaExpiryDateFieldState extends State<VisaExpiryDateField> {
           _selectDate(context), // عند الضغط على الحقل يتم عرض DatePicker
       decoration: InputDecoration(
         hintText: 'MM/YY', // تنسيق شهر/سنة
-        suffixIcon: Icon(Icons.calendar_today), // أيقونة لفتح الـ DatePicker
+        suffixIcon:
+            const Icon(Icons.calendar_today), // أيقونة لفتح الـ DatePicker
         filled: true,
         fillColor: const Color(0xFFFFFFFF),
         border: buildBorder(),

@@ -11,17 +11,23 @@ class AppStrings {
   static const subtitelpageview1 = "subtitelpageview1";
   static const skipe = "skipbutton";
   static const create = "create";
+  static const approved = "approved";
+
+  static const uploadOnly5Images = "uploadOnly5Images";
   static const String areYouSureToLogOut = 'Are you sure to log out?';
   static const String areYouSureWantToDeleteAccount =
       'do you  want to delete this account?';
 
   static const portfoolio = "portfolio";
+  static const requiredField = "requiredField";
   static const differtassets = "differtassets";
   static const subtitelpageview2 = "subtitelpageview2";
   static const pleaseEnterPhoneNamber = "pleasEnterPhoneNamber";
   static const welcome = "welcome";
+  static const uploadFile = "uploadFile";
   static const trackpitcons = "trackpitcons";
   static const login = "login";
+  static const privacyPolicy = "privacyPolicy";
   static const singup = "singup";
   static const description = "description";
   static const email = "email";
@@ -117,6 +123,7 @@ class AppStrings {
   static const sendcodemeasagge = "sendcodemeasagge";
   static const pending = "pending";
   static const messagepinding = "messagep";
+  static const approvedMessage = "approvedMessage";
   static const viewdoumention = "viewdoumention";
   static const pushnotifaction = "pushnotifaction";
   static const pricealerts = "pricealerts";

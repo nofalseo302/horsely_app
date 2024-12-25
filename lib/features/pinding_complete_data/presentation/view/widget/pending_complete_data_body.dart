@@ -18,7 +18,7 @@ class BendingCompletDataBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height * .3,
+          height: MediaQuery.of(context).size.height * .25,
         ),
         Align(
             alignment: Alignment.center,
@@ -35,10 +35,11 @@ class BendingCompletDataBody extends StatelessWidget {
           height: 16,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 40.0),
           child: Text(
             AppStrings.messagepinding.tr,
             style: AppStyles.semibold14(context),
+            textAlign: TextAlign.center,
           ),
         ),
         const SizedBox(
@@ -48,7 +49,7 @@ class BendingCompletDataBody extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: CustomButton(
               onButtonPressed: () {
-                Get.toNamed(Routes.completedata);
+                Get.offAllNamed(Routes.completedata);
               },
               buttonText: AppStrings.completMydoumention.tr),
         ),
@@ -58,7 +59,9 @@ class BendingCompletDataBody extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: CustomButton(
-            onButtonPressed: () {},
+            onButtonPressed: () {
+              Get.offAllNamed(Routes.home);
+            },
             buttonText: AppStrings.startnow.tr,
             borderColor: Colors.transparent,
             backgroundColor: AppColors.backgray,

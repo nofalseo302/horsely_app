@@ -12,7 +12,7 @@ class HistoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(titel: AppStrings.history.tr, context: context),
-      body: BodyHistory(),
+      body: const BodyHistory(),
     );
   }
 }
