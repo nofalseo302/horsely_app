@@ -14,44 +14,46 @@ class TransferbuttomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * .35,
+      height: MediaQuery.of(context).size.height * .4,
       decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(35), topRight: Radius.circular(35))),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 30,
-            ),
-            const HeaderButtomSheet(
-              titel: AppStrings.selectyouroption,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            ItamButtomSheet(
-              onPressed: () {
-                // Close the first bottom sheet
-                Get.back();
-                // Open the confirmation bottom sheet
-                Future.delayed(const Duration(milliseconds: 300), () {
-                  Get.bottomSheet(const ConfroationButtomSheet());
-                });
-              },
-              image: AppImages.bankaccount,
-              titel: AppStrings.bankaccount.tr,
-            ),
-            const SizedBox(
-              height: 12,
-            ),
-            ItamButtomSheet(
-              image: AppImages.banktransfer,
-              titel: AppStrings.banktransfer.tr,
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 30,
+              ),
+              const HeaderButtomSheet(
+                titel: AppStrings.selectyouroption,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              ItamButtomSheet(
+                onPressed: () {
+                  // Close the first bottom sheet
+                  Get.back();
+                  // Open the confirmation bottom sheet
+                  Future.delayed(const Duration(milliseconds: 300), () {
+                    Get.bottomSheet(const ConfroationButtomSheet());
+                  });
+                },
+                image: AppImages.bankaccount,
+                titel: AppStrings.bankaccount.tr,
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              ItamButtomSheet(
+                image: AppImages.banktransfer,
+                titel: AppStrings.banktransfer.tr,
+              ),
+            ],
+          ),
         ),
       ),
     );

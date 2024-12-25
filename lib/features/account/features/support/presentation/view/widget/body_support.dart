@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:horsely_app/core/function/url_lancher_function.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/routes/routes.dart';
@@ -20,7 +21,9 @@ class BodySupport extends StatelessWidget {
           accountEntity: SupportEntity(
               titel: AppStrings.email.tr,
               image: AppImages.email,
-              onPressed: () {},
+              onPressed: () {
+                launchEmail("nofalseo302@gmail.com");
+              },
               subtitel: 'Horsley.me@Gmail.com'),
         ),
         const SizedBox(
@@ -30,7 +33,9 @@ class BodySupport extends StatelessWidget {
           accountEntity: SupportEntity(
               titel: AppStrings.phone.tr,
               image: AppImages.call,
-              onPressed: () {},
+              onPressed: () {
+                launchPhone("010222522");
+              },
               subtitel: "+ 19810039840"),
         ),
         const SizedBox(

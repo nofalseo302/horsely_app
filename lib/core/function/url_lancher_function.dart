@@ -1,6 +1,6 @@
 import 'package:url_launcher/url_launcher.dart';
 
-Future<void> _launchEmail(String email) async {
+Future<void> launchEmail(String email) async {
   final Uri emailUri = Uri(
     scheme: 'mailto',
     path: email,
@@ -13,7 +13,7 @@ Future<void> _launchEmail(String email) async {
 }
 
 // Function to launch the phone dialer
-Future<void> _launchPhone(String phoneNumber) async {
+Future<void> launchPhone(String phoneNumber) async {
   final Uri phoneUri = Uri(
     scheme: 'tel',
     path: phoneNumber,
