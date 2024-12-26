@@ -30,7 +30,7 @@ void main() async {
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {
     runApp(
       DevicePreview(
-          enabled: false,
+          enabled: true,
           builder: (context) => HorseleyApp(userModel: userModel)),
     );
   });
