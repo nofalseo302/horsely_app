@@ -8,7 +8,7 @@ class AppAr {
     AppStrings.buytheTopCryptocurrenciesontheMarket:
         "شراء العملات الرئيسية من السوق",
     AppStrings.buyBestCryptoAnd: "اشترِ الأفضل",
-    AppStrings.enterThePasswordToDelete: "ادخل كلمة المرور لحذف الحساب",
+    AppStrings.enterThePasswordToDelete: AppStrings.enterThePasswordToDelete,
     AppStrings.inmarket: "في السوق",
     AppStrings.areYouSureToLogOut: 'هل تريد تسجيل الخروج؟',
     AppStrings.subtitelpageview1:

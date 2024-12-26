@@ -4,7 +4,7 @@ class AppEn {
   static Map<String, String> translation = {
     AppStrings.skipe: "Skip",
     AppStrings.no: AppStrings.no,
-    AppStrings.enterThePasswordToDelete: 'أدخل كلمة السر لحذف الحساب',
+    AppStrings.enterThePasswordToDelete: 'Enter the password to delete',
     AppStrings.nextButton: "Next",
     AppStrings.buytheTopCryptocurrenciesontheMarket:
         "Buy the top cryptocurrencies in the market",

@@ -29,15 +29,14 @@ class TimeDown extends GetView<OtpController> {
                   ),
                 )
               : Countdown(
-                  seconds: 20, // المدة الزمنية للعد التنازلي
+                  seconds: 60, // المدة الزمنية للعد التنازلي
                   build: (BuildContext context, double time) => Text(
                     time.toStringAsFixed(0), // لتجنب الأرقام العشرية
                     style: AppStyles.semibold16(context)
                         .copyWith(color: AppColors.primaryColor),
                   ),
-                  interval: const Duration(seconds: 1), // تحديث العداد كل ثانية
+                  interval: const Duration(seconds: 1),
                   onFinished: () {
-                    // تحديث الحالة عند انتهاء العد التنازلي
                     controller.finshed.value = true;
                   },
                 );
