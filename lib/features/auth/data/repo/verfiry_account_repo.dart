@@ -31,6 +31,8 @@ class VerfiryAccountRepo {
         //
         UserService.to.setUser(UserModel.fromJson(response.data));
         return Right(UserModel.fromJson(response.data));
+        UserService.to.setUser(UserModel.fromJson(response.data));
+        return Right(response.data['message']);
       } else {
         return Left(ResponseMessage(
             message: response.data['message'].toString(),
