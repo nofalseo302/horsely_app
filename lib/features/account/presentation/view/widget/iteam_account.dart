@@ -23,14 +23,21 @@ class IteamAccount extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(bottom: 4.0, top: 8),
         child: Container(
-          decoration: BoxDecoration(color: Colors.white, boxShadow: [
-            BoxShadow(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(8),
+            boxShadow: [
+              BoxShadow(
                 color: Colors.black.withOpacity(.25),
                 blurRadius: 4,
-                spreadRadius: -1)
-          ]),
+                spreadRadius: -3,
+                offset: Offset(0, 0),
+              ),
+            ],
+          ),
           child: ListTile(
             contentPadding: EdgeInsets.zero,
+            
             leading: Padding(
               padding: const EdgeInsetsDirectional.only(start: 20.0),
               child: CircleAvatar(
