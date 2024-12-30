@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
+import 'package:horsely_app/core/utils/app_validation_functions.dart';
 import 'package:horsely_app/core/widget/custom_namber_text_filed.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
@@ -40,8 +41,10 @@ class BodyDeposit extends StatelessWidget {
                 const SizedBox(height: 16),
                 TitleAndWidget(
                   title: AppStrings.cardnumber.tr,
-                  childWidget: const CustomNumericTextFormField(
+                  childWidget: CustomNumericTextFormField(
                     hintText: "",
+                    validator: (p0) =>
+                        AppValidationFunctions.cardNumberValidationFunction(p0),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -57,7 +60,10 @@ class BodyDeposit extends StatelessWidget {
                     Expanded(
                       child: TitleAndWidget(
                         title: AppStrings.cvv.tr,
-                        childWidget: const CVVField(),
+                        childWidget: CVVField(
+                          validator: (p0) =>
+                              AppValidationFunctions.cvvValidationFunction(p0),
+                        ),
                       ),
                     ),
                   ],

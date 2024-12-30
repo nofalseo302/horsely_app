@@ -10,25 +10,22 @@ class CustomNumericTextFormField extends StatelessWidget {
     this.onSaved,
     this.obscureText = false,
     this.controller,
+    this.validator,
   });
   final TextEditingController? controller;
   final String hintText;
   final Widget? suffixIcon;
   final void Function(String?)? onSaved;
   final bool obscureText;
-
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
       obscureText: obscureText,
       onChanged: onSaved,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'هذا الحقل مطلوب';
-        }
-        return null;
-      },
+      validator: validator,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
 
       keyboardType: TextInputType.number, // نوع لوحة المفاتيح للأرقام
       inputFormatters: [

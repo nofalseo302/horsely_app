@@ -2,6 +2,114 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class AppValidationFunctions {
+  static String? ibanValidationFunction(String? iban) {
+    if (iban == null || iban.isEmpty) {
+      return Get.locale!.languageCode == 'ar'
+          ? 'رقم IBAN لا يمكن أن يكون فارغًا!'
+          : "IBAN can't be empty!";
+    }
+
+    // Remove spaces and make it uppercase
+    iban = iban.replaceAll(RegExp(r'\s+'), '').toUpperCase();
+
+    // Regular expression to check if the IBAN contains only letters and digits
+    final RegExp ibanRegExp = RegExp(r'^[A-Z0-9]{15,34}$');
+
+    if (!ibanRegExp.hasMatch(iban)) {
+      return Get.locale!.languageCode == 'ar'
+          ? 'الرجاء إدخال رقم IBAN صحيح (يجب أن يحتوي على 15-34 حرفًا ورقمًا)'
+          : 'Please enter a valid IBAN number (15 to 34 alphanumeric characters)';
+    }
+
+    // Move the first four characters to the end of the string
+    String rearrangedIban = iban.substring(4) + iban.substring(0, 4);
+
+    // Replace letters with digits (A=10, B=11, ..., Z=35)
+    rearrangedIban = rearrangedIban.replaceAllMapped(RegExp(r'[A-Z]'), (match) {
+      return (match.group(0)!.codeUnitAt(0) - 55).toString();
+    });
+
+    // Check if the number is divisible by 97
+    if (BigInt.parse(rearrangedIban) % BigInt.from(97) != BigInt.zero) {
+      return Get.locale!.languageCode == 'ar'
+          ? 'رقم IBAN غير صالح!'
+          : 'IBAN is not valid!';
+    }
+
+    return null;
+  }
+
+  static String? cardNumberValidationFunction(String? cardNumber) {
+    if (cardNumber == null || cardNumber.isEmpty) {
+      return Get.locale!.languageCode == 'ar'
+          ? 'رقم البطاقة لا يمكن أن يكون فارغًا!'
+          : "Card number can't be empty!";
+    }
+
+    // Remove any spaces and non-digit characters
+    cardNumber = cardNumber.replaceAll(RegExp(r'\D'), '');
+
+    // Regular expression to check if the card number contains only digits and has between 13 and 19 digits
+    final RegExp cardNumberRegExp = RegExp(r'^\d{13,19}$');
+
+    if (!cardNumberRegExp.hasMatch(cardNumber)) {
+      return Get.locale!.languageCode == 'ar'
+          ? 'الرجاء إدخال رقم بطاقة صحيح (من 13 إلى 19 رقم)'
+          : 'Please enter a valid card number (13 to 19 digits)';
+    }
+
+    // Apply Luhn Algorithm to validate the card number
+    if (!luhnCheck(cardNumber)) {
+      return Get.locale!.languageCode == 'ar'
+          ? 'رقم البطاقة غير صالح!'
+          : 'Card number is not valid!';
+    }
+
+    return null;
+  }
+
+// Luhn Algorithm to check if the card number is valid
+  static bool luhnCheck(String cardNumber) {
+    int sum = 0;
+    bool shouldDouble = false;
+
+    // Loop through the digits in reverse order
+    for (int i = cardNumber.length - 1; i >= 0; i--) {
+      int digit = int.parse(cardNumber[i]);
+
+      if (shouldDouble) {
+        digit *= 2;
+        if (digit > 9) {
+          digit -= 9;
+        }
+      }
+
+      sum += digit;
+      shouldDouble = !shouldDouble;
+    }
+
+    return sum % 10 == 0;
+  }
+
+  static String? cvvValidationFunction(String? cvv) {
+    if (cvv == null || cvv.isEmpty) {
+      return Get.locale!.languageCode == 'ar'
+          ? 'رمز CVV لا يمكن أن يكون فارغًا!'
+          : "CVV can't be empty!";
+    }
+
+    // Regular expression to match 3 or 4 digits
+    final RegExp cvvRegExp = RegExp(r'^\d{3,4}$');
+
+    if (!cvvRegExp.hasMatch(cvv)) {
+      return Get.locale!.languageCode == 'ar'
+          ? 'الرجاء إدخال رمز CVV صحيح (3 أو 4 أرقام)'
+          : 'Please enter a valid CVV (3 or 4 digits)';
+    }
+
+    return null;
+  }
+
   //Validation Functions for validating user input
   static String? emailValidationFunction(String? email) {
     if (email!.isEmpty) {
