@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -8,6 +9,7 @@ class CustomTextFormField extends StatelessWidget {
       required this.textInputType,
       this.suffixIcon,
       this.onSaved,
+      this.inputFormatters,
       this.controller,
       this.title,
       this.spacing,
@@ -24,6 +26,7 @@ class CustomTextFormField extends StatelessWidget {
   final bool obscureText;
   final int maxLines;
   final TextEditingController? controller;
+  final List<TextInputFormatter>? inputFormatters;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -41,6 +44,7 @@ class CustomTextFormField extends StatelessWidget {
                   ),
                 ),
           TextFormField(
+            inputFormatters: inputFormatters ?? [],
             obscuringCharacter: "*",
             controller: controller,
             obscureText: obscureText,

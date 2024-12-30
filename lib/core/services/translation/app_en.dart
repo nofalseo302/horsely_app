@@ -42,6 +42,10 @@ class AppEn {
     AppStrings.name: "Name",
     AppStrings.continuee: "Continue",
     AppStrings.accountrecvied: "Account recovery",
+    AppStrings.enternewpincode: "Enter new pin code",
+    AppStrings.wrongPinCode: "Wrong pin code",
+    AppStrings.createpincode: "Create pin code",
+    AppStrings.creatPinCodeSucess: "Pin code created successfully",
     AppStrings.accountrecviedinstraction:
         "Please enter your email so we can\nsend you the code.",
     AppStrings.enteremail: "Please enter your email",

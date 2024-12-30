@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_validation_functions.dart';
@@ -88,12 +89,15 @@ class BodyCompletData extends GetView<CompleteDataController> {
                       TitleAndWidget(
                         title: AppStrings.taxnamber.tr,
                         childWidget: CustomTextFormField(
+                          inputFormatters: [
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
                           hintText: AppStrings.taxnamber.tr,
                           controller: controller.taxNumber,
                           textInputType: TextInputType.multiline,
                           validator: (p0) {
                             return AppValidationFunctions
-                                .stringValidationFunction(
+                                .numberValidationFunction(
                                     p0, AppStrings.taxnamber.tr);
                           },
                         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:horsely_app/core/function/url_lancher_function.dart';
+import 'package:horsely_app/core/function/app_function.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/routes/routes.dart';
@@ -22,7 +22,7 @@ class BodySupport extends StatelessWidget {
               titel: AppStrings.email.tr,
               image: AppImages.email,
               onPressed: () {
-                launchEmail("nofalseo302@gmail.com");
+                AppFunctions.launchEmail("nofalseo302@gmail.com");
               },
               subtitel: 'Horsley.me@Gmail.com'),
         ),
@@ -34,7 +34,7 @@ class BodySupport extends StatelessWidget {
               titel: AppStrings.phone.tr,
               image: AppImages.call,
               onPressed: () {
-                launchPhone("010222522");
+                AppFunctions.launchPhone("010222522");
               },
               subtitel: "+ 19810039840"),
         ),

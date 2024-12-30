@@ -12,7 +12,7 @@ class DeleteAccountBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: Get.width,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20),
@@ -41,14 +41,9 @@ class DeleteAccountBottomSheet extends StatelessWidget {
               Expanded(
                 child: GestureDetector(
                   onTap: () => Get.back(),
-                  child: Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: const BoxDecoration(
-                      color: Color(0xffE9EFF5),
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(Icons.close),
-                  ),
+                  child: const CircleAvatar(
+                      backgroundColor: Color(0xffE9EFF5),
+                      child: Center(child: Icon(Icons.close))),
                 ),
               ),
             ],

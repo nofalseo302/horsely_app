@@ -19,31 +19,33 @@ class FormRestPassword extends GetView<ForgetPasswordController> {
       child: Column(
         children: [
           TitleAndWidget(
-            title: AppStrings.newspassword.tr,
-            childWidget: PasswordField(
-              controller: controller.passwordController,
-              validator: (email) =>
-                  AppValidationFunctions.passwordValidationFunction(email),
-            ),
-          ),
+              title: AppStrings.newspassword.tr,
+              childWidget: PasswordField(
+                validator: (p0) =>
+                    AppValidationFunctions.passwordValidationFunction(p0),
+                controller: controller.passwordController,
+              )),
           const SizedBox(
             height: 16,
           ),
           TitleAndWidget(
-            title: AppStrings.comfrimnewpassword.tr,
-            childWidget: PasswordField(
-              controller: controller.confirmPasswordController,
-              validator: (p0) {
-                if (p0!.isEmpty) {
-                  return Get.locale!.languageCode == 'ar'
-                      ? 'كلمة المرور لا يمكن ان تكون فارغة !'
-                      : "Password can't be empty";
-                } else if (p0 != controller.passwordController.text) {
-                  return AppStrings.passwordDoesNotMatch.tr;
-                }
-              },
-            ),
-          ),
+              title: AppStrings.comfrimnewpassword.tr,
+              childWidget: PasswordField(
+                validator: (p0) {
+                  if (p0!.isEmpty) {
+                    return Get.locale!.languageCode == 'ar'
+                        ? 'كلمة المرور لا يمكن ان تكون فارغة !'
+                        : "Password can't be empty";
+                  } else if (controller.passwordController.text !=
+                      controller.confirmPasswordController.text) {
+                    return Get.locale!.languageCode == 'ar'
+                        ? 'كلمة المرور غير متطابقة'
+                        : "Password doesn't match";
+                  }
+                  return null;
+                },
+                controller: controller.confirmPasswordController,
+              )),
           const SizedBox(height: 30),
           CustomButton(
             onButtonPressed: () async {
