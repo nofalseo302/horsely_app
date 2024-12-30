@@ -91,12 +91,12 @@ class AppValidationFunctions {
           : "$fieldName can't be empty!";
     }
 
-    // Regular expression for a valid name (letters only)
-    final RegExp nameRegExp = RegExp(r'^[a-zA-Z ]{3,50}$');
+    // Regular expression for a valid name (letters in Arabic or English, spaces allowed)
+    final RegExp nameRegExp = RegExp(r'^[a-zA-Z\u0600-\u06FF ]{3,50}$');
 
     if (!nameRegExp.hasMatch(fullName)) {
       return Get.locale!.languageCode == 'ar'
-          ? 'الرجاء إدخال $fieldName صحيح (3-30 أحرف)'
+          ? 'الرجاء إدخال $fieldName صحيح (3-50 أحرف)'
           : 'Please enter a valid $fieldName (3-50 characters)';
     }
 
