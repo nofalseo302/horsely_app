@@ -11,5 +11,5 @@ class CacheKeys {
   static const String typeAds = "typeAds";
   static const String countryName = "countryName";
   static const String countryImage = "countryImage";
-  static const String pincode = "pincode";
+  static const String pinCode = "pincode";
 }

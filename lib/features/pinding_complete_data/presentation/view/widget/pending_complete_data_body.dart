@@ -49,9 +49,7 @@ class BendingCompletDataBody extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: CustomButton(
               onButtonPressed: () {
-                Get.offAllNamed(Routes.completedata, arguments: {
-                  'isEdit': false,
-                });
+                Get.toNamed(Routes.completedata);
               },
               buttonText: AppStrings.completMydoumention.tr),
         ),

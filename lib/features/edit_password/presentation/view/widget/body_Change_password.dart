@@ -22,6 +22,7 @@ class BodyChangePassword extends GetView<EditPasswordController> {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 9),
         child: Form(
+          key: controller.formKey,
           child: Column(
             children: [
               TitleAndWidget(

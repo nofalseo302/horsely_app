@@ -8,7 +8,7 @@ class AppAr {
     AppStrings.buytheTopCryptocurrenciesontheMarket:
         "شراء العملات الرئيسية من السوق",
     AppStrings.buyBestCryptoAnd: "اشترِ الأفضل",
-    AppStrings.enterThePasswordToDelete: "ادخل كلمة المرور لحذف الحساب",
+    AppStrings.enterThePasswordToDelete: AppStrings.enterThePasswordToDelete,
     AppStrings.inmarket: "في السوق",
     AppStrings.areYouSureToLogOut: 'هل تريد تسجيل الخروج؟',
     AppStrings.subtitelpageview1:
@@ -134,7 +134,8 @@ class AppAr {
     AppStrings.jobtype: "نوع الوظيفة",
     AppStrings.companyname: "اسم الشركة",
     AppStrings.workaddress: "عنوان العمل",
-    AppStrings.enternewpincode: "أدخل رمز PIN الجديد",
+    AppStrings.enternewpincode: "رمز PIN",
+    AppStrings.pincodeNew: "ادخل رمز PIN جديد",
     AppStrings.taxnamber: "رقم الضريبة",
     AppStrings.transactiondetails: "تفاصيل المعاملات",
     AppStrings.createpincode: "إنشاء رقم PIN ",

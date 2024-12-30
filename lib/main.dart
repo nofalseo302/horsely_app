@@ -1,4 +1,5 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -31,8 +32,9 @@ void main() async {
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {
     runApp(
       DevicePreview(
-          enabled: true,
-          builder: (context) => HorseleyApp(userModel: userModel)),
+        enabled: kDebugMode,
+        builder: (context) => HorseleyApp(userModel: userModel),
+      ),
     );
   });
 }
@@ -77,7 +79,7 @@ class HorseleyApp extends StatelessWidget {
 
 String getRoute(UserModel? userModel) {
   if (userModel == null) {
-    return Routes.login;
+    return Routes.onBoarding;
   } else if (userModel.data?.isActiveAccount == false) {
     return Routes.verifyAccount;
   } else if (userModel.data?.isComplete == false) {

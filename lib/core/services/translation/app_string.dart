@@ -109,6 +109,7 @@ class AppStrings {
   static const notifactionseting = "notifactionseting";
   static const verificationstatus = "verificationstatus";
   static const pincode = "pincode";
+  static const pincodeNew = "pincodeNew";
   static const support = "support";
   static const logout = "logout";
   static const deleteaccount = "deleteaccount";

@@ -50,12 +50,13 @@ class DeleteAccountBottomSheet extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           CustomButton(
-            buttonText: AppStrings.confrim.tr,
-            backgroundColor: AppColors.redColor,
-            onButtonPressed: () {},
-            // onButtonPressed: () =>
-            //     Get.bottomSheet( ConfirmPasswordBottomSheet()),
-          ),
+              buttonText: AppStrings.confrim.tr,
+              backgroundColor: AppColors.redColor,
+              onButtonPressed: () {
+                Get.bottomSheet(const ConfirmPasswordBottomSheet());
+              }
+              // ,
+              ),
           const SizedBox(height: 8),
           CustomButton(
             buttonText: AppStrings.no.tr,

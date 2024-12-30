@@ -121,6 +121,19 @@ class AppValidationFunctions {
 
     return null;
   }
+
+  static String? validateFourDigitNumber(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter a value';
+    }
+
+    final isValid = RegExp(r'^\d{4}$').hasMatch(value);
+    if (!isValid) {
+      return 'Enter a valid 4-digit number';
+    }
+
+    return null; // Return null if the input is valid
+  }
 }
 
 class NoSpaceInputFormatter extends TextInputFormatter {

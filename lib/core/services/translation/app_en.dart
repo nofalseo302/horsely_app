@@ -4,7 +4,7 @@ class AppEn {
   static Map<String, String> translation = {
     AppStrings.skipe: "Skip",
     AppStrings.no: AppStrings.no,
-    AppStrings.enterThePasswordToDelete: 'أدخل كلمة السر لحذف الحساب',
+    AppStrings.enterThePasswordToDelete: 'Enter the password to delete',
     AppStrings.nextButton: "Next",
     AppStrings.buytheTopCryptocurrenciesontheMarket:
         "Buy the top cryptocurrencies in the market",
@@ -42,7 +42,8 @@ class AppEn {
     AppStrings.name: "Name",
     AppStrings.continuee: "Continue",
     AppStrings.accountrecvied: "Account recovery",
-    AppStrings.enternewpincode: "Enter new pin code",
+    AppStrings.enternewpincode: "PIN Code",
+    AppStrings.pincodeNew: "Enter New PIN ",
     AppStrings.wrongPinCode: "Wrong pin code",
     AppStrings.createpincode: "Create pin code",
     AppStrings.creatPinCodeSucess: "Pin code created successfully",
