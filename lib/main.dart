@@ -76,7 +76,7 @@ class HorseleyApp extends StatelessWidget {
 
 String getRoute(UserModel? userModel) {
   if (userModel == null) {
-    return Routes.login;
+    return Routes.onBoarding;
   } else if (userModel.data?.isActiveAccount == false) {
     return Routes.verifyAccount;
   } else if (userModel.data?.isComplete == false) {
