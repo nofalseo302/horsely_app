@@ -17,9 +17,11 @@ class PinCode extends GetView<PinCodeController> {
     return Scaffold(
       backgroundColor: AppColors.backGroundScaffold,
       appBar: buildAppBar(titel: AppStrings.pincode.tr, context: context),
-      body: Obx(() => controller.isFirstTime.value.isEmpty
-          ? const CreatPinCode()
-          : const PincodeBody()),
+      body: Obx(
+        () => controller.isFirstTime.value.isEmpty
+            ? const CreatPinCode()
+            : const PincodeBody(),
+      ),
     );
   }
 }

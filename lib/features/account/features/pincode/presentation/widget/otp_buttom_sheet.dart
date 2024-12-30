@@ -4,8 +4,8 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
+import 'package:horsely_app/features/account/features/pincode/presentation/widget/change_pin_code_bottom_sheet.dart';
 import 'package:horsely_app/features/account/features/pincode/presentation/widget/opt.dart';
-import 'package:horsely_app/features/account/features/pincode/presentation/widget/pin_code_buttom_sheet.dart';
 
 class OtpButtomSheet extends StatelessWidget {
   const OtpButtomSheet({
@@ -51,7 +51,7 @@ class OtpButtomSheet extends StatelessWidget {
               CustomButton(
                 onButtonPressed: () {
                   Get.back();
-                  Get.bottomSheet(const PinCodeButtomSheet());
+                  Get.bottomSheet(const ChangePinCodeBottomSheet());
                 },
                 buttonText: AppStrings.continuee.tr,
                 backgroundColor: AppColors.redColor,
