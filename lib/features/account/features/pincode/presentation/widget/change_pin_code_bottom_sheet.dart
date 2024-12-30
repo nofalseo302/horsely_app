@@ -4,11 +4,13 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
+import 'package:horsely_app/core/widget/custom_namber_text_filed.dart';
 import 'package:horsely_app/core/widget/password_text_filed.dart';
 import 'package:horsely_app/features/account/features/pincode/logic/controler/pin_code_controler.dart';
+import 'package:horsely_app/features/account/features/pincode/presentation/widget/otp_buttom_sheet.dart';
 
-class MyButtomSheet extends GetView<PinCodeControler> {
-  const MyButtomSheet({
+class ChangePinCodeBottomSheet extends GetView<PinCodeControler> {
+  const ChangePinCodeBottomSheet({
     super.key,
   });
 
@@ -30,14 +32,16 @@ class MyButtomSheet extends GetView<PinCodeControler> {
                 height: 42,
               ),
               Text(
-                AppStrings.enternewpincode.tr,
+                AppStrings.pincode.tr,
                 style:
                     AppStyles.semibold32(context).copyWith(color: Colors.black),
               ),
               const SizedBox(
                 height: 24,
               ),
-              const PasswordField(),
+              PasswordField(
+                controller: controller.pinCode,
+              ),
               const SizedBox(
                 height: 40,
               ),

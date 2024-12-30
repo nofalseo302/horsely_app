@@ -102,6 +102,25 @@ class AppValidationFunctions {
 
     return null;
   }
+
+  static String? numberValidationFunction(String? input, String fieldName) {
+    if (input == null || input.isEmpty) {
+      return Get.locale!.languageCode == 'ar'
+          ? '$fieldName لا يمكن أن يكون فارغًا!'
+          : "$fieldName can't be empty!";
+    }
+
+    // Regular expression to check for numbers only (1-50 digits)
+    final RegExp numberRegExp = RegExp(r'^\d{1,50}$');
+
+    if (!numberRegExp.hasMatch(input)) {
+      return Get.locale!.languageCode == 'ar'
+          ? 'الرجاء إدخال $fieldName صحيح (رقم يتكون من 1 إلى 50 خانة بدون نصوص)'
+          : 'Please enter a valid $fieldName (a number with 1-50 digits, no text allowed)';
+    }
+
+    return null;
+  }
 }
 
 class NoSpaceInputFormatter extends TextInputFormatter {

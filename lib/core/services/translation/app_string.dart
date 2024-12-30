@@ -12,6 +12,8 @@ class AppStrings {
   static const skipe = "skipbutton";
   static const create = "create";
   static const approved = "approved";
+  static const enternewpincode = "enternewpincode";
+  static const creatPinCodeSucess = "creatPinCodeSuccess";
 
   static const uploadOnly5Images = "uploadOnly5Images";
   static const String areYouSureToLogOut = 'Are you sure to log out?';
@@ -19,6 +21,8 @@ class AppStrings {
       'do you  want to delete this account?';
 
   static const portfoolio = "portfolio";
+  static const String wrongPinCode = "wrongPinCode";
+  static const createpincode = "createpincode";
   static const requiredField = "requiredField";
   static const differtassets = "differtassets";
   static const subtitelpageview2 = "subtitelpageview2";

@@ -9,8 +9,9 @@ class CustomNumericTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.onSaved,
     this.obscureText = false,
+    this.controller,
   });
-
+  final TextEditingController? controller;
   final String hintText;
   final Widget? suffixIcon;
   final void Function(String?)? onSaved;
@@ -19,6 +20,7 @@ class CustomNumericTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       obscureText: obscureText,
       onChanged: onSaved,
       validator: (value) {
