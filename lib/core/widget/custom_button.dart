@@ -35,7 +35,8 @@ class CustomButton extends StatelessWidget {
               color: borderColor ?? Colors.transparent,
             ),
           ),
-          backgroundColor: backgroundColor ?? AppColors.primaryColor,
+          backgroundColor:
+              enabled ? backgroundColor ?? AppColors.primaryColor : Colors.grey,
         ),
         onPressed: enabled ? onButtonPressed : null,
         child: FittedBox(
@@ -47,7 +48,9 @@ class CustomButton extends StatelessWidget {
                   child: Text(
                     buttonText,
                     style: AppStyles.semibold16(context).copyWith(
-                      color: textColor ?? Colors.white, // لون النص الافتراضي
+                      color: enabled
+                          ? textColor ?? Colors.white
+                          : Colors.white54, // لون النص الافتراضي
                     ),
                   ),
                 ),

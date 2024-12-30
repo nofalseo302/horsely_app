@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/widget/build_app_bar.dart';
@@ -73,6 +74,7 @@ class TeanactionScreen extends GetView<TransactionController> {
               ),
             ),
             CustomTextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               title: AppStrings.availbelcoin.tr,
               hintText: '',
               spacing: 8,
@@ -92,6 +94,7 @@ class TeanactionScreen extends GetView<TransactionController> {
               ),
             ),
             CustomTextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               title: AppStrings.amountofcurency.tr,
               hintText: '',
               spacing: 8,
