@@ -5,9 +5,9 @@ import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/password_text_filed.dart';
-import 'package:horsely_app/features/account/features/pincode/logic/controler/pin_code_controler.dart';
+import 'package:horsely_app/features/account/features/pincode/logic/controler/pin_code_controller.dart';
 
-class MyButtomSheet extends GetView<PinCodeControler> {
+class MyButtomSheet extends GetView<PinCodeController> {
   const MyButtomSheet({
     super.key,
   });

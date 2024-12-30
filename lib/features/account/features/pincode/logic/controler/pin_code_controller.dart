@@ -7,7 +7,7 @@ import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/account/features/pincode/presentation/widget/change_pin_bottom_sheet.dart';
 import 'package:horsely_app/features/account/features/pincode/presentation/widget/change_pin_code_bottom_sheet.dart';
 
-class PinCodeControler extends GetxController {
+class PinCodeController extends GetxController {
   @override
   void onInit() async {
     super.onInit();

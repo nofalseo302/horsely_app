@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:horsely_app/features/account/features/information_user/logic/binding/account_settings.dart';
 import 'package:horsely_app/features/account/features/myorder/logic/binding/my_order_binding.dart';
-import 'package:horsely_app/features/account/features/pincode/logic/binding/pin_code_pinding.dart';
+import 'package:horsely_app/features/account/features/pincode/logic/binding/pin_code_binding.dart';
 import 'package:horsely_app/features/account/features/transaction/logic/binding/transaction_binding.dart';
 import 'package:horsely_app/features/account/features/verification_status/logic/binding/verification_status_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/local_auth_binding.dart';
@@ -194,17 +194,16 @@ class AppPages {
       page: () => const NotifactionSetingScreen(),
       transition: Transition.leftToRight,
     ),
-    GetPage( 
+    GetPage(
       name: Routes.verificationstatus,
       page: () => const VerificationStatusScreen(),
       binding: VerificationStatusBinding(),
       transition: Transition.leftToRight,
     ),
     GetPage(
-      binding: PinCodePinding(),
+      binding: PinCodeBinding(),
       name: Routes.pincode,
       page: () => const PinCode(),
-      binding: LocalAuthBinding(),
       transition: Transition.leftToRight,
     ),
     GetPage(
