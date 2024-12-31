@@ -32,7 +32,7 @@ void main() async {
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {
     runApp(
       DevicePreview(
-        enabled: kDebugMode,
+        enabled: false,
         builder: (context) => HorseleyApp(userModel: userModel),
       ),
     );
@@ -73,15 +73,15 @@ class HorseleyApp extends StatelessWidget {
       ),
       initialRoute:
           // Routes.localAuth,
-          getRoute(userModel), // getInitRout(),
+          getRoute(userModel, isFirstTime: true), // getInitRout(),
       // initialRoute: Routes.verifyAccount,
       getPages: AppPages.pages,
     );
   }
 }
 
-String getRoute(UserModel? userModel) {
-  if (CashHelper.getData(CacheKeys.pinCode) != null) {
+String getRoute(UserModel? userModel, {bool isFirstTime = false}) {
+  if (CashHelper.getData(CacheKeys.pinCode) != null && isFirstTime) {
     return Routes.localAuth;
   } else if (userModel == null) {
     return Routes.onBoarding;

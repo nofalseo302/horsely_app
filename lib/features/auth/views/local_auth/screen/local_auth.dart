@@ -46,6 +46,12 @@ class LocalAuth extends StatelessWidget {
               height: 100,
               fit: BoxFit.fitWidth,
             ),
+            Text(
+              AppStrings.localAuth.tr,
+              style: context.textTheme.bodyMedium!.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             Spacer(),
             PinInput(),
             SizedBox(height: 30),
