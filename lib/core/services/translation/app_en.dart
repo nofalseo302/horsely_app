@@ -40,6 +40,7 @@ class AppEn {
     AppStrings.creatnewaccount: "Create a new account",
     AppStrings.filedetails: "Fill in your details to\ncomplete registration",
     AppStrings.name: "Name",
+    AppStrings.localAuth: "Welcome back to Horsely",
     AppStrings.continuee: "Continue",
     AppStrings.accountrecvied: "Account recovery",
     AppStrings.enternewpincode: "PIN Code",

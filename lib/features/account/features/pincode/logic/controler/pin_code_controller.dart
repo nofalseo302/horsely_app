@@ -20,12 +20,11 @@ class PinCodeController extends GetxController {
 
   Future<void> checkLocalAuth() async {
     var result = await auth.canCheckBiometrics;
-    isLocalAuth.value = result;
+    isLocalAuth.value = result || await auth.isDeviceSupported();
   }
 
   Future<void> checkAuth() async {
     try {
-      auth.getAvailableBiometrics();
       isAuth.value = await auth.authenticate(
         localizedReason: 'Scan your fingerprint to authenticate',
         options: const AuthenticationOptions(
