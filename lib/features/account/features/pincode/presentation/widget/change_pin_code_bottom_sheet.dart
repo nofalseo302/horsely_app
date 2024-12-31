@@ -5,11 +5,8 @@ import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/app_validation_functions.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
-import 'package:horsely_app/core/widget/custom_namber_text_filed.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
-import 'package:horsely_app/core/widget/password_text_filed.dart';
 import 'package:horsely_app/features/account/features/pincode/logic/controler/pin_code_controller.dart';
-import 'package:horsely_app/features/account/features/pincode/presentation/widget/otp_buttom_sheet.dart';
 
 class ChangePinCodeBottomSheet extends GetView<PinCodeController> {
   const ChangePinCodeBottomSheet({
