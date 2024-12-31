@@ -67,10 +67,13 @@ class HorseleyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: const AppBarTheme(
           surfaceTintColor: Colors.transparent,
+          backgroundColor: Colors.transparent,
           elevation: 0,
         ),
       ),
-      initialRoute: getRoute(userModel), // getInitRout(),
+      initialRoute:
+          // Routes.localAuth,
+          getRoute(userModel), // getInitRout(),
       // initialRoute: Routes.verifyAccount,
       getPages: AppPages.pages,
     );
@@ -78,7 +81,9 @@ class HorseleyApp extends StatelessWidget {
 }
 
 String getRoute(UserModel? userModel) {
-  if (userModel == null) {
+  if (CashHelper.getData(CacheKeys.pinCode) != null) {
+    return Routes.localAuth;
+  } else if (userModel == null) {
     return Routes.onBoarding;
   } else if (userModel.data?.isActiveAccount == false) {
     return Routes.verifyAccount;
