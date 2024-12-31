@@ -7,6 +7,7 @@ import 'package:horsely_app/features/account/features/verification_status/logic/
 import 'package:horsely_app/features/auth/logic/binding/local_auth_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/login_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/register_binding.dart';
+import 'package:horsely_app/features/auth/views/local_auth/screen/local_auth.dart';
 import 'package:horsely_app/features/complete_data/manager/binding/complete_data_binding.dart';
 import 'package:horsely_app/features/edit_password/manager/edit_password_pinding.dart';
 import 'package:horsely_app/features/notiofaction/logic/binding/notification_binding.dart';
@@ -242,6 +243,12 @@ class AppPages {
       name: Routes.privacy,
       page: () => const PrivacyPolicyScreen(),
       binding: PrivacyAndPolicyBinding(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: Routes.localAuth,
+      page: () => const LocalAuth(),
+      binding: LocalAuthBinding(),
       transition: Transition.leftToRight,
     ),
   ];

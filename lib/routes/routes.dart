@@ -15,6 +15,7 @@ class Routes {
   static const buydetails = "/buydetails";
   static const accountSeting = "/buydetails";
   static const privacy = "/privacy";
+  static const localAuth = "/localAuth";
   static const informationAboutUser = "/buydetails";
   static const selldetails = "/selldetails";
   static const deposit = "/deposit";

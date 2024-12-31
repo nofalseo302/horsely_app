@@ -18,6 +18,7 @@ class ChangePinCodeBottomSheet extends GetView<PinCodeController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(PinCodeController());
     return Container(
       width: double.infinity,
       decoration: const BoxDecoration(
@@ -32,6 +33,7 @@ class ChangePinCodeBottomSheet extends GetView<PinCodeController> {
             children: [
               Text(
                 AppStrings.pincodeNew.tr,
+                // Get.arguments.toString(),
                 style:
                     AppStyles.semibold32(context).copyWith(color: Colors.black),
               ),
