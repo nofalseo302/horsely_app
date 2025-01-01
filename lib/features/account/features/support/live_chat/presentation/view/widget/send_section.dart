@@ -49,6 +49,7 @@ class SendSection extends StatelessWidget {
                           GestureDetector(
                             onTap: () {
                               controller.pickImage(ImageSource.camera);
+                              Get.back();
                             },
                             child: Row(
                               children: [
@@ -64,6 +65,7 @@ class SendSection extends StatelessWidget {
                           GestureDetector(
                             onTap: () {
                               controller.pickImage(ImageSource.gallery);
+                              Get.back();
                             },
                             child: Row(
                               children: [
