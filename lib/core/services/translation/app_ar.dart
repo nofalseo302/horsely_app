@@ -176,6 +176,8 @@ class AppAr {
     AppStrings.reset: "اعادة تعيين",
     AppStrings.search: "بحث",
     AppStrings.pricesransee: "نطاق السعر",
+    AppStrings.camera: "الكاميرا",
+    AppStrings.gallery: "المعرض",
     AppStrings.transactionlimite: "حدود المعاملات",
     AppStrings.curencytype: "نوع العملة",
     AppStrings.history: "السجل",
