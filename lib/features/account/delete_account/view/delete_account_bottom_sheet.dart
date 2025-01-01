@@ -11,7 +11,7 @@ class DeleteAccountBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: Get.width,
+      width: double.infinity,
       decoration: const BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.only(
