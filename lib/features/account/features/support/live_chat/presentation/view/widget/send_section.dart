@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/widget/send_text_filed.dart';
 import 'package:horsely_app/features/account/features/support/live_chat/presentation/manager/controler/live_Chat_controler.dart';
+import 'package:image_picker/image_picker.dart';
 
 class SendSection extends StatelessWidget {
   final ScrollController scrollController;
@@ -18,7 +21,68 @@ class SendSection extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 0.0),
       child: Row(
         children: [
-          Image.asset(AppImages.camer),
+          GestureDetector(
+              onTap: () {
+                Get.bottomSheet(Container(
+                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height / 9,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(.25),
+                            blurRadius: 3,
+                            spreadRadius: 1,
+                          )
+                        ]),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              controller.pickImage(ImageSource.camera);
+                              Get.back();
+                            },
+                            child: Row(
+                              children: [
+                                Text(
+                                  AppStrings.camera.tr,
+                                  style: AppStyles.semibold14(context),
+                                ),
+                                const Spacer(),
+                                const Icon(Icons.camera_alt_sharp),
+                              ],
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              controller.pickImage(ImageSource.gallery);
+                              Get.back();
+                            },
+                            child: Row(
+                              children: [
+                                Text(
+                                  AppStrings.gallery.tr,
+                                  style: AppStyles.semibold14(context),
+                                ),
+                                const Spacer(),
+                                const Icon(Icons.image)
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    )));
+              },
+              child: Image.asset(AppImages.camer)),
           const SizedBox(
             width: 17,
           ),
@@ -40,24 +104,19 @@ class SendSection extends StatelessWidget {
           GestureDetector(
             onTap: () {
               if (messageController.text.isNotEmpty) {
-                // إرسال رسالة المستخدم
                 controller.addMessage(messageController.text, 'user');
 
-                // مسح النص بعد الإرسال
                 messageController.clear();
 
-                // تمرير القائمة إلى الأسفل لرؤية الرسالة المضافة
                 scrollController.animateTo(
                   scrollController.position.maxScrollExtent,
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeOut,
                 );
 
-                // إضافة رد روبوت (اختياري - يمكنك تخصيص الرد)
                 Future.delayed(const Duration(seconds: 1), () {
                   controller.addMessage("This is a bot response", 'bot');
 
-                  // تمرير القائمة إلى الأسفل لرؤية رد الروبوت
                   scrollController.animateTo(
                     scrollController.position.maxScrollExtent,
                     duration: const Duration(milliseconds: 300),
