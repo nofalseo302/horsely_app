@@ -12,6 +12,7 @@ class AppImages {
   static const profits = "assets/svg/profit 02.svg";
   static const accont = "assets/svg/user-circle.svg";
   static const homeLeading = "assets/png/logo.png";
+  static const logo = "assets/png/logoHiRes.png";
   static const company = "assets/svg/company.svg";
   static const active = "assets/svg/active.svg";
   static const notactive = "assets/svg/notactive.svg";

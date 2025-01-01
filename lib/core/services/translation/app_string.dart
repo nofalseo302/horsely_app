@@ -8,6 +8,7 @@ class AppStrings {
   static const String buyBestCryptoAnd = "buybest";
   static const String inmarket = "inmarket";
   static const String getStarted = "getStarted";
+  static const String localAuth = "localAuth";
   static const subtitelpageview1 = "subtitelpageview1";
   static const skipe = "skipbutton";
   static const camera = "camera";

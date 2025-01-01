@@ -135,6 +135,7 @@ class AppAr {
     AppStrings.companyname: "اسم الشركة",
     AppStrings.workaddress: "عنوان العمل",
     AppStrings.enternewpincode: "رمز PIN",
+    AppStrings.localAuth: "مرحبًا بك مرة أخرى في هورسلي",
     AppStrings.pincodeNew: "ادخل رمز PIN جديد",
     AppStrings.taxnamber: "رقم الضريبة",
     AppStrings.transactiondetails: "تفاصيل المعاملات",
