@@ -25,7 +25,7 @@ class SendSection extends StatelessWidget {
               onTap: () {
                 Get.bottomSheet(Container(
                     width: double.infinity,
-                    height: MediaQuery.of(context).size.height / 9,
+                    height: MediaQuery.of(context).size.height / 7,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: const BorderRadius.only(
