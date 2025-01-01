@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
@@ -32,15 +33,19 @@ class BodySellDetails extends StatelessWidget {
             ),
             TitleAndWidget(
                 title: AppStrings.enteramount.tr,
-                childWidget: const CustomTextFormField(
-                    hintText: "", textInputType: TextInputType.number)),
+                childWidget: CustomTextFormField(
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    hintText: "",
+                    textInputType: TextInputType.number)),
             const SizedBox(
               height: 16,
             ),
             TitleAndWidget(
                 title: AppStrings.theamountofcurency.tr,
-                childWidget: const CustomTextFormField(
-                    hintText: "", textInputType: TextInputType.number)),
+                childWidget: CustomTextFormField(
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    hintText: "",
+                    textInputType: TextInputType.number)),
             const SizedBox(
               height: 16,
             ),

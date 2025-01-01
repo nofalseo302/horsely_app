@@ -10,6 +10,9 @@ class AppStrings {
   static const String getStarted = "getStarted";
   static const subtitelpageview1 = "subtitelpageview1";
   static const skipe = "skipbutton";
+  static const camera = "camera";
+  static const gallery = "gallery";
+
   static const create = "create";
   static const approved = "approved";
   static const enternewpincode = "enternewpincode";
