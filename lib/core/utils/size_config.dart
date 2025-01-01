@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class SizeConfig {
-  static const double desktop = 1200;
-  static const double tablet = 800;
+  static double screenWidth = 0;
+  static double screenHeight = 0;
+  static late TextScaler textScaler;
 
-  static late double width, height;
-
-  static init(BuildContext context) {
-    height = MediaQuery.sizeOf(context).height;
-    width = MediaQuery.sizeOf(context).width;
+  static void init(BuildContext context) {
+    screenWidth = MediaQuery.of(context).size.width;
+    screenHeight = MediaQuery.of(context).size.height;
+    textScaler = MediaQuery.of(context).textScaler;
   }
 }

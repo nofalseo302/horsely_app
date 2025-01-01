@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/widget/icon_back.dart';
@@ -51,8 +52,9 @@ class BodyEnterEmail extends GetView<ForgetPasswordController> {
                 const SizedBox(height: 8),
                 Text(
                   AppStrings.accountrecviedinstraction.tr,
-                  style: AppStyles.semibold14(context)
-                      .copyWith(color: Colors.white),
+                  style: AppStyles.semibold14(context).copyWith(
+                    color: AppColors.gray.withOpacity(.9),
+                  ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * .05,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
+import 'package:horsely_app/core/utils/exensions.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -30,7 +31,7 @@ class CustomButton extends StatelessWidget {
       child: TextButton(
         style: TextButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(15.r),
             side: BorderSide(
               color: borderColor ?? Colors.transparent,
             ),
@@ -55,9 +56,10 @@ class CustomButton extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                width: 10,
-              ),
+              if (icon != null)
+                const SizedBox(
+                  width: 10,
+                ),
               if (icon != null) // إذا كانت الأيقونة أو الصورة موجودة، أضفها
                 Padding(
                   padding: const EdgeInsets.only(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/widget/icon_back.dart';
@@ -29,9 +30,6 @@ class HeaderVerify extends GetView<OtpController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 40,
-                ),
                 const IconBack(),
                 const SizedBox(
                   height: 20,
@@ -41,12 +39,35 @@ class HeaderVerify extends GetView<OtpController> {
                   style: AppStyles.semibold22(context)
                       .copyWith(color: Colors.white),
                 ),
-                const SizedBox(height: 8),
-                Text(
-                  '${AppStrings.verifyinstruction.tr}\n${controller.email}\n${AppStrings.thisCodeisvalidForTwoMinutes.tr}',
-                  style: AppStyles.semibold14(context)
-                      .copyWith(color: Colors.white),
+                SizedBox(
+                  width: context.width * .65,
+                  child: RichText(
+                    text: TextSpan(
+                      style: AppStyles.semibold14(context).copyWith(
+                        color: AppColors.gray,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: AppStrings.verifyinstruction.tr,
+                        ),
+                        TextSpan(
+                          text: "${controller.email} ",
+                          style: AppStyles.semibold14(context)
+                              .copyWith(color: AppColors.white),
+                        ),
+                        TextSpan(
+                          text: AppStrings.thisCodeisvalidForTwoMinutes.tr,
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
+                // const SizedBox(height: 8),
+                // Text(
+                //   '${AppStrings.verifyinstruction.tr}\n${controller.email}\n${AppStrings.thisCodeisvalidForTwoMinutes.tr}',
+                //   style: AppStyles.semibold14(context)
+                //       .copyWith(color: Colors.white),
+                // ),
               ],
             ),
           ),

@@ -29,7 +29,7 @@ class AppEn {
     AppStrings.singup: "Create New Account",
     AppStrings.email: "Email",
     AppStrings.password: "Password",
-    AppStrings.forgetpassword: "Forgot password",
+    AppStrings.forgetpassword: "Forgot password?",
     AppStrings.creataccount: "Create account",
     AppStrings.subtitellogin:
         "Enter your credentials\nto log in to your account.",
@@ -39,7 +39,7 @@ class AppEn {
     AppStrings.alreadyhaveaccount: "Already have an account?",
     AppStrings.creatnewaccount: "Create a new account",
     AppStrings.filedetails: "Fill in your details to\ncomplete registration",
-    AppStrings.name: "Name",
+    AppStrings.name: "Full name",
     AppStrings.localAuth: "Welcome back to Horsely",
     AppStrings.continuee: "Continue",
     AppStrings.accountrecvied: "Account recovery",

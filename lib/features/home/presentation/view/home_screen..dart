@@ -37,6 +37,8 @@ class HomeScreen extends GetView<HomeControler> {
           currentIndex: controller.selindex,
           selectedItemColor: AppColors.primaryColor,
           unselectedItemColor: Colors.grey,
+          selectedLabelStyle: AppStyles.regulare16(context),
+          unselectedLabelStyle: AppStyles.regulare16(context),
           onTap: controller.onItemTapped,
           items: [
             BottomNavigationBarItem(

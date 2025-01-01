@@ -25,7 +25,7 @@ class AppAr {
     AppStrings.singup: "تسجيل حساب",
     AppStrings.email: "البريد الالكتروني",
     AppStrings.password: "كلمة المرور",
-    AppStrings.forgetpassword: "نسيت كلمة المرور",
+    AppStrings.forgetpassword: "نسيت كلمة المرور؟",
     AppStrings.creataccount: "انشاء حساب",
     AppStrings.subtitellogin:
         "أدخل بيانات الاعتماد الخاصة بك لتسجيل الدخول إلى حسابك.",
@@ -35,7 +35,7 @@ class AppAr {
     AppStrings.alreadyhaveaccount: "لديك حساب بالفعل؟",
     AppStrings.creatnewaccount: "انشاء حساب جديد",
     AppStrings.filedetails: "املأ التفاصيل الخاصة بك لإكمال تسجيلك",
-    AppStrings.name: "الاسم",
+    AppStrings.name: "الاسم الكامل",
     AppStrings.continuee: "متابعة ",
     AppStrings.accountrecvied: " استرداد الحساب",
     AppStrings.accountrecviedinstraction:

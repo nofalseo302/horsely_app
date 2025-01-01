@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:horsely_app/core/utils/exensions.dart';
 import 'package:horsely_app/core/utils/size_config.dart';
 
 abstract class AppStyles {
@@ -83,23 +84,14 @@ abstract class AppStyles {
 // sacleFactor
 // responsive font size
 // (min , max) fontsize
+
 double getResponsiveFontSize(context, {required double fontSize}) {
-  double scaleFactor = getScaleFactor(context);
-  double responsiveFontSize = fontSize * scaleFactor;
+  // double scaleFactor = getScaleFactor(context);
+  // double responsiveFontSize = fontSize * scaleFactor;
 
-  double lowerLimit = fontSize * .8;
-  double upperLimit = fontSize * 1.2;
+  // double lowerLimit = fontSize * .8;
+  // double upperLimit = fontSize * 1.2;
 
-  return responsiveFontSize.clamp(lowerLimit, upperLimit);
-}
-
-double getScaleFactor(context) {
-  double width = MediaQuery.sizeOf(context).width;
-  if (width < SizeConfig.tablet) {
-    return width / 550;
-  } else if (width < SizeConfig.desktop) {
-    return width / 1000;
-  } else {
-    return width / 1920;
-  }
+  // return responsiveFontSize.clamp(lowerLimit, upperLimit);
+  return (fontSize - 2).sp;
 }
