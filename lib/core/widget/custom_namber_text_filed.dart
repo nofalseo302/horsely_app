@@ -38,7 +38,7 @@ class CustomNumericTextFormField extends StatelessWidget {
         ),
         hintText: hintText,
         filled: true,
-        fillColor: const Color(0xff545454).withOpacity(0.1),
+        fillColor: const Color(0xFFFFFFFF),
         border: buildBorder(),
         enabledBorder: buildBorder(),
         focusedBorder: buildBorder(Colors.grey.shade900),
