@@ -48,7 +48,7 @@ class PinInput extends GetView<LocalAuthController> {
               horizontal: 20,
               vertical: 5,
             ),
-            child: Text("${AppStrings.forgetpassword.tr}?"),
+            child: Text("${AppStrings.forgetpassword.tr}"),
           ),
         )
       ],

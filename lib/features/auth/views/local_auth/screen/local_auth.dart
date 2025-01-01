@@ -6,6 +6,7 @@ import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:horsely_app/core/services/cache/cash_helper.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
+import 'package:horsely_app/core/utils/exensions.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
 import 'package:horsely_app/features/auth/views/local_auth/widget/number_pad.dart';
@@ -40,21 +41,25 @@ class LocalAuth extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CustomImageHandler(
-              AppImages.logo,
-              width: 100,
-              height: 100,
-              fit: BoxFit.fitWidth,
-            ),
-            Text(
-              AppStrings.localAuth.tr,
-              style: context.textTheme.bodyMedium!.copyWith(
-                fontWeight: FontWeight.bold,
+            Expanded(
+              child: CustomImageHandler(
+                AppImages.logo,
+                fit: BoxFit.fitWidth,
               ),
             ),
-            Spacer(),
+            SizedBox(height: 15.h),
+
+            Expanded(
+              child: Text(
+                AppStrings.localAuth.tr,
+                style: context.textTheme.bodyMedium!.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            // Spacer(),
             PinInput(),
-            SizedBox(height: 30),
+            SizedBox(height: 30.h),
             NumberPad(),
           ],
         ),

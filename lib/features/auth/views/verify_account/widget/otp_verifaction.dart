@@ -26,7 +26,7 @@ class OtpVerifaction extends StatelessWidget {
           fontWeight: FontWeight.w600,
         ),
         decoration: BoxDecoration(
-          border: Border.all(color: Color(0xFFEAEFF3)),
+          border: Border.all(color: Color(0xFFD8DFEB)),
           borderRadius: BorderRadius.circular(20),
         ),
       ),

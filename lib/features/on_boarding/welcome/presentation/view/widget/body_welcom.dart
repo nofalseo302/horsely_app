@@ -51,7 +51,9 @@ class BodyWelcome extends StatelessWidget {
             SafeArea(
               child: Text(
                 AppStrings.welcome.tr,
-                style: AppStyles.semibold32(context),
+                style: AppStyles.semibold32(context).copyWith(
+                  fontSize: 32,
+                ),
               ),
             ),
             const SizedBox(

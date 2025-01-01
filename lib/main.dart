@@ -12,6 +12,7 @@ import 'package:horsely_app/core/services/network_service/awesome_notifications_
 import 'package:horsely_app/core/services/network_service/fcm_helper.dart';
 import 'package:horsely_app/core/services/translation/app_translation.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
+import 'package:horsely_app/core/utils/size_config.dart';
 import 'package:horsely_app/features/auth/data/model/user_model/user_model.dart';
 import 'package:horsely_app/routes/app_pages.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -32,7 +33,7 @@ void main() async {
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {
     runApp(
       DevicePreview(
-        enabled: false,
+        enabled: true,
         builder: (context) => HorseleyApp(userModel: userModel),
       ),
     );
@@ -45,6 +46,7 @@ class HorseleyApp extends StatelessWidget {
   final UserModel? userModel;
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     String savedLanguage = box.read('language') ?? 'en';
 
     String fontFamily = savedLanguage == 'en' ? 'popains' : 'Cairo';
