@@ -158,11 +158,11 @@ class AppValidationFunctions {
       return Get.locale!.languageCode == 'ar'
           ? 'كلمة المرور لا يمكن ان تكون فارغة !'
           : "Password can't be empty";
-    } else if (password!.length < 8) {
+    } else if (password!.length <= 8) {
       return Get.locale!.languageCode == 'ar'
           ? '!كلمة المرور يجب ان تحتوي اكثر من 8 ارقام او حروف'
           : "Password must have more than 8 charachters";
-    } else if (password.length > 50) {
+    } else if (password.length >= 50) {
       return Get.locale!.languageCode == 'ar'
           ? '!كلمة المرور يجب ان تحتوي علي الاكثر  ٥٠   حرف'
           : "Password must have less than 50 charachters";
