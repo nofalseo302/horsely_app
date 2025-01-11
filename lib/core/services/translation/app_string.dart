@@ -65,8 +65,9 @@ class AppStrings {
   static const confrim = "confrim";
   static const rensendcode = "rensendcode";
   static const Acountverify = "Acountverify";
-  static const verifyinstruction = "verifyinstruction";
-  static const thisCodeisvalidForTwoMinutes = "thisCodeisvalidForTwoMinutes";
+  static const verifyinstruction = "we sent 6-digit code to";
+  static const thisCodeisvalidForTwoMinutes =
+      "this code will be valid for 2minutes.";
   static const send = "send";
   static const home = "home";
   static const wallet = "wallet";
