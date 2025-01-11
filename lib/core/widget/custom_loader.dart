@@ -15,6 +15,7 @@ class CustomLoader extends StatelessWidget {
 }
 
 startLoading() {
+  Get.closeAllSnackbars();
   showDialog(
     context: Get.context!,
     barrierDismissible: false,

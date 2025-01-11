@@ -48,10 +48,10 @@ class HeaderVerify extends GetView<OtpController> {
                       ),
                       children: [
                         TextSpan(
-                          text: AppStrings.verifyinstruction.tr,
+                          text: "${AppStrings.verifyinstruction.tr}\n",
                         ),
                         TextSpan(
-                          text: "${controller.email} ",
+                          text: "${controller.email} \n",
                           style: AppStyles.semibold14(context)
                               .copyWith(color: AppColors.white),
                         ),

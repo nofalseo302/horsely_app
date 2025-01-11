@@ -104,6 +104,7 @@ class FormSingUp extends GetView<RegisterController> {
             const SizedBox(height: 30),
             CustomButton(
               onButtonPressed: () async {
+             
                 if (controller.formkey.currentState!.validate() &&
                     controller.phoneController.text.isNotEmpty) {
                   await controller.register();

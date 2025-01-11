@@ -29,7 +29,7 @@ class TimeDown extends GetView<OtpController> {
                   ),
                 )
               : Countdown(
-                  seconds: 60, // المدة الزمنية للعد التنازلي
+                  seconds: 120, // المدة الزمنية للعد التنازلي
                   build: (BuildContext context, double time) => Text(
                     time.toStringAsFixed(0), // لتجنب الأرقام العشرية
                     style: AppStyles.semibold16(context)

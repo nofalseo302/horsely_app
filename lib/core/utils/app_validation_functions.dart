@@ -200,7 +200,7 @@ class AppValidationFunctions {
     }
 
     // Regular expression for a valid name (letters in Arabic or English, spaces allowed)
-    final RegExp nameRegExp = RegExp(r'^[a-zA-Z\u0600-\u06FF ]{3,50}$');
+    final RegExp nameRegExp = RegExp(r'^[a-zA-Z\u0600-\u06FF 0-9]{3,50}$');
 
     if (!nameRegExp.hasMatch(fullName)) {
       return Get.locale!.languageCode == 'ar'
