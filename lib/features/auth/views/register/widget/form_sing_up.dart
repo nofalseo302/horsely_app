@@ -107,8 +107,6 @@ class FormSingUp extends GetView<RegisterController> {
                 if (controller.formkey.currentState!.validate() &&
                     controller.phoneController.text.isNotEmpty) {
                   await controller.register();
-                } else {
-                  ToastManager.showError(AppStrings.pleaseEnterPhoneNamber.tr);
                 }
               },
               buttonText: AppStrings.creataccount.tr,

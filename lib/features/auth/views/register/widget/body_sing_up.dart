@@ -64,22 +64,21 @@ class BodySingUp extends GetView<RegisterController> {
             ),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
-              child: Center(
-                child: GestureDetector(
-                  onTap: () {
-                    Get.toNamed(Routes.privacy);
-                  },
-                  child: Text(
-                    '''
-                    By using the app and logging in, you agree to the Terms of Service and Privacy Policy.
-                    ''',
-                    textAlign: TextAlign.center,
-                    style: AppStyles.semibold12(context)
-                        .copyWith(color: const Color(0xff8A8A8A)),
-                  ),
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
+              child: GestureDetector(
+                onTap: () {
+                  Get.toNamed(Routes.privacy);
+                },
+                child: Text(
+                  '''By using the app and logging in, you agree to the Terms of Service and Privacy Policy.''',
+                  textAlign: TextAlign.center,
+                  style: AppStyles.semibold12(context)
+                      .copyWith(color: const Color(0xff8A8A8A)),
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
           ],
         ),

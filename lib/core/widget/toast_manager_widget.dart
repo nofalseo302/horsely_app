@@ -14,7 +14,7 @@ class ToastManager {
       barBlur: 5,
       maxWidth: Get.width - 32,
       borderRadius: 10,
-      duration: const Duration(seconds: 1),
+      duration: const Duration(seconds: 3),
       snackPosition: SnackPosition.TOP,
       backgroundColor: isSuccessfullState
           ? AppColors.greenColor.withOpacity(0.7)
@@ -34,7 +34,7 @@ class ToastManager {
       maxWidth: Get.width - 32,
       borderRadius: 10,
       snackPosition: SnackPosition.TOP,
-      duration: const Duration(seconds: 1),
+      duration: const Duration(seconds: 3),
       backgroundColor: Colors.red.withOpacity(0.7),
       padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
     );

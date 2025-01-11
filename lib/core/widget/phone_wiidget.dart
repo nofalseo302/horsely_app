@@ -144,6 +144,9 @@ class MobileTextfiled extends StatelessWidget {
         print(phone.countryCode);
         print(phone.completeNumber);
         controller?.text = phone.number;
+        if (controller?.text.startsWith('0') ?? false) {
+          controller?.text = controller!.text.substring(1);
+        }
         countryController?.text =
             phone.countryCode.isEmpty ? '20' : phone.countryCode;
       },
