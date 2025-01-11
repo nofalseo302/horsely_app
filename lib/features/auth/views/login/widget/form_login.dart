@@ -38,8 +38,9 @@ class FormLogin extends GetView<LoginController> {
             TitleAndWidget(
                 title: AppStrings.password.tr,
                 childWidget: PasswordField(
-                  validator: (email) =>
-                      AppValidationFunctions.passwordValidationFunction(email),
+                  validator: (email) {
+                    return email!.isEmpty ? AppStrings.requiredField.tr : null;
+                  },
                   controller: controller.passwordController,
                   onSaved: (p0) {},
                 )),
