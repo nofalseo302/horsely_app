@@ -11,6 +11,7 @@ import 'package:horsely_app/features/auth/views/local_auth/screen/local_auth.dar
 import 'package:horsely_app/features/complete_data/manager/binding/complete_data_binding.dart';
 import 'package:horsely_app/features/edit_password/manager/edit_password_pinding.dart';
 import 'package:horsely_app/features/notiofaction/logic/binding/notification_binding.dart';
+import 'package:horsely_app/features/on_boarding/intro%20screen/presentation/view/intro_screen.dart';
 import 'package:horsely_app/features/settings/privacyAndPolicy/logic/binding/privacy_and_policy_binding.dart';
 import 'package:horsely_app/features/settings/privacyAndPolicy/view/privacyAndPolicy.dart';
 import 'package:horsely_app/routes/routes.dart';
@@ -62,6 +63,11 @@ class AppPages {
     GetPage(
       name: Routes.welcome,
       page: () => const WelcomeScreen(),
+      transition: Transition.leftToRight, // يمكنك تعديل الانتقال كما تشاء
+    ),
+    GetPage(
+      name: Routes.intro,
+      page: () => const IntroScreen(),
       transition: Transition.leftToRight, // يمكنك تعديل الانتقال كما تشاء
     ),
     GetPage(

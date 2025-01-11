@@ -7,7 +7,6 @@ import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/features/on_boarding/presentation/manager/controler/on_boarding_controler.dart';
 import 'package:horsely_app/features/on_boarding/presentation/view/widget/button_next.dart';
-import 'package:horsely_app/features/on_boarding/presentation/view/widget/custom_divider.dart';
 import 'package:horsely_app/features/on_boarding/presentation/view/widget/on_boarding_page_view.dart';
 
 class BodyOnBoarding extends StatelessWidget {
@@ -28,7 +27,7 @@ class BodyOnBoarding extends StatelessWidget {
                 : Alignment.centerLeft,
             child: GestureDetector(
               onTap: () {
-                Get.toNamed(Routes.welcome);
+                Get.toNamed(Routes.intro);
               },
               child: Text(
                 AppStrings.skipe.tr,

@@ -9,7 +9,10 @@ class AppAr {
         "شراء العملات الرئيسية من السوق",
     AppStrings.exploreAndInvest: "استكشف و استثمر في",
     AppStrings.enterThePasswordToDelete: AppStrings.enterThePasswordToDelete,
+    AppStrings.welcomeToHorsly:
+        'مرحبا بكم في Horsely، العملات الرقمية المبتكرة منصة مصممة لتبسيط تجربة تداول العملات المشفرة الخاصة بك بأمان وكفاءة.',
     AppStrings.inmarket: "في السوق",
+    AppStrings.start: "ابدأ",
     AppStrings.areYouSureToLogOut: 'هل تريد تسجيل الخروج؟',
     AppStrings.subtitelpageview1:
         "Horsely ابق على اطلاع بأحدث العملات المشفرة والعملات المعدنية ذات الأداء العالي للتداول. اكتشف أفضل الخيارات المتاحة الآن مع ",
@@ -21,7 +24,7 @@ class AppAr {
     AppStrings.areYouSureWantToDeleteAccount: "هل تريد حذف الحساب؟",
     AppStrings.welcome: "مرحبًا بك في \n Horsely",
     AppStrings.trackpitcons:
-        "تتبع العملات المشفرة والعملات المعدنية التي تختارها للتداول. ",
+        "تتبع أفضل العملات الرقمية والرموز التي تختارها للتداول.",
     AppStrings.login: "تسجيل الدخول",
     AppStrings.singup: "تسجيل حساب",
     AppStrings.email: "البريد الالكتروني",
@@ -33,7 +36,7 @@ class AppAr {
     AppStrings.donthaveaccount: "ليس لديك حساب؟",
     AppStrings.phone: "رقم الهاتف",
     AppStrings.comfrimpassword: "تأكيد كلمة المرور",
-    AppStrings.alreadyhaveaccount: "لديك حساب بالفعل؟",
+    AppStrings.alreadyhaveaccount: "لدي حساب بالفعل؟",
     AppStrings.creatnewaccount: "انشاء حساب جديد",
     AppStrings.filedetails: "املأ التفاصيل الخاصة بك لإكمال تسجيلك",
     AppStrings.name: "الاسم الكامل",

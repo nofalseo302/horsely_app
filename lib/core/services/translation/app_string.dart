@@ -35,7 +35,8 @@ class AppStrings {
   static const pleaseEnterPhoneNamber = "pleasEnterPhoneNamber";
   static const welcome = "welcome";
   static const uploadFile = "uploadFile";
-  static const trackpitcons = "trackpitcons";
+  static const trackpitcons =
+      "Track the best cryptos and coins of your choice for trading. ";
   static const login = "login";
   static const privacyPolicy = "privacyPolicy";
   static const singup = "singup";
@@ -50,7 +51,7 @@ class AppStrings {
   static const subtitellogin = "subtitellogin";
   static const phone = "phone";
   static const comfrimpassword = 'comfrimpassword';
-  static const alreadyhaveaccount = 'alreadyhaveaccount';
+  static const alreadyhaveaccount = 'I already have an account?';
   static const creatnewaccount = 'creatnewaccount';
   static const filedetails = 'filedetails';
   static const continuee = "Continue";
@@ -142,6 +143,9 @@ class AppStrings {
   static const notifaction = "notifaction";
   static const completMydoumention = "completMydoumention";
   static const startnow = "startnow";
+  static const start = "start";
+  static const welcomeToHorsly =
+      "Welcome to Horsley Digital Currencies, an innovative platform designed to simplify your cryptocurrency trading experience with security and efficiency.";
   static const jobtype = "jobtype";
   static const workaddress = "workaddress";
   static const companyname = "companyname";

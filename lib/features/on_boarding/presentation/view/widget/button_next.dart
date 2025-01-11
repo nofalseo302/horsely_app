@@ -65,7 +65,7 @@ class ButtonNext extends StatelessWidget {
                     curve: Curves.easeInOut,
                   );
                 } else {
-                  Get.toNamed(Routes.welcome);
+                  Get.offAllNamed(Routes.intro);
                 }
               },
             ),

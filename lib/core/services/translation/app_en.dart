@@ -4,6 +4,7 @@ class AppEn {
   static Map<String, String> translation = {
     AppStrings.skipe: "Skip",
     AppStrings.no: AppStrings.no,
+    AppStrings.welcomeToHorsly: AppStrings.welcomeToHorsly,
     AppStrings.enterThePasswordToDelete: 'Enter the password to delete',
     AppStrings.nextButton: "Next",
     AppStrings.buytheTopCryptocurrenciesontheMarket:
@@ -13,6 +14,7 @@ class AppEn {
     AppStrings.inmarket: AppStrings.inmarket,
     AppStrings.topCryptoCur: AppStrings.topCryptoCur,
     AppStrings.subtitelpageview1: AppStrings.subtitelpageview1,
+    AppStrings.start: AppStrings.start,
     AppStrings.create: "Create",
     AppStrings.approvedMessage: "Congrats, your account has been approved",
     AppStrings.portfoolio: "Portfolio",
@@ -23,8 +25,7 @@ class AppEn {
     AppStrings.description: "Description",
     AppStrings.areYouSureWantToDeleteAccount:
         AppStrings.areYouSureWantToDeleteAccount,
-    AppStrings.trackpitcons:
-        "Track the cryptocurrencies and coins you choose to trade.",
+    AppStrings.trackpitcons: AppStrings.trackpitcons,
     AppStrings.login: "Login",
     AppStrings.singup: "Create New Account",
     AppStrings.email: "Email",
@@ -34,9 +35,9 @@ class AppEn {
     AppStrings.subtitellogin:
         "Enter your credentials\nto log in to your account.",
     AppStrings.donthaveaccount: "Don't have an account?",
-    AppStrings.phone: "Phone number",
+    AppStrings.phone: AppStrings.phone,
     AppStrings.comfrimpassword: "Confirm password",
-    AppStrings.alreadyhaveaccount: "Already have an account?",
+    AppStrings.alreadyhaveaccount:  AppStrings.alreadyhaveaccount,
     AppStrings.creatnewaccount: "Create a new account",
     AppStrings.filedetails: "Fill in your details to\ncomplete registration",
     AppStrings.name: "Full name",

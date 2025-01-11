@@ -7,6 +7,7 @@ import 'package:horsely_app/core/utils/exensions.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/features/auth/logic/controller/register_controller.dart';
 import 'package:horsely_app/features/auth/views/register/widget/form_sing_up.dart';
+import 'package:horsely_app/routes/routes.dart';
 
 class BodySingUp extends GetView<RegisterController> {
   const BodySingUp({super.key});
@@ -60,6 +61,25 @@ class BodySingUp extends GetView<RegisterController> {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
               child: FormSingUp(),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+              child: Center(
+                child: GestureDetector(
+                  onTap: () {
+                    Get.toNamed(Routes.privacy);
+                  },
+                  child: Text(
+                    '''
+                    By using the app and logging in, you agree to the Terms of Service and Privacy Policy.
+                    ''',
+                    textAlign: TextAlign.center,
+                    style: AppStyles.semibold12(context)
+                        .copyWith(color: const Color(0xff8A8A8A)),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
