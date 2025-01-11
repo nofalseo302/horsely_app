@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/function/app_launge.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/features/on_boarding/presentation/manager/controler/on_boarding_controler.dart';
@@ -18,25 +19,6 @@ class BodyOnBoarding extends StatelessWidget {
 
     return Column(
       children: [
-        const SizedBox(height: 54),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Obx(() {
-            return Row(
-              children: List.generate(
-                3,
-                (index) => Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: CustomDivider(
-                      isactive: index <= controller.currentPage.value,
-                    ),
-                  ),
-                ),
-              ),
-            );
-          }),
-        ),
         const SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -59,12 +41,20 @@ class BodyOnBoarding extends StatelessWidget {
         Expanded(
           child: OnBoardingPageview(pageController: controller.pageController),
         ),
-        const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: ButtonNext(controller: controller),
+        Container(
+          decoration:
+              BoxDecoration(color: AppColors.primaryColor.withOpacity(.06)),
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: ButtonNext(controller: controller),
+              ),
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
-        const SizedBox(height: 20),
       ],
     );
   }

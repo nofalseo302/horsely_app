@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:dio/dio.dart' as d;
 import 'package:file_picker/file_picker.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
-import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/complete_data/data/model/complete_data/attachment.dart';
 import 'package:horsely_app/features/complete_data/data/repo/complete_data_repo.dart';
@@ -75,7 +74,7 @@ class CompleteDataController extends GetxController {
         formData.files.add(
           MapEntry(
             'attachments[]',
-            d.MultipartFile.fromFileSync(File(element!.path!).path),
+            d.MultipartFile.fromFileSync(File(element.path!).path),
           ),
         );
       }

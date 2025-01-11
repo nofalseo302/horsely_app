@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
@@ -48,7 +47,7 @@ class PinInput extends GetView<LocalAuthController> {
               horizontal: 20,
               vertical: 5,
             ),
-            child: Text("${AppStrings.forgetpassword.tr}"),
+            child: Text(AppStrings.forgetpassword.tr),
           ),
         )
       ],

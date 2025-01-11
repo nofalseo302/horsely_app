@@ -7,13 +7,14 @@ class AppAr {
     AppStrings.no: "لا",
     AppStrings.buytheTopCryptocurrenciesontheMarket:
         "شراء العملات الرئيسية من السوق",
-    AppStrings.buyBestCryptoAnd: "اشترِ الأفضل",
+    AppStrings.exploreAndInvest: "استكشف و استثمر في",
     AppStrings.enterThePasswordToDelete: AppStrings.enterThePasswordToDelete,
     AppStrings.inmarket: "في السوق",
     AppStrings.areYouSureToLogOut: 'هل تريد تسجيل الخروج؟',
     AppStrings.subtitelpageview1:
-        "تتبع أفضل العملات المشفرة والعملات المعدنية التي تختارها للتداول. أفضل العملات المشفرة المتوفرة هنا على Blockto",
+        "Horsely ابق على اطلاع بأحدث العملات المشفرة والعملات المعدنية ذات الأداء العالي للتداول. اكتشف أفضل الخيارات المتاحة الآن مع ",
     AppStrings.create: "انشاء",
+    AppStrings.topCryptoCur: "العملات الاكثر صدارة",
     AppStrings.portfoolio: "محفظة",
     AppStrings.differtassets: "العملات المتفاوتة",
     AppStrings.subtitelpageview2: "",

@@ -39,8 +39,8 @@ class ShapeFileupload extends GetView<CompleteDataController> {
                             borderRadius: BorderRadius.circular(5),
                             color: const Color(0xff17875C).withOpacity(.05),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
                             child: CustomImageHandler(
                               AppImages.file,
                             ),

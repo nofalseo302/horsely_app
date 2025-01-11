@@ -31,7 +31,7 @@ class IteamAccount extends StatelessWidget {
                 color: Colors.black.withOpacity(.25),
                 blurRadius: 4,
                 spreadRadius: -3,
-                offset: Offset(0, 0),
+                offset: const Offset(0, 0),
               ),
             ],
           ),

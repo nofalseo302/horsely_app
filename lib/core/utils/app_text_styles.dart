@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:horsely_app/core/utils/exensions.dart';
-import 'package:horsely_app/core/utils/size_config.dart';
 
 abstract class AppStyles {
   static TextStyle semibold24(context) {

@@ -6,7 +6,6 @@ import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/widget/icon_back.dart';
 
 import 'package:horsely_app/features/auth/views/rest_password/presentation/view/widget/form_rest_password.dart';
-import 'package:horsely_app/features/auth/views/rest_password/presentation/view/widget/header_rest_password.dart';
 
 class BodyRestPassword extends StatelessWidget {
   const BodyRestPassword({super.key});

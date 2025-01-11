@@ -14,27 +14,28 @@ class OnBoardingPageview extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageView(
       controller: pageController,
+      
       children: [
         IteamPageView(
             pageViewIteamEntity: PageViewIteamEntity(
                 image: AppImages.onboarding1,
-                titel: AppStrings.buyBestCryptoAnd.tr,
+                titel: AppStrings.exploreAndInvest.tr,
                 complettitel: AppStrings.inmarket.tr,
-                diferrenttitel: " crypto ",
+                diferrenttitel: AppStrings.topCryptoCur.tr,
                 subtitel: AppStrings.subtitelpageview1.tr)),
         IteamPageView(
             pageViewIteamEntity: PageViewIteamEntity(
                 image: AppImages.onboarding2,
-                titel: AppStrings.create.tr,
-                complettitel: AppStrings.differtassets.tr,
-                diferrenttitel: " ${AppStrings.portfoolio.tr} ",
+                titel: AppStrings.exploreAndInvest.tr,
+                complettitel: AppStrings.inmarket.tr,
+                diferrenttitel: AppStrings.topCryptoCur.tr,
                 subtitel: AppStrings.subtitelpageview1.tr)),
         IteamPageView(
             pageViewIteamEntity: PageViewIteamEntity(
                 image: AppImages.onboarding3,
-                titel: AppStrings.buyBestCryptoAnd.tr,
+                titel: AppStrings.exploreAndInvest.tr,
                 complettitel: AppStrings.inmarket.tr,
-                diferrenttitel: " crypto ",
+                diferrenttitel: AppStrings.topCryptoCur.tr,
                 subtitel: AppStrings.subtitelpageview1.tr)),
       ],
     );

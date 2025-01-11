@@ -4,7 +4,6 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_validation_functions.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
 import 'package:horsely_app/features/account/features/information_user/presentation/controler/change_password_controller.dart';
-import 'package:horsely_app/features/account/features/information_user/presentation/controler/image_controller.dart';
 import '../../../../../core/widget/password_text_filed.dart';
 
 class BodyChangePassword extends GetView<EditPasswordController> {

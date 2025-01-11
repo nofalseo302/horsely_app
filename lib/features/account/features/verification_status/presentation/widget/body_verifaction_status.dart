@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:horsely_app/core/services/translation/app_string.dart';
-import 'package:horsely_app/core/utils/app_colors.dart';
-import 'package:horsely_app/core/utils/app_text_styles.dart';
-import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/custom_retry_widget.dart';
 import 'package:horsely_app/features/account/features/verification_status/logic/controller/verification_status_controller.dart';
@@ -28,9 +24,9 @@ class BodyVerificationStatus extends GetView<VerificationStatusController> {
           );
         }
         if (controller.userModel?.data?.completeDataStatus == 'approved') {
-          return Approved();
+          return const Approved();
         } else {
-          return Pending();
+          return const Pending();
         }
       },
     );

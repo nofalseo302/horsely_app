@@ -7,7 +7,6 @@ import 'package:horsely_app/core/utils/exensions.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/features/auth/logic/controller/register_controller.dart';
 import 'package:horsely_app/features/auth/views/register/widget/form_sing_up.dart';
-import 'package:horsely_app/features/auth/views/register/widget/header_sing_up.dart';
 
 class BodySingUp extends GetView<RegisterController> {
   const BodySingUp({super.key});

@@ -8,11 +8,11 @@ class AppEn {
     AppStrings.nextButton: "Next",
     AppStrings.buytheTopCryptocurrenciesontheMarket:
         "Buy the top cryptocurrencies in the market",
-    AppStrings.buyBestCryptoAnd: "Buy the best",
+    AppStrings.exploreAndInvest: AppStrings.exploreAndInvest,
     AppStrings.areYouSureToLogOut: AppStrings.areYouSureToLogOut,
-    AppStrings.inmarket: "in the market",
-    AppStrings.subtitelpageview1:
-        "Track the best cryptocurrencies and coins you choose to trade. The best cryptocurrencies are available here on Blockto",
+    AppStrings.inmarket: AppStrings.inmarket,
+    AppStrings.topCryptoCur: AppStrings.topCryptoCur,
+    AppStrings.subtitelpageview1: AppStrings.subtitelpageview1,
     AppStrings.create: "Create",
     AppStrings.approvedMessage: "Congrats, your account has been approved",
     AppStrings.portfoolio: "Portfolio",

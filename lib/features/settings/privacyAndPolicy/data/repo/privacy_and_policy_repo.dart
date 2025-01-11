@@ -7,7 +7,7 @@ import 'package:horsely_app/core/services/network_service/endpoints.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 
 class PrivacyAndPolicyRepo {
-  DioImpl _dioImpl = DioImpl();
+  final DioImpl _dioImpl = DioImpl();
   Future<Either<ResponseMessage, String>> policy() async {
     try {
       d.Response response = await _dioImpl.get(

@@ -7,7 +7,7 @@ class OnBoardingScreeen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: BodyOnBoarding(),
+      body: SafeArea(child: BodyOnBoarding()),
     );
   }
 }

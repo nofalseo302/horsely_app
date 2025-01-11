@@ -15,7 +15,7 @@ class InformationUserScreen extends GetView<ImageController> {
     return Scaffold(
       backgroundColor: const Color(0xffF1F5F7),
       appBar: buildAppBar(titel: AppStrings.accountseting.tr, context: context),
-      body: BodyInformationUser(),
+      body: const BodyInformationUser(),
     );
   }
 }

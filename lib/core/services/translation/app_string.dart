@@ -5,11 +5,13 @@ class AppStrings {
 
   static const String buytheTopCryptocurrenciesontheMarket =
       "buytheTopCryptocurrenciesontheMarket";
-  static const String buyBestCryptoAnd = "buybest";
-  static const String inmarket = "inmarket";
+  static const String exploreAndInvest = "Explore and invest in the ";
+  static const String topCryptoCur = "top cryptocurrencies";
+  static const String inmarket = " on the market.";
   static const String getStarted = "getStarted";
   static const String localAuth = "localAuth";
-  static const subtitelpageview1 = "subtitelpageview1";
+  static const subtitelpageview1 =
+      "Stay updated on top-performing cryptos and coins for trading. Discover the best options available now with Horsley";
   static const skipe = "skipbutton";
   static const camera = "camera";
   static const gallery = "gallery";

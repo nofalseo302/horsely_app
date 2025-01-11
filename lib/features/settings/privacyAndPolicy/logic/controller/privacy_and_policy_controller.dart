@@ -1,11 +1,4 @@
-import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
-import 'package:dio/dio.dart' as d;
-import 'package:horsely_app/core/models/errors/error_message_model.dart';
-import 'package:horsely_app/core/models/errors/exceptions.dart';
-import 'package:horsely_app/core/services/network_service/api_service.dart';
-import 'package:horsely_app/core/services/network_service/endpoints.dart';
-import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/settings/privacyAndPolicy/data/repo/privacy_and_policy_repo.dart';
 

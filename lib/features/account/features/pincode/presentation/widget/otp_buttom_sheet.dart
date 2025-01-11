@@ -52,7 +52,7 @@ class OtpButtomSheet extends GetView<PinCodeController> {
                   var arg = Get.arguments;
                   Get.back();
                   Get.bottomSheet(
-                    ChangePinCodeBottomSheet(),
+                    const ChangePinCodeBottomSheet(),
                     settings: RouteSettings(
                       name: "localAuth",
                       arguments: arg,
