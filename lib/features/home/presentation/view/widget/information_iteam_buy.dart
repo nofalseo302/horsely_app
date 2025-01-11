@@ -64,7 +64,7 @@ class Infromation extends StatelessWidget {
                   SizedBox(
                     width: 120,
                     child: Text(
-                      "$titel   :   ",
+                      "$titel     ",
                       style: AppStyles.semibold14(context)
                           .copyWith(color: const Color(0xff8A8A8A)),
                     ),
