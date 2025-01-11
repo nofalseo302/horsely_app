@@ -62,8 +62,8 @@ class BodyCompletData extends GetView<CompleteDataController> {
                           textInputType: TextInputType.multiline,
                           validator: (p0) {
                             return AppValidationFunctions
-                                .stringValidationFunction(
-                                    p0, AppStrings.workaddress.tr);
+                                .stringValidationFunctionWithLength(
+                                    p0, AppStrings.workaddress.tr, 10, 200);
                           },
                         ),
                       ),
@@ -78,8 +78,8 @@ class BodyCompletData extends GetView<CompleteDataController> {
                           textInputType: TextInputType.multiline,
                           validator: (p0) {
                             return AppValidationFunctions
-                                .stringValidationFunction(
-                                    p0, AppStrings.companyname.tr);
+                                .stringValidationFunctionWithLength(
+                                    p0, AppStrings.workaddress.tr, 3, 100);
                           },
                         ),
                       ),
@@ -105,7 +105,9 @@ class BodyCompletData extends GetView<CompleteDataController> {
                       const SizedBox(
                         height: 16,
                       ),
-                      const AddFile(),
+                      TitleAndWidget(
+                          title: AppStrings.attachment.tr,
+                          childWidget: const AddFile()),
                       const SizedBox(
                         height: 16,
                       ),

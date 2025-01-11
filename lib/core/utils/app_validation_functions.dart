@@ -210,6 +210,27 @@ class AppValidationFunctions {
 
     return null;
   }
+  static String? stringValidationFunctionWithLength(String? input, String fieldName, int minLength, int maxLength) {
+    if (input == null || input.isEmpty) {
+      return Get.locale!.languageCode == 'ar'
+          ? '$fieldName لا يمكن أن يكون فارغًا!'
+          : "$fieldName can't be empty!";
+    }
+
+    if (input.length < minLength) {
+      return Get.locale!.languageCode == 'ar'
+          ? '$fieldName يجب أن يكون مكونا من $minLength حرف على الاقل'
+          : "$fieldName must be at least $minLength characters long";
+    }
+
+    if (input.length > maxLength) {
+      return Get.locale!.languageCode == 'ar'
+          ? '$fieldName يجب أن يكون مكونا من $maxLength حرف على الاكثر'
+          : "$fieldName must be at most $maxLength characters long";
+    }
+
+    return null;
+  }
 
   static String? numberValidationFunction(String? input, String fieldName) {
     if (input == null || input.isEmpty) {

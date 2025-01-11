@@ -60,6 +60,7 @@ class AppEn {
     AppStrings.rensendcode: "Resend code",
     AppStrings.Acountverify: "Verify your identity",
     AppStrings.verifyinstruction: AppStrings.verifyinstruction,
+    AppStrings.attachment: AppStrings.attachment,
     AppStrings.thisCodeisvalidForTwoMinutes:
         AppStrings.thisCodeisvalidForTwoMinutes,
     AppStrings.send: "Send",
