@@ -14,16 +14,19 @@ class CustomLoader extends StatelessWidget {
   }
 }
 
-startLoading() {
+startLoading() async {
   Get.closeAllSnackbars();
-  showDialog(
-    context: Get.context!,
-    barrierDismissible: false,
-    useSafeArea: true,
-    builder: (context) => const CustomLoader(),
-  );
+  await Future.delayed(const Duration(milliseconds: 50), () {
+    showDialog(
+      context: Get.context!,
+      barrierDismissible: false,
+      useSafeArea: true,
+      builder: (context) => const CustomLoader(),
+    );
+  });
 }
 
 stopLoading() {
+  Get.closeAllSnackbars();
   Get.back();
 }
