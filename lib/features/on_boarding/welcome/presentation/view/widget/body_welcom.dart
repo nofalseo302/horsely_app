@@ -56,9 +56,6 @@ class BodyWelcome extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 8,
-            ),
             Text(
               AppStrings.trackpitcons.tr,
               style: AppStyles.semibold16(context)

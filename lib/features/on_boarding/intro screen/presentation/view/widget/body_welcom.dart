@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:horsely_app/core/services/cache/cash_helper.dart';
-import 'package:horsely_app/core/services/cache/cash_keys.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
@@ -9,7 +7,6 @@ import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
 import 'package:horsely_app/features/on_boarding/intro%20screen/presentation/view/widget/slider_button.dart';
 import 'package:horsely_app/routes/routes.dart';
-import 'package:horsely_app/core/widget/custom_button.dart';
 
 class BodyIntro extends StatelessWidget {
   const BodyIntro({super.key});

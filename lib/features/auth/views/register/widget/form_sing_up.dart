@@ -5,7 +5,6 @@ import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/app_validation_functions.dart';
 import 'package:horsely_app/core/utils/exensions.dart';
-import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/auth/logic/controller/register_controller.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';

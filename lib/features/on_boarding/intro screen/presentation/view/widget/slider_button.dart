@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
-import 'package:horsely_app/core/widget/build_app_bar.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart'; // Add shimmer package
 
