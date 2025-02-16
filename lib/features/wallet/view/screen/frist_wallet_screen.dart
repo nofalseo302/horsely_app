@@ -1,35 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/exensions.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
 import 'package:horsely_app/core/widget/build_app_bar.dart';
+import 'package:horsely_app/core/widget/custom_loader.dart';
+import 'package:horsely_app/core/widget/custom_retry_widget.dart';
+import 'package:horsely_app/features/wallet/presentation/controller/wallet_controller.dart';
 
-class FristWalletScreen extends StatelessWidget {
+class FristWalletScreen extends GetView<WalletController> {
   const FristWalletScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Get.put(WalletController());
     return Scaffold(
       backgroundColor: AppColors.backGray,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: ListView(
-          children: [
-            SizedBox(
-              height: 20.h,
-            ),
-            IteamFristWallet(
-              onTap: () {},
-            ),
-            SizedBox(
-              height: 8.h,
-            ),
-            IteamFristWallet(
-              onTap: () {},
-            ),
-          ],
+        child: Obx(
+          () => controller.isLoading.value
+              ? const Expanded(child: CustomLoader())
+              : controller.isError.value
+                  ? RetryWidget(onRetry: () async => await controller.getData())
+                  : controller.getAllWalletModel.data!.data!.isEmpty
+                      ? Padding(
+                          padding: EdgeInsets.only(top: Get.height * 0.3),
+                          child: Text("AppStrings..tr",
+                              style: AppStyles.semibold20(context)),
+                        )
+                      : Expanded(
+                          child: ListView.separated(
+                            controller: controller.scrollController,
+                            separatorBuilder: (context, index) =>
+                                const SizedBox(
+                              height: 16,
+                            ),
+                            padding: const EdgeInsets.all(16),
+                            itemCount: controller
+                                    .getAllWalletModel.data?.data?.length ??
+                                0,
+                            itemBuilder: (context, index) {
+                              return IteamFristWallet(
+                                onTap: () {},
+                              );
+                            },
+                          ),
+                        ),
         ),
       ),
     );
