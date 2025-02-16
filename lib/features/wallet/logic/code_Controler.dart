@@ -12,11 +12,5 @@ class TextController extends GetxController {
 
   void copyText() {
     Clipboard.setData(ClipboardData(text: data));
-    
   }
-
-
-
-
-  
 }

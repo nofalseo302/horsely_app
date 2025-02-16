@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
+import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/wallet/data/model/get_all_wallet_model/get_all_wallet_model.dart';
-import 'package:horsely_app/features/wallet/data/repo/get_all_repo_repo.dart';
+import 'package:horsely_app/features/wallet/data/repo/wallet_repo.dart';
 
 class WalletController extends GetxController {
   final GetAllRepoRepo wallet = GetAllRepoRepo();
@@ -39,6 +40,20 @@ class WalletController extends GetxController {
     );
 
     isLoading.value = false;
+  }
+
+  createWallet() async {
+    startLoading();
+    var res = await wallet.createWallet(id: 6);
+    stopLoading();
+    res.fold(
+      (l) {
+        ToastManager.showError(l.message);
+      },
+      (r) async {
+        getData();
+      },
+    );
   }
 
   _scrollListener() async {

@@ -16,6 +16,7 @@ class AppStrings {
   static const skipe = "skipbutton";
   static const camera = "camera";
   static const gallery = "gallery";
+  static const createNewWallet = "Create new Wallet";
 
   static const create = "create";
   static const approved = "approved";

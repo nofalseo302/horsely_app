@@ -7,9 +7,10 @@ import 'package:horsely_app/core/utils/exensions.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
 import 'package:horsely_app/core/widget/build_app_bar.dart';
+import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/custom_retry_widget.dart';
-import 'package:horsely_app/features/wallet/presentation/controller/wallet_controller.dart';
+import 'package:horsely_app/features/wallet/logic/controller/wallet_controller.dart';
 
 class FristWalletScreen extends GetView<WalletController> {
   const FristWalletScreen({super.key});
@@ -19,6 +20,16 @@ class FristWalletScreen extends GetView<WalletController> {
     Get.put(WalletController());
     return Scaffold(
       backgroundColor: AppColors.backGray,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: CustomButton(
+          buttonText: 'Create new Wallet',
+          onButtonPressed: () {
+            controller.createWallet();
+          },
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Obx(
@@ -76,9 +87,9 @@ class IteamFristWallet extends StatelessWidget {
         ),
         child: ListTile(
           leading: CircleAvatar(
-            backgroundColor: Color(0xffE9EFF5).withOpacity(.9),
+            backgroundColor: const Color(0xffE9EFF5).withOpacity(.9),
             radius: 25,
-            child: CustomImageHandler(AppImages.pitcont),
+            child: const CustomImageHandler(AppImages.pitcont),
           ),
           title: Text(
             "BTC",
@@ -87,9 +98,9 @@ class IteamFristWallet extends StatelessWidget {
           subtitle: Text(
             "Ethereum",
             style: AppStyles.semibold14(context)
-                .copyWith(color: Color(0xff8A8A8A)),
+                .copyWith(color: const Color(0xff8A8A8A)),
           ),
-          trailing: Icon(Icons.keyboard_arrow_right),
+          trailing: const Icon(Icons.keyboard_arrow_right),
         ),
       ),
     );

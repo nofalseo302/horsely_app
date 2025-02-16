@@ -61,6 +61,7 @@ class AppEn {
     AppStrings.Acountverify: "Verify your identity",
     AppStrings.verifyinstruction: AppStrings.verifyinstruction,
     AppStrings.attachment: AppStrings.attachment,
+    AppStrings.createNewWallet: AppStrings.createNewWallet,
     AppStrings.thisCodeisvalidForTwoMinutes:
         AppStrings.thisCodeisvalidForTwoMinutes,
     AppStrings.send: "Send",

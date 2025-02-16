@@ -15,6 +15,7 @@ class AppAr {
     AppStrings.start: "ابدأ",
     AppStrings.attachment: "المرفقات",
     AppStrings.areYouSureToLogOut: 'هل تريد تسجيل الخروج؟',
+    AppStrings.createNewWallet: 'انشاء محفظة جديدة',
     AppStrings.subtitelpageview1:
         "Horsely ابق على اطلاع بأحدث العملات المشفرة والعملات المعدنية ذات الأداء العالي للتداول. اكتشف أفضل الخيارات المتاحة الآن مع ",
     AppStrings.create: "انشاء",
