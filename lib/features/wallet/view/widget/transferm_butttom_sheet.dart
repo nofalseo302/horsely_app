@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
-import 'package:horsely_app/features/wallet/presentation/view/widget/comfrimation_buttom_sheet.dart';
-import 'package:horsely_app/features/wallet/presentation/view/widget/header_buttom_sheet.dart';
-import 'package:horsely_app/features/wallet/presentation/view/widget/iteam_buttom_sheet.dart';
+import 'package:horsely_app/features/wallet/view/widget/comfrimation_buttom_sheet.dart';
+import 'package:horsely_app/features/wallet/view/widget/header_buttom_sheet.dart';
+import 'package:horsely_app/features/wallet/view/widget/iteam_buttom_sheet.dart';
 
 class TransferbuttomSheet extends StatelessWidget {
   const TransferbuttomSheet({

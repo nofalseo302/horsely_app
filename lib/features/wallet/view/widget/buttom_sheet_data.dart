@@ -4,8 +4,8 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
-import 'package:horsely_app/features/wallet/presentation/view/widget/comfrimation_buttom_sheet.dart';
-import 'package:horsely_app/features/wallet/presentation/view/widget/header_buttom_sheet.dart';
+import 'package:horsely_app/features/wallet/view/widget/comfrimation_buttom_sheet.dart';
+import 'package:horsely_app/features/wallet/view/widget/header_buttom_sheet.dart';
 
 class ButtomSheetData extends StatelessWidget {
   const ButtomSheetData({

@@ -37,7 +37,6 @@ class IteamAccount extends StatelessWidget {
           ),
           child: ListTile(
             contentPadding: EdgeInsets.zero,
-            
             leading: Padding(
               padding: const EdgeInsetsDirectional.only(start: 20.0),
               child: CircleAvatar(

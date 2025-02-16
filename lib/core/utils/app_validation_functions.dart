@@ -210,7 +210,9 @@ class AppValidationFunctions {
 
     return null;
   }
-  static String? stringValidationFunctionWithLength(String? input, String fieldName, int minLength, int maxLength) {
+
+  static String? stringValidationFunctionWithLength(
+      String? input, String fieldName, int minLength, int maxLength) {
     if (input == null || input.isEmpty) {
       return Get.locale!.languageCode == 'ar'
           ? '$fieldName لا يمكن أن يكون فارغًا!'

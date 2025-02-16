@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/widget/build_app_bar.dart';
-import 'package:horsely_app/features/wallet/presentation/view/widget/iteam_last_tranaction.dart';
+import 'package:horsely_app/features/wallet/view/widget/iteam_last_tranaction.dart';
 
 class LastTranaction extends StatelessWidget {
   const LastTranaction({super.key});

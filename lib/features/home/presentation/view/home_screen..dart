@@ -9,7 +9,8 @@ import 'package:horsely_app/features/home/presentation/manager/controler/home_co
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/home_body.dart';
 import 'package:horsely_app/features/profit/presentation/view/profit_screen.dart';
-import 'package:horsely_app/features/wallet/presentation/view/wallet_screen.dart';
+import 'package:horsely_app/features/wallet/view/screen/frist_wallet_screen.dart';
+import 'package:horsely_app/features/wallet/view/screen/wallet_screen.dart';
 
 class HomeScreen extends GetView<HomeControler> {
   const HomeScreen({super.key});
@@ -96,7 +97,7 @@ class HomeScreen extends GetView<HomeControler> {
           index: controller.selindex,
           children: [
             const HomeBody(),
-            const WalletScreen(),
+            const FristWalletScreen(),
             Container(),
             const ProfitSceen(),
             const AccountScreen(),
