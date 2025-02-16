@@ -11,6 +11,7 @@ class EndPoints {
   static const completeData = "/complete-data";
   static const register = "/auth/register";
   static const deleteImage = "/delete-image";
+  static const allWallet="/wallet";
   static const logout = "/auth/logout";
   static const verfiryAccount = "$baseUrl/auth/verify-account";
   static const resendCode = "$baseUrl/auth/verify-account/re-send-code";

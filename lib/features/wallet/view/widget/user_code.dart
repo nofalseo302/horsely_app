@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:horsely_app/features/wallet/presentation/view/widget/code_user_widget.dart';
+import 'package:horsely_app/features/wallet/view/widget/code_user_widget.dart';
 
 class UserCode extends StatelessWidget {
   const UserCode({

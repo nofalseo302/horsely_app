@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 
-import 'package:horsely_app/features/wallet/presentation/view/widget/header_section.dart';
-import 'package:horsely_app/features/wallet/presentation/view/widget/header_wallest.dart';
-import 'package:horsely_app/features/wallet/presentation/view/widget/iteam_last_tranaction.dart';
+import 'package:horsely_app/features/wallet/view/widget/header_section.dart';
+import 'package:horsely_app/features/wallet/view/widget/header_wallest.dart';
+import 'package:horsely_app/features/wallet/view/widget/iteam_last_tranaction.dart';
 
 class WalletScreen extends StatelessWidget {
   const WalletScreen({super.key});

@@ -4,8 +4,8 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/titel_and_vule.dart';
-import 'package:horsely_app/features/wallet/presentation/view/widget/card_information.dart';
-import 'package:horsely_app/features/wallet/presentation/view/widget/header_buttom_sheet.dart';
+import 'package:horsely_app/features/wallet/view/widget/card_information.dart';
+import 'package:horsely_app/features/wallet/view/widget/header_buttom_sheet.dart';
 
 class ConfroationButtomSheet extends StatelessWidget {
   const ConfroationButtomSheet({

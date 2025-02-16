@@ -6,7 +6,7 @@ import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/features/bay_details/presentation/view/widget/information_about_transaction.dart';
-import 'package:horsely_app/features/wallet/presentation/view/widget/header_buttom_sheet.dart';
+import 'package:horsely_app/features/wallet/view/widget/header_buttom_sheet.dart';
 
 class ComfrimButtomSheet extends StatelessWidget {
   const ComfrimButtomSheet({

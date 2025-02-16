@@ -18,7 +18,7 @@ class LocalAuthController extends GetxController {
 
   addToSelectedNumbers(String number) {
     if (selectedNumbers.length < 4) {
-       selectedNumbers.add(number);
+      selectedNumbers.add(number);
       update(['pin_input']);
       if (selectedNumbers.length == 4) {
         var pin = selectedNumbers.join('');

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
-import 'package:horsely_app/features/wallet/presentation/view/manager/controler/code_Controler.dart';
+import 'package:horsely_app/features/wallet/presentation/code_Controler.dart';
 
 class EncryptedTextRow extends StatelessWidget {
   const EncryptedTextRow({super.key});

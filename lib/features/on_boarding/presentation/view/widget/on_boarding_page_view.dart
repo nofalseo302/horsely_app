@@ -14,7 +14,6 @@ class OnBoardingPageview extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageView(
       controller: pageController,
-      
       children: [
         IteamPageView(
             pageViewIteamEntity: PageViewIteamEntity(
