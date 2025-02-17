@@ -6,6 +6,7 @@ import 'package:horsely_app/core/services/network_service/endpoints.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/features/wallet/data/model/create_wallet_response/create_wallet_response.dart';
 import 'package:horsely_app/features/wallet/data/model/get_all_wallet_model/get_all_wallet_model.dart';
+import 'package:horsely_app/features/wallet/data/model/get_blance_model/get_blance_model.dart';
 
 class GetAllRepoRepo {
   static final GetAllRepoRepo _orderRepo = GetAllRepoRepo._internal();
@@ -44,6 +45,26 @@ class GetAllRepoRepo {
 
       if (req.statusCode == 200) {
         return Right(CreateWalletResponse.fromJson(req.data));
+      } else {
+        return Left(ResponseMessage.fromJson(req.data));
+      }
+    } on ResponseMessage catch (e) {
+      return Left(e);
+    } catch (e) {
+      return Left(ResponseMessage(
+          message: AppStrings.connectionError.tr, status: false));
+    }
+  }
+
+  Future<Either<ResponseMessage, GetBlancModel>> getBalance(
+      {required String walletid}) async {
+    try {
+      var req = await _dioHelper.get(
+        endPoint: "${EndPoints.blanc}/$walletid",
+      );
+
+      if (req.statusCode == 200) {
+        return Right(GetBlancModel.fromJson(req.data));
       } else {
         return Left(ResponseMessage.fromJson(req.data));
       }

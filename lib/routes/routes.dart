@@ -35,4 +35,5 @@ class Routes {
   static const livechat = "/livechat";
   static const seting = "/seting";
   static const history = "/history";
+  static const walletScreen = "/WalletScreen";
 }

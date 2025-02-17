@@ -1,0 +1,45 @@
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:horsely_app/core/widget/toast_manager_widget.dart';
+import 'package:horsely_app/features/wallet/data/model/get_blance_model/get_blance_model.dart';
+import 'package:horsely_app/features/wallet/data/repo/wallet_repo.dart';
+
+class BlancController extends GetxController {
+  bool isObscured = true; // حالة النص إذا كان مشفّرًا أو مرئيًا
+  String data = "This is  "; // النص الذي تريد عرضه
+  GetAllRepoRepo walletRepo = GetAllRepoRepo();
+  GetBlancModel blancModel = GetBlancModel();
+  RxBool isLoading = false.obs;
+  RxBool isError = false.obs;
+  void toggleVisibility() {
+    isObscured = !isObscured;
+    update(); // لتحديث الواجهة
+  }
+
+  void copyText() {
+    Clipboard.setData(ClipboardData(text: data));
+  }
+
+  void getBalance() async {
+    isLoading.value = true;
+    var res = await walletRepo.getBalance(walletid: Get.arguments.toString());
+    isLoading.value = false;
+    res.fold((l) {
+      print(l.message);
+      isError.value = true;
+      ToastManager.showError(l.message);
+    }, (r) {
+      blancModel = r;
+      ToastManager.showSuccess(r.message ?? "", true);
+      print(r);
+    });
+  }
+
+  @override
+  void onInit() {
+    print(Get.arguments);
+    super.onInit();
+    getBalance();
+  }
+}
