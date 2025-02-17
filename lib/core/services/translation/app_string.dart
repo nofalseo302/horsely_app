@@ -15,6 +15,7 @@ class AppStrings {
       "Stay updated on top-performing cryptos and coins for trading. Discover the best options available now with Horsley";
   static const skipe = "skipbutton";
   static const camera = "camera";
+  static const walletType = "Wallet Type";
   static const gallery = "gallery";
   static const nowallet = "No Wallet";
   static const createNewWallet = "Create new Wallet";

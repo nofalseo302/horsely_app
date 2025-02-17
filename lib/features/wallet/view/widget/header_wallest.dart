@@ -12,9 +12,10 @@ import 'package:horsely_app/features/wallet/view/widget/user_code.dart';
 
 class HeaderWallet extends StatelessWidget {
   const HeaderWallet({
-    super.key, required this.blance,
+    super.key,
+    required this.blance,
   });
-final String blance;
+  final String blance;
   @override
   Widget build(BuildContext context) {
     return Container(
