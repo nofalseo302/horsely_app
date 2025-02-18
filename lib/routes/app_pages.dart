@@ -18,6 +18,8 @@ import 'package:horsely_app/features/notiofaction/logic/binding/notification_bin
 import 'package:horsely_app/features/on_boarding/intro%20screen/presentation/view/intro_screen.dart';
 import 'package:horsely_app/features/settings/privacyAndPolicy/logic/binding/privacy_and_policy_binding.dart';
 import 'package:horsely_app/features/settings/privacyAndPolicy/view/privacyAndPolicy.dart';
+import 'package:horsely_app/features/wallet/logic/binding/blance_binding.dart';
+import 'package:horsely_app/features/wallet/view/screen/wallet_screen.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/features/account/features/account_setting.dart/presentation/view/account_seting.dart';
 import 'package:horsely_app/features/bay_details/presentation/view/buy_details_screen.dart';
@@ -259,6 +261,12 @@ class AppPages {
       name: Routes.localAuth,
       page: () => const LocalAuth(),
       binding: LocalAuthBinding(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: Routes.walletScreen,
+      page: () => const WalletScreen(),
+      binding: BlanceBinding(),
       transition: Transition.leftToRight,
     ),
     GetPage(

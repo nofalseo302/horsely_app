@@ -17,24 +17,29 @@ class TimeDown extends GetView<OtpController> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Obx(() {
-          // عرض العداد أو النص "إرسال" بناءً على حالة isFinished
           return controller.finshed.value
               ? GestureDetector(
                   onTap: () => controller.resendCode(),
                   child: Text(
-                    AppStrings
-                        .send.tr, // النص الذي يظهر عند انتهاء العد التنازلي
+                    AppStrings.send.tr,
                     style: AppStyles.semibold16(context)
                         .copyWith(color: AppColors.primaryColor),
                   ),
                 )
               : Countdown(
-                  seconds: 120, // المدة الزمنية للعد التنازلي
-                  build: (BuildContext context, double time) => Text(
-                    time.toStringAsFixed(0), // لتجنب الأرقام العشرية
-                    style: AppStyles.semibold16(context)
-                        .copyWith(color: AppColors.primaryColor),
-                  ),
+                  seconds: 120,
+                  build: (BuildContext context, double time) {
+                    int minutes = (time ~/ 60); // استخراج الدقائق
+                    int seconds = (time % 60).toInt(); // استخراج الثواني
+                    String formattedTime =
+                        "${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}";
+
+                    return Text(
+                      formattedTime, // عرض الوقت بتنسيق mm:ss
+                      style: AppStyles.semibold16(context)
+                          .copyWith(color: AppColors.primaryColor),
+                    );
+                  },
                   interval: const Duration(seconds: 1),
                   onFinished: () {
                     controller.finshed.value = true;

@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -5,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:dio/dio.dart' as d;
 import 'package:file_picker/file_picker.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/complete_data/data/model/complete_data/attachment.dart';
 import 'package:horsely_app/features/complete_data/data/repo/complete_data_repo.dart';
@@ -79,11 +81,13 @@ class CompleteDataController extends GetxController {
         );
       }
     }
+    log(formData.files.toString());
+    startLoading();
     var res = await completeDataRepo.completeData(data: formData);
+    stopLoading();
     res.fold(
       (l) => ToastManager.showError(l.message),
       (r) {
-        // getRoute(r);
         Get.offAllNamed(getRoute(r));
       },
     );
@@ -114,7 +118,6 @@ class CompleteDataController extends GetxController {
     res.fold(
       (l) => ToastManager.showError(l.message),
       (r) {
-        // getRoute(r);
         selectedFile.removeWhere((element) => element!.id == int.parse(id));
         ToastManager.showSuccess(r, true);
         // Get.offAllNamed(getRoute(r));
@@ -125,7 +128,6 @@ class CompleteDataController extends GetxController {
   @override
   void onInit() {
     if (Get.arguments != null && Get.arguments['isEdit'] == true) {
-      // print("object");
       getData();
     }
 

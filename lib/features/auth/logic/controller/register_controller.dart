@@ -38,6 +38,12 @@ class RegisterController extends GetxController {
       ToastManager.showSuccess(r.message ?? '', true);
 
       await UserService.to.setUser(r);
+      emailController.text = '';
+      passwordController.text = '';
+      nameController.text = '';
+      confirmPasswordController.text = '';
+      phoneController.text = '';
+
       Get.toNamed(
         Routes.verifyAccount,
         arguments: {

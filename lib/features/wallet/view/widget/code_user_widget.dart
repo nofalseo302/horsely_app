@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
-import 'package:horsely_app/features/wallet/logic/code_Controler.dart';
+import 'package:horsely_app/features/wallet/logic/controller/code_Controler.dart';
 
 class EncryptedTextRow extends StatelessWidget {
   const EncryptedTextRow({super.key});
@@ -11,13 +11,13 @@ class EncryptedTextRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // استخدام GetX لإيجاد Controller
-    final TextController controller = Get.put(TextController());
+    final BlancController controller = Get.put(BlancController());
 
     return Row(
       children: [
         Row(
           children: [
-            GetBuilder<TextController>(
+            GetBuilder<BlancController>(
               builder: (_) => Text(
                 controller.isObscured ? '••••••••' : controller.data,
                 style: AppStyles.semibold14(context).copyWith(
@@ -38,7 +38,7 @@ class EncryptedTextRow extends StatelessWidget {
         const Spacer(),
         GestureDetector(onTap: () {
           controller.toggleVisibility(); // تبديل حالة إخفاء/إظهار النص
-        }, child: GetBuilder<TextController>(builder: (controller) {
+        }, child: GetBuilder<BlancController>(builder: (controller) {
           return Image.asset(
               controller.isObscured ? AppImages.eye : AppImages.eyeDisable);
         })),
