@@ -206,6 +206,5 @@ class AppAr {
     AppStrings
             .byusingtheappandlogginginyouagreetotheTermsofServiceandPrivacyPolicy:
         "من خلال استخدام التطبيق وتسجيل الدخول، فإنك توافق على شروط الخدمة وسياسة الخصوصية"
-    AppStrings.yourdocumentsarecurrentlyunderreviewWewillgetbacktoyouassoonaspossible:"مستنداتك قيد المراجعة حاليًا، وسنرد عليك في أقرب وقت ممكن",
   };
 }
