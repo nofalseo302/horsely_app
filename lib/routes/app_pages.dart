@@ -118,11 +118,13 @@ class AppPages {
     ),
     GetPage(
       name: Routes.pindingcompletedata,
+      binding: CompleteDataBinding(),
       page: () => const PindingCompleteDataScreen(),
       transition: Transition.leftToRight,
     ),
     GetPage(
       name: Routes.pindingreviewscreen,
+      binding: CompleteDataBinding(),
       page: () => const PendingReviewScreen(),
       transition: Transition.leftToRight,
     ),

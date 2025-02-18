@@ -9,6 +9,7 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/complete_data/data/model/complete_data/attachment.dart';
+import 'package:horsely_app/features/complete_data/data/model/complete_data/complete_data.dart';
 import 'package:horsely_app/features/complete_data/data/repo/complete_data_repo.dart';
 import 'package:horsely_app/main.dart';
 
@@ -20,6 +21,7 @@ class CompleteDataController extends GetxController {
   TextEditingController taxNumber = TextEditingController();
   CompleteDataRepo completeDataRepo = CompleteDataRepo();
   var formKey = GlobalKey<FormState>();
+  CompleteDataModel completeDataModel = CompleteDataModel();
 
   Future<void> pickFile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
@@ -98,6 +100,7 @@ class CompleteDataController extends GetxController {
     res.fold(
       (l) => ToastManager.showError(l.message),
       (r) {
+        completeDataModel = r;
         // getRoute(r);
         jobType.text = r.data?.jobType ?? '';
         workAddress.text = r.data?.workAddress ?? '';

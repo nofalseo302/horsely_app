@@ -94,7 +94,8 @@ String getRoute(UserModel? userModel, {bool isFirstTime = false}) {
     return Routes.verifyAccount;
   } else if (userModel.data?.isComplete == false) {
     return Routes.pindingcompletedata;
-  } else if (userModel.data?.completeDataStatus != 'approved') {
+  } else if (UserService.to.currentUser.value?.data?.completeDataStatus !=
+      'approved') {
     return Routes.pindingreviewscreen;
   } else {
     return Routes.home;
