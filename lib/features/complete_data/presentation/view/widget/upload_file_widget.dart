@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/features/complete_data/manager/controller/complete_data_controller.dart';
@@ -53,12 +54,12 @@ class AddFile extends GetView<CompleteDataController> {
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text: "Drop here to attach or",
+                            text: AppStrings.dropHeretoattachor.tr,
                             style: AppStyles.semibold14(context)
                                 .copyWith(color: const Color(0xff4B5563)),
                           ),
                           TextSpan(
-                            text: " upload",
+                            text: " ${AppStrings.upload.tr}",
                             style: AppStyles.semibold14(context)
                                 .copyWith(color: const Color(0xff2563EB)),
                           ),
@@ -67,7 +68,7 @@ class AddFile extends GetView<CompleteDataController> {
                     ),
                     const SizedBox(height: 12),
                     Text(
-                      "Max file size: 5MB",
+                      AppStrings.maxFilesize5MB.tr,
                       style: AppStyles.semibold12(context)
                           .copyWith(color: const Color(0xff4B5563)),
                     ),
@@ -76,11 +77,11 @@ class AddFile extends GetView<CompleteDataController> {
               ),
             ),
             if (showError && !controller.hasSelectedFile)
-              const Padding(
-                padding: EdgeInsets.only(top: 8.0),
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
                 child: Text(
-                  "يرجى اختيار ملف.",
-                  style: TextStyle(color: Colors.red),
+                  AppStrings.pleaseSelectafile.tr,
+                  style: const TextStyle(color: Colors.red),
                 ),
               ),
           ],

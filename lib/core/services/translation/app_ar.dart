@@ -205,6 +205,12 @@ class AppAr {
     AppStrings.thisFieldIsRequired: "هذا الحقل مطلوب",
     AppStrings.code: "الكود",
     AppStrings.min: "دقيقة",
+    AppStrings.upload: "رفع",
+    AppStrings.dropHeretoattachor: "أسقط هنا للربط أو",
+    AppStrings.maxFilesize5MB: "الحد الأقصى لحجم الملف: 5 ميجا بايت",
+    AppStrings.pleaseSelectafile: "يرجى اختيار ملف.",
+    AppStrings.enterValidPhoneNumber: "أدخل رقم هاتف صالح",
+    AppStrings.invalidPhonenumber: "رقم هاتف غير صالح",
     AppStrings
             .byusingtheappandlogginginyouagreetotheTermsofServiceandPrivacyPolicy:
         "من خلال استخدام التطبيق وتسجيل الدخول، فإنك توافق على شروط الخدمة وسياسة الخصوصية",
