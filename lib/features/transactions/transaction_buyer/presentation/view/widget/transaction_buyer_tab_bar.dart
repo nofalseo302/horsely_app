@@ -14,7 +14,7 @@ class OrderTapBar extends GetView<MyOrderController> {
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
           decoration: BoxDecoration(
-              color: const Color(0xff4d221e0d).withOpacity(.05),
+              color: const Color(0x4D221E0D).withOpacity(.05),
               borderRadius: BorderRadius.circular(17)),
           child: Padding(
             padding: const EdgeInsets.all(8.0),

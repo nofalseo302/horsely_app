@@ -84,7 +84,7 @@ class FristWalletScreen extends GetView<WalletController> {
                                         )
                                       ],
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 32,
                                     ),
                                     ...List.generate(
@@ -112,7 +112,7 @@ class FristWalletScreen extends GetView<WalletController> {
                                                         .data?[index]
                                                         .name ??
                                                     "",
-                                                isActive: controller.selindex ==
+                                                isActive: controller.selindex.value ==
                                                     index,
                                               ),
                                             )),
