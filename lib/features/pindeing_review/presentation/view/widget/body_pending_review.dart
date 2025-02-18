@@ -4,6 +4,7 @@ import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
+import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/complete_data/manager/controller/complete_data_controller.dart';
 
 import 'package:horsely_app/core/widget/custom_button.dart';
@@ -60,9 +61,8 @@ class PendingReviewBody extends GetView<CompleteDataController> {
                 if (UserService
                         .to.currentUser.value?.data?.completeDataStatus ==
                     "rejected") {
-                  Get.offAllNamed(Routes.completedata, arguments: 
-                    {"isEdit": true}
-                  );
+                  Get.toNamed(Routes.completedata, arguments: {"isEdit": true});
+                  ToastManager.showError(AppStrings.yourDataHasBeenRejected.tr);
                 } else {
                   Get.offAllNamed(Routes.home);
                 }

@@ -4,6 +4,7 @@ class AppEn {
   static Map<String, String> translation = {
     AppStrings.skipe: "Skip",
     AppStrings.no: AppStrings.no,
+    AppStrings.yourDataHasBeenRejected: AppStrings.yourDataHasBeenRejected,
     AppStrings.tryAgain: AppStrings.tryAgain,
     AppStrings.welcomeToHorsly: AppStrings.welcomeToHorsly,
     AppStrings.enterThePasswordToDelete: 'Enter the password to delete',

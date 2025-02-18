@@ -185,6 +185,8 @@ class AppAr {
     AppStrings.viladtionemail: "البريد الالكتروني غير صالح",
     AppStrings.vaildationnamber: "رقم غير صالح",
     AppStrings.filter: "فلتر",
+    AppStrings.yourDataHasBeenRejected:
+        "تم رفض بياناتك فضلا قم بمراجعه طلبك ثم اعادة المحاولة",
     AppStrings.reset: "اعادة تعيين",
     AppStrings.search: "بحث",
     AppStrings.tryAgain: "حاول مرة اخرى",
