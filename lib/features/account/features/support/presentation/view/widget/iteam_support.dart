@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:horsely_app/core/function/app_launge.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
@@ -44,7 +45,9 @@ class IteamSupport extends StatelessWidget {
                 .copyWith(color: const Color(0xff8A8A8A)),
           ),
           trailing: IconButton(
-              onPressed: accountEntity.onPressed,
+              onPressed: () {
+                Get.back();
+              },
               icon: getCurrentLanguage() == "ar"
                   ? const Icon(Icons.keyboard_arrow_left)
                   : const Icon(Icons.keyboard_arrow_right)),

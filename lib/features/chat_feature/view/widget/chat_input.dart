@@ -38,7 +38,8 @@ class ConversationInput extends GetView<MessagesController> {
                       // controller
                       //     .formatSecondsToHHmm(controller.timerTime.value),
                       // "${(controller.timerTime.value ~/ 3600).toString().padLeft(2, '0')}:${((controller.timerTime.value % 3600) ~/ 60).toString().padLeft(2, '0')}",
-                      style: AppStyles.regulare12(context),
+                      style: AppStyles.regulare12(context)
+                          .copyWith(color: AppColors.primaryColor),
                     ),
                   )
                 : controller.imageMessage.value.isNotEmpty
@@ -58,7 +59,8 @@ class ConversationInput extends GetView<MessagesController> {
                 onTap: () async {
                   await controller.pickMessageImage();
                 },
-                child: SvgPicture.asset(AppImages.camera, width: 25),
+                child: CustomImageHandler(AppImages.camera,
+                    color: Color(0xff7D848D), width: 25),
               ),
               Expanded(
                 child: Container(
@@ -95,7 +97,7 @@ class ConversationInput extends GetView<MessagesController> {
                       ),
                       hintText: AppStrings.messages.tr,
                       hintStyle: context.textTheme.labelSmall!.copyWith(
-                        color: AppColors.gray,
+                        color: Colors.grey,
                       ),
                       constraints: BoxConstraints(
                         maxHeight: 45,
@@ -124,8 +126,9 @@ class ConversationInput extends GetView<MessagesController> {
                             child: RotatedBox(
                               quarterTurns:
                                   Get.locale!.languageCode == 'ar' ? 2 : 0,
-                              child: SvgPicture.asset(
+                              child: CustomImageHandler(
                                 AppImages.send,
+                                color: Color(0xff7D848D),
                                 width: 25,
                               ),
                             ),
@@ -137,7 +140,10 @@ class ConversationInput extends GetView<MessagesController> {
                         onTapUp: (details) {
                           controller.stopRecording();
                         },
-                        child: Icon(Icons.mic),
+                        child: Icon(
+                          Icons.mic,
+                          color: Color(0xff7D848D),
+                        ),
                       ),
               ),
             ],

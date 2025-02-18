@@ -60,7 +60,7 @@ class ChatRepo {
       );
 
       if (req.statusCode == 200) {
-        return Right(SendMessageModel.fromJson(req.data['data']));
+        return Right(SendMessageModel.fromJson(req.data));
       } else {
         return Left(ResponseMessage.fromJson(req.data));
       }
