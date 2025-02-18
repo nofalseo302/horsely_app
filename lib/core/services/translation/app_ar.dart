@@ -203,5 +203,6 @@ class AppAr {
     AppStrings.viewall: "المزيد",
     AppStrings.thisFieldIsRequired: "هذا الحقل مطلوب",
     AppStrings.code: "الكود",
+    AppStrings.yourdocumentsarecurrentlyunderreviewWewillgetbacktoyouassoonaspossible:"مستنداتك قيد المراجعة حاليًا، وسنرد عليك في أقرب وقت ممكن",
   };
 }

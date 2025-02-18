@@ -164,6 +164,10 @@ class AppEn {
     AppStrings.time: "Time",
     AppStrings.percentage: "Percentage",
     AppStrings.nowallet: AppStrings.nowallet,
+    AppStrings
+            .yourdocumentsarecurrentlyunderreviewWewillgetbacktoyouassoonaspossible:
+        AppStrings
+            .yourdocumentsarecurrentlyunderreviewWewillgetbacktoyouassoonaspossible,
     AppStrings.price: "Price",
     AppStrings.nodata: AppStrings.nodata,
     AppStrings.requiredField: "Required field",

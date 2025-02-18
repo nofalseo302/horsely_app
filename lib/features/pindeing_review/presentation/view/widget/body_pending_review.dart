@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/cache/user_service.dart';
+import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/features/complete_data/manager/controller/complete_data_controller.dart';
@@ -38,7 +39,9 @@ class PendingReviewBody extends GetView<CompleteDataController> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Text(
-            "Your documents are currently under review. We will get back to you as soon as possible ",
+            AppStrings
+                .yourdocumentsarecurrentlyunderreviewWewillgetbacktoyouassoonaspossible
+                .tr,
             style: AppStyles.semibold14(context),
           ),
         ),
@@ -64,7 +67,7 @@ class PendingReviewBody extends GetView<CompleteDataController> {
                   Get.offAllNamed(Routes.home);
                 }
               },
-              buttonText: "Start Now"),
+              buttonText: AppStrings.startnow.tr),
         )
       ],
     );
