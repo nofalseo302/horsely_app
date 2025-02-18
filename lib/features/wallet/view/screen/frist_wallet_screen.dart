@@ -46,7 +46,7 @@ class FristWalletScreen extends GetView<WalletController> {
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                   child: Obx(
                     () => controller.isLoadingcurrency.value
-                        ? const Expanded(child: CustomLoader())
+                        ? CustomLoader()
                         : controller.isErrorcurrency.value
                             ? Center(
                                 child: RetryWidget(onRetry: () {
@@ -62,7 +62,7 @@ class FristWalletScreen extends GetView<WalletController> {
                                           style: AppStyles.semibold20(context)),
                                     ),
                                   )
-                                : Expanded(
+                                : SingleChildScrollView(
                                     child: Column(children: [
                                       Row(
                                         children: [
