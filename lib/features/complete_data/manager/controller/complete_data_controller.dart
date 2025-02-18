@@ -130,7 +130,9 @@ class CompleteDataController extends GetxController {
 
   @override
   void onInit() {
-    if (Get.arguments != null && Get.arguments['isEdit'] == true) {
+    bool isEdit =
+        (Get.arguments != null && Get.arguments.containsKey('isEdit'));
+    if (Get.arguments != null && isEdit) {
       getData();
     }
 

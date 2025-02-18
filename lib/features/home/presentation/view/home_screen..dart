@@ -22,34 +22,37 @@ class HomeScreen extends GetView<HomeControler> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: GestureDetector(
-              onTap: () {
-                Get.toNamed(Routes.notifactionscreen);
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Color(0xffF8FCFA),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black.withOpacity(.25),
-                          blurRadius: 3,
-                          spreadRadius: -1),
-                    ]),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: CustomImage(
-                    width: 30,
-                    height: 30,
-                    path: AppImages.notifaction,
-                    color: AppColors.primaryColor,
-                  ),
-                ),
-              ),
-            ),
-          )
+          GetBuilder<HomeControler>(
+              builder: (controller) => controller.selindex == 0
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Get.toNamed(Routes.notifactionscreen);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: const Color(0xffF8FCFA),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.black.withOpacity(.25),
+                                    blurRadius: 3,
+                                    spreadRadius: -1),
+                              ]),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: CustomImage(
+                              width: 30,
+                              height: 30,
+                              path: AppImages.notifaction,
+                              color: AppColors.primaryColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  : const SizedBox()),
         ],
         automaticallyImplyLeading: F,
         backgroundColor: Colors.white,

@@ -22,7 +22,7 @@ class AppStrings {
   static const camera = "camera";
   static const walletType = "Wallet Type";
   static const gallery = "gallery";
-  static const nowallet = "No Wallet";
+  static const nowallet = "you have No Wallet yet";
   static const code = "Code";
   static const thisFieldIsRequired = "This Field Is Required";
   static const createNewWallet = "Create new Wallet";
