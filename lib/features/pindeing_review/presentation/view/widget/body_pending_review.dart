@@ -52,8 +52,7 @@ class PendingReviewBody extends GetView<CompleteDataController> {
                 await controller.getData();
                 UserService.to.currentUser.value?.data?.completeDataStatus =
                     controller.completeDataModel.data?.documentStatus;
-                print(
-                    UserService.to.currentUser.value?.data?.completeDataStatus);
+                UserService.to.setUser(UserService.to.currentUser.value!);
                 Get.toNamed(Routes.home);
                 if (UserService
                         .to.currentUser.value?.data?.completeDataStatus ==
