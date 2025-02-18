@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
@@ -84,7 +85,7 @@ class FristWalletScreen extends GetView<WalletController> {
                                       ],
                                     ),
                                     SizedBox(
-                                      height: 32.h,
+                                      height: 32,
                                     ),
                                     ...List.generate(
                                         controller.cryptoCurrencyModel.data

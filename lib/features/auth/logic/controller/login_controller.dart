@@ -26,9 +26,10 @@ class LoginController extends GetxController {
     result.fold((l) {
       ToastManager.showSuccess(l.message, false);
     }, (r) async {
+      await UserService.to.setUser(r);
       if (r.data?.isActiveAccount == false) {
         ToastManager.showSuccess(r.message ?? '', true);
-        await UserService.to.setUser(r);
+
         Get.toNamed(
           Routes.verifyAccount,
           arguments: {

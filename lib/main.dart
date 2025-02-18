@@ -8,9 +8,7 @@ import 'package:horsely_app/core/services/cache/cash_helper.dart';
 import 'package:horsely_app/core/services/cache/cash_keys.dart';
 import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/services/network_service/awesome_notifications_helper.dart';
-import 'package:horsely_app/core/services/network_service/endpoints.dart';
 import 'package:horsely_app/core/services/network_service/fcm_helper.dart';
-import 'package:horsely_app/core/services/pusher_service/pusher_service.dart';
 import 'package:horsely_app/core/services/translation/app_translation.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/size_config.dart';
@@ -22,9 +20,10 @@ import 'package:horsely_app/routes/routes.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CashHelper.init();
-  await EndPoints.getSettings();
+
+  await GetStorage.init();
   await FcmHelper.initFcm();
-  await PusherRemoteDataSource().initPusher();
+
   await Get.putAsync(() => UserService().init());
   UserModel? userModel = UserService.to.currentUser?.value;
   await AwesomeNotificationsHelper.init();

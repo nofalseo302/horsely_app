@@ -73,7 +73,7 @@ class ImageController extends GetxController {
             //     json.decode(CashHelper.getData(CacheKeys.userModel)));
             UserService.to.setUser(r);
           }
- 
+
           ToastManager.showSuccess(r.message.toString(), true);
         },
       );
