@@ -55,7 +55,7 @@ class ListTileIteamHome extends StatelessWidget {
           ),
           // القسم الأيمن يحتوي على الوقت (trailing)
           Text(
-            "198 min",
+            "198 ${AppStrings.min.tr}",
             style: AppStyles.semibold12(context)
                 .copyWith(color: const Color(0xff8A8A8A)),
           ),

@@ -126,7 +126,7 @@ class TeanactionScreen extends GetView<TransactionController> {
         padding: const EdgeInsets.all(20.0),
         child: CustomButton(
           onButtonPressed: () {},
-          buttonText: AppStrings.publish,
+          buttonText: AppStrings.publish.tr,
         ),
       ),
     );

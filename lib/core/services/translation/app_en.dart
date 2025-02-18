@@ -196,5 +196,10 @@ class AppEn {
     AppStrings.totaloffer: "Total offers",
     AppStrings.viewdetails: "View details",
     AppStrings.viewall: "View all",
+    AppStrings.min: AppStrings.min,
+    AppStrings
+            .byusingtheappandlogginginyouagreetotheTermsofServiceandPrivacyPolicy:
+        AppStrings
+            .byusingtheappandlogginginyouagreetotheTermsofServiceandPrivacyPolicy,
   };
 }

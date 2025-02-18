@@ -206,4 +206,8 @@ class AppStrings {
   static const reject = "reject";
   static const processFailed = "Process Failed";
   static const connectionError = "Connection Error";
+  static const String min = "Min";
+  static const String
+      byusingtheappandlogginginyouagreetotheTermsofServiceandPrivacyPolicy =
+      "By using the app and logging in, you agree to the Terms of Service and Privacy Policy.";
 }

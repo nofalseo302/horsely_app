@@ -94,7 +94,7 @@ class BodyInformationUser extends GetView<ImageController> {
                                                   )),
                                             )),
                                           )
-                                        : SizedBox(),
+                                        : const SizedBox(),
                                   ),
                                 ]),
                               ),
@@ -164,7 +164,7 @@ class BodyInformationUser extends GetView<ImageController> {
           children: [
             ListTile(
               leading: const Icon(Icons.camera_alt),
-              title: const Text("Camera"),
+              title: Text(AppStrings.camera.tr),
               onTap: () {
                 controller.pickImageFromCamera();
                 Get.back(); // لإغلاق الـ BottomSheet
@@ -172,7 +172,7 @@ class BodyInformationUser extends GetView<ImageController> {
             ),
             ListTile(
               leading: const Icon(Icons.photo),
-              title: const Text("Gallery"),
+              title: Text(AppStrings.gallery.tr),
               onTap: () {
                 controller.pickImageFromGallery();
                 Get.back(); // لإغلاق الـ BottomSheet
