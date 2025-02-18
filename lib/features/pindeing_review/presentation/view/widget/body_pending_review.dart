@@ -48,10 +48,12 @@ class PendingReviewBody extends GetView<CompleteDataController> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: CustomButton(
-              onButtonPressed: () {
-                controller.getData();
+              onButtonPressed: () async {
+                await controller.getData();
                 UserService.to.currentUser.value?.data?.completeDataStatus =
                     controller.completeDataModel.data?.documentStatus;
+                print(
+                    UserService.to.currentUser.value?.data?.completeDataStatus);
                 Get.toNamed(Routes.home);
                 if (UserService
                         .to.currentUser.value?.data?.completeDataStatus ==
