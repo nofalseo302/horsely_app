@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
-import 'package:horsely_app/routes/routes.dart';
-import 'package:horsely_app/core/widget/custom_button.dart';
+import 'package:horsely_app/features/complete_data/manager/controller/complete_data_controller.dart';
 
-class PendingReviewBody extends StatelessWidget {
+import 'package:horsely_app/core/widget/custom_button.dart';
+import 'package:horsely_app/routes/routes.dart';
+
+class PendingReviewBody extends GetView<CompleteDataController> {
   const PendingReviewBody({
     super.key,
   });
@@ -46,7 +49,19 @@ class PendingReviewBody extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: CustomButton(
               onButtonPressed: () {
+                controller.getData();
+                UserService.to.currentUser.value?.data?.completeDataStatus =
+                    controller.completeDataModel.data?.documentStatus;
                 Get.toNamed(Routes.home);
+                if (UserService
+                        .to.currentUser.value?.data?.completeDataStatus ==
+                    "rejected") {
+                  Get.offAllNamed(Routes.completedata, arguments: [
+                    {"isEdit": true}
+                  ]);
+                } else {
+                  Get.offAllNamed(Routes.home);
+                }
               },
               buttonText: "Start Now"),
         )

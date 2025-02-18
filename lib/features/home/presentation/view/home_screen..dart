@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
+import 'package:horsely_app/core/widget/custom_image.dart';
 import 'package:horsely_app/features/account/presentation/view/account_screen.dart';
 import 'package:horsely_app/features/home/presentation/manager/controler/home_controler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/home_body.dart';
 import 'package:horsely_app/features/profit/presentation/view/profit_screen.dart';
 import 'package:horsely_app/features/wallet/view/screen/frist_wallet_screen.dart';
+import 'package:horsely_app/routes/routes.dart';
 
 class HomeScreen extends GetView<HomeControler> {
   const HomeScreen({super.key});
@@ -18,6 +21,37 @@ class HomeScreen extends GetView<HomeControler> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: GestureDetector(
+              onTap: () {
+                Get.toNamed(Routes.notifactionscreen);
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Color(0xffF8FCFA),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(.25),
+                          blurRadius: 3,
+                          spreadRadius: -1),
+                    ]),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: CustomImage(
+                    width: 30,
+                    height: 30,
+                    path: AppImages.notifaction,
+                    color: AppColors.primaryColor,
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
+        automaticallyImplyLeading: F,
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
