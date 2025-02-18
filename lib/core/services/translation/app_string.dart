@@ -7,7 +7,8 @@ class AppStrings {
   static const String message = 'message';
   static const String attachment = 'Attachment';
   static const String enterThePasswordToDelete = 'أدخل كلمة السر لحذف الحساب';
- static const     yourdocumentsarecurrentlyunderreviewWewillgetbacktoyouassoonaspossible =    "Your documents are currently under review. We will get back to you as soon as possible ";
+  static const yourdocumentsarecurrentlyunderreviewWewillgetbacktoyouassoonaspossible =
+      "Your documents are currently under review. We will get back to you as soon as possible ";
   static const String buytheTopCryptocurrenciesontheMarket =
       "buytheTopCryptocurrenciesontheMarket";
   static const String exploreAndInvest = "Explore and invest in the ";
@@ -21,7 +22,7 @@ class AppStrings {
   static const camera = "camera";
   static const walletType = "Wallet Type";
   static const gallery = "gallery";
-  static const nowallet = "No Wallet";
+  static const nowallet = "you have No Wallet yet";
   static const code = "Code";
   static const thisFieldIsRequired = "This Field Is Required";
   static const createNewWallet = "Create new Wallet";
