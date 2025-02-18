@@ -188,6 +188,7 @@ class AppAr {
     AppStrings.filter: "فلتر",
     AppStrings.reset: "اعادة تعيين",
     AppStrings.search: "بحث",
+    AppStrings.tryAgain: "حاول مرة اخرى",
     AppStrings.pricesransee: "نطاق السعر",
     AppStrings.camera: "الكاميرا",
     AppStrings.gallery: "المعرض",

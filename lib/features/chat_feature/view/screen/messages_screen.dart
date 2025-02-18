@@ -31,9 +31,10 @@ class MessagesScreen extends GetView<MessagesController> {
                       ),
                       title: Row(
                         children: [
-                          const ClipOval(
+                          ClipOval(
                             child: CustomImageHandler(
-                              "controller.chatModel.value?.data?.chatData?.driver?.image" ??
+                              controller.chatModel.value?.data?.chatData?.user
+                                      ?.image ??
                                   "",
                               height: 40,
                               width: 40,
@@ -49,7 +50,7 @@ class MessagesScreen extends GetView<MessagesController> {
                         ],
                       ),
                       actions: controller.chatModel.value?.data?.chatData
-                                  ?.unreadMessagesCustomer ??
+                                  ?.unreadMessages ??
                               false
                           ? null
                           : [
@@ -86,8 +87,10 @@ class MessagesScreen extends GetView<MessagesController> {
         builder: (c) => controller.isLoading.value
             ? const CustomLoader()
             : controller.chatModel.value == null
-                ? RetryWidget(
-                    onRetry: () async => await controller.getChatData())
+                ? Center(
+                    child: RetryWidget(
+                        onRetry: () async => await controller.getChatData()),
+                  )
                 : Column(
                     children: [
                       Expanded(

@@ -61,7 +61,7 @@ class SellerInformation extends StatelessWidget {
         ),
         trailing: GestureDetector(
           onTap: () {
-            Get.toNamed(Routes.chat, arguments: {'UserId': '14'});
+            Get.toNamed(Routes.chat, arguments: {'userId': 14});
           },
           child: Badge(
             padding: const EdgeInsets.all(5),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
+import 'package:get/get.dart';
 
 class RetryWidget extends StatelessWidget {
   final Function onRetry;
@@ -28,9 +30,9 @@ class RetryWidget extends StatelessWidget {
           onPressed: () async {
             await onRetry();
           },
-          label: const Text(
-            '  AppStrings.retry.tr',
-            style: TextStyle(color: AppColors.white, fontSize: 18),
+          label: Text(
+            AppStrings.tryAgain.tr,
+            style: const TextStyle(color: AppColors.white, fontSize: 18),
           ),
           style: const ButtonStyle(
             padding: WidgetStatePropertyAll(

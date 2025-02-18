@@ -7,7 +7,8 @@ import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/services/pusher_service/pusher_service.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
-import 'package:horsely_app/features/chat_feature/data/model/chat_model.dart';
+import 'package:horsely_app/features/chat_feature/data/model/chat_model/chat_model.dart';
+import 'package:horsely_app/features/chat_feature/data/model/chat_model/datum.dart';
 import 'package:horsely_app/features/chat_feature/data/repo/chat_repo.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -153,13 +154,13 @@ class MessagesController extends GetxController {
       (r) {
         chatModel.value!.data!.messages!.data?.add(
           Message(
-            attach: r.attach,
+            attach: r.data?.attach??"",
             userId: UserService.to.currentUser?.value?.data?.id,
             chatId: chatModel.value!.data!.chatData!.id,
-            createdAt: DateTime.now().toString(),
+            createdAt: DateTime.now(),
             id: -1,
             message: messageController.text,
-            updatedAt: DateTime.now().toString(),
+            updatedAt: DateTime.now(),
           ),
         );
         scrollController.animateTo(
@@ -208,6 +209,7 @@ class MessagesController extends GetxController {
   }
 
   @override
+
   void onClose() {
     PusherRemoteDataSource().unsubscribeToMessage(
         chatId: chatModel.value!.data!.chatData!.id!, userId: 1111
@@ -225,10 +227,10 @@ class MessagesController extends GetxController {
         attach: message.attach,
         userId: message.userId,
         chatId: message.userId,
-        createdAt: DateTime.now().toString(),
+        createdAt: DateTime.now(),
         id: message.id,
         message: message.message,
-        updatedAt: DateTime.now().toString(),
+        updatedAt: DateTime.now(),
       ),
     );
     update();

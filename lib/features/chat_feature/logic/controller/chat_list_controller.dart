@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:horsely_app/core/services/cache/cash_helper.dart';
 import 'package:horsely_app/core/services/pusher_service/pusher_service.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
-import 'package:horsely_app/features/chat_feature/data/model/chat_model.dart';
-import 'package:horsely_app/features/chat_feature/data/model/chat_list_model.dart';
+import 'package:horsely_app/features/chat_feature/data/model/chat_list_model/chat_list_model.dart';
+import 'package:horsely_app/features/chat_feature/data/model/chat_model/chat_model.dart';
 import 'package:horsely_app/features/chat_feature/data/repo/chat_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -82,7 +82,7 @@ class ChatListController extends GetxController {
         usersListModel = r;
       } else {
         currentPage++;
-        usersListModel!.data!.data!.addAll(r.data!.data!);
+        usersListModel!.data!.chats!.data?. addAll(r.data?.chats?.data??[]);
       }
       getAllChatsLoading = false;
     });
@@ -91,7 +91,7 @@ class ChatListController extends GetxController {
 
   void _scrollListener() async {
     if (usersListModel != null &&
-        usersListModel!.data!.meta!.lastPage! >= currentPage &&
+        usersListModel!.data!.chats!.meta !.lastPage! >= currentPage &&
         scrollController.offset >= scrollController.position.maxScrollExtent &&
         !scrollController.position.outOfRange) {
       await getAllChats(pageinate: true);

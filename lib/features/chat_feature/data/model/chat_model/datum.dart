@@ -1,4 +1,4 @@
-class Datum {
+class Message {
   int? id;
   int? chatId;
   int? userId;
@@ -7,7 +7,7 @@ class Datum {
   DateTime? createdAt;
   DateTime? updatedAt;
 
-  Datum({
+  Message({
     this.id,
     this.chatId,
     this.userId,
@@ -17,7 +17,7 @@ class Datum {
     this.updatedAt,
   });
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+  factory Message.fromJson(Map<String, dynamic> json) => Message(
         id: json['id'] as int?,
         chatId: json['chat_id'] as int?,
         userId: json['user_id'] as int?,
