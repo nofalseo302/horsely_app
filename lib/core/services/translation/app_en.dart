@@ -163,6 +163,7 @@ class AppEn {
     AppStrings.price: "Price",
     AppStrings.nodata: AppStrings.nodata,
     AppStrings.requiredField: "Required field",
+    AppStrings.thisFieldIsRequired: AppStrings.thisFieldIsRequired,
     AppStrings.uploadFile: "You must upload a file",
     AppStrings.hoistory: "History",
     AppStrings.getStarted: "Get Started",

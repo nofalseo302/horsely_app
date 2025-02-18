@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/wallet/data/model/get_blance_model/get_blance_model.dart';
 import 'package:horsely_app/features/wallet/data/repo/wallet_repo.dart';
@@ -12,6 +14,7 @@ class BlancController extends GetxController {
   GetBlancModel blancModel = GetBlancModel();
   RxBool isLoading = false.obs;
   RxBool isError = false.obs;
+  TextEditingController amount = TextEditingController();
   void toggleVisibility() {
     isObscured = !isObscured;
     update(); // لتحديث الواجهة
@@ -41,5 +44,23 @@ class BlancController extends GetxController {
     print(Get.arguments);
     super.onInit();
     getBalance();
+  }
+
+  Future<void> transfer() async {
+    startLoading();
+    var res = await walletRepo.transfer(
+        amount: amount.text,
+        toAdderss: blancModel.data?[0].address ?? "",
+        id: blancModel.data?[0].id ?? 0);
+    stopLoading();
+    res.fold((l) {
+      amount.text = "";
+      Get.back();
+      ToastManager.showError(l.message);
+    }, (r) {
+      amount.text = "";
+      Get.back();
+      ToastManager.showSuccess(r.message ?? "", true);
+    });
   }
 }

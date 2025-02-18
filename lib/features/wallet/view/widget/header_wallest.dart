@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
+import 'package:horsely_app/features/wallet/view/widget/send_buttom_sheet.dart';
 import 'package:horsely_app/routes/routes.dart';
 
 import 'package:horsely_app/features/wallet/view/widget/iteam_estimlation.dart';
@@ -70,7 +71,7 @@ class HeaderWallet extends StatelessWidget {
                         child: IteamEstimatedBalnce(
                           onTap: () {
                             Get.bottomSheet(
-                              const TransferbuttomSheet(),
+                              const SendBottomSheet(),
                             );
                           },
                           image: 'assets/png/transfer.png',

@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/models/errors/error_message_model.dart';
+import 'package:horsely_app/core/models/errors/exceptions.dart';
 import 'package:horsely_app/core/services/network_service/api_service.dart';
 import 'package:horsely_app/core/services/network_service/endpoints.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
@@ -70,6 +71,28 @@ class GetAllRepoRepo {
       }
     } on ResponseMessage catch (e) {
       return Left(e);
+    } catch (e) {
+      return Left(ResponseMessage(
+          message: AppStrings.connectionError.tr, status: false));
+    }
+  }
+
+  Future<Either<ResponseMessage, ResponseMessage>> transfer(
+      {int? id = 6, required String amount, required String toAdderss}) async {
+    try {
+      var req = await _dioHelper.post(
+          endPoint: EndPoints.transfetr,
+          data: {'wallet_id': id, "to_address": toAdderss, "amount": amount});
+
+      if (req.statusCode == 200) {
+        return Right(ResponseMessage.fromJson(req.data));
+      } else {
+        return Left(ResponseMessage.fromJson(req.data));
+      }
+    } on ResponseMessage catch (e) {
+      return Left(e);
+    } on PrimaryServerException catch (e) {
+      return Left(ResponseMessage(message: e.message.tr, status: false));
     } catch (e) {
       return Left(ResponseMessage(
           message: AppStrings.connectionError.tr, status: false));

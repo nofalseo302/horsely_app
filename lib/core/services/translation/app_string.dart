@@ -18,8 +18,11 @@ class AppStrings {
   static const walletType = "Wallet Type";
   static const gallery = "gallery";
   static const nowallet = "No Wallet";
+  static const code = "Code";
+  static const thisFieldIsRequired = "This Field Is Required";
   static const createNewWallet = "Create new Wallet";
   static const nodata = "No Data";
+  static const phoneNumberMustBeEntered = "Phone Number Must Be Entered";
 
   static const create = "create";
   static const approved = "approved";
