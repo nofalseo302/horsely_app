@@ -51,16 +51,18 @@ class BodyInformationUser extends GetView<ImageController> {
                                     _showImageSourceBottomSheet(context),
                                 child: Stack(children: [
                                   Obx(
-                                    () {
-                                      return ClipOval(
-                                        child: CustomImageHandler(
-                                          controller.selectedImagePath.value,
-                                          width: 120,
-                                          height: 120,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      );
-                                    },
+                                    () => ClipOval(
+                                      child: CustomImageHandler(
+                                        controller.selectedImagePath.value ==
+                                                null
+                                            ? controller.imagePath.value
+                                            : controller
+                                                .selectedImagePath.value!,
+                                        width: 120,
+                                        height: 120,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
                                   ),
                                   Positioned(
                                     top: 0,
