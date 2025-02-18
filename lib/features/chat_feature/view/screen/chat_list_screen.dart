@@ -64,7 +64,7 @@ class _ChatListScreenState extends State<ChatListScreen> {
                                           .usersListModel?.data?.data?.length ??
                                       0,
                                   separatorBuilder: (context, index) => Divider(
-                                    color: Color(0xffd9d9d94d).withOpacity(0.3),
+                                    color: Color(0xffd9d9d9).withOpacity(0.3),
                                   ),
                                   itemBuilder: (context, index) {
                                     var data = controller
