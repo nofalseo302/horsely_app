@@ -29,7 +29,7 @@ class PendingReviewBody extends GetView<CompleteDataController> {
           height: 20,
         ),
         Text(
-          "Pending",
+          AppStrings.pending.tr,
           style: AppStyles.semibold24(context)
               .copyWith(color: const Color(0xff020202)),
         ),
@@ -60,9 +60,9 @@ class PendingReviewBody extends GetView<CompleteDataController> {
                 if (UserService
                         .to.currentUser.value?.data?.completeDataStatus ==
                     "rejected") {
-                  Get.offAllNamed(Routes.completedata, arguments: [
+                  Get.offAllNamed(Routes.completedata, arguments: 
                     {"isEdit": true}
-                  ]);
+                  );
                 } else {
                   Get.offAllNamed(Routes.home);
                 }
