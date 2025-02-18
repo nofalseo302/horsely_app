@@ -7,9 +7,9 @@ import 'package:horsely_app/core/models/errors/exceptions.dart';
 import 'package:horsely_app/core/services/network_service/api_service.dart';
 import 'package:horsely_app/core/services/network_service/endpoints.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
-import 'package:horsely_app/features/chat_feature/data/model/chat_model.dart';
-
-import '../model/chat_list_model.dart';
+import 'package:horsely_app/features/chat_feature/data/model/chat_list_model/chat_list_model.dart';
+import 'package:horsely_app/features/chat_feature/data/model/chat_model/chat_model.dart';
+import 'package:horsely_app/features/chat_feature/data/model/send_message_model/send_message_model.dart';
 
 class ChatRepo {
   final DioImpl _dioImpl = DioImpl();
@@ -19,7 +19,7 @@ class ChatRepo {
   }) async {
     try {
       var req = await _dioImpl.get(
-          endPoint: "${EndPoints.baseUrl}${EndPoints.chat}$userId?page=$page");
+          endPoint: "${EndPoints.baseUrl}${EndPoints.chat}/$userId?page=$page");
 
       if (req.statusCode == 200) {
         return Right(ChatModel.fromJson(req.data));
@@ -33,7 +33,7 @@ class ChatRepo {
     }
   }
 
-  Future<Either<ResponseMessage, Message>> sendMessage({
+  Future<Either<ResponseMessage, SendMessageModel>> sendMessage({
     required String chatId,
     required String message,
     String? attach,
@@ -60,7 +60,7 @@ class ChatRepo {
       );
 
       if (req.statusCode == 200) {
-        return Right(Message.fromJson(req.data['data']));
+        return Right(SendMessageModel.fromJson(req.data));
       } else {
         return Left(ResponseMessage.fromJson(req.data));
       }

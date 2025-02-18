@@ -11,7 +11,7 @@ class UserService extends GetxService {
   static UserService get to => Get.find();
 
   // Rx<User?> currentUser = Rx(null);
-  Rxn<UserModel>? currentUser = Rxn<UserModel>();
+  Rxn<UserModel?> currentUser = Rxn<UserModel>();
 
   Future<UserService> init() async {
     await getUser();
@@ -19,7 +19,7 @@ class UserService extends GetxService {
   }
 
   Future getUser() async {
-    currentUser?.value = CashHelper.getData(CacheKeys.userModel) == null
+    currentUser.value = CashHelper.getData(CacheKeys.userModel) == null
         ? null
         : UserModel.fromJson(
             json.decode(CashHelper.getData(CacheKeys.userModel)));
@@ -29,7 +29,7 @@ class UserService extends GetxService {
 
   Future setUser(UserModel userModel) async {
     CashHelper.setData(CacheKeys.userModel, json.encode(userModel.toJson()));
-    currentUser?.value = userModel;
+    currentUser.value = userModel;
     return unit;
   }
 }

@@ -5,8 +5,8 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/network_service/endpoints.dart';
+import 'package:horsely_app/features/chat_feature/data/model/chat_model/datum.dart';
 import 'package:pusher_channels_flutter/pusher_channels_flutter.dart';
-import 'package:horsely_app/features/chat_feature/data/model/chat_model.dart';
 import 'package:horsely_app/features/chat_feature/logic/controller/messages_controller.dart';
 
 class PusherRemoteDataSource {
@@ -72,7 +72,7 @@ class PusherRemoteDataSource {
     }
     if (responseBody.containsKey('data')) {
       print('dfdfdfdfdf $responseBody');
-      Message message = Message.fromJson(responseBody['data']);
+      Message  message = Message.fromJson(responseBody['data']);
       _messagesStreamController!.add(message);
       if (Get.isRegistered<MessagesController>()) {
         Get.find<MessagesController>().updateMessage(message);
@@ -109,7 +109,6 @@ class PusherRemoteDataSource {
   // Stream<UserModel> listenToUser() {
   //   return _userStreamController!.stream;
   // }
-
 
   // Future<Unit> subscribeToOrder({required int driverId}) async {
   //   _orderStreamController = StreamController();

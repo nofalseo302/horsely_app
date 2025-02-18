@@ -28,7 +28,7 @@ class EditPasswordController extends GetxController {
         (r) {
           Get.back();
           CashHelper.sharedPreferences?.clear();
-          UserService.to.currentUser = null;
+          UserService.to.currentUser.value = null;
           Get.offAllNamed(Routes.login);
           ToastManager.showSuccess(r, true);
         },

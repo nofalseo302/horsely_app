@@ -5,6 +5,8 @@ import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
+import 'package:horsely_app/routes/app_pages.dart';
+import 'package:horsely_app/routes/routes.dart';
 
 class SellerInformation extends StatelessWidget {
   const SellerInformation({
@@ -57,21 +59,27 @@ class SellerInformation extends StatelessWidget {
           style: AppStyles.semibold12(context)
               .copyWith(color: const Color(0xff8A8A8A)),
         ),
-        trailing: Badge(
-          padding: const EdgeInsets.all(5),
-          offset: const Offset(-2, -5),
-          label: Text(
-            "1",
-            style: AppStyles.semibold12(context).copyWith(color: Colors.white),
-          ),
-          backgroundColor: AppColors.primaryColor,
-          child: Container(
-            padding: const EdgeInsets.all(10),
-            width: 48,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: const Color(0xff199800).withOpacity(.15)),
-            child: const CustomImageHandler(AppImages.chats),
+        trailing: GestureDetector(
+          onTap: () {
+            Get.toNamed(Routes.chat, arguments: {'userId': 14});
+          },
+          child: Badge(
+            padding: const EdgeInsets.all(5),
+            offset: const Offset(-2, -5),
+            label: Text(
+              "1",
+              style:
+                  AppStyles.semibold12(context).copyWith(color: Colors.white),
+            ),
+            backgroundColor: AppColors.primaryColor,
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              width: 48,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color(0xff199800).withOpacity(.15)),
+              child: const CustomImageHandler(AppImages.chats),
+            ),
           ),
         ),
       ),

@@ -29,4 +29,3 @@ class LanguageController extends GetxController {
 
   Rxn<Color> primColor = Rxn<Color>(Colors.white);
 }
-

@@ -2,7 +2,6 @@ import 'package:horsely_app/core/services/cache/cash_helper.dart';
 import 'package:horsely_app/core/services/cache/cash_keys.dart';
 import 'package:horsely_app/core/services/network_service/api_service.dart';
 
-
 class EndPoints {
   ////             Auth    /////////////
   static const baseUrl = "https://crepto.codeella.com/api";
@@ -76,10 +75,14 @@ class EndPoints {
     final data = response.data['data'];
 
     await Future.wait([
-      CashHelper.setData(CacheKeys.realtimePusherAppId, data[CacheKeys.realtimePusherAppId]),
-      CashHelper.setData(CacheKeys.realtimePusherAppKey, data[CacheKeys.realtimePusherAppKey]),
-      CashHelper.setData(CacheKeys.realtimePusherAppSecret, data[CacheKeys.realtimePusherAppSecret]),
-      CashHelper.setData(CacheKeys.realtimePusherAppCluster, data[CacheKeys.realtimePusherAppCluster]),
+      CashHelper.setData(
+          CacheKeys.realtimePusherAppId, data[CacheKeys.realtimePusherAppId]),
+      CashHelper.setData(
+          CacheKeys.realtimePusherAppKey, data[CacheKeys.realtimePusherAppKey]),
+      CashHelper.setData(CacheKeys.realtimePusherAppSecret,
+          data[CacheKeys.realtimePusherAppSecret]),
+      CashHelper.setData(CacheKeys.realtimePusherAppCluster,
+          data[CacheKeys.realtimePusherAppCluster]),
     ]);
 
     realtimePusherAppId = data[CacheKeys.realtimePusherAppId];

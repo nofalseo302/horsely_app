@@ -51,7 +51,8 @@ class _ChatListScreenState extends State<ChatListScreen> {
                           ),
                         ),
                         SizedBox(height: 20),
-                        (controller.usersListModel?.data?.data ?? []).isEmpty
+                        (controller.usersListModel?.data?.chats?.data ?? [])
+                                .isEmpty
                             ? Padding(
                                 padding: EdgeInsets.only(top: Get.height * 0.3),
                                 child: Text(AppStrings.noChats.tr))
@@ -60,32 +61,32 @@ class _ChatListScreenState extends State<ChatListScreen> {
                                   padding: EdgeInsets.zero,
                                   shrinkWrap: true,
                                   controller: controller.scrollController,
-                                  itemCount: controller
-                                          .usersListModel?.data?.data?.length ??
+                                  itemCount: controller.usersListModel?.data
+                                          ?.chats?.data?.length ??
                                       0,
                                   separatorBuilder: (context, index) => Divider(
                                     color: Color(0xffd9d9d9).withOpacity(0.3),
                                   ),
                                   itemBuilder: (context, index) {
-                                    var data = controller
-                                        .usersListModel?.data?.data?[index];
+                                    var data = controller.usersListModel?.data
+                                        ?.chats?.data?[index];
                                     return ListTile(
                                       onTap: () {
                                         controller.setCurrentUserIndex(index);
                                         Get.toNamed(Routes.chat, arguments: {
-                                          'userId': data!.orderId,
+                                          'userId': data!.user?.id,
                                         });
                                       },
                                       leading: ClipOval(
                                         child: CustomImageHandler(
-                                          data?.driver?.image,
+                                          data?.user?.image,
                                           height: 60,
                                           width: 60,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
                                       title: Text(
-                                        data?.driver?.name.toString() ?? "",
+                                        data?.user?.name.toString() ?? "",
                                         style: AppStyles.semibold20(context),
                                       ),
                                       subtitle: Text(
@@ -95,9 +96,11 @@ class _ChatListScreenState extends State<ChatListScreen> {
                                       trailing: Text(
                                         data?.lastMessage?.createdAt == null
                                             ? ""
-                                            : formatToMinutesAgo(
-                                                data?.lastMessage?.createdAt ??
-                                                    ""),
+                                            : formatToMinutesAgo(data
+                                                    ?.lastMessage?.createdAt
+                                                    .toString() ??
+                                                DateTime.now()
+                                                    .toIso8601String()),
                                         style: AppStyles.regulare16(context)
                                             .copyWith(
                                                 color: index % 2 == 0

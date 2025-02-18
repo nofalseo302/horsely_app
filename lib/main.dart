@@ -8,12 +8,11 @@ import 'package:horsely_app/core/services/cache/cash_helper.dart';
 import 'package:horsely_app/core/services/cache/cash_keys.dart';
 import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/services/network_service/awesome_notifications_helper.dart';
-import 'package:horsely_app/core/services/network_service/endpoints.dart';
 import 'package:horsely_app/core/services/network_service/fcm_helper.dart';
-import 'package:horsely_app/core/services/pusher_service/pusher_service.dart';
 import 'package:horsely_app/core/services/translation/app_translation.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/size_config.dart';
+import 'package:horsely_app/features/account/features/account_setting.dart/presentation/manager/controler/languge_controler.dart';
 import 'package:horsely_app/features/auth/data/model/user_model/user_model.dart';
 import 'package:horsely_app/routes/app_pages.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -22,9 +21,10 @@ import 'package:horsely_app/routes/routes.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CashHelper.init();
-  await EndPoints.getSettings();
+
+  await GetStorage.init();
   await FcmHelper.initFcm();
-  await PusherRemoteDataSource().initPusher();
+
   await Get.putAsync(() => UserService().init());
   UserModel? userModel = UserService.to.currentUser?.value;
   await AwesomeNotificationsHelper.init();
@@ -47,12 +47,15 @@ class HorseleyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
-    String savedLanguage = box.read('language') ?? 'en';
+    LanguageController controller = LanguageController();
+    Get.lazyPut(() => controller, fenix: true);
 
-    String fontFamily = savedLanguage == 'en' ? 'popains' : 'Cairo';
+    String fontFamily = controller.getCacheLanguage().languageCode == 'en'
+        ? 'popains'
+        : 'Cairo';
     return GetMaterialApp(
       translations: AppTranslations(),
-      locale: Locale(savedLanguage),
+      locale: controller.getCacheLanguage(),
       fallbackLocale: const Locale('en'),
       supportedLocales: const [Locale('en'), Locale('ar')],
       localizationsDelegates: const [

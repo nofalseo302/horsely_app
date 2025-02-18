@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -52,39 +51,50 @@ class BodyInformationUser extends GetView<ImageController> {
                                     _showImageSourceBottomSheet(context),
                                 child: Stack(children: [
                                   Obx(
-                                    () {
-                                      return ClipOval(
-                                        child: CustomImageHandler(
-                                          controller.selectedImagePath.value,
-                                          width: 120,
-                                          height: 120,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      );
-                                    },
+                                    () => ClipOval(
+                                      child: CustomImageHandler(
+                                        controller.selectedImagePath.value ==
+                                                null
+                                            ? controller.imagePath.value
+                                            : controller
+                                                .selectedImagePath.value!,
+                                        width: 120,
+                                        height: 120,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
                                   ),
-                                  Positioned(
-                                    top: 0,
-                                    left: 0,
-                                    right: 0,
-                                    bottom: 0,
-                                    child: Container(
-                                        child: Padding(
-                                      padding: const EdgeInsets.all(25.0),
-                                      child: Container(
-                                          height: 40,
-                                          width: 40,
-                                          decoration: BoxDecoration(
-                                              color:
-                                                  Colors.black.withOpacity(.5),
-                                              borderRadius:
-                                                  BorderRadius.circular(50)),
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: SvgPicture.asset(
-                                                AppImages.camera),
-                                          )),
-                                    )),
+                                  Obx(
+                                    () => controller.selectedImagePath.value ==
+                                            null
+                                        ? Positioned(
+                                            top: 0,
+                                            left: 0,
+                                            right: 0,
+                                            bottom: 0,
+                                            child: Container(
+                                                child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(25.0),
+                                              child: Container(
+                                                  height: 40,
+                                                  width: 40,
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.black
+                                                          .withOpacity(.5),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              50)),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: SvgPicture.asset(
+                                                        AppImages.camera),
+                                                  )),
+                                            )),
+                                          )
+                                        : SizedBox(),
                                   ),
                                 ]),
                               ),
