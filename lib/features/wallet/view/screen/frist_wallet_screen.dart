@@ -22,7 +22,7 @@ class FristWalletScreen extends GetView<WalletController> {
     return Scaffold(
       backgroundColor: AppColors.backGray,
       floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
         child: CustomButton(
           buttonText: AppStrings.createNewWallet.tr,
           onButtonPressed: () {

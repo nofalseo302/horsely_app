@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
+import 'package:horsely_app/core/widget/custom_image.dart';
 import '../../../data/model/notification_model.dart';
 import '../../../logic/controller/notifcations_controller.dart';
 
 class IteamNotifaction extends GetView<NotificationsController> {
   final DataNotifications data;
-  const IteamNotifaction({super.key, required this.data});
+  final String image;
+  const IteamNotifaction({required this.image, super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +57,26 @@ class IteamNotifaction extends GetView<NotificationsController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                data.createdAt ?? '',
+                data.createdAt ?? "11-2-2025",
                 style: AppStyles.semibold12(context).copyWith(
                   fontWeight: FontWeight.w500,
+                  fontSize: 14,
                   color: const Color(0xff545454),
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Row(
                 children: [
+                  CircleAvatar(
+                    backgroundColor: AppColors.backGray,
+                    radius: 25,
+                    child: CustomImage(path: image),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
                   Text(
                     data.title ?? '',
                     style: AppStyles.semibold14(context),

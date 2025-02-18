@@ -202,6 +202,12 @@ class AppEn {
     AppStrings.viewdetails: "View details",
     AppStrings.viewall: "View all",
     AppStrings.min: AppStrings.min,
+    AppStrings.dropHeretoattachor: AppStrings.dropHeretoattachor,
+    AppStrings.maxFilesize5MB: AppStrings.maxFilesize5MB,
+    AppStrings.upload: AppStrings.upload,
+    AppStrings.pleaseSelectafile: AppStrings.pleaseSelectafile,
+    AppStrings.enterValidPhoneNumber: AppStrings.enterValidPhoneNumber,
+    AppStrings.invalidPhonenumber: AppStrings.invalidPhonenumber,
     AppStrings
             .byusingtheappandlogginginyouagreetotheTermsofServiceandPrivacyPolicy:
         AppStrings
