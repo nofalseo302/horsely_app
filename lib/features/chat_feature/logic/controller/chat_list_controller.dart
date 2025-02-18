@@ -9,7 +9,6 @@ import 'package:horsely_app/features/chat_feature/data/repo/chat_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 class ChatListController extends GetxController {
   RxBool isEmptyMessage = false.obs;
   RxBool isRecording = false.obs;

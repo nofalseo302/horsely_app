@@ -110,7 +110,6 @@ class PusherRemoteDataSource {
   //   return _userStreamController!.stream;
   // }
 
-
   // Future<Unit> subscribeToOrder({required int driverId}) async {
   //   _orderStreamController = StreamController();
 

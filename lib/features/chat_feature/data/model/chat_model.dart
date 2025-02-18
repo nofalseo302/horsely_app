@@ -1,4 +1,3 @@
-
 class ChatModel {
   bool? status;
   int? statusCode;

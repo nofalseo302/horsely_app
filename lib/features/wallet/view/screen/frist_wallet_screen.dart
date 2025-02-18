@@ -84,6 +84,7 @@ class FristWalletScreen extends GetView<WalletController> {
                                         )
                                       ],
                                     ),
+
                                     const SizedBox(
                                       height: 32,
                                     ),
