@@ -24,7 +24,7 @@ class FristWalletScreen extends GetView<WalletController> {
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: CustomButton(
-          buttonText: 'Create new Wallet',
+          buttonText: AppStrings.createNewWallet.tr,
           onButtonPressed: () {
             controller.getCryptoCurrency();
             Get.bottomSheet(
@@ -46,7 +46,7 @@ class FristWalletScreen extends GetView<WalletController> {
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                   child: Obx(
                     () => controller.isLoadingcurrency.value
-                        ? CustomLoader()
+                        ? const CustomLoader()
                         : controller.isErrorcurrency.value
                             ? Center(
                                 child: RetryWidget(onRetry: () {
@@ -163,9 +163,11 @@ class FristWalletScreen extends GetView<WalletController> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Obx(
           () => controller.isLoading.value
-              ? CustomLoader()
+              ? const CustomLoader()
               : controller.isError.value
-                  ? RetryWidget(onRetry: () async => await controller.getData())
+                  ? Center(
+                      child: RetryWidget(
+                          onRetry: () async => await controller.getData()))
                   : controller.getAllWalletModel.data!.data!.isEmpty
                       ? Padding(
                           padding: EdgeInsets.only(top: Get.height * 0.3),

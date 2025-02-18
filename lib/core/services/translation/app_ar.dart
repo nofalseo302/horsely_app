@@ -203,5 +203,9 @@ class AppAr {
     AppStrings.viewall: "المزيد",
     AppStrings.thisFieldIsRequired: "هذا الحقل مطلوب",
     AppStrings.code: "الكود",
+    AppStrings.min: "دقيقة",
+    AppStrings
+            .byusingtheappandlogginginyouagreetotheTermsofServiceandPrivacyPolicy:
+        "من خلال استخدام التطبيق وتسجيل الدخول، فإنك توافق على شروط الخدمة وسياسة الخصوصية"
   };
 }
