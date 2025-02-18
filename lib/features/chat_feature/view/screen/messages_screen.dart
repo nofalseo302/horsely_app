@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/cache/user_service.dart';
@@ -21,67 +20,64 @@ class MessagesScreen extends GetView<MessagesController> {
         preferredSize: const Size.fromHeight(50),
         child: GetBuilder<MessagesController>(
           // init: controller,
-          builder: (controller) => controller.isLoading.value ||
-                  controller.chatModel.value == null
-              ? const SizedBox()
-              : AppBar(
-                  backgroundColor: AppColors.white,
-                  leading: GestureDetector(
-                    onTap: () => Get.back(),
-                    child: const Icon(Icons.arrow_back_ios_new),
-                  ),
-                  title: Row(
-                    children: [
-                      const ClipOval(
-                        child: CustomImageHandler(
-                          
-                          "controller.chatModel.value?.data?.chatData?.driver?.image" ??
-                              "",
-                          height: 40,
-                          width: 40,
-                          fit: BoxFit.cover,
-                        ),
+          builder: (controller) =>
+              controller.isLoading.value || controller.chatModel.value == null
+                  ? const SizedBox()
+                  : AppBar(
+                      backgroundColor: AppColors.white,
+                      leading: GestureDetector(
+                        onTap: () => Get.back(),
+                        child: const Icon(Icons.arrow_back_ios_new),
                       ),
-                      const SizedBox(width: 10),
-                      Text(
-                       " controller.chatModel.value?.data?.chatData?.driver?.name "??
-                            "",
-                        style: AppStyles.regulare16(context),
-                      ),
-                    ],
-                  ),
-                  actions: controller.chatModel.value?.data?.chatData
-                              ?.unreadMessagesCustomer ??
-                          false
-                      ? null
-                      : [
-                          // GestureDetector(
-                          //   onTap: () {
-                          //     AppFunctions.launchDialer(
-                          //         AppFunctions.launchDialer(
-                          //       (controller.chatModel.value?.data?.chatData
-                          //                   ?.driver?.mobileCountryCode ??
-                          //               "") +
-                          //           (controller.chatModel.value?.data?.chatData
-                          //                   ?.driver?.mobile ??
-                          //               ""),
-                          //     ));
-                          //   },
-                          //   child: Container(
-                          //     decoration: BoxDecoration(
-                          //       shape: BoxShape.circle,
-                          //       color:
-                          //           const Color(0xff0035A7).withOpacity(0.10),
-                          //     ),
-                          //     padding: const EdgeInsets.all(9),
-                          //     child: const CustomImageHandler(
-                          //       AppImages.call,
-                          //     ),
-                          //   ),
-                          // ),
+                      title: Row(
+                        children: [
+                          const ClipOval(
+                            child: CustomImageHandler(
+                              "controller.chatModel.value?.data?.chatData?.driver?.image",
+                              height: 40,
+                              width: 40,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                           const SizedBox(width: 10),
+                          Text(
+                            " controller.chatModel.value?.data?.chatData?.driver?.name ",
+                            style: AppStyles.regulare16(context),
+                          ),
                         ],
-                ),
+                      ),
+                      actions: controller.chatModel.value?.data?.chatData
+                                  ?.unreadMessagesCustomer ??
+                              false
+                          ? null
+                          : [
+                              // GestureDetector(
+                              //   onTap: () {
+                              //     AppFunctions.launchDialer(
+                              //         AppFunctions.launchDialer(
+                              //       (controller.chatModel.value?.data?.chatData
+                              //                   ?.driver?.mobileCountryCode ??
+                              //               "") +
+                              //           (controller.chatModel.value?.data?.chatData
+                              //                   ?.driver?.mobile ??
+                              //               ""),
+                              //     ));
+                              //   },
+                              //   child: Container(
+                              //     decoration: BoxDecoration(
+                              //       shape: BoxShape.circle,
+                              //       color:
+                              //           const Color(0xff0035A7).withOpacity(0.10),
+                              //     ),
+                              //     padding: const EdgeInsets.all(9),
+                              //     child: const CustomImageHandler(
+                              //       AppImages.call,
+                              //     ),
+                              //   ),
+                              // ),
+                              const SizedBox(width: 10),
+                            ],
+                    ),
         ),
       ),
       body: GetBuilder<MessagesController>(
@@ -116,7 +112,7 @@ class MessagesScreen extends GetView<MessagesController> {
                       // if (controller.chatModel.value?.data?.chatData
                       //         ?.canSendMessages ??
                       //     false)
-                        const ConversationInput()
+                      const ConversationInput()
                       // // else
                       // //   Center(
                       // //     child: Padding(

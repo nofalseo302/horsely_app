@@ -13,8 +13,8 @@ class AppFunctions {
       scheme: 'mailto',
       path: email,
     );
-    if (await canLaunch(emailUri.toString())) {
-      await launch(emailUri.toString());
+    if (await canLaunchUrl(Uri.parse(emailUri.toString()))) {
+      await launchUrl(Uri.parse(emailUri.toString()));
     } else {
       throw 'Could not open email client';
     }
@@ -26,8 +26,8 @@ class AppFunctions {
       scheme: 'tel',
       path: phoneNumber,
     );
-    if (await canLaunch(phoneUri.toString())) {
-      await launch(phoneUri.toString());
+    if (await canLaunchUrl(Uri.parse(phoneUri.toString()))) {
+      await launchUrl(Uri.parse(phoneUri.toString()));
     } else {
       throw 'Could not open phone dialer';
     }
