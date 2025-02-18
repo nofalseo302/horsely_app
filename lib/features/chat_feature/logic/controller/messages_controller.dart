@@ -90,7 +90,7 @@ class MessagesController extends GetxController {
   getChatData({
     int? page,
   }) async {
-    var userId = Get.arguments['orderId'];
+    var userId = Get.arguments['userId'];
     if (page == null) {
       isLoading.value = true;
     } else {
