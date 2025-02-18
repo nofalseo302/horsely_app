@@ -61,7 +61,7 @@ class AppEn {
     AppStrings.confrim: "Confirm",
     AppStrings.comfrimnewpassword: "Confirm new password",
     AppStrings.rensendcode: "Resend code",
-    AppStrings.Acountverify: "Verify your identity",
+    AppStrings.acountverify: "Verify your identity",
     AppStrings.verifyinstruction: AppStrings.verifyinstruction,
     AppStrings.attachment: AppStrings.attachment,
     AppStrings.createNewWallet: AppStrings.createNewWallet,
