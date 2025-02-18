@@ -100,7 +100,7 @@ class FilterWidget extends StatelessWidget {
       children: [
         Expanded(
             child: CustomButton(
-                backgroundColor: AppColors.backgray,
+                backgroundColor: AppColors.backGray,
                 textColor: Colors.black,
                 onButtonPressed: () => Get.back(),
                 buttonText: AppStrings.cancel.tr)),

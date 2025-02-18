@@ -64,7 +64,7 @@ class BendingCompletDataBody extends StatelessWidget {
             },
             buttonText: AppStrings.startnow.tr,
             borderColor: Colors.transparent,
-            backgroundColor: AppColors.backgray,
+            backgroundColor: AppColors.backGray,
             textColor: Colors.black,
           ),
         )

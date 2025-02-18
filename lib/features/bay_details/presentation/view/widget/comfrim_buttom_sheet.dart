@@ -88,7 +88,7 @@ class ComfrimButtomSheet extends StatelessWidget {
                   ),
                   Expanded(
                       child: CustomButton(
-                          backgroundColor: AppColors.backgray,
+                          backgroundColor: AppColors.backGray,
                           borderColor: Colors.transparent,
                           textColor: Colors.black,
                           onButtonPressed: () {},

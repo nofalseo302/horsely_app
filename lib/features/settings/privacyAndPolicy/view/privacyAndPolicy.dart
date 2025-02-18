@@ -13,7 +13,7 @@ class PrivacyPolicyScreen extends GetView<PrivacyAndPolicyController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgGrey,
+      backgroundColor: AppColors.backGray,
       appBar: AppBar(
         backgroundColor: AppColors.white,
         // leading: const Padding(
