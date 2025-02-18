@@ -30,7 +30,7 @@ class LocalAuth extends StatelessWidget {
             AppStrings.logout.tr,
             style: context.textTheme.bodySmall!.copyWith(
               decoration: TextDecoration.underline,
-              color: AppColors.bgGrey,
+              color: AppColors.backGray,
             ),
           ),
         ),

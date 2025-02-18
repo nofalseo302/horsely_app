@@ -23,7 +23,7 @@ class BodyDeposit extends StatelessWidget {
           Container(
             width: double.infinity,
             height: 8,
-            color: AppColors.backgray,
+            color: AppColors.backGray,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),

@@ -10,7 +10,6 @@ import 'package:horsely_app/core/widget/custom_text_filed.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
 import 'package:horsely_app/features/account/features/myorder/presentation/widget/iteam_order_tap_bar.dart';
 import 'package:horsely_app/features/account/features/transaction/logic/controller/transaction_controller.dart';
-import 'package:horsely_app/features/account/features/transaction/presentation/widget/body_tranaction.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/drop_dawn.dart';
 
 class TeanactionScreen extends GetView<TransactionController> {

@@ -76,7 +76,7 @@ class AppStrings {
   static const comfrimsnewspassword = "newpassword";
   static const confrim = "confrim";
   static const rensendcode = "rensendcode";
-  static const Acountverify = "Acountverify";
+  static const acountverify = "Acountverify";
   static const verifyinstruction = "we sent 6-digit code to";
   static const thisCodeisvalidForTwoMinutes =
       "this code will be valid for 2minutes.";
@@ -193,7 +193,7 @@ class AppStrings {
   static const search = "search";
   static const filter = "filter";
   static const reset = "reset";
-  static const pricesransee = "price";
+  static const pricesransee = "Price range";
   static const transactionlimite = "transactionlimite";
   static const curencytype = "curencytype";
   static const viladtionemail = " viladtionemail";

@@ -35,7 +35,7 @@ class ButtonNext extends StatelessWidget {
                   child: Container(
                     height: 60,
                     decoration: BoxDecoration(
-                      color: AppColors.backgray,
+                      color: AppColors.backGray,
                       borderRadius: BorderRadius.circular(17),
                     ),
                     child: const Padding(

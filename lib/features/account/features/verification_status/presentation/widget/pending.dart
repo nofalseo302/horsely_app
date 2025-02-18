@@ -69,7 +69,7 @@ class Pending extends StatelessWidget {
                     );
                   },
                   buttonText: AppStrings.viewdoumention.tr,
-                  backgroundColor: AppColors.backgray,
+                  backgroundColor: AppColors.backGray,
                   textColor: Colors.black,
                 )
               ],

@@ -81,9 +81,9 @@ class ItemType extends StatelessWidget {
                                     // Add your reset logic here
                                   },
                                   buttonText: "Reset",
-                                  backgroundColor: AppColors.backgray,
+                                  backgroundColor: AppColors.backGray,
                                   textColor: Colors.black,
-                                  borderColor: AppColors.backgray,
+                                  borderColor: AppColors.backGray,
                                 ),
                               ),
                             ],

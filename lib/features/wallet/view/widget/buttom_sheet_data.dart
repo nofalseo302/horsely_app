@@ -62,7 +62,7 @@ class ButtomSheetData extends StatelessWidget {
                   Get.back();
                 },
                 buttonText: AppStrings.close.tr,
-                backgroundColor: AppColors.backgray,
+                backgroundColor: AppColors.backGray,
                 borderColor: Colors.transparent,
                 textColor: Colors.black,
               ),

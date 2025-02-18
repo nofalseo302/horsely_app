@@ -59,7 +59,7 @@ class BlancController extends GetxController {
     }, (r) {
       amount.text = "";
       Get.back();
-      ToastManager.showSuccess(r.message ?? "", true);
+      ToastManager.showSuccess(r.message, true);
     });
   }
 }
