@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/widgets.dart';
@@ -14,25 +15,25 @@ import 'package:horsely_app/features/information_user/data/repo/repo/edit_profil
 import 'package:horsely_app/routes/routes.dart';
 
 class ImageController extends GetxController {
-  var selectedImagePath = ''.obs;
+  Rxn<File> selectedImagePath = Rxn<File>();
   final ImagePickerService _imagePickerService = ImagePickerService();
   UserModel? userModel;
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   var formKey = GlobalKey<FormState>();
   final EditProfileRepo _editProfileRepo = EditProfileRepo();
-
+  RxString imagePath = ''.obs;
   void pickImageFromGallery() async {
     final pickedFile = await _imagePickerService.pickImageFromGallery();
     if (pickedFile != null) {
-      selectedImagePath.value = pickedFile.path;
+      selectedImagePath.value = File(pickedFile.path);
     }
   }
 
   void pickImageFromCamera() async {
     final pickedFile = await _imagePickerService.pickImageFromCamera();
     if (pickedFile != null) {
-      selectedImagePath.value = pickedFile.path;
+      selectedImagePath.value = File(pickedFile.path);
     }
   }
 
@@ -46,14 +47,13 @@ class ImageController extends GetxController {
         'mobile': '15${Random().nextInt(900000) + 100000}',
       });
 
-      if (!selectedImagePath.value.startsWith("http://") &&
-          !selectedImagePath.value.startsWith("https://")) {
+      if (selectedImagePath != null) {
         data.files.add(
           MapEntry(
             'image',
             await multipart_file.MultipartFile.fromFile(
-              selectedImagePath.value,
-              filename: selectedImagePath.value +
+              selectedImagePath.value!.path,
+              filename: selectedImagePath.value!.path +
                   DateTime.now().millisecondsSinceEpoch.toString(),
             ),
           ),
@@ -85,7 +85,7 @@ class ImageController extends GetxController {
     userModel = UserService.to.currentUser?.value;
     nameController.text = userModel?.data?.name ?? '';
     emailController.text = userModel?.data?.email ?? '';
-    selectedImagePath.value = userModel?.data?.image ?? '';
+    imagePath.value = userModel?.data?.image ?? '';
     super.onInit();
   }
 }

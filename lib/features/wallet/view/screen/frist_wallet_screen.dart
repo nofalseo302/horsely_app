@@ -46,7 +46,7 @@ class FristWalletScreen extends GetView<WalletController> {
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                   child: Obx(
                     () => controller.isLoadingcurrency.value
-                        ? const Expanded(child: CustomLoader())
+                        ? CustomLoader()
                         : controller.isErrorcurrency.value
                             ? Center(
                                 child: RetryWidget(onRetry: () {
@@ -62,91 +62,95 @@ class FristWalletScreen extends GetView<WalletController> {
                                           style: AppStyles.semibold20(context)),
                                     ),
                                   )
-                                : ListView(children: [
-                                    Row(
-                                      children: [
-                                        Text(
-                                          AppStrings.walletType.tr,
-                                          style: AppStyles.semibold32(context)
-                                              .copyWith(
-                                                  fontSize: 28,
-                                                  color: Colors.black),
-                                        ),
-                                        const Spacer(),
-                                        GestureDetector(
-                                          onTap: () {
-                                            Get.back();
-                                          },
-                                          child: const CircleAvatar(
-                                            backgroundColor: AppColors.backGray,
-                                            child: Icon(Icons.close),
+                                : SingleChildScrollView(
+                                    child: Column(children: [
+                                      Row(
+                                        children: [
+                                          Text(
+                                            AppStrings.walletType.tr,
+                                            style: AppStyles.semibold32(context)
+                                                .copyWith(
+                                                    fontSize: 28,
+                                                    color: Colors.black),
                                           ),
-                                        )
-                                      ],
-                                    ),
-
-                                    const SizedBox(
-                                      height: 32,
-                                    ),
-                                    ...List.generate(
-                                        controller.cryptoCurrencyModel.data
-                                                ?.length ??
-                                            0,
-                                        (index) => Obx(
-                                              () => IteamChooseWallet(
-                                                image: controller
-                                                        .cryptoCurrencyModel
-                                                        .data?[index]
-                                                        .image ??
-                                                    "",
-                                                onTap: () {
-                                                  controller.choosewallet(
+                                          const Spacer(),
+                                          GestureDetector(
+                                            onTap: () {
+                                              Get.back();
+                                            },
+                                            child: const CircleAvatar(
+                                              backgroundColor:
+                                                  AppColors.backGray,
+                                              child: Icon(Icons.close),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 32,
+                                      ),
+                                      ...List.generate(
+                                          controller.cryptoCurrencyModel.data
+                                                  ?.length ??
+                                              0,
+                                          (index) => Obx(
+                                                () => IteamChooseWallet(
+                                                  image: controller
+                                                          .cryptoCurrencyModel
+                                                          .data?[index]
+                                                          .image ??
+                                                      "",
+                                                  onTap: () {
+                                                    controller.choosewallet(
+                                                        index,
+                                                        controller
+                                                                .cryptoCurrencyModel
+                                                                .data?[index]
+                                                                .id ??
+                                                            0);
+                                                  },
+                                                  name: controller
+                                                          .cryptoCurrencyModel
+                                                          .data?[index]
+                                                          .name ??
+                                                      "",
+                                                  isActive: controller
+                                                          .selindex.value ==
                                                       index,
-                                                      controller
-                                                              .cryptoCurrencyModel
-                                                              .data?[index]
-                                                              .id ??
-                                                          0);
-                                                },
-                                                name: controller
-                                                        .cryptoCurrencyModel
-                                                        .data?[index]
-                                                        .name ??
-                                                    "",
-                                                isActive: controller.selindex.value ==
-                                                    index,
-                                              ),
-                                            )),
-                                    Row(
-                                      children: [
-                                        Expanded(
-                                            child: CustomButton(
-                                                onButtonPressed: () {
-                                                  Get.back();
-                                                  controller.createWallet();
-                                                  controller.selindex.value =
-                                                      -1;
-                                                },
-                                                buttonText:
-                                                    AppStrings.confrim.tr)),
-                                        const SizedBox(
-                                          width: 7,
-                                        ),
-                                        Expanded(
-                                            child: CustomButton(
-                                                backgroundColor:
-                                                    AppColors.backGray,
-                                                borderColor: AppColors.backGray,
-                                                textColor:
-                                                    const Color(0xff333333),
-                                                onButtonPressed: () {
-                                                  Get.back();
-                                                },
-                                                buttonText:
-                                                    AppStrings.cancel.tr))
-                                      ],
-                                    )
-                                  ]),
+                                                ),
+                                              )),
+                                      Row(
+                                        children: [
+                                          Expanded(
+                                              child: CustomButton(
+                                                  onButtonPressed: () {
+                                                    Get.back();
+                                                    controller.createWallet();
+                                                    controller.selindex.value =
+                                                        -1;
+                                                  },
+                                                  buttonText:
+                                                      AppStrings.confrim.tr)),
+                                          const SizedBox(
+                                            width: 7,
+                                          ),
+                                          Expanded(
+                                              child: CustomButton(
+                                                  backgroundColor:
+                                                      AppColors.backGray,
+                                                  borderColor:
+                                                      AppColors.backGray,
+                                                  textColor:
+                                                      const Color(0xff333333),
+                                                  onButtonPressed: () {
+                                                    Get.back();
+                                                  },
+                                                  buttonText:
+                                                      AppStrings.cancel.tr))
+                                        ],
+                                      )
+                                    ]),
+                                  ),
                   ),
                 ),
               ),
@@ -159,7 +163,7 @@ class FristWalletScreen extends GetView<WalletController> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Obx(
           () => controller.isLoading.value
-              ? const Expanded(child: CustomLoader())
+              ? CustomLoader()
               : controller.isError.value
                   ? RetryWidget(onRetry: () async => await controller.getData())
                   : controller.getAllWalletModel.data!.data!.isEmpty

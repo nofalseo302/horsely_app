@@ -64,8 +64,9 @@ class BodyAccountSetting extends StatelessWidget {
                 ),
                 Obx(() => ItteamLanguage(
                       titel: AppStrings.english.tr,
-                      isactive:
-                          languageController.currentLanguage.value == 'en',
+                      isactive: languageController
+                              .currentLanguage.value?.languageCode ==
+                          'en',
                       onTap: () {
                         languageController
                             .changeLanguage('en'); // تغيير اللغة إلى الإنجليزية
@@ -76,8 +77,9 @@ class BodyAccountSetting extends StatelessWidget {
                 ),
                 Obx(() => ItteamLanguage(
                       titel: AppStrings.arabic.tr,
-                      isactive:
-                          languageController.currentLanguage.value == 'ar',
+                      isactive: languageController
+                              .currentLanguage.value?.languageCode ==
+                          'ar',
                       onTap: () {
                         languageController
                             .changeLanguage('ar'); // تغيير اللغة إلى العربية

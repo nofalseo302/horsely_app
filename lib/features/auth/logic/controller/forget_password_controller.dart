@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:horsely_app/core/services/cache/user_service.dart';
 
 import '../../../../core/widget/custom_loader.dart';
 import '../../../../core/widget/toast_manager_widget.dart';
@@ -90,7 +91,9 @@ class ForgetPasswordController extends GetxController {
     stopLoading();
     result.fold((l) {
       ToastManager.showSuccess(l.message, false);
-    }, (r) {
+    }, (r) async {
+      await UserService.to.setUser(r);
+
       Get.offAllNamed(Routes.login);
       ToastManager.showSuccess(r.message.toString(), true);
     });
