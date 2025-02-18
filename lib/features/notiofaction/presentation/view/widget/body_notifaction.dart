@@ -49,6 +49,9 @@ class BodyNotifaction extends GetView<NotificationsController> {
                                         padding:
                                             const EdgeInsets.only(bottom: 8.0),
                                         child: IteamNotifaction(
+                                          image: controller.notificationModel
+                                                  ?.data?.data?[index].icon ??
+                                              "",
                                           data: controller.notificationModel!
                                               .data!.data![index],
                                         ),
