@@ -46,6 +46,7 @@ class HorseleyApp extends StatelessWidget {
   final UserModel? userModel;
   @override
   Widget build(BuildContext context) {
+    print(UserService.to.currentUser.value?.data?.completeDataStatus);
     SizeConfig.init(context);
     LanguageController controller = LanguageController();
     Get.lazyPut(() => controller, fenix: true);

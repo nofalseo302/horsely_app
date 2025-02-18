@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:get/get.dart';
 import 'package:horsely_app/core/function/app_launge.dart';
+import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/features/profit/presentation/manager/controler/tap_bar_profit_controler.dart';
 
 import '../../../../../core/services/translation/app_string.dart';
@@ -34,5 +37,13 @@ class HomeControler extends GetxController {
     selindex = index;
 
     update();
+  }
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    log(UserService.to.currentUser.value?.data?.completeDataStatus.toString() ??
+        "");
   }
 }
