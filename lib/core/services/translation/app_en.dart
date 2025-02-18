@@ -205,6 +205,8 @@ class AppEn {
     AppStrings.maxFilesize5MB: AppStrings.maxFilesize5MB,
     AppStrings.upload: AppStrings.upload,
     AppStrings.pleaseSelectafile: AppStrings.pleaseSelectafile,
+    AppStrings.enterValidPhoneNumber: AppStrings.enterValidPhoneNumber,
+    AppStrings.invalidPhonenumber: AppStrings.invalidPhonenumber,
     AppStrings
             .byusingtheappandlogginginyouagreetotheTermsofServiceandPrivacyPolicy:
         AppStrings

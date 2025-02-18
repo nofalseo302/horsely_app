@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
@@ -59,11 +60,11 @@ class MobileTextfiled extends StatelessWidget {
       validator: (value) async {
         if ((value?.completeNumber ?? "").isEmpty ||
             (controller?.text ?? '').isEmpty) {
-          return "Enter Invalid Phone Number ";
+          return AppStrings.enterValidPhoneNumber.tr;
         }
         return null;
       },
-      invalidNumberMessage: 'Invalid phone number',
+      invalidNumberMessage: AppStrings.invalidPhonenumber.tr,
       disableLengthCheck: false,
       onSubmitted: onSubmit,
       autofocus: autoFocus ?? false,

@@ -213,6 +213,8 @@ class AppStrings {
   static const String pleaseSelectafile = "Please select a file.";
 
   static const String dropHeretoattachor = "Drop here to attach or";
+  static const String enterValidPhoneNumber = "Enter valid Phone Number";
+  static const String invalidPhonenumber = "Invalid phone number";
   static const String
       byusingtheappandlogginginyouagreetotheTermsofServiceandPrivacyPolicy =
       "By using the app and logging in, you agree to the Terms of Service and Privacy Policy.";
