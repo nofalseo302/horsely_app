@@ -63,6 +63,7 @@ dependencies:
   pinput: ^5.0.0
   pretty_dio_logger: ^1.4.0
   pusher_channels_flutter: ^2.5.0
+  shared_preferences: ^2.5.2
   slider_button: ^2.1.0
   syncfusion_flutter_charts: ^27.1.53
   syncfusion_flutter_sliders: ^27.1.53
