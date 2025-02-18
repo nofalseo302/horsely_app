@@ -7,7 +7,8 @@ class AppStrings {
   static const String message = 'message';
   static const String attachment = 'Attachment';
   static const String enterThePasswordToDelete = 'أدخل كلمة السر لحذف الحساب';
- static const     yourdocumentsarecurrentlyunderreviewWewillgetbacktoyouassoonaspossible =    "Your documents are currently under review. We will get back to you as soon as possible ";
+  static const yourdocumentsarecurrentlyunderreviewWewillgetbacktoyouassoonaspossible =
+      "Your documents are currently under review. We will get back to you as soon as possible ";
   static const String buytheTopCryptocurrenciesontheMarket =
       "buytheTopCryptocurrenciesontheMarket";
   static const String exploreAndInvest = "Explore and invest in the ";
@@ -207,6 +208,11 @@ class AppStrings {
   static const processFailed = "Process Failed";
   static const connectionError = "Connection Error";
   static const String min = "Min";
+  static const String upload = "upload";
+  static const String maxFilesize5MB = "Max file size: 5MB";
+  static const String pleaseSelectafile = "Please select a file.";
+
+  static const String dropHeretoattachor = "Drop here to attach or";
   static const String
       byusingtheappandlogginginyouagreetotheTermsofServiceandPrivacyPolicy =
       "By using the app and logging in, you agree to the Terms of Service and Privacy Policy.";
