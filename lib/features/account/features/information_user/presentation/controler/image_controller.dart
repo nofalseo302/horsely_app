@@ -47,7 +47,7 @@ class ImageController extends GetxController {
         'mobile': '15${Random().nextInt(900000) + 100000}',
       });
 
-      if (selectedImagePath != null) {
+      if (selectedImagePath.value != null) {
         data.files.add(
           MapEntry(
             'image',
@@ -82,7 +82,7 @@ class ImageController extends GetxController {
 
   @override
   void onInit() {
-    userModel = UserService.to.currentUser?.value;
+    userModel = UserService.to.currentUser.value;
     nameController.text = userModel?.data?.name ?? '';
     emailController.text = userModel?.data?.email ?? '';
     imagePath.value = userModel?.data?.image ?? '';
