@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
+import 'package:horsely_app/features/wallet/data/model/crypto_currency_model/crypto_currency_model.dart';
 import 'package:horsely_app/features/wallet/data/model/get_all_wallet_model/get_all_wallet_model.dart';
+import 'package:horsely_app/features/wallet/data/repo/currency_repo.dart';
 import 'package:horsely_app/features/wallet/data/repo/wallet_repo.dart';
 
 class WalletController extends GetxController {
   final GetAllRepoRepo wallet = GetAllRepoRepo();
   GetAllWalletModel getAllWalletModel = GetAllWalletModel();
+  RxInt? walletid = RxInt(0);
 
   ScrollController scrollController = ScrollController();
   RxBool isLoading = false.obs;
@@ -44,7 +47,7 @@ class WalletController extends GetxController {
 
   createWallet() async {
     startLoading();
-    var res = await wallet.createWallet(id: 6);
+    var res = await wallet.createWallet(id: walletid?.value ?? 0);
     stopLoading();
     res.fold(
       (l) {
@@ -73,5 +76,31 @@ class WalletController extends GetxController {
     await getData();
     scrollController.addListener(_scrollListener);
     super.onInit();
+  }
+
+  ///  -----------------get current crypto currency ----
+  CurrencyRepo currencyRepo = CurrencyRepo();
+  CryptoCurrencyModel cryptoCurrencyModel = CryptoCurrencyModel();
+  var selindex = (-1).obs; // Observable variable
+  RxBool isLoadingcurrency = false.obs;
+  RxBool isErrorcurrency = false.obs;
+
+  void choosewallet(int index, int crypto) {
+    selindex.value =
+        index; // Assigning the passed index to the observable variable
+    walletid?.value = crypto;
+  }
+
+  void getCryptoCurrency() async {
+    isLoadingcurrency.value = true;
+    var res = await currencyRepo.getCryptoCurrency();
+    isLoadingcurrency.value = false;
+    res.fold((l) {
+      isErrorcurrency.value = true;
+      ToastManager.showError(l.message);
+    }, (r) {
+      // ToastManager.showSuccess(r.message ?? "", true);
+      cryptoCurrencyModel = r;
+    });
   }
 }

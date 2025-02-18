@@ -9,10 +9,13 @@ class EndPoints {
   static const profile = "$baseUrl/profile";
   static const login = "/auth/login";
   static const completeData = "/complete-data";
+  static const blanc = "/wallet/balance";
   static const register = "/auth/register";
   static const deleteImage = "/delete-image";
   static const allWallet = "/wallet";
+  static const transfetr = "/wallet/transfer-usdt";
   static const createWallet = "/wallet/create";
+  static const cryptoCurrency = "/data/crypto-currencies";
   static const logout = "/auth/logout";
   static const verfiryAccount = "$baseUrl/auth/verify-account";
   static const resendCode = "$baseUrl/auth/verify-account/re-send-code";

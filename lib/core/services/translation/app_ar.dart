@@ -64,7 +64,11 @@ class AppAr {
     AppStrings.approved: "تمت الموافقة",
     AppStrings.wallet: "محفظة",
     AppStrings.uploadOnly5Images: "قم بتحميل 5 صور فقط",
+    AppStrings.nowallet: "لا يوجد محفظة",
     AppStrings.profits: "الارباح",
+    AppStrings.nodata: "لا يوجد بيانات",
+    AppStrings.walletType: "أنواع المحافظ ",
+    AppStrings.phoneNumberMustBeEntered: " يجب ادخال رقم الهاتف ",
     AppStrings.myprofile: " الحساب",
     AppStrings.buy: "شراء",
     AppStrings.privacyPolicy: "سياسة الخصوصية",
@@ -193,5 +197,7 @@ class AppAr {
     AppStrings.description: "الوصف",
     AppStrings.accept: "قبول",
     AppStrings.viewall: "المزيد",
+    AppStrings.thisFieldIsRequired: "هذا الحقل مطلوب",
+    AppStrings.code: "الكود",
   };
 }
