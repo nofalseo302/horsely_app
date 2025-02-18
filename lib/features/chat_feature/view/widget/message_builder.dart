@@ -15,7 +15,7 @@ class MessageBuilder extends GetView<MessagesController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: (Get.locale!.languageCode == 'ar' ? isMe : !isMe)
+      alignment: (Get.locale!.languageCode == 'en' ? isMe : !isMe)
           ? Alignment.centerRight
           : Alignment.centerLeft,
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -53,10 +53,10 @@ class MessageBuilder extends GetView<MessagesController> {
                     borderRadius: BorderRadiusDirectional.only(
                       bottomEnd: const Radius.circular(10),
                       bottomStart: const Radius.circular(10),
-                      topEnd: isMe
+                      topEnd: !isMe
                           ? const Radius.circular(10)
                           : const Radius.circular(0),
-                      topStart: isMe
+                      topStart: !isMe
                           ? const Radius.circular(0)
                           : const Radius.circular(10),
                     ),

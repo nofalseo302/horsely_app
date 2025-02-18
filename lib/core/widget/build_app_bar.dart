@@ -11,9 +11,21 @@ AppBar buildAppBar({required String titel, required BuildContext context}) {
       titel,
       style: AppStyles.semibold18(context),
     ),
-    leading: Padding(
+    leading: const CustomBackButton(),
+  );
+}
+
+class CustomBackButton extends StatelessWidget {
+  const CustomBackButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
+          padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: const Color(0xffE9EFF5),
             borderRadius: BorderRadius.circular(11),
@@ -29,6 +41,6 @@ AppBar buildAppBar({required String titel, required BuildContext context}) {
               color: Colors.black,
             ),
           )),
-    ),
-  );
+    );
+  }
 }
