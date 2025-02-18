@@ -7,7 +7,8 @@ class AppStrings {
   static const String message = 'message';
   static const String attachment = 'Attachment';
   static const String enterThePasswordToDelete = 'أدخل كلمة السر لحذف الحساب';
- static const     yourdocumentsarecurrentlyunderreviewWewillgetbacktoyouassoonaspossible =    "Your documents are currently under review. We will get back to you as soon as possible ";
+  static const yourdocumentsarecurrentlyunderreviewWewillgetbacktoyouassoonaspossible =
+      "Your documents are currently under review. We will get back to you as soon as possible ";
   static const String buytheTopCryptocurrenciesontheMarket =
       "buytheTopCryptocurrenciesontheMarket";
   static const String exploreAndInvest = "Explore and invest in the ";
