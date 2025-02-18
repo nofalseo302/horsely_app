@@ -6,15 +6,11 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
-import 'package:horsely_app/core/utils/size_config.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/custom_retry_widget.dart';
-import 'package:horsely_app/features/auth/views/register/widget/body_sing_up.dart';
 import 'package:horsely_app/features/chat_feature/logic/controller/chat_list_controller.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:intl/intl.dart';
-
-import '../../logic/controller/messages_controller.dart';
 
 class ChatListScreen extends StatefulWidget {
   const ChatListScreen({super.key});

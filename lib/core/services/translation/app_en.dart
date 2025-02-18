@@ -188,7 +188,7 @@ class AppEn {
     AppStrings.search: "Search",
     AppStrings.camera: "Camera",
     AppStrings.gallery: "Gallery",
-    AppStrings.pricesransee: "Price range",
+    AppStrings.pricesransee: AppStrings.pricesransee,
     AppStrings.transactionlimite: "Transaction limit",
     AppStrings.curencytype: "Currency type",
     AppStrings.history: "History",

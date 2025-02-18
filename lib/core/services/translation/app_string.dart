@@ -192,7 +192,7 @@ class AppStrings {
   static const search = "search";
   static const filter = "filter";
   static const reset = "reset";
-  static const pricesransee = "price";
+  static const pricesransee = "Price range";
   static const transactionlimite = "transactionlimite";
   static const curencytype = "curencytype";
   static const viladtionemail = " viladtionemail";
