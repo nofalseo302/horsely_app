@@ -59,7 +59,7 @@ class LogoutBottomSheet extends StatelessWidget {
               // controller.logout();
               Navigator.pop(context);
               CashHelper.sharedPreferences?.clear();
-              UserService.to.currentUser = null;
+              UserService.to.currentUser.value = null;
               Get.offAllNamed(Routes.login);
             },
           ),

@@ -22,7 +22,7 @@ class DeleteAccountController extends GetxController {
     }, (r) {
       Get.offAllNamed(Routes.login);
       CashHelper.sharedPreferences?.clear();
-      UserService.to.currentUser = null;
+      UserService.to.currentUser.value = null;
       ToastManager.showSuccess(r, true);
     });
   }
