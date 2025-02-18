@@ -43,9 +43,12 @@ dependencies:
   fl_chart: ^0.69.0
   flutter:
     sdk: flutter
+    flutter_localizations:
+    sdk: flutter
+    
   flutter_animate: ^4.5.0
   flutter_html: ^3.0.0-beta.2
-  flutter_localization: ^0.2.2
+  flutter_localization: ^0.3.1
   flutter_otp_text_field: ^1.2.0
   flutter_shaders: ^0.1.3
   flutter_sound: ^9.23.1
