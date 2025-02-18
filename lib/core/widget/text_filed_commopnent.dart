@@ -35,8 +35,8 @@ class TextFieldComponent extends StatefulWidget {
     required this.hint,
   }) {
     fillColor ?? const Color(0xffF8F8F8);
-    textStyle ?? TextStyle(color: Colors.black);
-    hintTextStyle ?? TextStyle(color: AppColors.backgray);
+    textStyle ?? const TextStyle(color: Colors.black);
+    hintTextStyle ?? const TextStyle(color: AppColors.backgray);
   }
   late String? label;
   late TextEditingController? controller;

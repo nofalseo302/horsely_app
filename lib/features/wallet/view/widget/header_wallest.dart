@@ -8,7 +8,6 @@ import 'package:horsely_app/features/wallet/view/widget/send_buttom_sheet.dart';
 import 'package:horsely_app/routes/routes.dart';
 
 import 'package:horsely_app/features/wallet/view/widget/iteam_estimlation.dart';
-import 'package:horsely_app/features/wallet/view/widget/transferm_butttom_sheet.dart';
 import 'package:horsely_app/features/wallet/view/widget/user_code.dart';
 
 class HeaderWallet extends StatelessWidget {
