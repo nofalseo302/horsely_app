@@ -4,6 +4,7 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
+import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
 
 class SellerInformation extends StatelessWidget {
   const SellerInformation({
@@ -70,7 +71,7 @@ class SellerInformation extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: const Color(0xff199800).withOpacity(.15)),
-            child: Image.asset(AppImages.chats),
+            child: const CustomImageHandler(AppImages.chats),
           ),
         ),
       ),

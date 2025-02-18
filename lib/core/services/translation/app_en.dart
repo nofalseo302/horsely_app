@@ -15,6 +15,7 @@ class AppEn {
     AppStrings.topCryptoCur: AppStrings.topCryptoCur,
     AppStrings.subtitelpageview1: AppStrings.subtitelpageview1,
     AppStrings.start: AppStrings.start,
+    AppStrings.noChats: AppStrings.noChats,
     AppStrings.create: "Create",
     AppStrings.approvedMessage: "Congrats, your account has been approved",
     AppStrings.portfoolio: "Portfolio",
@@ -47,6 +48,8 @@ class AppEn {
     AppStrings.enternewpincode: "PIN Code",
     AppStrings.pincodeNew: "Enter New PIN ",
     AppStrings.wrongPinCode: "Wrong pin code",
+    AppStrings.messages: AppStrings.messages,
+    AppStrings.message: AppStrings.message,
     AppStrings.createpincode: "Create pin code",
     AppStrings.creatPinCodeSucess: "Pin code created successfully",
     AppStrings.accountrecviedinstraction:

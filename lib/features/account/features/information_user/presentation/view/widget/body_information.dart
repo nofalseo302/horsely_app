@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -56,12 +55,7 @@ class BodyInformationUser extends GetView<ImageController> {
                                     () {
                                       return ClipOval(
                                         child: CustomImageHandler(
-                                          controller.selectedImagePath.value
-                                                  .contains('http')
-                                              ? controller
-                                                  .selectedImagePath.value
-                                              : File(controller
-                                                  .selectedImagePath.value),
+                                          controller.selectedImagePath.value,
                                           width: 120,
                                           height: 120,
                                           fit: BoxFit.cover,

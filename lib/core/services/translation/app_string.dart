@@ -1,6 +1,9 @@
 class AppStrings {
   static const String nextButton = 'next';
   static const String no = 'No';
+  static const String noChats = 'noChats';
+  static const String messages = 'messages';
+  static const String message = 'message';
   static const String attachment = 'Attachment';
   static const String enterThePasswordToDelete = 'أدخل كلمة السر لحذف الحساب';
 

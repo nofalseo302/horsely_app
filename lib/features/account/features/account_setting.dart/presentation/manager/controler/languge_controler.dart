@@ -1,33 +1,33 @@
 import 'dart:ui';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart'; // استيراد GetStorage
-import 'package:horsely_app/features/profit/presentation/manager/controler/tap_bar_profit_controler.dart';
+import 'package:horsely_app/core/services/cache/cash_helper.dart';
+import 'package:horsely_app/core/services/cache/cash_keys.dart';
 
 class LanguageController extends GetxController {
-  var currentLanguage = 'en'.obs;
-  final box = GetStorage(); // إنشاء مثيل لـ GetStorage
+  late Rxn<Locale> currentLanguage = Rxn<Locale>(
+    Locale(CashHelper.getData(CacheKeys.languageCode) ?? 'en'),
+  );
 
-  // AccountController accountController = Get.put(AccountController());
-  TapBarProfitControler tapBarProfitController = TapBarProfitControler();
-
-  @override
-  void onInit() {
-    super.onInit();
-    // استرجاع اللغة المحفوظة
-    currentLanguage.value = box.read('language') ?? 'en';
-    var locale = Locale(currentLanguage.value);
-    // Get.updateLocale(locale);
+  void toggleLanguage() {
+    currentLanguage.value = currentLanguage.value!.languageCode == 'en'
+        ? const Locale('ar')
+        : const Locale('en');
+    Get.updateLocale(currentLanguage.value!);
   }
 
   void changeLanguage(String languageCode) {
-    currentLanguage.value = languageCode;
-    var locale = Locale(languageCode);
-    Get.updateLocale(locale);
-    box.write('language', languageCode); // حفظ اللغة في التخزين المحلي
-
-    // accountController.updateAccountOnLocaleChange();
-    print("object");
-    tapBarProfitController.updateTapBarOnLocaleChange();
-    print("object");
+    currentLanguage.value = Locale(languageCode);
+    CashHelper.setData(CacheKeys.languageCode, languageCode);
+    Get.updateLocale(currentLanguage.value!);
   }
+
+  Locale getCacheLanguage() {
+    Locale locale = Locale(CashHelper.getData(CacheKeys.languageCode) ??
+        currentLanguage.value!.languageCode);
+    return locale;
+  }
+
+  Rxn<Color> primColor = Rxn<Color>(Colors.white);
 }
+

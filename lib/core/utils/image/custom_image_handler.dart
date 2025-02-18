@@ -86,12 +86,16 @@ class CustomImageHandler extends StatelessWidget {
         ),
       );
     }
-    return Image.asset(
-      path,
-      fit: fit,
-      color: color,
-      height: height,
-      width: width,
-    );
+    return Image.asset(path,
+        fit: fit,
+        color: color,
+        height: height,
+        width: width,
+        errorBuilder: (context, error, stackTrace) => const Center(
+              child: Icon(
+                Icons.error,
+                size: 40,
+              ),
+            ));
   }
 }

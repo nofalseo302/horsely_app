@@ -1,6 +1,8 @@
 class Routes {
   static const onBoarding = "/onBoarding";
   static const intro = "/intro";
+  static const chat = "/chat";
+  static const chatList = "/chatList";
   static const home = '/home';
   static const login = '/login';
   static const register = '/singup';

@@ -1,7 +1,7 @@
 import 'package:horsely_app/core/services/cache/cash_helper.dart';
+import 'package:horsely_app/core/services/cache/cash_keys.dart';
 import 'package:horsely_app/core/services/network_service/api_service.dart';
 
-import 'package:dio/dio.dart' as d;
 
 class EndPoints {
   ////             Auth    /////////////
@@ -19,6 +19,7 @@ class EndPoints {
   static const checkCredential = '/forget-password/check-credential';
   static const forgetPasswordCheckOtp = '/forget-password/check-otp';
   static const forgetPasswordReset = '/forget-password/reset-password';
+  static const chat = '/chat';
 
   ///                 home         ////////////////////
   static const homeUser = "/client/home";
@@ -50,6 +51,11 @@ class EndPoints {
   static const sendMessage = '$baseUrl/chat/send';
   static const settings = '$baseUrl/data/settings';
   static const createOrder = '$baseUrl/client/orders/create';
+  //-----------Pusher Data-------------//
+  static String realtimePusherAppId = "1940246";
+  static String realtimePusherAppKey = "7c047960c5355676edd4";
+  static String realtimePusherAppSecret = "a73cc970d1ba8144928b";
+  static String realtimePusherAppCluster = "eu";
   static createChatChannel({required int userId, required int chatId}) {
     return "chat-$chatId-user-$userId";
   }
@@ -59,25 +65,23 @@ class EndPoints {
   }) =>
       "channel-notify-$userId";
 
-  static getSettings(dynamic kStrings) async {
+  static Future<void> getSettings() async {
     DioImpl dio = DioImpl();
 
-    d.Response res = await dio.get(endPoint: settings);
-    CashHelper.setData(
-      kStrings.realtime_pusher_app_id,
-      res.data['data'][kStrings.realtime_pusher_app_id],
-    );
-    CashHelper.setData(
-      kStrings.realtime_pusher_app_key,
-      res.data['data'][kStrings.realtime_pusher_app_key],
-    );
-    CashHelper.setData(
-      kStrings.realtime_pusher_app_secret,
-      res.data['data'][kStrings.realtime_pusher_app_secret],
-    );
-    CashHelper.setData(
-      kStrings.realtime_pusher_app_cluster,
-      res.data['data'][kStrings.realtime_pusher_app_cluster],
-    );
+    final response = await dio.get(endPoint: settings);
+
+    final data = response.data['data'];
+
+    await Future.wait([
+      CashHelper.setData(CacheKeys.realtimePusherAppId, data[CacheKeys.realtimePusherAppId]),
+      CashHelper.setData(CacheKeys.realtimePusherAppKey, data[CacheKeys.realtimePusherAppKey]),
+      CashHelper.setData(CacheKeys.realtimePusherAppSecret, data[CacheKeys.realtimePusherAppSecret]),
+      CashHelper.setData(CacheKeys.realtimePusherAppCluster, data[CacheKeys.realtimePusherAppCluster]),
+    ]);
+
+    realtimePusherAppId = data[CacheKeys.realtimePusherAppId];
+    realtimePusherAppKey = data[CacheKeys.realtimePusherAppKey];
+    realtimePusherAppSecret = data[CacheKeys.realtimePusherAppSecret];
+    realtimePusherAppCluster = data[CacheKeys.realtimePusherAppCluster];
   }
 }

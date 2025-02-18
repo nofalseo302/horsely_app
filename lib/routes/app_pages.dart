@@ -8,6 +8,10 @@ import 'package:horsely_app/features/auth/logic/binding/local_auth_binding.dart'
 import 'package:horsely_app/features/auth/logic/binding/login_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/register_binding.dart';
 import 'package:horsely_app/features/auth/views/local_auth/screen/local_auth.dart';
+import 'package:horsely_app/features/chat_feature/logic/binding/chat_binding.dart';
+import 'package:horsely_app/features/chat_feature/logic/binding/messages_binding.dart';
+import 'package:horsely_app/features/chat_feature/view/screen/chat_list_screen.dart';
+import 'package:horsely_app/features/chat_feature/view/screen/messages_screen.dart';
 import 'package:horsely_app/features/complete_data/manager/binding/complete_data_binding.dart';
 import 'package:horsely_app/features/edit_password/manager/edit_password_pinding.dart';
 import 'package:horsely_app/features/notiofaction/logic/binding/notification_binding.dart';
@@ -256,6 +260,16 @@ class AppPages {
       page: () => const LocalAuth(),
       binding: LocalAuthBinding(),
       transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: Routes.chatList,
+      binding: ChatBinding(),
+      page: () => const ChatListScreen(),
+    ),
+    GetPage(
+      name: Routes.chat,
+      binding: MessagesBinding(),
+      page: () => const MessagesScreen(),
     ),
   ];
 }
