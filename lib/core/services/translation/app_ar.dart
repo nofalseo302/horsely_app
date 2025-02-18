@@ -203,9 +203,11 @@ class AppAr {
     AppStrings.thisFieldIsRequired: "هذا الحقل مطلوب",
     AppStrings.code: "الكود",
     AppStrings.min: "دقيقة",
-    
     AppStrings
             .byusingtheappandlogginginyouagreetotheTermsofServiceandPrivacyPolicy:
-        "من خلال استخدام التطبيق وتسجيل الدخول، فإنك توافق على شروط الخدمة وسياسة الخصوصية"
+        "من خلال استخدام التطبيق وتسجيل الدخول، فإنك توافق على شروط الخدمة وسياسة الخصوصية",
+    AppStrings
+            .yourdocumentsarecurrentlyunderreviewWewillgetbacktoyouassoonaspossible:
+        "مستنداتك قيد المراجعة حاليًا، وسنرد عليك في أقرب وقت ممكن"
   };
 }
