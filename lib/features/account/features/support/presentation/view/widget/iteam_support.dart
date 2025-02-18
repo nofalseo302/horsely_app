@@ -32,7 +32,7 @@ class IteamSupport extends StatelessWidget {
           leading: Padding(
             padding: const EdgeInsets.only(left: 20.0),
             child: CircleAvatar(
-                backgroundColor: AppColors.backgray,
+                backgroundColor: AppColors.backGray,
                 child: CustomImageHandler(accountEntity.image)),
           ),
           title: Text(

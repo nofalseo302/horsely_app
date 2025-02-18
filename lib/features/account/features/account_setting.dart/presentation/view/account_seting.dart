@@ -12,7 +12,7 @@ class AccountSeting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgray,
+      backgroundColor: AppColors.backGray,
       appBar: buildAppBar(titel: AppStrings.accountseting.tr, context: context),
       // ignore: prefer_const_constructors
       body: BodyAccountSetting(),

@@ -18,7 +18,7 @@ class ItamTapBarProfit extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-            color: isactive ? AppColors.primaryColor : AppColors.backgray,
+            color: isactive ? AppColors.primaryColor : AppColors.backGray,
             borderRadius: BorderRadius.circular(11),
             boxShadow: [
               BoxShadow(

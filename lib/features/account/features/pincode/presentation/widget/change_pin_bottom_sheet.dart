@@ -67,7 +67,7 @@ class MyButtomSheet extends GetView<PinCodeController> {
                 },
                 buttonText: AppStrings.cancel.tr,
                 textColor: Colors.black,
-                backgroundColor: AppColors.backgray,
+                backgroundColor: AppColors.backGray,
                 borderColor: Colors.transparent,
               ),
             ],

@@ -35,7 +35,7 @@ class HeaderVerify extends GetView<OtpController> {
                   height: 20,
                 ),
                 Text(
-                  AppStrings.Acountverify.tr,
+                  AppStrings.acountverify.tr,
                   style: AppStyles.semibold22(context)
                       .copyWith(color: Colors.white),
                 ),

@@ -15,7 +15,7 @@ class DepositScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgray,
+      backgroundColor: AppColors.backGray,
       appBar: buildAppBar(titel: AppStrings.deposit.tr, context: context),
       body: const BodyDeposit(),
       bottomNavigationBar: Padding(

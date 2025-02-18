@@ -25,7 +25,6 @@ class AppAr {
     AppStrings.topCryptoCur: "العملات الاكثر صدارة",
     AppStrings.portfoolio: "محفظة",
     AppStrings.differtassets: "العملات المتفاوتة",
-    AppStrings.subtitelpageview2: "",
     AppStrings.areYouSureWantToDeleteAccount: "هل تريد حذف الحساب؟",
     AppStrings.welcome: "مرحبًا بك في \n Horsely",
     AppStrings.trackpitcons:
@@ -56,7 +55,7 @@ class AppAr {
     AppStrings.confrim: "تأكيد",
     AppStrings.comfrimnewpassword: 'تأكيد كلمة المرور الجديدة',
     AppStrings.rensendcode: "اعادة ارسال الرمز",
-    AppStrings.Acountverify: "التحقق من هويتك",
+    AppStrings.acountverify: "التحقق من هويتك",
     AppStrings.verifyinstruction: "لقد ارسالنا للتو رساله الي \n ",
     AppStrings.thisCodeisvalidForTwoMinutes:
         'سيكون هذا الرمز صالح لمده دقيقتين ',
@@ -203,6 +202,10 @@ class AppAr {
     AppStrings.viewall: "المزيد",
     AppStrings.thisFieldIsRequired: "هذا الحقل مطلوب",
     AppStrings.code: "الكود",
+    AppStrings.min: "دقيقة",
+    AppStrings
+            .byusingtheappandlogginginyouagreetotheTermsofServiceandPrivacyPolicy:
+        "من خلال استخدام التطبيق وتسجيل الدخول، فإنك توافق على شروط الخدمة وسياسة الخصوصية"
     AppStrings.yourdocumentsarecurrentlyunderreviewWewillgetbacktoyouassoonaspossible:"مستنداتك قيد المراجعة حاليًا، وسنرد عليك في أقرب وقت ممكن",
   };
 }

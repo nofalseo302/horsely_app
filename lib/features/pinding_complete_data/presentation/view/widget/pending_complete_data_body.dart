@@ -67,7 +67,7 @@ class BendingCompletDataBody extends GetView<CompleteDataController> {
             },
             buttonText: AppStrings.startnow.tr,
             borderColor: Colors.transparent,
-            backgroundColor: AppColors.backgray,
+            backgroundColor: AppColors.backGray,
             textColor: Colors.black,
           ),
         )

@@ -125,23 +125,24 @@ class _VoiceWidgetState extends State<VoiceWidget>
             child: Icon(
               _isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
               size: 28,
-              color: widget.isMine ? AppColors.primaryColor : AppColors.bgGrey,
+              color:
+                  widget.isMine ? AppColors.primaryColor : AppColors.backGray,
             ),
           ),
           Text(
             getPositionProgress,
             style: TextStyle(
                 color:
-                    widget.isMine ? AppColors.primaryColor : AppColors.bgGrey,
+                    widget.isMine ? AppColors.primaryColor : AppColors.backGray,
                 fontSize: 14.0),
           ),
           Expanded(
             child: Slider(
               activeColor:
-                  widget.isMine ? AppColors.primaryColor : AppColors.bgGrey,
+                  widget.isMine ? AppColors.primaryColor : AppColors.backGray,
               inactiveColor: widget.isMine
                   ? AppColors.primaryColor.withOpacity(.2)
-                  : AppColors.bgGrey.withOpacity(.2),
+                  : AppColors.backGray.withOpacity(.2),
               thumbColor: Colors.white,
               min: 0,
               max: duration?.inSeconds.toDouble() ?? 0.0,
@@ -156,7 +157,7 @@ class _VoiceWidgetState extends State<VoiceWidget>
             getDurationProgress,
             style: TextStyle(
                 color:
-                    widget.isMine ? AppColors.primaryColor : AppColors.bgGrey,
+                    widget.isMine ? AppColors.primaryColor : AppColors.backGray,
                 fontSize: 14.0),
           ),
           const SizedBox(width: 5.0),

@@ -255,12 +255,16 @@ class AppValidationFunctions {
 
   static String? validateFourDigitNumber(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter a value';
+      return Get.locale!.languageCode == "en"
+          ? 'Please enter a value'
+          : "الرجاء إدخال القيمة";
     }
 
     final isValid = RegExp(r'^\d{4}$').hasMatch(value);
     if (!isValid) {
-      return 'Enter a valid 4-digit number';
+      return Get.locale!.languageCode == "en"
+          ? 'Enter a valid 4-digit number'
+          : "أدخل رقمًا صالحًا مكونًا من 4 أرقام";
     }
 
     return null; // Return null if the input is valid

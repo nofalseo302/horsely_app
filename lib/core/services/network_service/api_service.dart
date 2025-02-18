@@ -154,6 +154,7 @@ class DioImpl extends DioHelper {
   }
 
   Future uploadFormData(FormData formData, String url) async {
+    String? token = await CashHelper.getData("token");
     Dio newDioOpj = Dio()
       ..interceptors.add(PrettyDioLogger(
           requestBody: true,
@@ -169,7 +170,7 @@ class DioImpl extends DioHelper {
             options: Options(headers: {
               'Content-Type': 'multipart/form-data',
               'Accept': 'application/json',
-              'Authorization': 'bearer ' + await CashHelper.getData("token"),
+              'Authorization': 'bearer$token',
               "x-version": '1.0',
               "x-lang": CashHelper.getData(CacheKeys.languageCode) ?? 'en',
             }),

@@ -8,7 +8,7 @@ class ProfitSceen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: AppColors.backgray,
+      backgroundColor: AppColors.backGray,
       body: BodyProfit(),
     );
   }

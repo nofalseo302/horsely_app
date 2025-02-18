@@ -62,7 +62,7 @@ class AppEn {
     AppStrings.confrim: "Confirm",
     AppStrings.comfrimnewpassword: "Confirm new password",
     AppStrings.rensendcode: "Resend code",
-    AppStrings.Acountverify: "Verify your identity",
+    AppStrings.acountverify: "Verify your identity",
     AppStrings.verifyinstruction: AppStrings.verifyinstruction,
     AppStrings.attachment: AppStrings.attachment,
     AppStrings.createNewWallet: AppStrings.createNewWallet,
@@ -193,12 +193,17 @@ class AppEn {
     AppStrings.search: "Search",
     AppStrings.camera: "Camera",
     AppStrings.gallery: "Gallery",
-    AppStrings.pricesransee: "Price range",
+    AppStrings.pricesransee: AppStrings.pricesransee,
     AppStrings.transactionlimite: "Transaction limit",
     AppStrings.curencytype: "Currency type",
     AppStrings.history: "History",
     AppStrings.totaloffer: "Total offers",
     AppStrings.viewdetails: "View details",
     AppStrings.viewall: "View all",
+    AppStrings.min: AppStrings.min,
+    AppStrings
+            .byusingtheappandlogginginyouagreetotheTermsofServiceandPrivacyPolicy:
+        AppStrings
+            .byusingtheappandlogginginyouagreetotheTermsofServiceandPrivacyPolicy,
   };
 }
