@@ -26,8 +26,10 @@ class WalletController extends GetxController {
     res.fold(
       (l) {
         isError.value = true;
+        ToastManager.showError(l.message);
       },
       (r) async {
+        isError.value = false;
         if (page == 1) {
           isLoading.value = false;
           getAllWalletModel = r;
