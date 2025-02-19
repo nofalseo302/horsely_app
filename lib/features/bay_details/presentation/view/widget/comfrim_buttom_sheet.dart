@@ -91,7 +91,9 @@ class ComfrimButtomSheet extends StatelessWidget {
                           backgroundColor: AppColors.backGray,
                           borderColor: Colors.transparent,
                           textColor: Colors.black,
-                          onButtonPressed: () {},
+                          onButtonPressed: () {
+                            Get.back();
+                          },
                           buttonText: AppStrings.cancel.tr)),
                 ],
               )
