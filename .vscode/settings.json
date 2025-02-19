@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "Loadingcurrency"
-    ]
+    ],
+    "cmake.ignoreCMakeListsMissing": true
 }
