@@ -4,9 +4,10 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
+import 'package:horsely_app/features/account/features/verification_status/logic/controller/verification_status_controller.dart';
 import 'package:horsely_app/routes/routes.dart';
 
-class Pending extends StatelessWidget {
+class Pending extends GetView<VerificationStatusController> {
   const Pending({super.key});
 
   @override
@@ -36,26 +37,38 @@ class Pending extends StatelessWidget {
                 // const SizedBox(
                 //   height: 60,
                 // ),
-                Center(
-                  child: Image.asset("assets/png/time 1.png"),
-                ),
+                controller.userModel?.data?.completeDataStatus == 'rejected'
+                    ? const Icon(
+                        Icons.dangerous,
+                        size: 120,
+                        color: AppColors.redColor,
+                      )
+                    : Center(
+                        child: Image.asset("assets/png/time 1.png"),
+                      ),
                 const SizedBox(
                   height: 20,
                 ),
+
                 Align(
                   alignment: Alignment.center,
                   child: Text(
-                    AppStrings.pending.tr,
+                    controller.userModel?.data?.completeDataStatus == 'rejected'
+                        ? AppStrings.yourDataHasBeenRejected.tr
+                        : AppStrings.pending.tr,
                     style: AppStyles.semibold24(context),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 const SizedBox(
                   height: 16,
                 ),
-                Text(
-                  AppStrings.messagepinding.tr,
-                  style: AppStyles.semibold14(context),
-                ),
+                controller.userModel?.data?.completeDataStatus == 'rejected'
+                    ? const SizedBox()
+                    : Text(
+                        AppStrings.messagepinding.tr,
+                        style: AppStyles.semibold14(context),
+                      ),
                 const SizedBox(
                   height: 40,
                 ),
