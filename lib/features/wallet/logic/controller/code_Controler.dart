@@ -33,7 +33,7 @@ class BlancController extends GetxController {
       ToastManager.showError(l.message);
     }, (r) {
       blancModel = r;
-      ToastManager.showSuccess(r.message ?? "", true);
+      // ToastManager.showSuccess(r.message ?? "", true);
       print(r);
     });
   }
