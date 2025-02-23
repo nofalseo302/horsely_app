@@ -38,6 +38,7 @@ class HomeControler extends GetxController {
 
     update();
   }
+  //get buy sell
 
   @override
   void onInit() {

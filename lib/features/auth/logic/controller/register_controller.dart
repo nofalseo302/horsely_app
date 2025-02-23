@@ -40,7 +40,6 @@ class RegisterController extends GetxController {
 
       await UserService.to.setUser(r);
 
-
       emailController.text = '';
       passwordController.text = '';
       nameController.text = '';

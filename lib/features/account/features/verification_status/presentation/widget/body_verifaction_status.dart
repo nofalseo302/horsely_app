@@ -25,9 +25,7 @@ class BodyVerificationStatus extends GetView<VerificationStatusController> {
         }
         if (controller.userModel?.data?.completeDataStatus == 'approved') {
           return const Approved();
-        } 
-        
-        else {
+        } else {
           return const Pending();
         }
       },

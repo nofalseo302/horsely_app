@@ -82,7 +82,7 @@ class ChatListController extends GetxController {
         usersListModel = r;
       } else {
         currentPage++;
-        usersListModel!.data!.chats!.data?. addAll(r.data?.chats?.data??[]);
+        usersListModel!.data!.chats!.data?.addAll(r.data?.chats?.data ?? []);
       }
       getAllChatsLoading = false;
     });
@@ -91,7 +91,7 @@ class ChatListController extends GetxController {
 
   void _scrollListener() async {
     if (usersListModel != null &&
-        usersListModel!.data!.chats!.meta !.lastPage! >= currentPage &&
+        usersListModel!.data!.chats!.meta!.lastPage! >= currentPage &&
         scrollController.offset >= scrollController.position.maxScrollExtent &&
         !scrollController.position.outOfRange) {
       await getAllChats(pageinate: true);

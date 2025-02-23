@@ -17,7 +17,6 @@ class MessagesScreen extends GetView<MessagesController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: SafeArea(
@@ -83,7 +82,6 @@ class MessagesScreen extends GetView<MessagesController> {
                           const ConversationInput()
                         ],
                       ),
-
           ),
         ),
       ),
