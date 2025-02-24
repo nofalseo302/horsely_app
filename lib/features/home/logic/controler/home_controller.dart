@@ -6,6 +6,8 @@ import 'package:horsely_app/core/function/app_launge.dart';
 import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
+import 'package:horsely_app/features/home/data/model/all_currency_model/all_currency_model.dart';
+import 'package:horsely_app/features/home/data/model/all_payment_method/all_payment_method.dart';
 import 'package:horsely_app/features/home/data/model/crypto_currency_model/crypto_currency_model.dart';
 import 'package:horsely_app/features/home/data/repo/payment_repo.dart';
 import 'package:horsely_app/features/home/data/model/user_home_data/user_home_data.dart';
@@ -17,8 +19,11 @@ import '../../../../core/services/translation/app_string.dart';
 
 class HomeControler extends GetxController {
   CryptoCurrencyModel? cryptoCurrencyModel;
-
+  AllCurrencyModel? allCurrencyModel;
+  AllPaymentMethod allPaymentMethod = AllPaymentMethod();
   RxBool isLoading = RxBool(false);
+  RxBool isLoadingpay = false.obs;
+  RxBool isfail = false.obs;
   final List<String> appBarTitles = [
     "Make P2P",
     AppStrings.wallet.tr,
@@ -157,17 +162,33 @@ class HomeControler extends GetxController {
   }
 
   //=======endsilder=====================
+
+  Future<void> getAllPaymentData() async {
+    final paymentController = Get.find<PaymentController>();
+    isLoadingpay.value = true;
+    try {
+      await paymentController.getAllCurrency();
+      await paymentController.getCryptoCurrency();
+      await paymentController.getAllPayment();
+      cryptoCurrencyModel = paymentController.currencyModel.value;
+      allCurrencyModel = paymentController.allCurrency.value;
+      allPaymentMethod = paymentController.allpaymodel.value;
+      isLoadingpay.value = false;
+    } on Exception catch (e) {
+      isfail.value = true;
+    }
+    update();
+  }
+
   @override
   void onInit() async {
+    isLoadingpay.value = true;
     await getBuyData();
     buyDataScrollController.addListener(_buyScrollListener);
     await getSellData();
     sellDataScrollController.addListener(_sellScrollListener);
 
-    ever(Get.find<PaymentController>().currencyModel, (currency) {
-      cryptoCurrencyModel = currency;
-      update();
-    });
+    await getAllPaymentData();
     print(cryptoCurrencyModel?.message ?? "dadadada");
     super.onInit();
   }

@@ -1,7 +1,5 @@
 import 'package:horsely_app/features/account/features/transaction/data/model/creatp2p_model/payment_method.dart';
 
-import 'datum.dart';
-
 class AllPaymentMethod {
   bool? status;
   int? statusCode;
