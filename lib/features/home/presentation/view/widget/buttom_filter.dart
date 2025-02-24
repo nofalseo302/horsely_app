@@ -26,7 +26,7 @@ class ButtonInfilter extends StatelessWidget {
             IconButton(
               onPressed: () {
                 Get.bottomSheet(
-                  FilterWidget(controller: controller),
+                  FilterWidget(),
                   isScrollControlled:
                       true, // تأكد من أن الـ BottomSheet يمكن أن يتكيف
                 );

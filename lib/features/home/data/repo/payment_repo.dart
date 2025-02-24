@@ -4,9 +4,9 @@ import 'package:horsely_app/core/models/errors/error_message_model.dart';
 import 'package:horsely_app/core/services/network_service/api_service.dart';
 import 'package:horsely_app/core/services/network_service/endpoints.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
-import 'package:horsely_app/features/account/features/transaction/data/model/all_currency_model/all_currency_model.dart';
-import 'package:horsely_app/features/account/features/transaction/data/model/all_payment_method/all_payment_method.dart';
-import 'package:horsely_app/features/wallet/data/model/crypto_currency_model/crypto_currency_model.dart';
+import 'package:horsely_app/features/home/data/model/all_currency_model/all_currency_model.dart';
+import 'package:horsely_app/features/home/data/model/all_payment_method/all_payment_method.dart';
+import 'package:horsely_app/features/home/data/model/crypto_currency_model/crypto_currency_model.dart';
 
 class PaymentRepo {
   static final PaymentRepo _orderRepo = PaymentRepo._internal();
