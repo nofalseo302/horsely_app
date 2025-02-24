@@ -19,7 +19,6 @@ class HomeControler extends GetxController {
   CryptoCurrencyModel? cryptoCurrencyModel;
 
   RxBool isLoading = RxBool(false);
-  // قائمة أسماء العناوين بناءً على الـ index
   final List<String> appBarTitles = [
     "Make P2P",
     AppStrings.wallet.tr,
@@ -138,11 +137,11 @@ class HomeControler extends GetxController {
       isLoading.value = false;
     }
   }
- /////***************silder */
+
+  /////***************silder */
   var minValuePricesRating = 20.0.obs;
   var maxValuepricesRating = 80.0.obs;
 
-  // تحديث القيم عند تحريك الـ Slider
   void updateValues(double newMin, double newMax) {
     minValuePricesRating.value = newMin;
     maxValuepricesRating.value = newMax;
@@ -152,11 +151,11 @@ class HomeControler extends GetxController {
   var minValuetranactionlimit = 20.0.obs;
   var maxValuetranactionlimit = 80.0.obs;
 
-  // تحديث القيم عند تحريك الـ Slider
   void updateValuestranactionlimit(double newMin, double newMax) {
     minValuetranactionlimit.value = newMin;
     maxValuetranactionlimit.value = newMax;
   }
+
   //=======endsilder=====================
   @override
   void onInit() async {
@@ -164,7 +163,12 @@ class HomeControler extends GetxController {
     buyDataScrollController.addListener(_buyScrollListener);
     await getSellData();
     sellDataScrollController.addListener(_sellScrollListener);
-    cryptoCurrencyModel = Get.find<PaymentController>().currencyModel.value;
+
+    ever(Get.find<PaymentController>().currencyModel, (currency) {
+      cryptoCurrencyModel = currency;
+      update();
+    });
+    print(cryptoCurrencyModel?.message ?? "dadadada");
     super.onInit();
   }
 }
