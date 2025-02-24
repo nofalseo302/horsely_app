@@ -13,15 +13,19 @@ class TransactionController extends GetxController {
   var activeIndex = 0.obs;
   RxString coinType = "".obs;
   RxList<String> selectedPaymentMethods = <String>[].obs;
-
+  RxString coinTypeId = "".obs;
   RxString currency = "".obs;
+  RxString currencyId = "".obs;
+  RxString cereptoId = "".obs;
+
   RxString paymethodId = "".obs;
   RxString selectedCurrencyId = "".obs;
   PaymentRepo paymentRepo = PaymentRepo();
   CurrencyRepo currencyRepo = CurrencyRepo();
   TransactionRepo trans = TransactionRepo();
   void toggleTab(int index) => activeIndex.value = index;
-  AllCurrencyModel? allCurrencyModel = AllCurrencyModel();
+  Rx<AllCurrencyModel> allCurrency = (AllCurrencyModel()).obs;
+
   RxBool isolating = true.obs;
   RxBool isfail = false.obs;
   TextEditingController decoration = TextEditingController();
@@ -39,7 +43,7 @@ class TransactionController extends GetxController {
       isfail.value = true;
     }, (r) {
       isfail.value = false;
-      allCurrencyModel = r;
+      allCurrency.value = r;
     });
   }
 

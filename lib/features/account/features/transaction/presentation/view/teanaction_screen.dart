@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/widget/build_app_bar.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
+import 'package:horsely_app/core/widget/custom_drop_down_Singel.dart';
+import 'package:horsely_app/core/widget/custom_drop_down_muiltabel.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/custom_retry_widget.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
@@ -17,21 +20,6 @@ class TeanactionScreen extends GetView<TransactionController> {
 
   @override
   Widget build(BuildContext context) {
-    final Map<String, int> currencyMap = {
-      for (var e in controller.allCurrencyModel?.data ?? [])
-        if (e.name != null) e.name!: e.id
-    };
-
-    final Map<String, int> paymentMap = {
-      for (var e in controller.allPaymentMethod?.data ?? [])
-        if (e.name != null) e.name!: e.id
-    };
-
-    final Map<String, int> coinTypeMap = {
-      for (var e in controller.currencyModel?.value.data ?? [])
-        if (e.name != null) e.name!: e.id
-    };
-
     return Scaffold(
       appBar: buildAppBar(titel: AppStrings.transaction.tr, context: context),
       body: Obx(
@@ -89,27 +77,43 @@ class TeanactionScreen extends GetView<TransactionController> {
                         ),
                         const SizedBox(height: 8),
 
-                        // Coin Type Dropdown
-
                         TitleAndWidget(
                           title: AppStrings.conintype.tr,
-                          childWidget: Obx(
-                            () => CustomAnimatedDropdown(
-                              value: coinTypeMap
-                                      .containsKey(controller.coinType.value)
-                                  ? controller.coinType.value
-                                  : null,
-                              onChanged: (p0) {
-                                if (p0 != null && coinTypeMap.containsKey(p0)) {
-                                  controller.coinType.value = p0.toString();
-                                  print(controller.coinType.value);
-                                  controller.coinType.value =
-                                      coinTypeMap[p0].toString();
+                          childWidget: CustomDropDownFormField(
+                            items: controller.currencyModel.value.data
+                                ?.map((currency) {
+                              return DropdownMenuItem<String>(
+                                value: currency
+                                    .name, // ✅ Set the correct unique value
+                                child: Text(
+                                  currency.name ?? "",
+                                  style: AppStyles.regulare10(context).copyWith(
+                                    fontSize: 14,
+                                    color: const Color(0xff00070D),
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: "DIN Next",
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                            value: controller
+                                    .selectedCurrencyId.value.isNotEmpty
+                                ? controller.selectedCurrencyId.value
+                                : null, // ✅ Ensure selected value exists in the list
+                            onChanged: (newValue) {
+                              if (newValue != null) {
+                                controller.selectedCurrencyId.value = newValue;
+                                for (var e
+                                    in controller.currencyModel.value.data ??
+                                        []) {
+                                  if (e.name == newValue) {
+                                    controller.cereptoId.value =
+                                        e.id.toString() ?? "";
+                                    print(controller.cereptoId);
+                                  }
                                 }
-                              },
-                              items: coinTypeMap.keys.toList(),
-                              titiel: AppStrings.conintype.tr,
-                            ),
+                              }
+                            },
                           ),
                         ),
 
@@ -124,27 +128,43 @@ class TeanactionScreen extends GetView<TransactionController> {
                           textInputType: TextInputType.number,
                         ),
 
-                        // Currency Dropdown
-                        Obx(
-                          () => TitleAndWidget(
-                            title: AppStrings.conintype.tr,
-                            childWidget: CustomAnimatedDropdown(
-                              value: currencyMap
-                                      .containsKey(controller.currency.value)
-                                  ? controller.currency.value
-                                  : null,
-                              onChanged: (selectedName) {
-                                if (selectedName != null &&
-                                    currencyMap.containsKey(selectedName)) {
-                                  controller.currency.value =
-                                      selectedName.toString();
-                                  controller.selectedCurrencyId.value =
-                                      currencyMap[selectedName].toString();
+                        TitleAndWidget(
+                          title: AppStrings.currency.tr,
+                          childWidget: CustomDropDownFormField(
+                            items: controller.allCurrency.value.data
+                                ?.map((currency) {
+                              return DropdownMenuItem<String>(
+                                value: currency.name,
+                                child: Text(
+                                  currency.name ?? "",
+                                  style: AppStyles.regulare10(context).copyWith(
+                                    fontSize: 14,
+                                    color: const Color(0xff00070D),
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: "DIN Next",
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                            value: controller.currency.value.isNotEmpty
+                                ? controller.currency.value
+                                : null,
+                            onChanged: (newValue) {
+                              if (newValue != null) {
+                                controller.currency.value = newValue;
+                              }
+                              for (var e
+                                  in controller.allCurrency.value.data ?? []) {
+                                if (controller
+                                        .allCurrency.value.data?[e].name ==
+                                    newValue) {
+                                  controller.currencyId.value = controller
+                                          .allCurrency.value.data?[e].id
+                                          .toString() ??
+                                      "";
                                 }
-                              },
-                              items: currencyMap.keys.toList(),
-                              titiel: AppStrings.currency.tr,
-                            ),
+                              }
+                            },
                           ),
                         ),
 
@@ -178,26 +198,29 @@ class TeanactionScreen extends GetView<TransactionController> {
                         ),
 
                         // Payment Method Dropdown
-                        Obx(
-                          () => TitleAndWidget(
-                            title: AppStrings.paymethod.tr,
-                            childWidget: CustomAnimatedDropdown(
-                              value: paymentMap
-                                      .containsKey(controller.paymethodId.value)
-                                  ? controller.paymethodId.value
-                                  : null,
-                              onChanged: (p0) {
-                                if (p0 != null && paymentMap.containsKey(p0)) {
-                                  controller.paymethodId.value = p0.toString();
+                        TitleAndWidget(
+                          title: AppStrings.paymethod.tr,
+                          childWidget: CustomDropDownMultiSelect(
+                            selectedListOFStrings: [],
+                            selectedList: (List<String> selectedNames) {
+                              for (var e
+                                  in controller.allPaymentMethod?.data ?? []) {
+                                if (selectedNames.contains(e.name)) {
+                                  controller.selectedPaymentMethods
+                                      .add(e.id.toString());
                                 }
-                              },
-                              items: paymentMap.keys.toList(),
-                              titiel: AppStrings.paymethod.tr,
-                            ),
+                              }
+                              print(controller.selectedPaymentMethods
+                                  .toSet()
+                                  .toList());
+                            },
+                            listOFStrings: controller.allPaymentMethod?.data
+                                    ?.map((e) => e.name)
+                                    .toList() ??
+                                [],
                           ),
                         ),
 
-                        // Description Input
                         CustomTextFormField(
                           title: AppStrings.description.tr,
                           hintText: '',
