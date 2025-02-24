@@ -184,6 +184,9 @@ class TeanactionScreen extends GetView<TransactionController> {
 
                           // Amount of Currency Input
                           CustomTextFormField(
+                            validator: (p0) =>
+                                AppValidationFunctions.stringValidationFunction(
+                                    p0, AppStrings.amountofcurency.tr),
                             inputFormatters: [
                               FilteringTextInputFormatter.digitsOnly
                             ],
@@ -194,6 +197,9 @@ class TeanactionScreen extends GetView<TransactionController> {
                             textInputType: TextInputType.text,
                           ),
                           CustomTextFormField(
+                            validator: (p0) =>
+                                AppValidationFunctions.stringValidationFunction(
+                                    p0, AppStrings.maxlimit.tr),
                             controller: controller.uper,
                             inputFormatters: [
                               FilteringTextInputFormatter.digitsOnly
@@ -204,6 +210,9 @@ class TeanactionScreen extends GetView<TransactionController> {
                             textInputType: TextInputType.text,
                           ),
                           CustomTextFormField(
+                            validator: (p0) =>
+                                AppValidationFunctions.stringValidationFunction(
+                                    p0, AppStrings.minlimit.tr),
                             controller: controller.limit,
                             inputFormatters: [
                               FilteringTextInputFormatter.digitsOnly
@@ -218,31 +227,18 @@ class TeanactionScreen extends GetView<TransactionController> {
                           TitleAndWidget(
                             title: AppStrings.paymethod.tr,
                             childWidget: CustomDropDownMultiSelect(
-                              selectedListOFStrings: [],
-                              selectedList: (List<String> selectedNames) {
-                                for (var e
-                                    in controller.allPaymentMethod?.data ??
-                                        []) {
-                                  String paymentId = e.id.toString();
-
-                                  if (selectedNames.contains(e.name)) {
-                                    if (controller.selectedPaymentMethods
-                                        .contains(paymentId)) {
-                                      controller.selectedPaymentMethods
-                                          .remove(paymentId);
-                                      return;
-                                    } else {
-                                      controller.selectedPaymentMethods
-                                          .add(paymentId);
-                                      return;
-                                    }
-                                  }
-                                }
-                                print(controller.selectedPaymentMethods
-                                    .toSet()
-                                    .toList());
-                              },
-                              listOFStrings: controller.allPaymentMethod?.data
+                              onSelect: (s) => (controller
+                                  .selectedPaymentMethods
+                                  .value = controller.allPaymentMethod?.data
+                                      ?.where((e) => s.contains(e.name))
+                                      .toList() ??
+                                  []),
+                              initialValue: (controller.selectedPaymentMethods
+                                      .map((e) => e.name!)
+                                      .toList() ??
+                                  []),
+                              nameOfAllOptions: controller
+                                      .allPaymentMethod?.data
                                       ?.map((e) => e.name)
                                       .toList() ??
                                   [],

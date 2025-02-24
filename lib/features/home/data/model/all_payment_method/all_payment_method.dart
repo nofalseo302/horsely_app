@@ -1,9 +1,11 @@
+import 'package:horsely_app/features/account/features/transaction/data/model/creatp2p_model/payment_method.dart';
+
 import 'datum.dart';
 
 class AllPaymentMethod {
   bool? status;
   int? statusCode;
-  List<Datum>? data;
+  List<PaymentMethod>? data;
   String? message;
 
   AllPaymentMethod({this.status, this.statusCode, this.data, this.message});
@@ -13,7 +15,7 @@ class AllPaymentMethod {
       status: json['status'] as bool?,
       statusCode: json['status_code'] as int?,
       data: (json['data'] as List<dynamic>?)
-          ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => PaymentMethod.fromJson(e as Map<String, dynamic>))
           .toList(),
       message: json['message'] as String?,
     );

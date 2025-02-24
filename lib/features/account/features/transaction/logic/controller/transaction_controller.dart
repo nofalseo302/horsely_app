@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
+import 'package:horsely_app/features/account/features/transaction/data/model/creatp2p_model/payment_method.dart';
 import 'package:horsely_app/features/home/data/model/all_currency_model/all_currency_model.dart';
 import 'package:horsely_app/features/home/data/model/all_payment_method/all_payment_method.dart';
 import 'package:horsely_app/features/home/data/repo/payment_repo.dart';
@@ -12,7 +13,7 @@ import 'package:horsely_app/features/wallet/data/repo/currency_repo.dart';
 class TransactionController extends GetxController {
   var activeIndex = 0.obs;
   RxString coinType = "".obs;
-  RxList<String> selectedPaymentMethods = <String>[].obs;
+  RxList<PaymentMethod> selectedPaymentMethods = <PaymentMethod>[].obs;
   RxString coinTypeId = "".obs;
   RxString currency = "".obs;
   RxString currencyId = "".obs;
@@ -78,7 +79,8 @@ class TransactionController extends GetxController {
     var res = await trans.createPayAndSell(
         amount: amount.text,
         price: price.text,
-        paymentMethod: selectedPaymentMethods.toSet().toList(),
+        paymentMethod:
+            selectedPaymentMethods.map(((e) => e.id.toString())).toList(),
         currencyId: currencyId.value,
         minLimit: limit.text,
         maxLimit: uper.text,
