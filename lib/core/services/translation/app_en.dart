@@ -15,6 +15,7 @@ class AppEn {
     AppStrings.areYouSureToLogOut: AppStrings.areYouSureToLogOut,
     AppStrings.inmarket: AppStrings.inmarket,
     AppStrings.topCryptoCur: AppStrings.topCryptoCur,
+    AppStrings.hours: AppStrings.hours,
     AppStrings.subtitelpageview1: AppStrings.subtitelpageview1,
     AppStrings.start: AppStrings.start,
     AppStrings.noChats: AppStrings.noChats,

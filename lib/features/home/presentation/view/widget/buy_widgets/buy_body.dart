@@ -29,8 +29,8 @@ class BuyDataBody extends GetView<HomeControler> {
         widget: ListView.builder(
             key: ValueKey<int>(
                 controller.activeIndex.value), // مفتاح لتفادي الأخطاء
-            itemCount:
-                controller.buyData.value!.data!.data!.length, // عدد العناصر
+            itemCount: controller.buyData.value?.data?.data?.length ??
+                0, // عدد العناصر
             itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.only(bottom: 10.0),
                 child: IteamBuy(

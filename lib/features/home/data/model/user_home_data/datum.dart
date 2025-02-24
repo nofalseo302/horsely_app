@@ -15,7 +15,7 @@ class P2pItem {
   String? createdAtFormat;
   User? user;
   CryptoCurrency? cryptoCurrency;
-  List<dynamic>? paymentMethod;
+  List<PaymentMethod>? paymentMethod;
 
   P2pItem({
     this.id,
@@ -45,7 +45,7 @@ class P2pItem {
         type: json['type'] as String?,
         description: json['description'] as String?,
         status: json['status'] as String?,
-        createdAtFormat: json['created_at_format'] as String?,
+        createdAtFormat: json['created_at'] as String?,
         user: json['user'] == null
             ? null
             : User.fromJson(json['user'] as Map<String, dynamic>),
@@ -53,7 +53,11 @@ class P2pItem {
             ? null
             : CryptoCurrency.fromJson(
                 json['crypto_currency'] as Map<String, dynamic>),
-        paymentMethod: json['payment_method'],
+        paymentMethod: json['payment_method'] == null
+            ? null
+            : (json['payment_method'] as List<dynamic>)
+                .map((e) => PaymentMethod.fromJson(e as Map<String, dynamic>))
+                .toList(),
       );
 
   Map<String, dynamic> toJson() => {
@@ -71,4 +75,23 @@ class P2pItem {
         'crypto_currency': cryptoCurrency?.toJson(),
         'payment_method': paymentMethod,
       };
+}
+
+class PaymentMethod {
+  int? id;
+  String? name;
+
+  PaymentMethod({this.id, this.name});
+
+  PaymentMethod.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    return data;
+  }
 }

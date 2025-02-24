@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/buy_widgets/iteam_buy_way.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/titel_and_vule.dart';
 
 import '../../../../../core/utils/app_text_styles.dart';
 
 class Infromation extends StatelessWidget {
-  const Infromation({
-    super.key,
-    required this.titel,
-    required this.vule,
-  });
-  final String titel, vule;
+  const Infromation(
+      {super.key,
+      // required this.titel,
+      // required this.vule,
+      required this.p2pItem});
+  // final String titel, vule;
+  final P2pItem p2pItem;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,21 +41,22 @@ class Infromation extends StatelessWidget {
             ),
             TitelAndVule(
               titel: AppStrings.amount.tr,
-              vule: '139.08 AED',
+              vule: (p2pItem.amount ?? "") +
+                  (p2pItem.cryptoCurrency?.symbol ?? ""),
             ),
-            const SizedBox(
-              height: 12,
-            ),
-            TitelAndVule(
-              titel: AppStrings.available.tr,
-              vule: '0.0028644294 BTC',
-            ),
+            // const SizedBox(
+            //   height: 12,
+            // ),
+            // TitelAndVule(
+            //   titel: AppStrings.available.tr,
+            //   vule: p2pItem.amount ?? "",
+            // ),
             const SizedBox(
               height: 12,
             ),
             TitelAndVule(
               titel: AppStrings.orderlimit.tr,
-              vule: '\$10000-\$183000',
+              vule: '\$${p2pItem.minLimit}-\$${p2pItem.maxLimit}',
             ),
             const SizedBox(
               height: 12,
@@ -64,20 +67,19 @@ class Infromation extends StatelessWidget {
                   SizedBox(
                     width: 120,
                     child: Text(
-                      "$titel     ",
+                      "${AppStrings.paymethod.tr}     ",
                       style: AppStyles.semibold14(context)
                           .copyWith(color: const Color(0xff8A8A8A)),
                     ),
                   ),
-                  const Row(
-                    children: [
-                      IteamPayWay(),
-                      SizedBox(
-                        width: 8,
-                      ),
-                      IteamPayWay(),
-                    ],
-                  )
+                  Wrap(
+                      direction: Axis.horizontal,
+                      children: (p2pItem.paymentMethod ?? [])
+                          .map((e) => Padding(
+                                padding: const EdgeInsets.all(5),
+                                child: IteamPayWay(title: e.name.toString()),
+                              ))
+                          .toList())
                 ],
               ),
             ),

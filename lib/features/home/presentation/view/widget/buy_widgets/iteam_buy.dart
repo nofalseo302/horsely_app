@@ -40,6 +40,7 @@ class IteamBuy extends StatelessWidget {
           children: [
             HeaderIteamBuy(
               isbuy: isbay,
+              item:itemData,
               namebuttom: nameButttom,
               onTap: onTap,
             ),
@@ -52,13 +53,16 @@ class IteamBuy extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            const ListTileIteamHome(),
+            ListTileIteamHome(
+              dataItem: itemData,
+            ),
             const SizedBox(
               height: 20,
             ),
             Infromation(
-              titel: AppStrings.paymethod.tr,
-              vule: '',
+           
+              p2pItem: itemData,
+             
             )
           ],
         ),

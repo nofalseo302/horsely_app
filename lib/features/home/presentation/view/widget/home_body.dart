@@ -35,16 +35,36 @@ class HomeBody extends GetView<HomeControler> {
           const SizedBox(height: 16),
 
           // AnimatedSwitcher to switch between different text fields
-          Row(
-            key: const ValueKey<int>(0), // مفتاح للتحويل بين الودجت
-            children: [
-              Expanded(
-                child: FilterIcon(
-                    hintText: "  ${AppStrings.transactionamount.tr}",
-                    textInputType: TextInputType.multiline),
-              ),
-            ],
-          ),
+
+          Obx(() => controller.activeIndex.value == 0
+              ? Row(
+                  key: const ValueKey<int>(0), // مفتاح للتحويل بين الودجت
+                  children: [
+                    Expanded(
+                      child: FilterIcon(
+                          searchController: controller.buySearchController,
+                          onSaved: (s) {
+                            controller.getBuyData();
+                          },
+                          hintText: "  ${AppStrings.transactionamount.tr}",
+                          textInputType: TextInputType.multiline),
+                    ),
+                  ],
+                )
+              : Row(
+                  key: const ValueKey<int>(1), // مفتاح للتحويل بين الودجت
+                  children: [
+                    Expanded(
+                      child: FilterIcon(
+                          searchController: controller.sellSearchController,
+                          onSaved: (s) {
+                            controller.getSellData();
+                          },
+                          hintText: "  ${AppStrings.transactionamount.tr}",
+                          textInputType: TextInputType.multiline),
+                    ),
+                  ],
+                )),
 
           const SizedBox(height: 16),
 
@@ -52,11 +72,11 @@ class HomeBody extends GetView<HomeControler> {
           Obx(() {
             return Expanded(
               child: AnimatedSwitcher(
-                duration: const Duration(milliseconds: 300),
-                child: controller.activeIndex.value == 0
-                    ? const BuyDataBody()
-                    : const SellDataBody() // واجهة Sell
-              ),
+                  duration: const Duration(milliseconds: 300),
+                  child: controller.activeIndex.value == 0
+                      ? const BuyDataBody()
+                      : const SellDataBody() // واجهة Sell
+                  ),
             );
           }),
         ],

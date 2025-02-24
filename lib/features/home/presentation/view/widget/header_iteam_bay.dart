@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
+import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';
 
 class HeaderIteamBuy extends StatelessWidget {
   const HeaderIteamBuy({
     super.key,
     required this.isbuy,
     required this.namebuttom,
+    required this.item,
     this.onTap,
   });
   final bool isbuy;
+  final P2pItem item;
   final String namebuttom;
   final void Function()? onTap;
   @override
@@ -17,14 +20,14 @@ class HeaderIteamBuy extends StatelessWidget {
     return Row(
       children: [
         Text(
-          "156.44",
+          item.price.toString(),
           style: AppStyles.semibold18(context),
         ),
         const SizedBox(
           width: 2,
         ),
         Text(
-          "USDT",
+          " ${item.currency?.name ?? ""} ",
           style: AppStyles.semibold14(context)
               .copyWith(color: const Color(0xff545454)),
         ),

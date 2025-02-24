@@ -22,9 +22,8 @@ class P2pHomeRepo {
   }) async {
     try {
       var response = await _dioImpl.post(
-        data: {'type': EndPoints.sell},
+        data: {'type': EndPoints.sell, "key_words": search},
         endPoint: '${EndPoints.p2p}?page=${currentPage ?? 1}',
-        // query: {"search": search},
       );
       if (response.statusCode == 200) {
         return Right(UserHomeData.fromJson(response.data));
@@ -44,9 +43,9 @@ class P2pHomeRepo {
   }) async {
     try {
       var response = await _dioImpl.post(
-        data: {'type': EndPoints.buy},
+        data: {'type': EndPoints.buy, "key_words": search},
         endPoint: '${EndPoints.p2p}?page=${currentPage ?? 1}',
-        // query: {"search": search},
+        query: {},
       );
       if (response.statusCode == 200) {
         return Right(UserHomeData.fromJson(response.data));

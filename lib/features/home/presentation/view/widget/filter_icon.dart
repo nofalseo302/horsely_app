@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
+import 'package:horsely_app/features/home/logic/controler/home_controller.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/buttom_filter.dart';
 
-class FilterIcon extends StatelessWidget {
+class FilterIcon extends GetView<HomeControler> {
   const FilterIcon({
     super.key,
     required this.hintText,
     required this.textInputType,
-    this.onSaved,
+    required this.onSaved,
+    required this.searchController,
     this.obscureText = false,
   });
 
@@ -15,7 +18,7 @@ class FilterIcon extends StatelessWidget {
   final TextInputType textInputType;
   final void Function(String?)? onSaved;
   final bool obscureText;
-
+  final TextEditingController searchController;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,7 +40,9 @@ class FilterIcon extends StatelessWidget {
             Expanded(
               child: TextFormField(
                 obscureText: obscureText,
-                onChanged: onSaved,
+                controller: searchController,
+                // onChanged: onSaved,
+                onFieldSubmitted: onSaved,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return;
