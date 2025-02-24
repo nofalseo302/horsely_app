@@ -13,23 +13,4 @@ class CurrencyRepo {
     return _orderRepo;
   }
   final DioImpl _dioHelper = DioImpl();
-  Future<Either<ResponseMessage, CryptoCurrencyModel>>
-      getCryptoCurrency() async {
-    try {
-      var req = await _dioHelper.get(
-        endPoint: EndPoints.cryptoCurrency,
-      );
-
-      if (req.statusCode == 200) {
-        return Right(CryptoCurrencyModel.fromJson(req.data));
-      } else {
-        return Left(ResponseMessage.fromJson(req.data));
-      }
-    } on ResponseMessage catch (e) {
-      return Left(e);
-    } catch (e) {
-      return Left(ResponseMessage(
-          message: AppStrings.connectionError.tr, status: false));
-    }
-  }
 }

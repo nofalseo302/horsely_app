@@ -62,7 +62,7 @@ class BodyVerifyAccount extends GetView<OtpController> {
                             enabled: controller.isValid.value,
                             onButtonPressed: () async {
                               if (controller.formKey.currentState!.validate()) {
-                                if (Get.arguments['isPasswordScreen']) {
+                                if (controller.isPasswordScreen) {
                                   Get.find<ForgetPasswordController>()
                                       .forgetPasswordCheckOtp(
                                           otp: controller.codeController.text);

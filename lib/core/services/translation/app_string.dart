@@ -2,6 +2,7 @@ class AppStrings {
   static const String nextButton = 'next';
   static const String yourDataHasBeenRejected =
       'your data has been rejected kindly check your data then apply again';
+
   static const String no = 'No';
   static const String tryAgain = 'tryAgain';
   static const String noChats = 'noChats';
@@ -18,6 +19,9 @@ class AppStrings {
   static const String topCryptoCur = "top cryptocurrencies";
   static const String inmarket = " on the market.";
   static const String getStarted = "getStarted";
+  static const minlimit = "Min Limit";
+  static const maxlimit = "Max Limit";
+
   static const String localAuth = "localAuth";
   static const subtitelpageview1 =
       "Stay updated on top-performing cryptos and coins for trading. Discover the best options available now with Horsley";

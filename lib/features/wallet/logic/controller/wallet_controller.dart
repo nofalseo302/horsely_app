@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
+import 'package:horsely_app/features/account/features/transaction/data/repo/payment_repo.dart';
 import 'package:horsely_app/features/wallet/data/model/crypto_currency_model/crypto_currency_model.dart';
 import 'package:horsely_app/features/wallet/data/model/get_all_wallet_model/get_all_wallet_model.dart';
 import 'package:horsely_app/features/wallet/data/repo/currency_repo.dart';
@@ -11,7 +12,7 @@ class WalletController extends GetxController {
   final GetAllRepoRepo wallet = GetAllRepoRepo();
   GetAllWalletModel getAllWalletModel = GetAllWalletModel();
   RxInt? walletid = RxInt(0);
-
+  PaymentRepo paymentRepo = PaymentRepo();
   ScrollController scrollController = ScrollController();
   RxBool isLoading = false.obs;
   RxBool isError = false.obs;
@@ -95,7 +96,7 @@ class WalletController extends GetxController {
 
   void getCryptoCurrency() async {
     isLoadingcurrency.value = true;
-    var res = await currencyRepo.getCryptoCurrency();
+    var res = await paymentRepo.getCryptoCurrency();
     isLoadingcurrency.value = false;
     res.fold((l) {
       isErrorcurrency.value = true;

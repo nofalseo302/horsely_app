@@ -70,7 +70,11 @@ class OtpController extends GetxController {
   @override
   void onInit() async {
     try {
-      isPasswordScreen = Get.arguments['isPasswordScreen'] ?? false;
+      if ((Get.arguments ?? {}).containsKey('isPasswordScreen')) {
+        isPasswordScreen = Get.arguments['isPasswordScreen'] ?? false;
+      } else {
+        isPasswordScreen = false;
+      }
     } catch (e) {
       isPasswordScreen = true;
     }
