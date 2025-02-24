@@ -27,7 +27,7 @@ class HomeControler extends GetxController {
     AppStrings.profit.tr,
     AppStrings.myprofile.tr
   ];
-  var activeIndex = 1.obs; // لتمثيل التاب النشط
+  var activeIndex = 0.obs; // لتمثيل التاب النشط
 
   void toggleTab(int index) {
     activeIndex.value = index; // تغيير التاب النشط
@@ -138,7 +138,8 @@ class HomeControler extends GetxController {
       isLoading.value = false;
     }
   }
- /////***************silder */
+
+  /////***************silder */
   var minValuePricesRating = 20.0.obs;
   var maxValuepricesRating = 80.0.obs;
 
@@ -157,6 +158,7 @@ class HomeControler extends GetxController {
     minValuetranactionlimit.value = newMin;
     maxValuetranactionlimit.value = newMax;
   }
+
   //=======endsilder=====================
   @override
   void onInit() async {

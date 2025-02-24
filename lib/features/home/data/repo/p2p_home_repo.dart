@@ -45,7 +45,7 @@ class P2pHomeRepo {
       var response = await _dioImpl.post(
         data: {'type': EndPoints.buy, "key_words": search},
         endPoint: '${EndPoints.p2p}?page=${currentPage ?? 1}',
-        query: {},
+        // query: {},
       );
       if (response.statusCode == 200) {
         return Right(UserHomeData.fromJson(response.data));
