@@ -66,7 +66,7 @@ class PaymentRepo {
         return Left(ResponseMessage.fromJson(req.data));
       }
     } on ResponseMessage catch (e) {
-      return Left(e);
+      return Left(ResponseMessage(message: e.message, status: false));
     } catch (e) {
       return Left(ResponseMessage(
           message: AppStrings.connectionError.tr, status: false));

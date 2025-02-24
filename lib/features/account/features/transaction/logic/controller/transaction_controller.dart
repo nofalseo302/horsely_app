@@ -16,8 +16,8 @@ class TransactionController extends GetxController {
   RxString coinTypeId = "".obs;
   RxString currency = "".obs;
   RxString currencyId = "".obs;
-  RxString cereptoId = "".obs;
-
+  RxString cerid = "".obs;
+  GlobalKey<FormState> globalKey = GlobalKey();
   RxString paymethodId = "".obs;
   RxString selectedCurrencyId = "".obs;
   PaymentRepo paymentRepo = PaymentRepo();
@@ -72,18 +72,26 @@ class TransactionController extends GetxController {
     });
   }
 
-//   void CreatP ()async{
-//     startLoading();
-//   var res=await  trans.createPayAndSell(amount: amount.text, price: price.text, paymentMethod: paymentMethod, currencyId: , minLimit: limit.text, maxLimit: uper.text, cyreptoCurrencyId: c, description: decoration.text, type: "sell");
-//     stopLoading();
-//     res.fold((l){
-// ToastManager.showSuccess(l.message??"", true);
-//     }, (r){
-//        ToastManager.showSuccess(r.message??"", true);
-
-//     });
-
-//   }
+  void CreatbayAndSell() async {
+    print(cerid.value);
+    startLoading();
+    var res = await trans.createPayAndSell(
+        amount: amount.text,
+        price: price.text,
+        paymentMethod: selectedPaymentMethods.toSet().toList(),
+        currencyId: currencyId.value,
+        minLimit: limit.text,
+        maxLimit: uper.text,
+        cyreptoCurrencyId: cerid.value,
+        description: decoration.text,
+        type: "sell");
+    stopLoading();
+    res.fold((l) {
+      ToastManager.showSuccess(l.message ?? "", true);
+    }, (r) {
+      ToastManager.showSuccess(r.message ?? "", true);
+    });
+  }
 
   @override
   void onInit() async {

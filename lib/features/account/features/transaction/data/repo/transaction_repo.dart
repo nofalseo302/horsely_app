@@ -26,8 +26,8 @@ class TransactionRepo {
     required String type,
   }) async {
     try {
-      var req = await _dioHelper.post(endPoint: EndPoints.createWallet, data: {
-        'crypto_currency_id': id,
+      var req = await _dioHelper.post(endPoint: EndPoints.createsell, data: {
+        'crypto_currency_id': cyreptoCurrencyId,
         "currency_id": currencyId,
         "amount": amount,
         "price": price,
@@ -35,7 +35,7 @@ class TransactionRepo {
         "description": description,
         "min_limit": minLimit,
         "max_limit": maxLimit,
-        "payment_methods[]": paymentMethod
+        "payment_methods": paymentMethod.toSet().toList()
       });
 
       if (req.statusCode == 200) {
