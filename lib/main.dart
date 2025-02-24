@@ -26,7 +26,7 @@ void main() async {
   await FcmHelper.initFcm();
 
   await Get.putAsync(() => UserService().init());
-  UserModel? userModel = UserService.to.currentUser?.value;
+  UserModel? userModel = UserService.to.currentUser.value;
   await AwesomeNotificationsHelper.init();
   getCurrentLanguage();
   SystemChrome.setPreferredOrientations(

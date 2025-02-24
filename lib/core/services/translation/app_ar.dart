@@ -206,6 +206,7 @@ class AppAr {
     AppStrings.code: "الكود",
     AppStrings.min: "دقيقة",
     AppStrings.upload: "رفع",
+    AppStrings.ok: "حسنا",
     AppStrings.dropHeretoattachor: "أسقط هنا للربط أو",
     AppStrings.maxFilesize5MB: "الحد الأقصى لحجم الملف: 5 ميجا بايت",
     AppStrings.pleaseSelectafile: "يرجى اختيار ملف.",

@@ -2,7 +2,7 @@ class Datum {
   int? id;
   String? address;
   String? privateKey;
-  int? balance;
+  double? balance;
 
   Datum({this.id, this.address, this.privateKey, this.balance});
 
@@ -10,7 +10,7 @@ class Datum {
         id: json['id'] as int?,
         address: json['address'] as String?,
         privateKey: json['private_key'] as String?,
-        balance: json['balance'] as int?,
+        balance: (json['balance']).toDouble(),
       );
 
   Map<String, dynamic> toJson() => {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
-import 'package:horsely_app/features/home/presentation/view/widget/iteam_buy_way.dart';
+import 'package:horsely_app/features/home/presentation/view/widget/buy_widgets/iteam_buy_way.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/titel_and_vule.dart';
 
 import '../../../../../core/utils/app_text_styles.dart';

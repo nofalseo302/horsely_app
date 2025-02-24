@@ -4,7 +4,6 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
-import 'package:horsely_app/features/auth/logic/controller/login_controller.dart';
 import 'package:horsely_app/features/complete_data/manager/controller/complete_data_controller.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';

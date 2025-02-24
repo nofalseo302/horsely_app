@@ -155,7 +155,7 @@ class MessagesController extends GetxController {
         chatModel.value!.data!.messages!.data?.add(
           Message(
             attach: r.data?.attach ?? "",
-            userId: UserService.to.currentUser?.value?.data?.id,
+            userId: UserService.to.currentUser.value?.data?.id,
             chatId: chatModel.value!.data!.chatData!.id,
             createdAt: DateTime.now(),
             id: -1,

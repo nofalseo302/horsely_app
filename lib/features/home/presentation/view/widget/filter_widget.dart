@@ -4,7 +4,7 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
-import 'package:horsely_app/features/home/presentation/manager/controler/silder_controler.dart';
+import 'package:horsely_app/features/home/logic/controler/silder_controler.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/header_filter_buttom_sheet.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/header_filter_section.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/rating_widget_fa.dart';

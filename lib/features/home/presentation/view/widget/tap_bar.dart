@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
-import 'package:horsely_app/features/home/presentation/manager/controler/tab_bart_controler.dart';
+import 'package:horsely_app/features/home/logic/controler/home_controller.dart';
+import 'package:horsely_app/features/home/logic/controler/tab_bart_controler.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/iteam_tap.dart';
 
-class TapBar extends StatelessWidget {
+class TapBar extends GetView<HomeControler> {
   const TapBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final TapBarController controller =
-        Get.put(TapBarController()); // إنشاء instance من الـ controller
-
     return Column(
       children: [
         Row(

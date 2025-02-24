@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
-import 'package:horsely_app/features/home/presentation/manager/controler/silder_controler.dart';
+import 'package:horsely_app/features/home/logic/controler/silder_controler.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/filter_widget.dart';
 
 class ButtonInfilter extends StatelessWidget {

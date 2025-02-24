@@ -1,6 +1,8 @@
 class AppStrings {
   static const String nextButton = 'next';
   static const String yourDataHasBeenRejected =
+      'your data has been rejected kindly check your data then apply again';
+  static const String yourDataHasBeenRejected =
       'your data has been rejected kindly check your data then appply again';
   static const String no = 'No';
   static const String tryAgain = 'tryAgain';

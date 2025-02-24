@@ -64,7 +64,7 @@ class IteamNotifaction extends GetView<NotificationsController> {
                   color: const Color(0xff545454),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -74,7 +74,7 @@ class IteamNotifaction extends GetView<NotificationsController> {
                     radius: 25,
                     child: CustomImage(path: image),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 15,
                   ),
                   Text(

@@ -7,7 +7,7 @@ import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/widget/custom_image.dart';
 import 'package:horsely_app/features/account/presentation/view/account_screen.dart';
-import 'package:horsely_app/features/home/presentation/manager/controler/home_controler.dart';
+import 'package:horsely_app/features/home/logic/controler/home_controller.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/home_body.dart';
 import 'package:horsely_app/features/profit/presentation/view/profit_screen.dart';
