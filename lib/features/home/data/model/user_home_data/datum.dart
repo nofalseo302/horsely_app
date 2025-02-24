@@ -2,7 +2,7 @@ import 'crypto_currency.dart';
 import 'currency.dart';
 import 'user.dart';
 
-class Datum {
+class P2pItem {
   int? id;
   String? price;
   Currency? currency;
@@ -15,9 +15,9 @@ class Datum {
   String? createdAtFormat;
   User? user;
   CryptoCurrency? cryptoCurrency;
-  List<String>? paymentMethod;
+  List<dynamic>? paymentMethod;
 
-  Datum({
+  P2pItem({
     this.id,
     this.price,
     this.currency,
@@ -33,7 +33,7 @@ class Datum {
     this.paymentMethod,
   });
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+  factory P2pItem.fromJson(Map<String, dynamic> json) => P2pItem(
         id: json['id'] as int?,
         price: json['price'] as String?,
         currency: json['currency'] == null
@@ -53,7 +53,7 @@ class Datum {
             ? null
             : CryptoCurrency.fromJson(
                 json['crypto_currency'] as Map<String, dynamic>),
-        paymentMethod: json['payment_method'] as List<String>?,
+        paymentMethod: json['payment_method'],
       );
 
   Map<String, dynamic> toJson() => {

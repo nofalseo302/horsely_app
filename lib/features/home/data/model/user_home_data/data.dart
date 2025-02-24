@@ -3,7 +3,7 @@ import 'links.dart';
 import 'meta.dart';
 
 class Data {
-  List<Datum>? data;
+  List<P2pItem>? data;
   Links? links;
   Meta? meta;
 
@@ -11,7 +11,7 @@ class Data {
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
         data: (json['data'] as List<dynamic>?)
-            ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
+            ?.map((e) => P2pItem.fromJson(e as Map<String, dynamic>))
             .toList(),
         links: json['links'] == null
             ? null

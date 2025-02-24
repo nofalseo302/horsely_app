@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/header_iteam_bay.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/information_iteam_buy.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/list_tile_iteam_buy.dart';
@@ -9,10 +10,12 @@ class IteamBuy extends StatelessWidget {
   const IteamBuy({
     super.key,
     required this.isbay,
+    required this.itemData,
     required this.nameButttom,
     this.onTap,
   });
   final bool isbay;
+  final P2pItem itemData;
   final String nameButttom;
   final void Function()? onTap;
   @override

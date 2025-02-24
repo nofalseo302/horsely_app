@@ -16,14 +16,15 @@ class P2pHomeRepo {
   }
 
   final DioImpl _dioImpl = DioImpl();
-    Future<Either<String, UserHomeData>> getSellData({
+  Future<Either<String, UserHomeData>> getSellData({
     String? search,
     int? currentPage = 1,
   }) async {
     try {
-      var response = await _dioImpl.get(
-        endPoint: '${EndPoints.p2p}/${EndPoints.sell}?page=${currentPage ?? 1}',
-        query: {"search": search},
+      var response = await _dioImpl.post(
+        data: {'type': EndPoints.sell},
+        endPoint: '${EndPoints.p2p}?page=${currentPage ?? 1}',
+        // query: {"search": search},
       );
       if (response.statusCode == 200) {
         return Right(UserHomeData.fromJson(response.data));
@@ -36,14 +37,16 @@ class P2pHomeRepo {
       return Left(AppStrings.connectionError.tr);
     }
   }
-    Future<Either<String, UserHomeData>> getBuyData({
+
+  Future<Either<String, UserHomeData>> getBuyData({
     String? search,
     int? currentPage = 1,
   }) async {
     try {
-      var response = await _dioImpl.get(
-        endPoint: '${EndPoints.p2p}/${EndPoints.buy}?page=${currentPage ?? 1}',
-        query: {"search": search},
+      var response = await _dioImpl.post(
+        data: {'type': EndPoints.buy},
+        endPoint: '${EndPoints.p2p}?page=${currentPage ?? 1}',
+        // query: {"search": search},
       );
       if (response.statusCode == 200) {
         return Right(UserHomeData.fromJson(response.data));
@@ -57,4 +60,3 @@ class P2pHomeRepo {
     }
   }
 }
-

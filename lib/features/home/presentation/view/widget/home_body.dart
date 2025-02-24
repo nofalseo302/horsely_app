@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/features/home/logic/controler/home_controller.dart';
+import 'package:horsely_app/features/home/presentation/view/widget/buy_widgets/buy_body.dart';
+import 'package:horsely_app/features/home/presentation/view/widget/sell_widgets/sell_body.dart';
 import 'package:horsely_app/routes/routes.dart';
-import 'package:horsely_app/features/home/logic/controler/tab_bart_controler.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/filter_icon.dart';
-import 'package:horsely_app/features/home/presentation/view/widget/iteam_buy.dart';
+import 'package:horsely_app/features/home/presentation/view/widget/buy_widgets/iteam_buy.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/tap_bar.dart';
 
-class HomeBody extends StatelessWidget {
+class HomeBody extends GetView<HomeControler> {
   const HomeBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final TapBarController controller = Get.put(TapBarController());
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
@@ -54,36 +54,8 @@ class HomeBody extends StatelessWidget {
               child: AnimatedSwitcher(
                 duration: const Duration(milliseconds: 300),
                 child: controller.activeIndex.value == 0
-                    ? ListView.builder(
-                        key: ValueKey<int>(controller
-                            .activeIndex.value), // مفتاح لتفادي الأخطاء
-                        itemCount: 10, // عدد العناصر
-                        itemBuilder: (context, index) => Padding(
-                          padding: const EdgeInsets.only(bottom: 10.0),
-                          child: IteamBuy(
-                            isbay: true,
-                            nameButttom: AppStrings.buy.tr,
-                            onTap: () {
-                              Get.toNamed(Routes.buydetails);
-                            },
-                          ),
-                        ), // واجهة Buy
-                      )
-                    : ListView.builder(
-                        key: ValueKey<int>(controller
-                            .activeIndex.value), // مفتاح لتفادي الأخطاء
-                        itemCount: 10, // عدد العناصر
-                        itemBuilder: (context, index) => Padding(
-                          padding: const EdgeInsets.only(bottom: 10.0),
-                          child: IteamBuy(
-                            isbay: false,
-                            nameButttom: AppStrings.sell.tr,
-                            onTap: () {
-                              Get.toNamed(Routes.selldetails);
-                            },
-                          ),
-                        ), // واجهة Buy
-                      ), // واجهة Sell
+                    ? const BuyDataBody()
+                    : const SellDataBody() // واجهة Sell
               ),
             );
           }),

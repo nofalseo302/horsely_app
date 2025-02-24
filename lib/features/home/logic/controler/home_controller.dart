@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/function/app_launge.dart';
 import 'package:horsely_app/core/services/cache/user_service.dart';
+import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/home/data/model/user_home_data/user_home_data.dart';
 import 'package:horsely_app/features/home/data/repo/p2p_home_repo.dart';
@@ -21,6 +22,11 @@ class HomeControler extends GetxController {
     AppStrings.profit.tr,
     AppStrings.myprofile.tr
   ];
+  var activeIndex = 0.obs; // لتمثيل التاب النشط
+
+  void toggleTab(int index) {
+    activeIndex.value = index; // تغيير التاب النشط
+  }
 
   TapBarProfitControler tapBarProfitController = TapBarProfitControler();
   int selindex = 0;
@@ -49,18 +55,18 @@ class HomeControler extends GetxController {
   Rxn<UserHomeData?> sellData = Rxn<UserHomeData?>();
   int sellDataCurrentPage = 1;
   ScrollController sellDataScrollController = ScrollController();
-  void _scrollListener() async {
+  void _sellScrollListener() async {
     if (sellData.value != null &&
         sellData.value!.data!.meta!.lastPage! >= sellDataCurrentPage &&
         sellDataScrollController.offset >=
             sellDataScrollController.position.maxScrollExtent &&
         !sellDataScrollController.position.outOfRange) {
-      await getSell(pageinate: true);
+      await getSellData(pageinate: true);
     }
   }
 
-  Future<void> getSell({bool? pageinate = false}) async {
-    isLoading.value = true;
+  Future<void> getSellData({bool? pageinate = false}) async {
+    startLoad();
 
     var result = await p2pHomeRepo.getSellData(
         currentPage: sellDataCurrentPage, search: '');
@@ -73,15 +79,66 @@ class HomeControler extends GetxController {
         sellDataCurrentPage++;
         sellData.value!.data!.data?.addAll(r.data?.data ?? []);
       }
-      isLoading.value = false;
     });
+    stopLoad();
+  }
+
+  Rxn<UserHomeData?> buyData = Rxn<UserHomeData?>();
+  int buyDataCurrentPage = 1;
+  ScrollController buyDataScrollController = ScrollController();
+  void _buyScrollListener() async {
+    if (buyData.value != null &&
+        buyData.value!.data!.meta!.lastPage! >= buyDataCurrentPage &&
+        buyDataScrollController.offset >=
+            buyDataScrollController.position.maxScrollExtent &&
+        !buyDataScrollController.position.outOfRange) {
+      await getBuyData(pageinate: true);
+    }
+  }
+
+  Future<void> getBuyData({bool? pageinate = false}) async {
+    startLoad();
+
+    var result = await p2pHomeRepo.getSellData(
+        currentPage: sellDataCurrentPage, search: '');
+    result.fold((l) {
+      ToastManager.showError(l);
+    }, (r) {
+      if (!pageinate!) {
+        buyData.value = r;
+      } else {
+        buyDataCurrentPage++;
+        buyData.value!.data!.data?.addAll(r.data?.data ?? []);
+      }
+    });
+    stopLoad();
+  }
+
+  startLoad() {
+    if (buyData.value == null || sellData.value == null) {
+      isLoading.value = true;
+    } else {
+      startLoading();
+    }
+  }
+
+  stopLoad() {
+    if (isLoading.value) {
+      isLoading.value = false;
+    } else {
+      stopLoading();
+      isLoading.value = true;
+      isLoading.value = false;
+    }
   }
 
   @override
-  void onInit() {
-    // TODO: implement onInit
+  void onInit() async {
+    await getBuyData();
+    buyDataScrollController.addListener(_buyScrollListener);
+    await getSellData();
+    sellDataScrollController.addListener(_sellScrollListener);
+
     super.onInit();
-    log(UserService.to.currentUser.value?.data?.completeDataStatus.toString() ??
-        "");
   }
 }
