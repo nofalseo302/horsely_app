@@ -4,6 +4,7 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
+import 'package:horsely_app/features/home/logic/controler/home_controller.dart';
 import 'package:horsely_app/features/home/logic/controler/silder_controler.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/header_filter_buttom_sheet.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/header_filter_section.dart';
@@ -13,9 +14,10 @@ import 'package:horsely_app/features/home/presentation/view/widget/shape_choose_
 import 'package:horsely_app/features/home/presentation/view/widget/uper_lower_transaction_limit.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/upper_lower_vule_widget.dart';
 
-class FilterWidget extends StatelessWidget {
-  const FilterWidget({super.key, required this.controller});
-  final SliderController controller;
+class FilterWidget extends GetView<HomeControler> {
+  const FilterWidget({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,12 @@ class FilterWidget extends StatelessWidget {
         child: Column(
           children: [
             const HeaderFilterButtomSheet(),
-            _buildSection(AppStrings.conintype.tr, ['USDT', 'USDT']),
+            _buildSection(
+                AppStrings.conintype.tr,
+                controller.cryptoCurrencyModel?.data
+                        ?.map((e) => e.name.toString())
+                        .toList() ??
+                    []),
             const Divider(height: 54, color: Color(0xffE6E6E6)),
             _buildSection(AppStrings.curencytype.tr, ['AED', 'AED']),
             const Divider(height: 54, color: Color(0xffE6E6E6)),

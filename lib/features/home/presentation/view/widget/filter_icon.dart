@@ -41,6 +41,7 @@ class FilterIcon extends GetView<HomeControler> {
               child: TextFormField(
                 obscureText: obscureText,
                 controller: searchController,
+
                 // onChanged: onSaved,
                 onFieldSubmitted: onSaved,
                 validator: (value) {
@@ -51,6 +52,7 @@ class FilterIcon extends GetView<HomeControler> {
                 },
                 keyboardType: textInputType,
                 decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 8),
                   hintText: hintText,
                   hintStyle: AppStyles.semibold14(context).copyWith(
                     color: const Color(0xffB5B5B5).withOpacity(.7),

@@ -6,13 +6,18 @@ import 'package:horsely_app/core/function/app_launge.dart';
 import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
+import 'package:horsely_app/features/home/data/model/crypto_currency_model/crypto_currency_model.dart';
+import 'package:horsely_app/features/home/data/repo/payment_repo.dart';
 import 'package:horsely_app/features/home/data/model/user_home_data/user_home_data.dart';
 import 'package:horsely_app/features/home/data/repo/p2p_home_repo.dart';
+import 'package:horsely_app/features/home/logic/controler/payment_controller.dart';
 import 'package:horsely_app/features/profit/presentation/manager/controler/tap_bar_profit_controler.dart';
 
 import '../../../../core/services/translation/app_string.dart';
 
 class HomeControler extends GetxController {
+  CryptoCurrencyModel? cryptoCurrencyModel;
+
   RxBool isLoading = RxBool(false);
   // قائمة أسماء العناوين بناءً على الـ index
   final List<String> appBarTitles = [
@@ -133,14 +138,33 @@ class HomeControler extends GetxController {
       isLoading.value = false;
     }
   }
+ /////***************silder */
+  var minValuePricesRating = 20.0.obs;
+  var maxValuepricesRating = 80.0.obs;
 
+  // تحديث القيم عند تحريك الـ Slider
+  void updateValues(double newMin, double newMax) {
+    minValuePricesRating.value = newMin;
+    maxValuepricesRating.value = newMax;
+  }
+
+  //---------------------------------------------------Transaction Limits---------------------
+  var minValuetranactionlimit = 20.0.obs;
+  var maxValuetranactionlimit = 80.0.obs;
+
+  // تحديث القيم عند تحريك الـ Slider
+  void updateValuestranactionlimit(double newMin, double newMax) {
+    minValuetranactionlimit.value = newMin;
+    maxValuetranactionlimit.value = newMax;
+  }
+  //=======endsilder=====================
   @override
   void onInit() async {
     await getBuyData();
     buyDataScrollController.addListener(_buyScrollListener);
     await getSellData();
     sellDataScrollController.addListener(_sellScrollListener);
-
+    cryptoCurrencyModel = Get.find<PaymentController>().currencyModel.value;
     super.onInit();
   }
 }
