@@ -72,7 +72,7 @@ class PusherRemoteDataSource {
     }
     if (responseBody.containsKey('data')) {
       print('dfdfdfdfdf $responseBody');
-      Message  message = Message.fromJson(responseBody['data']);
+      Message message = Message.fromJson(responseBody['data']);
       _messagesStreamController!.add(message);
       if (Get.isRegistered<MessagesController>()) {
         Get.find<MessagesController>().updateMessage(message);

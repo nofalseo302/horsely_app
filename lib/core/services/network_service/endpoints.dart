@@ -8,6 +8,8 @@ class EndPoints {
   static const profile = "$baseUrl/profile";
   static const login = "/auth/login";
   static const completeData = "/complete-data";
+  static const allmethod = "/payment-methods";
+  static const allCurrency = "/data/currencies";
   static const blanc = "/wallet/balance";
   static const register = "/auth/register";
   static const deleteImage = "/delete-image";

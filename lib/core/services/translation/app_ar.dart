@@ -211,6 +211,8 @@ class AppAr {
     AppStrings.pleaseSelectafile: "يرجى اختيار ملف.",
     AppStrings.enterValidPhoneNumber: "أدخل رقم هاتف صالح",
     AppStrings.invalidPhonenumber: "رقم هاتف غير صالح",
+    AppStrings.maxlimit: "الحد الاقصى",
+    AppStrings.minlimit: "الحد الادنى",
     AppStrings
             .byusingtheappandlogginginyouagreetotheTermsofServiceandPrivacyPolicy:
         "من خلال استخدام التطبيق وتسجيل الدخول، فإنك توافق على شروط الخدمة وسياسة الخصوصية",

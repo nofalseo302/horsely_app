@@ -154,7 +154,7 @@ class MessagesController extends GetxController {
       (r) {
         chatModel.value!.data!.messages!.data?.add(
           Message(
-            attach: r.data?.attach??"",
+            attach: r.data?.attach ?? "",
             userId: UserService.to.currentUser?.value?.data?.id,
             chatId: chatModel.value!.data!.chatData!.id,
             createdAt: DateTime.now(),
@@ -209,7 +209,6 @@ class MessagesController extends GetxController {
   }
 
   @override
-
   void onClose() {
     PusherRemoteDataSource().unsubscribeToMessage(
         chatId: chatModel.value!.data!.chatData!.id!, userId: 1111
