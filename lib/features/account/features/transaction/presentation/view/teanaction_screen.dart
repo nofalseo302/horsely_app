@@ -82,6 +82,9 @@ class TeanactionScreen extends GetView<TransactionController> {
                           TitleAndWidget(
                             title: AppStrings.conintype.tr,
                             childWidget: CustomDropDownFormField(
+                              validator: (p0) => AppValidationFunctions
+                                  .stringValidationFunction(
+                                      p0, AppStrings.conintype.tr),
                               items: controller.currencyModel.value.data
                                   ?.map((currency) {
                                 return DropdownMenuItem<String>(
@@ -124,8 +127,9 @@ class TeanactionScreen extends GetView<TransactionController> {
                           // Available Coin Input
                           CustomTextFormField(
                             validator: (p0) {
-                              AppValidationFunctions.stringValidationFunction(
-                                  p0, AppStrings.price);
+                              return AppValidationFunctions
+                                  .stringValidationFunction(
+                                      p0, AppStrings.price);
                             },
                             controller: controller.price,
                             inputFormatters: [
@@ -140,6 +144,9 @@ class TeanactionScreen extends GetView<TransactionController> {
                           TitleAndWidget(
                             title: AppStrings.currency.tr,
                             childWidget: CustomDropDownFormField(
+                              validator: (p0) => AppValidationFunctions
+                                  .stringValidationFunction(
+                                      p0, AppStrings.currency.tr),
                               items: controller.allCurrency.value.data
                                   ?.map((currency) {
                                 return DropdownMenuItem<String>(
