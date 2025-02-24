@@ -4,15 +4,15 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 
 class CustomDropDownMultiSelect extends StatefulWidget {
-  final Function(List<String>) selectedList;
-  final List<String?> listOFStrings;
-  final List<String>? selectedListOFStrings;
+  final Function(List<String>) onSelect;
+  final List<String?> nameOfAllOptions;
+  final List<String>? initialValue;
 
   const CustomDropDownMultiSelect(
       {super.key,
-      required this.selectedList,
-      required this.listOFStrings,
-      this.selectedListOFStrings});
+      required this.onSelect,
+      required this.nameOfAllOptions,
+      this.initialValue});
 
   @override
   createState() {
@@ -26,7 +26,7 @@ class _CustomDropDownMultiSelectState extends State<CustomDropDownMultiSelect> {
 
   @override
   void initState() {
-    listOFSelectedItem = widget.selectedListOFStrings!.map((e) => e).toList();
+    listOFSelectedItem = widget.initialValue!.map((e) => e).toList();
     super.initState();
   }
 
@@ -51,12 +51,12 @@ class _CustomDropDownMultiSelectState extends State<CustomDropDownMultiSelect> {
           ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            itemCount: widget.listOFStrings.length,
+            itemCount: widget.nameOfAllOptions.length,
             itemBuilder: (BuildContext context, int index) {
               return Container(
                 margin: const EdgeInsets.only(bottom: 8.0),
                 child: _ViewItem(
-                  item: widget.listOFStrings[index] ?? '',
+                  item: widget.nameOfAllOptions[index] ?? '',
                   selected: (val) {
                     selectedText = val;
                     if (listOFSelectedItem.contains(val)) {
@@ -64,15 +64,15 @@ class _CustomDropDownMultiSelectState extends State<CustomDropDownMultiSelect> {
                     } else {
                       listOFSelectedItem.add(val);
                     }
-                    widget.selectedList(listOFSelectedItem);
+                    widget.onSelect(listOFSelectedItem);
                     setState(() {});
                   },
                   itemSelected: listOFSelectedItem.contains(
-                        widget.listOFStrings[index],
+                        widget.nameOfAllOptions[index],
                       ) ||
-                      (widget.selectedListOFStrings != null &&
-                          widget.selectedListOFStrings!
-                              .contains(widget.listOFStrings[index])),
+                      (widget.initialValue != null &&
+                          widget.initialValue!
+                              .contains(widget.nameOfAllOptions[index])),
                 ),
               );
             },
