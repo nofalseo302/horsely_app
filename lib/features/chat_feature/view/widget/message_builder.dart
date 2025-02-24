@@ -21,20 +21,22 @@ class MessageBuilder extends GetView<MessagesController> {
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: attach!.endsWith(".aac")
           // ? controller.playAudio("https://seda.codeella.com/" + attach!)
-          ? Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment:
-                  !isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 100,
-                  width: 300,
-                  child: VoiceWidget(
-                    isMine: isMe,
-                    url: attach!,
+          ? FittedBox(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment:
+                    !isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 100,
+                    width: 300,
+                    child: VoiceWidget(
+                      isMine: isMe,
+                      url: attach!,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             )
           : Column(
               crossAxisAlignment:

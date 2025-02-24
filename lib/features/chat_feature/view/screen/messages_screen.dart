@@ -44,9 +44,12 @@ class MessagesScreen extends GetView<MessagesController> {
                               const SizedBox(
                                 width: 10,
                               ),
-                              CircleAvatar(
-                                backgroundColor: AppColors.backGray,
+                              Container(
+                                clipBehavior: Clip.antiAlias,
+                                decoration:
+                                    const BoxDecoration(shape: BoxShape.circle),
                                 child: CustomImageHandler(
+                                  width: 0.13 * Get.width,
                                   controller.chatModel.value?.data?.chatData
                                           ?.user?.image ??
                                       "",
@@ -58,7 +61,7 @@ class MessagesScreen extends GetView<MessagesController> {
                           Expanded(
                             child: ListView.builder(
                               controller: controller.scrollController,
-                              shrinkWrap: true,
+                              shrinkWrap: false,
                               itemBuilder: (context, index) {
                                 return MessageBuilder(
                                   isMe: (UserService
