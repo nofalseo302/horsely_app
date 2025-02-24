@@ -26,7 +26,7 @@ class HomeControler extends GetxController {
     AppStrings.profit.tr,
     AppStrings.myprofile.tr
   ];
-  var activeIndex = 1.obs; // لتمثيل التاب النشط
+  var activeIndex = 0.obs; // لتمثيل التاب النشط
 
   void toggleTab(int index) {
     activeIndex.value = index; // تغيير التاب النشط
