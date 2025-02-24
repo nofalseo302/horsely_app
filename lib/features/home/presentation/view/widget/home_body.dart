@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/routes/routes.dart';
-import 'package:horsely_app/features/home/presentation/manager/controler/tab_bart_controler.dart';
+import 'package:horsely_app/features/home/logic/controler/tab_bart_controler.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/filter_icon.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/iteam_buy.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/tap_bar.dart';

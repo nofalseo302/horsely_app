@@ -29,7 +29,7 @@ class LoginController extends GetxController {
       print(r);
       print(r.data?.email ?? "");
       await UserService.to.setUser(r);
-      print(UserService.to.currentUser?.value?.data?.email);
+      print(UserService.to.currentUser.value?.data?.email);
       if (r.data?.isActiveAccount == false) {
         ToastManager.showSuccess(r.message ?? '', true);
 

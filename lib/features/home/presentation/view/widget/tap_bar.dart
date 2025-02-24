@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
-import 'package:horsely_app/features/home/presentation/manager/controler/tab_bart_controler.dart';
+import 'package:horsely_app/features/home/logic/controler/tab_bart_controler.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/iteam_tap.dart';
 
 class TapBar extends StatelessWidget {

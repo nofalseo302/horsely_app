@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
-import 'package:horsely_app/features/auth/data/model/user_model/user_model.dart';
 import 'package:horsely_app/features/auth/data/repo/register_repo.dart';
 
 import '../../../../routes/routes.dart';

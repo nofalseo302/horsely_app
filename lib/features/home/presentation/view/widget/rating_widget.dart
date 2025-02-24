@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
-import 'package:horsely_app/features/home/presentation/manager/controler/rating_controler.dart';
+import 'package:horsely_app/features/home/logic/controler/rating_controler.dart';
 
 class CustomRatingBar extends StatelessWidget {
   final int itemCount; // عدد العناصر في البار (النجوم أو غيرها)
