@@ -5,6 +5,7 @@ import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/widget/build_app_bar.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/features/bay_details/presentation/view/widget/seller_info.dart';
+import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/information_iteam_buy.dart';
 
 class OfferDetails extends StatelessWidget {
@@ -33,8 +34,8 @@ class BodyOfferDetails extends StatelessWidget {
           const SellerInformation(),
           const SizedBox(height: 8),
           Infromation(
-            titel: AppStrings.paymethod.tr,
-            vule: '',
+            p2pItem: P2pItem(),
+   
           ),
           const Spacer(),
           CustomButton(

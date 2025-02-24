@@ -22,12 +22,14 @@ class HomeControler extends GetxController {
     AppStrings.profit.tr,
     AppStrings.myprofile.tr
   ];
-  var activeIndex = 0.obs; // لتمثيل التاب النشط
+  var activeIndex = 1.obs; // لتمثيل التاب النشط
 
   void toggleTab(int index) {
     activeIndex.value = index; // تغيير التاب النشط
   }
 
+  TextEditingController sellSearchController = TextEditingController();
+  TextEditingController buySearchController = TextEditingController();
   TapBarProfitControler tapBarProfitController = TapBarProfitControler();
   int selindex = 0;
   void onItemTapped(int index) {
@@ -69,7 +71,7 @@ class HomeControler extends GetxController {
     startLoad();
 
     var result = await p2pHomeRepo.getSellData(
-        currentPage: sellDataCurrentPage, search: '');
+        currentPage: sellDataCurrentPage, search: sellSearchController.text);
     result.fold((l) {
       ToastManager.showError(l);
     }, (r) {
@@ -99,8 +101,8 @@ class HomeControler extends GetxController {
   Future<void> getBuyData({bool? pageinate = false}) async {
     startLoad();
 
-    var result = await p2pHomeRepo.getSellData(
-        currentPage: sellDataCurrentPage, search: '');
+    var result = await p2pHomeRepo.getBuyData(
+        currentPage: sellDataCurrentPage, search: buySearchController.text);
     result.fold((l) {
       ToastManager.showError(l);
     }, (r) {

@@ -23,7 +23,7 @@ class TitelAndVule extends StatelessWidget {
         Expanded(
           flex: 3, // تخصيص نسبة لقيمة "vule"
           child: Text(
-            ":   $vule",
+            ":$vule",
             style: AppStyles.semibold14(context),
           ),
         ),

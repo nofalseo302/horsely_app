@@ -8,6 +8,7 @@ class AppStrings {
   static const String noChats = 'noChats';
   static const String messages = 'messages';
   static const String message = 'message';
+  static const String hours = 'hours';
   static const String attachment = 'Attachment';
   static const String enterThePasswordToDelete = 'أدخل كلمة السر لحذف الحساب';
   static const yourdocumentsarecurrentlyunderreviewWewillgetbacktoyouassoonaspossible =

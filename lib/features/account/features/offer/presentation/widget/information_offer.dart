@@ -66,11 +66,13 @@ class InformationOffer extends StatelessWidget {
                     style: AppStyles.semibold14(context)
                         .copyWith(color: const Color(0xff8A8A8A)),
                   ),
-                  const IteamPayWay(),
+                  const IteamPayWay(
+                    title: "",
+                  ),
                   const SizedBox(
                     width: 8,
                   ),
-                  const IteamPayWay(),
+                  const IteamPayWay(title: " "),
                 ],
               ),
             ),

@@ -120,17 +120,22 @@ class _ChatListScreenState extends State<ChatListScreen> {
 }
 
 String formatToMinutesAgo(String isoTimestamp) {
-  final dateTime = DateTime.parse(isoTimestamp); // Parse the ISO timestamp
-  final now = DateTime.now(); // Get the current time
-  final difference = now.difference(dateTime); // Calculate the time difference
+  try {
+    final dateTime = DateTime.parse(isoTimestamp); // Parse the ISO timestamp
+    final now = DateTime.now(); // Get the current time
+    final difference =
+        now.difference(dateTime.toLocal()); // Calculate the time difference
 
-  if (difference.inMinutes < 60) {
-    return '${difference.inMinutes} minutes';
-  } else if (difference.inHours < 24) {
-    return '${difference.inHours} hours';
-  } else if (difference.inDays < 7) {
-    return '${difference.inDays} days';
-  } else {
-    return DateFormat('yyyy-MM-dd').format(dateTime);
+    if (difference.inMinutes < 60) {
+      return '${difference.inMinutes} ${AppStrings.min.tr}';
+    } else if (difference.inHours < 24) {
+      return '${difference.inHours} ${AppStrings.hours.tr}';
+    } else if (difference.inDays < 7) {
+      return '${difference.inDays} ${AppStrings.day.tr}';
+    } else {
+      return DateFormat('yyyy-MM-dd').format(dateTime);
+    }
+  } catch (e) {
+    return DateFormat('yyyy-MM-dd').format(DateTime.now());
   }
 }

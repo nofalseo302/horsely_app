@@ -13,6 +13,7 @@ class AppAr {
         'مرحبا بكم في Horsely، العملات الرقمية المبتكرة منصة مصممة لتبسيط تجربة تداول العملات المشفرة الخاصة بك بأمان وكفاءة.',
     AppStrings.inmarket: "في السوق",
     AppStrings.start: "ابدأ",
+    AppStrings.hours: "ساعات",
     AppStrings.messages: "الرسائل",
     AppStrings.message: "رسالة",
     AppStrings.noChats: "لا يوجد رسائل",
