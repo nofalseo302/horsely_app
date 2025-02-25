@@ -6,17 +6,11 @@ import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/custom_retry_widget.dart';
-import 'package:horsely_app/features/home/data/model/all_currency_model/all_currency_model.dart';
-import 'package:horsely_app/features/home/data/model/all_payment_method/all_payment_method.dart';
-import 'package:horsely_app/features/home/data/model/crypto_currency_model/crypto_currency_model.dart';
 import 'package:horsely_app/features/home/data/model/request_model/buy_request.dart';
 import 'package:horsely_app/features/home/logic/controler/home_controller.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/check_chips_widget.dart';
 
 import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/header_filter_buttom_sheet.dart';
-import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/header_filter_section.dart';
-import 'package:horsely_app/features/home/presentation/view/widget/rating_widget_fa.dart';
-import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/shape_choose_iteam.dart';
 
 import 'package:horsely_app/features/home/presentation/view/widget/uper_lower_transaction_limit.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/upper_lower_vule_widget.dart';
@@ -150,7 +144,7 @@ class FilterWidget extends GetView<HomeControler> {
                                     },
                                     buttonText: AppStrings.search.tr),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 15,
                               ),
                               Expanded(

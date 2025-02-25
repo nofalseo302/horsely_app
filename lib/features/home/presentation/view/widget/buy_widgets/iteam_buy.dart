@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/header_iteam_bay.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/information_iteam_buy.dart';

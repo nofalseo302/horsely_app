@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/features/home/logic/controler/home_controller.dart';
-import 'package:horsely_app/features/home/logic/controler/silder_controler.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class CustomSliderTranactionWidget extends GetView<HomeControler> {
