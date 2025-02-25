@@ -8,6 +8,7 @@ import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
 import 'package:horsely_app/core/widget/email_text_filed.dart';
+import 'package:horsely_app/core/widget/text_filed_builder.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
 import 'package:horsely_app/features/account/features/information_user/presentation/controler/image_controller.dart';
 
@@ -103,30 +104,27 @@ class BodyInformationUser extends GetView<ImageController> {
                             TitleAndWidget(
                               title: AppStrings.name.tr,
                               childWidget: CustomTextFormField(
+                                validator: (p0) => AppValidationFunctions
+                                    .stringValidationFunction(
+                                        p0, AppStrings.name.tr),
                                 hintText: "",
                                 controller: controller.nameController,
                                 textInputType: TextInputType.text,
-                                validator: (f) {
-                                  return AppValidationFunctions
-                                      .stringValidationFunction(
-                                    f,
-                                    AppStrings.name.tr,
-                                  );
-                                  return null;
-                                },
                               ),
                             ),
                             const SizedBox(
                               height: 16,
                             ),
-                            TitleAndWidget(
+
+                            TextFieldBuilder(
+                              validator: (p0) {
+                                return AppValidationFunctions
+                                    .emailValidationFunction(p0);
+                              },
+                              controller: controller.emailController,
                               title: AppStrings.email.tr,
-                              childWidget: EmailTextFiled(
-                                hintText: "",
-                                controller: controller.emailController,
-                                textInputType: TextInputType.text,
-                              ),
                             ),
+
                             const SizedBox(
                               height: 16,
                             ),
