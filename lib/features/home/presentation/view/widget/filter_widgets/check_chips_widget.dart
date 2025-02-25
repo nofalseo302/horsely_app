@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:horsely_app/features/home/data/model/all_currency_model/all_currency_model.dart';
+import 'package:horsely_app/features/home/data/model/all_payment_method/all_payment_method.dart';
 import 'package:horsely_app/features/home/data/model/crypto_currency_model/crypto_currency_model.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/header_filter_section.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/shape_choose_iteam.dart';
@@ -27,11 +29,19 @@ class CheckChipsWidget extends StatefulWidget {
 
 class _CheckChipsWidgetState extends State<CheckChipsWidget> {
   bool showAll = false;
+  var visibleChips;
+  @override
+  void initState() {
+    visibleChips = showAll
+        ? widget.allChips ?? []
+        : (widget.allChips?.take(4).toList() ?? []);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     // Limit the number of visible chips based on the showAll flag
-    final visibleChips = showAll
+    visibleChips = showAll
         ? widget.allChips ?? []
         : (widget.allChips?.take(4).toList() ?? []);
 
@@ -56,7 +66,10 @@ class _CheckChipsWidgetState extends State<CheckChipsWidget> {
                       child: FittedBox(
                           fit: BoxFit.scaleDown,
                           child: ShapeChoose(
-                            onSelected: widget.onSelected,
+                            onSelected: (i) {
+                              widget.onSelected(i);
+                              setState(() {});
+                            },
                             id: visibleChips[index].id,
                             titel: visibleChips[index].name,
                             isSelected: widget.selectedIds
@@ -87,6 +100,20 @@ class ChipData {
   ChipData({required this.name, this.isSelected = true, required this.id});
   static List<ChipData> chipDataFromCryptoCurrencyModel(
       CryptoCurrencyModel model) {
+    return model.data
+            ?.map((e) => ChipData(name: e.name!, id: e.id!))
+            .toList() ??
+        [];
+  }
+
+  static List<ChipData> chipDataFromAllCurrency(AllCurrencyModel model) {
+    return model.data
+            ?.map((e) => ChipData(name: e.name!, id: e.id!))
+            .toList() ??
+        [];
+  }
+
+  static List<ChipData> chipDataFromAllPayment(AllPaymentMethod model) {
     return model.data
             ?.map((e) => ChipData(name: e.name!, id: e.id!))
             .toList() ??

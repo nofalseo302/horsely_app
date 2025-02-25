@@ -4,8 +4,8 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 
 class HeaderFilterButtomSheet extends StatelessWidget {
-  const HeaderFilterButtomSheet({super.key});
-
+  const HeaderFilterButtomSheet({super.key, this.onTap});
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -16,10 +16,13 @@ class HeaderFilterButtomSheet extends StatelessWidget {
           AppStrings.filter.tr,
           style: AppStyles.semibold20(context),
         ),
-        Text(
-          AppStrings.reset.tr,
-          style: AppStyles.semibold14(context)
-              .copyWith(color: Colors.black.withOpacity(.8)),
+        GestureDetector(
+          onTap: onTap,
+          child: Text(
+            AppStrings.reset.tr,
+            style: AppStyles.semibold14(context)
+                .copyWith(color: Colors.black.withOpacity(.8)),
+          ),
         ),
       ],
     );

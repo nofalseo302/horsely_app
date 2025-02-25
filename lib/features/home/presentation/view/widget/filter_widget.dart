@@ -49,7 +49,12 @@ class FilterWidget extends GetView<HomeControler> {
                         horizontal: 20.0, vertical: 30),
                     child: Column(
                       children: [
-                        const HeaderFilterButtomSheet(),
+                        HeaderFilterButtomSheet(
+                          onTap: () {
+                            controller.resetFilter();
+                            controller.update();
+                          },
+                        ),
                         CheckChipsWidget(
                           onSelected: (id) {
                             controller.selectedCoinTypes.contains(id)
@@ -61,12 +66,18 @@ class FilterWidget extends GetView<HomeControler> {
                           selectedIds: controller.selectedCoinTypes,
                           title: AppStrings.conintype.tr,
                         ),
-
                         const Divider(height: 54, color: Color(0xffE6E6E6)),
-                        // _buildSection(
-                        //     number: 2,
-                        //     AppStrings.curencytype.tr,
-                        //     allCurrencyModel: controller.allCurrencyModel),
+                        CheckChipsWidget(
+                          onSelected: (id) {
+                            controller.selectedAllCurrency.contains(id)
+                                ? controller.selectedAllCurrency.remove(id)
+                                : controller.selectedAllCurrency.add(id);
+                          },
+                          allChips: ChipData.chipDataFromAllCurrency(
+                              controller.allCurrencyModel!),
+                          selectedIds: controller.selectedAllCurrency,
+                          title: AppStrings.curencytype.tr,
+                        ),
                         const Divider(height: 54, color: Color(0xffE6E6E6)),
                         _buildRangeSection(
                             AppStrings.pricesransee.tr,
@@ -80,16 +91,21 @@ class FilterWidget extends GetView<HomeControler> {
                             controller.maxValuetranactionlimit),
                         const CustomSliderTranactionWidget(),
                         const Divider(height: 54, color: Color(0xffE6E6E6)),
-                        const RatingWidget(),
-                        const RatingWidget(),
-                        const RatingWidget(),
-                        const Divider(height: 54, color: Color(0xffE6E6E6)),
-                        //   _buildSection(
-                        //       number: 3,
-                        //       AppStrings.paymentseected.tr,
-                        //       allpaymodel: controller.allPaymentMethod),
-                        //   const SizedBox(height: 20),
-                        //   _buildButtons(context),
+                        // const RatingWidget(),
+                        // const RatingWidget(),
+                        // const RatingWidget(),
+                        // const Divider(height: 54, color: Color(0xffE6E6E6)),
+                        CheckChipsWidget(
+                          onSelected: (id) {
+                            controller.selectedAllPayment.contains(id)
+                                ? controller.selectedAllPayment.remove(id)
+                                : controller.selectedAllPayment.add(id);
+                          },
+                          allChips: ChipData.chipDataFromAllPayment(
+                              controller.allPaymentMethod!),
+                          selectedIds: controller.selectedAllPayment,
+                          title: AppStrings.paymethod.tr,
+                        ),
                       ],
                     ),
                   ),

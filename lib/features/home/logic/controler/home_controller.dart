@@ -21,7 +21,7 @@ class HomeControler extends GetxController {
   CryptoCurrencyModel? cryptoCurrencyModel;
   AllCurrencyModel? allCurrencyModel;
   AllPaymentMethod? allPaymentMethod = AllPaymentMethod();
-  
+
   RxBool isLoading = RxBool(false);
   RxBool isLoadingpay = false.obs;
   RxBool isfail = false.obs;
@@ -193,6 +193,23 @@ class HomeControler extends GetxController {
     print(cryptoCurrencyModel?.message ?? "dadadada");
     super.onInit();
   }
+
   //chips section------------
-  List<int>selectedCoinTypes=[];
+  List<int> selectedCoinTypes = [];
+  List<int> selectedAllCurrency = [];
+  List<int> selectedAllPayment = [];
+
+  ////------rest---------------------
+
+  void resetFilter() {
+    selectedCoinTypes = [];
+    selectedAllCurrency = [];
+    selectedAllPayment = [];
+    minValuePricesRating.value = 0;
+    maxValuepricesRating.value = 100;
+    minValuetranactionlimit.value = 0;
+    maxValuetranactionlimit.value = 100;
+    isLoadingpay.value = true;
+    isLoadingpay.value = false;
+  }
 }
