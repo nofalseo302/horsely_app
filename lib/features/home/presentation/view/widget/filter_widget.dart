@@ -133,6 +133,7 @@ class FilterWidget extends GetView<HomeControler> {
                                                       .selectedCoinTypes))
                                           : controller.getBuyData(
                                               requestModel: HomeDataRequest(
+                                                
                                                   offerType: OfferType.sell,
                                                   minLimit: controller.minValuetranactionlimit.value.toInt(),
                                                   maxLimit: controller.maxValuetranactionlimit.value.toInt(),

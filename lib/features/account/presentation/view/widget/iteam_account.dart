@@ -23,6 +23,7 @@ class IteamAccount extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(bottom: 4.0, top: 8),
         child: Container(
+          width: double.infinity,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(8),

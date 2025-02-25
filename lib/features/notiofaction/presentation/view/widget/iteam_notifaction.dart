@@ -67,27 +67,29 @@ class IteamNotifaction extends GetView<NotificationsController> {
               const SizedBox(
                 height: 10,
               ),
-              Row(
-                children: [
-                  CircleAvatar(
-                    backgroundColor: AppColors.backGray,
-                    radius: 25,
-                    child: CustomImage(path: image),
-                  ),
-                  const SizedBox(
-                    width: 15,
-                  ),
-                  Text(
-                    data.title ?? '',
-                    style: AppStyles.semibold14(context),
-                  ),
-                  Text(
-                    data.message ?? '',
-                    style: AppStyles.semibold14(context).copyWith(
-                      color: const Color(0xff707070),
+              FittedBox(
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: AppColors.backGray,
+                      radius: 25,
+                      child: CustomImage(path: image),
                     ),
-                  ),
-                ],
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      (data.title ?? '') + "  ",
+                      style: AppStyles.semibold14(context),
+                    ),
+                    Text(
+                      data.message ?? '',
+                      style: AppStyles.semibold14(context).copyWith(
+                        color: const Color(0xff707070),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
