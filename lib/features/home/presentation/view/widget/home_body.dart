@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/features/home/data/model/request_model/buy_request.dart';
 import 'package:horsely_app/features/home/logic/controler/home_controller.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/buy_widgets/buy_body.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/sell_widgets/sell_body.dart';
@@ -44,7 +45,9 @@ class HomeBody extends GetView<HomeControler> {
                       child: FilterIcon(
                           searchController: controller.buySearchController,
                           onSaved: (s) {
-                            controller.getBuyData();
+                            controller.getBuyData(
+                                requestModel:
+                                    HomeDataRequest(offerType: OfferType.sell));
                           },
                           hintText: "  ${AppStrings.transactionamount.tr}",
                           textInputType: TextInputType.multiline),
@@ -58,7 +61,9 @@ class HomeBody extends GetView<HomeControler> {
                       child: FilterIcon(
                           searchController: controller.sellSearchController,
                           onSaved: (s) {
-                            controller.getSellData();
+                            controller.getSellData(
+                                requestModel:
+                                    HomeDataRequest(offerType: OfferType.sell));
                           },
                           hintText: "  ${AppStrings.transactionamount.tr}",
                           textInputType: TextInputType.multiline),
