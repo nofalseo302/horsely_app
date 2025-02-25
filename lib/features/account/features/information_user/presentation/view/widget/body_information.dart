@@ -110,14 +110,6 @@ class BodyInformationUser extends GetView<ImageController> {
                                 hintText: "",
                                 controller: controller.nameController,
                                 textInputType: TextInputType.text,
-                                validator: (f) {
-                                  return AppValidationFunctions
-                                      .stringValidationFunction(
-                                    f,
-                                    AppStrings.name.tr,
-                                  );
-                                  return null;
-                                },
                               ),
                             ),
                             const SizedBox(
