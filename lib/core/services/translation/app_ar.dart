@@ -216,7 +216,10 @@ class AppAr {
     AppStrings.invalidPhonenumber: "رقم هاتف غير صالح",
     AppStrings.maxlimit: "الحد الاقصى",
     AppStrings.minlimit: "الحد الادنى",
-    AppStrings.mustBeChoosePaymentMethod:"يجب اختيار طرق الدفع",
+    AppStrings.withdrawMeathods: "طرق السحب",
+    AppStrings.defaultbtn: "الافتراضي",
+    AppStrings.setdefault: "تعين",
+    AppStrings.mustBeChoosePaymentMethod: "يجب اختيار طرق الدفع",
     AppStrings
             .byusingtheappandlogginginyouagreetotheTermsofServiceandPrivacyPolicy:
         "من خلال استخدام التطبيق وتسجيل الدخول، فإنك توافق على شروط الخدمة وسياسة الخصوصية",

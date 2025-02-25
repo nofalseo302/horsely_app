@@ -38,6 +38,15 @@ class BodyAccount extends StatelessWidget {
             ),
           ),
           IteamAccount(
+            accountEntity: AccountEntity(
+              titel: AppStrings.paymethod.tr,
+              image: AppImages.payment,
+              onPressed: () {
+                Get.toNamed(Routes.PaymentScreen);
+              },
+            ),
+          ),
+          IteamAccount(
             trailing: CircleAvatar(
               backgroundColor: AppColors.primaryColor,
               radius: 15,
