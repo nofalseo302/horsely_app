@@ -1,9 +1,7 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/function/app_launge.dart';
-import 'package:horsely_app/core/services/cache/user_service.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/home/data/model/all_currency_model/all_currency_model.dart';
@@ -183,7 +181,7 @@ class HomeControler extends GetxController {
       allCurrencyModel = paymentController.allCurrency.value;
       allPaymentMethod = paymentController.allpaymodel.value;
       isLoadingpay.value = false;
-    } on Exception catch (e) {
+    } on Exception {
       isfail.value = true;
     }
     update();

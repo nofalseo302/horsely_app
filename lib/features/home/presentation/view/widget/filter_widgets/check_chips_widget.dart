@@ -5,10 +5,6 @@ import 'package:horsely_app/features/home/data/model/crypto_currency_model/crypt
 import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/header_filter_section.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/shape_choose_iteam.dart';
 
-import 'package:flutter/material.dart';
-import 'package:horsely_app/features/home/data/model/crypto_currency_model/crypto_currency_model.dart';
-import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/header_filter_section.dart';
-import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/shape_choose_iteam.dart';
 
 class CheckChipsWidget extends StatefulWidget {
   const CheckChipsWidget(

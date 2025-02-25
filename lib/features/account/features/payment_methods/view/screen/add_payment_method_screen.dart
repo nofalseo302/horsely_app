@@ -12,7 +12,7 @@ class AddPaymentMethodScreen extends GetView<AddPaymentMethodController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(60),
         child: buildAppBar(
             titel: AppStrings.addPaymentMethod.tr, context: context),
       ),
@@ -51,7 +51,7 @@ class AddPaymentMethodScreen extends GetView<AddPaymentMethodController> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(20.0),
         child: CustomButton(
-        buttonText  : AppStrings.save.tr,
+          buttonText: AppStrings.save.tr,
           onButtonPressed: () {
             controller.savePayment();
           },

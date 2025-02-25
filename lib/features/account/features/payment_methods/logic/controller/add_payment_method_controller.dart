@@ -45,12 +45,14 @@ class AddPaymentMethodController extends GetxController {
       ),
     );
     Get.back();
-    res.fold(
-      (l) {
+    await res.fold(
+      (l) async {
+        // await stopLoading();
+        // await stopLoading();
+
         ToastManager.showError(l.message);
       },
       (r) {
-        Get.back();
         ToastManager.showSuccess(r, true);
         Get.find<PaymentController>().getAllPayment();
       },
