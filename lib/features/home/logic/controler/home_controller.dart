@@ -112,7 +112,7 @@ class HomeControler extends GetxController {
     startLoad();
 
     var result = await p2pHomeRepo.getBuyData(
-        currentPage: sellDataCurrentPage, search: buySearchController.text);
+        currentPage: sellDataCurrentPage, ;
     result.fold((l) {
       ToastManager.showError(l);
     }, (r) {

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/models/errors/error_message_model.dart';
 import 'package:horsely_app/core/services/network_service/endpoints.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/features/home/data/model/request_model/buy_request.dart';
 import 'package:horsely_app/features/home/data/model/user_home_data/user_home_data.dart';
 
 import '../../../../core/services/network_service/api_service.dart';
@@ -38,15 +39,19 @@ class P2pHomeRepo {
   }
 
   Future<Either<String, UserHomeData>> getBuyData({
-    String? search,
-    int? currentPage = 1,
+    required HomeDataRequest request, // Pass the request model
+    int currentPage = 1, // currentPage is now a parameter here
   }) async {
     try {
+      // Get the request data map
+      Map<String, dynamic> data = request.toMap();
+
       var response = await _dioImpl.post(
-        data: {'type': EndPoints.buy, "key_words": search},
-        endPoint: '${EndPoints.p2p}?page=${currentPage ?? 1}',
-        // query: {},
+        data: data,
+        endPoint:
+            '${EndPoints.p2p}?page=$currentPage', // Use the currentPage directly here
       );
+
       if (response.statusCode == 200) {
         return Right(UserHomeData.fromJson(response.data));
       } else {
