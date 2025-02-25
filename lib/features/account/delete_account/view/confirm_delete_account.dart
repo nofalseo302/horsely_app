@@ -18,7 +18,7 @@ class ConfirmPasswordBottomSheet extends GetView<DeleteAccountController> {
       builder: (controller) {
         return SingleChildScrollView(
           child: Container(
-            width: Get.width,
+            width: double.infinity,
             decoration: const BoxDecoration(
               color: AppColors.white,
               borderRadius: BorderRadius.only(
@@ -48,13 +48,9 @@ class ConfirmPasswordBottomSheet extends GetView<DeleteAccountController> {
                     Expanded(
                       child: GestureDetector(
                         onTap: () => Get.back(),
-                        child: Container(
-                          padding: const EdgeInsets.all(10),
-                          decoration: const BoxDecoration(
-                            color: Color(0xffE9EFF5),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(Icons.close),
+                        child: CircleAvatar(
+                          backgroundColor: Color(0xffE9EFF5),
+                          child: Center(child: const Icon(Icons.close)),
                         ),
                       ),
                     ),
