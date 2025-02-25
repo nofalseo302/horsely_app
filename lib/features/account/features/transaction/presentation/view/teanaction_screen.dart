@@ -12,6 +12,7 @@ import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/custom_retry_widget.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
+import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/account/features/myorder/presentation/widget/iteam_order_tap_bar.dart';
 import 'package:horsely_app/features/account/features/transaction/logic/controller/transaction_controller.dart';
 
@@ -128,12 +129,12 @@ class TeanactionScreen extends GetView<TransactionController> {
                           CustomTextFormField(
                             validator: (p0) {
                               return AppValidationFunctions
-                                  .stringValidationFunction(
-                                      p0, AppStrings.price);
+                                  .numValidationFunction(p0, AppStrings.price);
                             },
                             controller: controller.price,
                             inputFormatters: [
-                              FilteringTextInputFormatter.digitsOnly
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d*\.?\d*$'))
                             ],
                             title: AppStrings.availbelcoin.tr,
                             hintText: '',
@@ -185,10 +186,11 @@ class TeanactionScreen extends GetView<TransactionController> {
                           // Amount of Currency Input
                           CustomTextFormField(
                             validator: (p0) =>
-                                AppValidationFunctions.stringValidationFunction(
+                                AppValidationFunctions.numValidationFunction(
                                     p0, AppStrings.amountofcurency.tr),
                             inputFormatters: [
-                              FilteringTextInputFormatter.digitsOnly
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d*\.?\d*$'))
                             ],
                             title: AppStrings.amountofcurency.tr,
                             hintText: '',
@@ -198,11 +200,12 @@ class TeanactionScreen extends GetView<TransactionController> {
                           ),
                           CustomTextFormField(
                             validator: (p0) =>
-                                AppValidationFunctions.stringValidationFunction(
+                                AppValidationFunctions.numValidationFunction(
                                     p0, AppStrings.maxlimit.tr),
                             controller: controller.uper,
                             inputFormatters: [
-                              FilteringTextInputFormatter.digitsOnly
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d*\.?\d*$'))
                             ],
                             title: AppStrings.maxlimit.tr,
                             hintText: '',
@@ -210,12 +213,24 @@ class TeanactionScreen extends GetView<TransactionController> {
                             textInputType: TextInputType.text,
                           ),
                           CustomTextFormField(
-                            validator: (p0) =>
-                                AppValidationFunctions.stringValidationFunction(
-                                    p0, AppStrings.minlimit.tr),
+                            validator: (p0) {
+                              if (controller.uper.text.isEmpty) {
+                                return null;
+                              }
+                              if ((int.tryParse(controller.uper.text.trim()) ??
+                                      0) <
+                                  (int.tryParse(controller.limit.text.trim()) ??
+                                      0)) {
+                                return Get.locale!.languageCode == 'ar'
+                                    ? "الحد الادني اكبر من الاقصي"
+                                    : "The minimum is greater than the maximum";
+                              }
+                              return null;
+                            },
                             controller: controller.limit,
                             inputFormatters: [
-                              FilteringTextInputFormatter.digitsOnly
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d*\.?\d*$'))
                             ],
                             title: AppStrings.minlimit.tr,
                             hintText: '',
@@ -265,8 +280,11 @@ class TeanactionScreen extends GetView<TransactionController> {
         padding: const EdgeInsets.all(20.0),
         child: CustomButton(
           onButtonPressed: () {
-            if (controller.globalKey.currentState!.validate()) {
+            if (controller.globalKey.currentState!.validate() &&
+                controller.selectedPaymentMethods.isNotEmpty) {
               controller.CreatbayAndSell();
+            } else if (controller.selectedPaymentMethods.isEmpty) {
+              ToastManager.showError(AppStrings.mustBeChoosePaymentMethod.tr);
             }
           },
           buttonText: AppStrings.publish.tr,

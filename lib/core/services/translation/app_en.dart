@@ -167,6 +167,7 @@ class AppEn {
     AppStrings.time: "Time",
     AppStrings.percentage: "Percentage",
     AppStrings.nowallet: AppStrings.nowallet,
+    AppStrings.mustBeChoosePaymentMethod: AppStrings.mustBeChoosePaymentMethod,
     AppStrings
             .yourdocumentsarecurrentlyunderreviewWewillgetbacktoyouassoonaspossible:
         AppStrings

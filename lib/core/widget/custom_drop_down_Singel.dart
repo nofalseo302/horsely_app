@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:horsely_app/core/utils/app_colors.dart';
 
 // class CustomDropDownFormField extends StatelessWidget {
 //   const CustomDropDownFormField({
@@ -127,7 +128,7 @@ class CustomDropDownFormField extends StatelessWidget {
         ),
         disabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.grey,
+            color: AppColors.backGray,
           ),
           borderRadius: BorderRadius.all(
             Radius.circular(8.0),
@@ -135,7 +136,7 @@ class CustomDropDownFormField extends StatelessWidget {
         ),
         enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.grey,
+            color: AppColors.backGray,
           ),
           borderRadius: BorderRadius.all(
             Radius.circular(8.0),
@@ -143,7 +144,7 @@ class CustomDropDownFormField extends StatelessWidget {
         ),
         focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.grey,
+            color: AppColors.backGray,
           ),
           borderRadius: BorderRadius.all(
             Radius.circular(8.0),
@@ -151,7 +152,7 @@ class CustomDropDownFormField extends StatelessWidget {
         ),
         border: const OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.grey,
+            color: AppColors.backGray,
           ),
           borderRadius: BorderRadius.all(
             Radius.circular(8.0),

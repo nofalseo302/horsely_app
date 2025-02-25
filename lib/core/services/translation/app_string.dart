@@ -21,7 +21,7 @@ class AppStrings {
   static const String getStarted = "getStarted";
   static const minlimit = "Min Limit";
   static const maxlimit = "Max Limit";
-
+  static const mustBeChoosePaymentMethod = "must Be Choose Payment Method";
   static const String localAuth = "localAuth";
   static const subtitelpageview1 =
       "Stay updated on top-performing cryptos and coins for trading. Discover the best options available now with Horsley";
