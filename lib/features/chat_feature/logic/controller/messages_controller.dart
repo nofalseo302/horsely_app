@@ -25,7 +25,7 @@ class MessagesController extends GetxController {
   RxInt timerTime = 0.obs;
   TextEditingController messageController = TextEditingController();
   StreamController? messagesControllerStream;
-
+  late int userID;
   String? _filePath;
   RxString imageMessage = ''.obs;
   Future<void> requestPermission() async {
@@ -90,8 +90,8 @@ class MessagesController extends GetxController {
 
   getChatData({
     int? page,
+    bool pageinate = false,
   }) async {
-    var userId = Get.arguments['userId'];
     if (page == null) {
       isLoading.value = true;
     } else {
@@ -99,7 +99,7 @@ class MessagesController extends GetxController {
     }
     update();
     var res = await chatRepo.getChatDataByUserId(
-      userId: userId,
+      userId: userID,
       page: page,
     );
     if (page == null) {
@@ -115,10 +115,10 @@ class MessagesController extends GetxController {
       (r) async {
         if (page == null) {
           chatModel.value = r;
-          await PusherRemoteDataSource()
-              .subscribeToMessage(chatId: r.data!.chatData!.id!, userId: 1111
-                  // r.data!.chatData!.driver!.id!,
-                  );
+          await PusherRemoteDataSource().subscribeToMessage(
+            chatId: r.data!.chatData!.id!,
+            userId: userID,
+          );
         } else {
           chatModel.value!.data!.messages!.data!
               .insertAll(0, r.data!.messages!.data!);
@@ -201,10 +201,15 @@ class MessagesController extends GetxController {
 
   @override
   Future<void> onInit() async {
+    userID = Get.arguments['userId'];
     await getChatData();
-    await _initRecorder();
+    _initRecorder();
     scrollController.addListener(_scrollListner);
-    scrollController.jumpTo(scrollController.position.maxScrollExtent);
+    await Future.delayed(const Duration(milliseconds: 100), () {
+      scrollController.animateTo(scrollController.position.maxScrollExtent,
+          curve: Curves.linear, duration: const Duration(seconds: 1));
+    });
+
     super.onInit();
   }
 
@@ -245,12 +250,25 @@ class MessagesController extends GetxController {
             scrollController.position.minScrollExtent &&
         chatModel.value!.data!.messages!.currentPage! <
             chatModel.value!.data!.messages!.lastPage!) {
-      // print("top");
+      print("top--------------------------");
       await getChatData(
         page: chatModel.value!.data!.messages!.currentPage! + 1,
       );
     }
   }
+
+  // void _scrollListner() async {
+  //   if (scrollController.offset >= scrollController.position.maxScrollExtent &&
+  //       !scrollController.position.outOfRange &&
+  //       !isLoading.value) {
+  //     if (chatModel.value!.data!.messages!.currentPage! <
+  //         chatModel.value!.data!.messages!.lastPage!) {
+  //       await getChatData(
+  //         pageinate: true,
+  //       );
+  //     }
+  //   }
+  // }
 
   String formatSecondsToHHmm(int totalSeconds) =>
       "${(totalSeconds ~/ 3600).toString().padLeft(2, '0')}:${((totalSeconds % 3600) ~/ 60).toString().padLeft(2, '0')}";
