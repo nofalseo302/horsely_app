@@ -4,6 +4,9 @@ import 'package:horsely_app/features/account/features/myorder/logic/binding/my_o
 import 'package:horsely_app/features/account/features/pincode/logic/binding/pin_code_binding.dart';
 import 'package:horsely_app/features/account/features/transaction/logic/binding/transaction_binding.dart';
 import 'package:horsely_app/features/account/features/verification_status/logic/binding/verification_status_binding.dart';
+import 'package:horsely_app/features/account/features/payment_methods/logic/binding/add_payment_method_binding.dart';
+import 'package:horsely_app/features/account/features/payment_methods/view/screen/add_payment_method_screen.dart';
+import 'package:horsely_app/features/account/features/payment_methods/view/screen/payment_method_screen.dart';
 import 'package:horsely_app/features/auth/logic/binding/local_auth_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/login_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/register_binding.dart';
@@ -194,6 +197,12 @@ class AppPages {
       // binding: TransactionBinding(),
     ),
     GetPage(
+      name: Routes.PaymentScreen,
+      page: () => const PaymentMethodScreen(),
+      transition: Transition.leftToRight,
+      // binding: TransactionBinding(),
+    ),
+    GetPage(
       name: Routes.myorder,
       page: () => const MyOrderScreeen(),
       transition: Transition.leftToRight,
@@ -280,6 +289,11 @@ class AppPages {
       name: Routes.chat,
       binding: MessagesBinding(),
       page: () => const MessagesScreen(),
+    ),
+    GetPage(
+      name: Routes.addPaymentMethod,
+      binding: AddPaymentMethodBinding(),
+      page: () => const AddPaymentMethodScreen(),
     ),
   ];
 }

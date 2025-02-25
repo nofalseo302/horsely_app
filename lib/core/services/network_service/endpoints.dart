@@ -12,7 +12,9 @@ class EndPoints {
   static const allCurrency = "/data/currencies";
   static const createsell = "/P2P/create";
   static const blanc = "/wallet/balance";
+  static const sendPaymentData="/payment-methods/send";
   static const register = "/auth/register";
+  static const setDefaultPayment = "/payment-methods/set-default";
   static const deleteImage = "/delete-image";
   static const allWallet = "/wallet";
   static const transfetr = "/wallet/transfer-usdt";

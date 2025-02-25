@@ -18,6 +18,7 @@ class AppImages {
   static const company = "assets/svg/company.svg";
   static const active = "assets/svg/active.svg";
   static const notactive = "assets/svg/notactive.svg";
+  static const payment = "assets/png/payment.png";
   static const bacgroundestmatedbalance = "assets/png/Estmalnceblance.png";
   static const monyprofit = "aassets/png/money-profit.png";
   static const bankaccount = "assets/png/bankaccount.png";

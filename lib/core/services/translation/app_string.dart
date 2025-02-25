@@ -9,6 +9,7 @@ class AppStrings {
   static const String messages = 'messages';
   static const String message = 'message';
   static const String hours = 'hours';
+  static const String withdrawMeathods = "withdrawMeathods";
   static const String attachment = 'Attachment';
   static const String enterThePasswordToDelete = 'أدخل كلمة السر لحذف الحساب';
   static const yourdocumentsarecurrentlyunderreviewWewillgetbacktoyouassoonaspossible =
@@ -19,8 +20,12 @@ class AppStrings {
   static const String topCryptoCur = "top cryptocurrencies";
   static const String inmarket = " on the market.";
   static const String getStarted = "getStarted";
+  static const setdefault = "Set Default";
+  static const defaultbtn = "Default";
+  static const addPaymentMethod = "Add Payment Method";
   static const minlimit = "Min Limit";
   static const maxlimit = "Max Limit";
+  static const choosePaymentMethod = "choose Payment Method";
   static const mustBeChoosePaymentMethod = "must Be Choose Payment Method";
   static const String localAuth = "localAuth";
   static const subtitelpageview1 =

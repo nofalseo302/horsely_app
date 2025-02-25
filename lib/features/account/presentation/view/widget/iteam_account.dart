@@ -41,7 +41,11 @@ class IteamAccount extends StatelessWidget {
               padding: const EdgeInsetsDirectional.only(start: 20.0),
               child: CircleAvatar(
                 backgroundColor: AppColors.backGray,
-                child: CustomImage(path: accountEntity.image),
+                child: CustomImage(
+                  path: accountEntity.image,
+                  width: 25,
+                  height: 25,
+                ),
               ),
             ),
             title: Text(

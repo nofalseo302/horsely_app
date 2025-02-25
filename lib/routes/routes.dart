@@ -38,4 +38,6 @@ class Routes {
   static const seting = "/seting";
   static const history = "/history";
   static const walletScreen = "/WalletScreen";
+  static const PaymentScreen = "/paymentScreeen";
+  static const addPaymentMethod = "/addPaymentMethod";
 }
