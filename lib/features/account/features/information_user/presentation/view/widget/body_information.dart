@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/core/utils/app_validation_functions.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
@@ -105,6 +106,14 @@ class BodyInformationUser extends GetView<ImageController> {
                                 hintText: "",
                                 controller: controller.nameController,
                                 textInputType: TextInputType.text,
+                                validator: (f) {
+                                  return AppValidationFunctions
+                                      .stringValidationFunction(
+                                    f,
+                                    AppStrings.name.tr,
+                                  );
+                                  return null;
+                                },
                               ),
                             ),
                             const SizedBox(
