@@ -17,13 +17,13 @@ class PaymentMethodScreen extends GetView<PaymentController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(60),
         child: buildAppBar(titel: AppStrings.paymethod.tr, context: context),
       ),
       body: Obx(
         () => controller.isLoading.value
             ? const CustomLoader()
-            : controller.allpaymodel.value == null
+            : controller.allpaymodel.value.data == null
                 ? RetryWidget(
                     onRetry: () async => await controller.getAllPayment(),
                   )
@@ -33,8 +33,8 @@ class PaymentMethodScreen extends GetView<PaymentController> {
                       itemCount: controller.allpaymodel.value.data!.length,
                       itemBuilder: (context, index) {
                         return ListTile(
-                          contentPadding:
-                              EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 8, horizontal: 20),
                           leading: ClipOval(
                             child: CustomImageHandler(
                               width: 48,
@@ -43,7 +43,7 @@ class PaymentMethodScreen extends GetView<PaymentController> {
                             ),
                           ),
                           title: Text(
-                            controller.allpaymodel.value!.data![index].name!,
+                            controller.allpaymodel.value.data![index].name!,
                           ),
                           trailing: SizedBox(
                             width: 100,

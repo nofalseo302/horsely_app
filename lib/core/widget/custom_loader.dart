@@ -16,7 +16,7 @@ class CustomLoader extends StatelessWidget {
 
 startLoading() async {
   Get.closeAllSnackbars();
-  await Future.delayed(const Duration(milliseconds: 50), () {
+  await Future.delayed(const Duration(milliseconds: 0), () {
     showDialog(
       context: Get.context!,
       barrierDismissible: false,
