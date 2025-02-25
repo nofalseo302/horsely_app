@@ -9,6 +9,7 @@ import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/home/data/model/all_currency_model/all_currency_model.dart';
 import 'package:horsely_app/features/home/data/model/all_payment_method/all_payment_method.dart';
 import 'package:horsely_app/features/home/data/model/crypto_currency_model/crypto_currency_model.dart';
+import 'package:horsely_app/features/home/data/model/request_model/buy_request.dart';
 import 'package:horsely_app/features/home/data/repo/payment_repo.dart';
 import 'package:horsely_app/features/home/data/model/user_home_data/user_home_data.dart';
 import 'package:horsely_app/features/home/data/repo/p2p_home_repo.dart';
@@ -21,7 +22,7 @@ class HomeControler extends GetxController {
   CryptoCurrencyModel? cryptoCurrencyModel;
   AllCurrencyModel? allCurrencyModel;
   AllPaymentMethod? allPaymentMethod = AllPaymentMethod();
-  
+
   RxBool isLoading = RxBool(false);
   RxBool isLoadingpay = false.obs;
   RxBool isfail = false.obs;
@@ -73,15 +74,18 @@ class HomeControler extends GetxController {
         sellDataScrollController.offset >=
             sellDataScrollController.position.maxScrollExtent &&
         !sellDataScrollController.position.outOfRange) {
-      await getSellData(pageinate: true);
+      await getSellData(
+          pageinate: true,
+          requestModel: HomeDataRequest(offerType: OfferType.sell));
     }
   }
 
-  Future<void> getSellData({bool? pageinate = false}) async {
+  Future<void> getSellData(
+      {bool? pageinate = false, required HomeDataRequest requestModel}) async {
     startLoad();
 
-    var result = await p2pHomeRepo.getSellData(
-        currentPage: sellDataCurrentPage, search: sellSearchController.text);
+    var result = await p2pHomeRepo.getHomeData(
+        currentPage: sellDataCurrentPage, request: requestModel);
     result.fold((l) {
       ToastManager.showError(l);
     }, (r) {
@@ -104,15 +108,18 @@ class HomeControler extends GetxController {
         buyDataScrollController.offset >=
             buyDataScrollController.position.maxScrollExtent &&
         !buyDataScrollController.position.outOfRange) {
-      await getBuyData(pageinate: true);
+      await getBuyData(
+          pageinate: true,
+          requestModel: HomeDataRequest(offerType: OfferType.buy));
     }
   }
 
-  Future<void> getBuyData({bool? pageinate = false}) async {
+  Future<void> getBuyData(
+      {bool? pageinate = false, required HomeDataRequest requestModel}) async {
     startLoad();
 
-    var result = await p2pHomeRepo.getBuyData(
-        currentPage: sellDataCurrentPage, ;
+    var result = await p2pHomeRepo.getHomeData(
+        currentPage: sellDataCurrentPage, request: requestModel);
     result.fold((l) {
       ToastManager.showError(l);
     }, (r) {
@@ -184,15 +191,16 @@ class HomeControler extends GetxController {
   @override
   void onInit() async {
     isLoadingpay.value = true;
-    await getBuyData();
+    await getBuyData(requestModel: HomeDataRequest(offerType: OfferType.buy));
     buyDataScrollController.addListener(_buyScrollListener);
-    await getSellData();
+    await getSellData(requestModel: HomeDataRequest(offerType: OfferType.buy));
     sellDataScrollController.addListener(_sellScrollListener);
 
     await getAllPaymentData();
     print(cryptoCurrencyModel?.message ?? "dadadada");
     super.onInit();
   }
+
   //chips section------------
-  List<int>selectedCoinTypes=[];
+  List<int> selectedCoinTypes = [];
 }

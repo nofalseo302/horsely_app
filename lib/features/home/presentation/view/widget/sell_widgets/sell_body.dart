@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/widget/custom_skeletonizer.dart';
+import 'package:horsely_app/features/home/data/model/request_model/buy_request.dart';
 import 'package:horsely_app/features/home/logic/controler/home_controller.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/buy_widgets/iteam_buy.dart';
@@ -22,7 +23,7 @@ class SellDataBody extends GetView<HomeControler> {
                     ? currentState.empty
                     : currentState.success,
         onFail: () async {
-          controller.getSellData();
+          controller.getSellData(requestModel: HomeDataRequest(offerType: OfferType.sell));
         },
         animationType: AnimationType.skeletonizer,
         enable: controller.isLoading.value,

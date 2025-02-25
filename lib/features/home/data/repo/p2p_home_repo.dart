@@ -17,39 +17,19 @@ class P2pHomeRepo {
   }
 
   final DioImpl _dioImpl = DioImpl();
-  Future<Either<String, UserHomeData>> getSellData({
-    String? search,
-    int? currentPage = 1,
-  }) async {
-    try {
-      var response = await _dioImpl.post(
-        data: {'type': EndPoints.sell, "key_words": search},
-        endPoint: '${EndPoints.p2p}?page=${currentPage ?? 1}',
-      );
-      if (response.statusCode == 200) {
-        return Right(UserHomeData.fromJson(response.data));
-      } else {
-        return Left(response.data['message']);
-      }
-    } on ResponseMessage catch (e) {
-      return Left(e.message);
-    } catch (e) {
-      return Left(AppStrings.connectionError.tr);
-    }
-  }
 
-  Future<Either<String, UserHomeData>> getBuyData({
-    required HomeDataRequest request, // Pass the request model
-    int currentPage = 1, // currentPage is now a parameter here
+  Future<Either<String, UserHomeData>> getHomeData({
+    required HomeDataRequest request, 
+    int currentPage = 1, 
   }) async {
     try {
-      // Get the request data map
+    
       Map<String, dynamic> data = request.toMap();
 
       var response = await _dioImpl.post(
         data: data,
         endPoint:
-            '${EndPoints.p2p}?page=$currentPage', // Use the currentPage directly here
+            '${EndPoints.p2p}?page=$currentPage', 
       );
 
       if (response.statusCode == 200) {
