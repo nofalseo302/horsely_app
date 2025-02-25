@@ -21,6 +21,7 @@ class HomeControler extends GetxController {
   CryptoCurrencyModel? cryptoCurrencyModel;
   AllCurrencyModel? allCurrencyModel;
   AllPaymentMethod allPaymentMethod = AllPaymentMethod();
+  
   RxBool isLoading = RxBool(false);
   RxBool isLoadingpay = false.obs;
   RxBool isfail = false.obs;

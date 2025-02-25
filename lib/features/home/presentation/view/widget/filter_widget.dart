@@ -108,12 +108,15 @@ class FilterWidget extends GetView<HomeControler> {
                       padding: const EdgeInsets.only(top: 8.0, right: 8),
                       child: FittedBox(
                           fit: BoxFit.scaleDown,
-                          child: ShapeChoose(
-                            titel: number == 1
-                                ? cryptoCurrencyModel!.data![index].name!
-                                : number == 2
-                                    ? allCurrencyModel!.data![index].name!
-                                    : allpaymodel!.data![index].name!,
+                          child: GestureDetector(
+                            
+                            child: ShapeChoose(
+                              titel: number == 1
+                                  ? cryptoCurrencyModel!.data![index].name!
+                                  : number == 2
+                                      ? allCurrencyModel!.data![index].name!
+                                      : allpaymodel!.data![index].name!,
+                            ),
                           )),
                     )))
       ],
