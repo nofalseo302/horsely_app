@@ -20,7 +20,7 @@ import '../../../../core/services/translation/app_string.dart';
 class HomeControler extends GetxController {
   CryptoCurrencyModel? cryptoCurrencyModel;
   AllCurrencyModel? allCurrencyModel;
-  AllPaymentMethod allPaymentMethod = AllPaymentMethod();
+  AllPaymentMethod? allPaymentMethod = AllPaymentMethod();
   
   RxBool isLoading = RxBool(false);
   RxBool isLoadingpay = false.obs;
@@ -193,4 +193,6 @@ class HomeControler extends GetxController {
     print(cryptoCurrencyModel?.message ?? "dadadada");
     super.onInit();
   }
+  //chips section------------
+  List<int>selectedCoinTypes=[];
 }

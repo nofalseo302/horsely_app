@@ -12,6 +12,7 @@ class AppEn {
     AppStrings.buytheTopCryptocurrenciesontheMarket:
         "Buy the top cryptocurrencies in the market",
     AppStrings.exploreAndInvest: AppStrings.exploreAndInvest,
+    AppStrings.viewless: AppStrings.viewless,
     AppStrings.areYouSureToLogOut: AppStrings.areYouSureToLogOut,
     AppStrings.inmarket: AppStrings.inmarket,
     AppStrings.topCryptoCur: AppStrings.topCryptoCur,

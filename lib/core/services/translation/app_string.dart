@@ -208,6 +208,7 @@ class AppStrings {
   static const viladtionpassword = " viladtionpassword";
   static const vaildationnamber = " viladtionpassword";
   static const viewall = "viewall";
+  static const viewless = "view less";
   static const totaloffer = "totaloffer";
   static const viewdetails = "viewdetails";
   static const accept = "accept";

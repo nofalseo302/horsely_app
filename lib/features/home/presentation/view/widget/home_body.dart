@@ -5,7 +5,7 @@ import 'package:horsely_app/features/home/logic/controler/home_controller.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/buy_widgets/buy_body.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/sell_widgets/sell_body.dart';
 import 'package:horsely_app/routes/routes.dart';
-import 'package:horsely_app/features/home/presentation/view/widget/filter_icon.dart';
+import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/filter_icon.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/buy_widgets/iteam_buy.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/tap_bar.dart';
 

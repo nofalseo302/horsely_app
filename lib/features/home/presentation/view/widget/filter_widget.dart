@@ -10,11 +10,12 @@ import 'package:horsely_app/features/home/data/model/all_currency_model/all_curr
 import 'package:horsely_app/features/home/data/model/all_payment_method/all_payment_method.dart';
 import 'package:horsely_app/features/home/data/model/crypto_currency_model/crypto_currency_model.dart';
 import 'package:horsely_app/features/home/logic/controler/home_controller.dart';
+import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/check_chips_widget.dart';
 
-import 'package:horsely_app/features/home/presentation/view/widget/header_filter_buttom_sheet.dart';
-import 'package:horsely_app/features/home/presentation/view/widget/header_filter_section.dart';
+import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/header_filter_buttom_sheet.dart';
+import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/header_filter_section.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/rating_widget_fa.dart';
-import 'package:horsely_app/features/home/presentation/view/widget/shape_choose_iteam.dart';
+import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/shape_choose_iteam.dart';
 
 import 'package:horsely_app/features/home/presentation/view/widget/uper_lower_transaction_limit.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/upper_lower_vule_widget.dart';
@@ -36,25 +37,36 @@ class FilterWidget extends GetView<HomeControler> {
       ),
       child: Obx(
         () => controller.isLoadingpay.value
-            ? CustomLoader()
-            : controller.isfail.value
-                ? RetryWidget(onRetry: () {})
+            ? const CustomLoader()
+            : controller.allCurrencyModel?.data == null ||
+                    controller.cryptoCurrencyModel?.data == null ||
+                    controller.allPaymentMethod?.data == null
+                ? RetryWidget(onRetry: () {
+                    controller.getAllPaymentData();
+                  })
                 : SingleChildScrollView(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 20.0, vertical: 30),
                     child: Column(
                       children: [
                         const HeaderFilterButtomSheet(),
-                        _buildSection(
-                            number: 1,
-                            AppStrings.conintype.tr,
-                            cryptoCurrencyModel:
-                                controller.cryptoCurrencyModel),
+                        CheckChipsWidget(
+                          onSelected: (id) {
+                            controller.selectedCoinTypes.contains(id)
+                                ? controller.selectedCoinTypes.remove(id)
+                                : controller.selectedCoinTypes.add(id);
+                          },
+                          allChips: ChipData.chipDataFromCryptoCurrencyModel(
+                              controller.cryptoCurrencyModel!),
+                          selectedIds: controller.selectedCoinTypes,
+                          title: AppStrings.conintype.tr,
+                        ),
+
                         const Divider(height: 54, color: Color(0xffE6E6E6)),
-                        _buildSection(
-                            number: 2,
-                            AppStrings.curencytype.tr,
-                            allCurrencyModel: controller.allCurrencyModel),
+                        // _buildSection(
+                        //     number: 2,
+                        //     AppStrings.curencytype.tr,
+                        //     allCurrencyModel: controller.allCurrencyModel),
                         const Divider(height: 54, color: Color(0xffE6E6E6)),
                         _buildRangeSection(
                             AppStrings.pricesransee.tr,
@@ -72,54 +84,16 @@ class FilterWidget extends GetView<HomeControler> {
                         const RatingWidget(),
                         const RatingWidget(),
                         const Divider(height: 54, color: Color(0xffE6E6E6)),
-                        _buildSection(
-                            number: 3,
-                            AppStrings.paymentseected.tr,
-                            allpaymodel: controller.allPaymentMethod),
-                        const SizedBox(height: 20),
-                        _buildButtons(context),
+                        //   _buildSection(
+                        //       number: 3,
+                        //       AppStrings.paymentseected.tr,
+                        //       allpaymodel: controller.allPaymentMethod),
+                        //   const SizedBox(height: 20),
+                        //   _buildButtons(context),
                       ],
                     ),
                   ),
       ),
-    );
-  }
-
-  Widget _buildSection(
-    String title, {
-    required int number,
-    AllCurrencyModel? allCurrencyModel,
-    AllPaymentMethod? allpaymodel,
-    CryptoCurrencyModel? cryptoCurrencyModel,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        HeaderFilterSection(titeel: title),
-        const SizedBox(height: 16),
-        Wrap(
-            children: List.generate(
-                number == 1
-                    ? cryptoCurrencyModel?.data?.length ?? 0
-                    : number == 2
-                        ? allCurrencyModel?.data?.length ?? 0
-                        : allpaymodel?.data?.length ?? 0,
-                (index) => Padding(
-                      padding: const EdgeInsets.only(top: 8.0, right: 8),
-                      child: FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: GestureDetector(
-                            
-                            child: ShapeChoose(
-                              titel: number == 1
-                                  ? cryptoCurrencyModel!.data![index].name!
-                                  : number == 2
-                                      ? allCurrencyModel!.data![index].name!
-                                      : allpaymodel!.data![index].name!,
-                            ),
-                          )),
-                    )))
-      ],
     );
   }
 

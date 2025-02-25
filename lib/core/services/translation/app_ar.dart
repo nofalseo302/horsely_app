@@ -4,6 +4,7 @@ class AppAr {
   static Map<String, String> translation = {
     AppStrings.skipe: "تخطي",
     AppStrings.nextButton: "التالي",
+    AppStrings.viewless: "عرض اقل",
     AppStrings.no: "لا",
     AppStrings.buytheTopCryptocurrenciesontheMarket:
         "شراء العملات الرئيسية من السوق",
