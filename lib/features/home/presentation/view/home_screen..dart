@@ -28,7 +28,8 @@ class HomeScreen extends GetView<HomeControler> {
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: GestureDetector(
                         onTap: () {
-                          Get.toNamed(Routes.notifactionscreen);
+                          Get.toNamed(Routes.chat, arguments: {'userId': 4});
+                          // Get.toNamed(Routes.notifactionscreen);
                         },
                         child: Container(
                           decoration: BoxDecoration(

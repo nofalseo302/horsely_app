@@ -60,8 +60,11 @@ class MessagesScreen extends GetView<MessagesController> {
                           ),
                           Expanded(
                             child: ListView.builder(
+                              addAutomaticKeepAlives: true,
                               controller: controller.scrollController,
                               shrinkWrap: false,
+                              addSemanticIndexes: true,
+                              cacheExtent: 1000,
                               itemBuilder: (context, index) {
                                 return MessageBuilder(
                                   isMe: (UserService
