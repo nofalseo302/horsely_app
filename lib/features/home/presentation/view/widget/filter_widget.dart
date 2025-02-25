@@ -9,6 +9,7 @@ import 'package:horsely_app/core/widget/custom_retry_widget.dart';
 import 'package:horsely_app/features/home/data/model/all_currency_model/all_currency_model.dart';
 import 'package:horsely_app/features/home/data/model/all_payment_method/all_payment_method.dart';
 import 'package:horsely_app/features/home/data/model/crypto_currency_model/crypto_currency_model.dart';
+import 'package:horsely_app/features/home/data/model/request_model/buy_request.dart';
 import 'package:horsely_app/features/home/logic/controler/home_controller.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/check_chips_widget.dart';
 
@@ -106,6 +107,65 @@ class FilterWidget extends GetView<HomeControler> {
                           selectedIds: controller.selectedAllPayment,
                           title: AppStrings.paymethod.tr,
                         ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 20.0),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: CustomButton(
+                                    onButtonPressed: () {
+                                      Get.back();
+                                      controller.activeIndex == 0
+                                          ? controller.getSellData(
+                                              requestModel: HomeDataRequest(
+                                                  offerType: OfferType.buy,
+                                                  minLimit: controller.minValuetranactionlimit.value
+                                                      .toInt(),
+                                                  maxLimit: controller
+                                                      .maxValuetranactionlimit
+                                                      .value
+                                                      .toInt(),
+                                                  minPrice: controller.minValuePricesRating.value
+                                                      .toInt(),
+                                                  maxPrice: controller
+                                                      .maxValuepricesRating
+                                                      .value
+                                                      .toInt(),
+                                                  paymentMethods: controller
+                                                      .selectedAllPayment,
+                                                  currencyType: controller
+                                                      .selectedAllCurrency,
+                                                  coinType: controller
+                                                      .selectedCoinTypes))
+                                          : controller.getBuyData(
+                                              requestModel: HomeDataRequest(
+                                                  offerType: OfferType.sell,
+                                                  minLimit: controller.minValuetranactionlimit.value.toInt(),
+                                                  maxLimit: controller.maxValuetranactionlimit.value.toInt(),
+                                                  minPrice: controller.minValuePricesRating.value.toInt(),
+                                                  maxPrice: controller.maxValuepricesRating.value.toInt(),
+                                                  paymentMethods: controller.selectedAllPayment,
+                                                  currencyType: controller.selectedAllCurrency,
+                                                  coinType: controller.selectedCoinTypes));
+                                    },
+                                    buttonText: AppStrings.search.tr),
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Expanded(
+                                child: CustomButton(
+                                    backgroundColor: AppColors.backGray,
+                                    borderColor: AppColors.backGray,
+                                    textColor: AppColors.black,
+                                    onButtonPressed: () {
+                                      Get.back();
+                                    },
+                                    buttonText: AppStrings.cancel.tr),
+                              )
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ),

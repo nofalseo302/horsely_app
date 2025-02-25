@@ -10,7 +10,6 @@ import 'package:horsely_app/features/home/data/model/all_currency_model/all_curr
 import 'package:horsely_app/features/home/data/model/all_payment_method/all_payment_method.dart';
 import 'package:horsely_app/features/home/data/model/crypto_currency_model/crypto_currency_model.dart';
 import 'package:horsely_app/features/home/data/model/request_model/buy_request.dart';
-import 'package:horsely_app/features/home/data/repo/payment_repo.dart';
 import 'package:horsely_app/features/home/data/model/user_home_data/user_home_data.dart';
 import 'package:horsely_app/features/home/data/repo/p2p_home_repo.dart';
 import 'package:horsely_app/features/home/logic/controler/payment_controller.dart';
@@ -76,7 +75,9 @@ class HomeControler extends GetxController {
         !sellDataScrollController.position.outOfRange) {
       await getSellData(
           pageinate: true,
-          requestModel: HomeDataRequest(offerType: OfferType.sell));
+          requestModel: HomeDataRequest(
+            offerType: OfferType.sell,
+          ));
     }
   }
 
