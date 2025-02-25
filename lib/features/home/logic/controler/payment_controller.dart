@@ -8,7 +8,7 @@ class PaymentController extends GetxController {
   RxBool isfail = false.obs;
   RxBool isLoading = false.obs;
   PaymentRepo paymentRepo = PaymentRepo();
-  AllPaymentMethod? allPaymentMethod = AllPaymentMethod();
+  Rx<AllPaymentMethod> allpaymodel = (AllPaymentMethod()).obs;
   Rx<CryptoCurrencyModel> currencyModel = (CryptoCurrencyModel()).obs;
 
   Rx<AllCurrencyModel> allCurrency = (AllCurrencyModel()).obs;
@@ -31,7 +31,7 @@ class PaymentController extends GetxController {
     res.fold((l) {
       isfail.value = true;
     }, (r) {
-      allPaymentMethod = r;
+      allpaymodel.value = r;
 
       isfail.value = false;
     });
@@ -47,14 +47,5 @@ class PaymentController extends GetxController {
       currencyModel.value = r;
       isfail.value = false;
     });
-  }
-
-  @override
-  void onInit() async {
-    // TODO: implement onInit
-    super.onInit();
-    await getAllCurrency();
-    await getAllPayment();
-    await getCryptoCurrency();
   }
 }
