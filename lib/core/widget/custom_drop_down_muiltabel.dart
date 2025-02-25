@@ -42,7 +42,7 @@ class _CustomDropDownMultiSelectState extends State<CustomDropDownMultiSelect> {
         iconColor: AppColors.backGray,
         title: Text(
           listOFSelectedItem.isEmpty
-              ? " AppStrings..tr "
+              ? AppStrings.selectyouroption.tr
               : listOFSelectedItem.join(', '),
           style: Get.textTheme.bodySmall,
         ),

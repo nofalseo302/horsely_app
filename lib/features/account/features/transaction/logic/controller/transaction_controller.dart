@@ -86,10 +86,10 @@ class TransactionController extends GetxController {
         maxLimit: uper.text,
         cyreptoCurrencyId: cerid.value,
         description: decoration.text,
-        type: "sell");
+        type: activeIndex.value == 0 ? "buy" : "sell");
     stopLoading();
     res.fold((l) {
-      ToastManager.showSuccess(l.message ?? "", true);
+      ToastManager.showError(l.message);
     }, (r) {
       ToastManager.showSuccess(r.message ?? "", true);
     });

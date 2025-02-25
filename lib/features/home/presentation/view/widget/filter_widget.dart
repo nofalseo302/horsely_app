@@ -9,6 +9,7 @@ import 'package:horsely_app/core/widget/custom_retry_widget.dart';
 import 'package:horsely_app/features/home/data/model/all_currency_model/all_currency_model.dart';
 import 'package:horsely_app/features/home/data/model/all_payment_method/all_payment_method.dart';
 import 'package:horsely_app/features/home/data/model/crypto_currency_model/crypto_currency_model.dart';
+import 'package:horsely_app/features/home/data/model/request_model/buy_request.dart';
 import 'package:horsely_app/features/home/logic/controler/home_controller.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/filter_widgets/check_chips_widget.dart';
 
@@ -49,7 +50,12 @@ class FilterWidget extends GetView<HomeControler> {
                         horizontal: 20.0, vertical: 30),
                     child: Column(
                       children: [
-                        const HeaderFilterButtomSheet(),
+                        HeaderFilterButtomSheet(
+                          onTap: () {
+                            controller.resetFilter();
+                            controller.update();
+                          },
+                        ),
                         CheckChipsWidget(
                           onSelected: (id) {
                             controller.selectedCoinTypes.contains(id)
@@ -61,12 +67,18 @@ class FilterWidget extends GetView<HomeControler> {
                           selectedIds: controller.selectedCoinTypes,
                           title: AppStrings.conintype.tr,
                         ),
-
                         const Divider(height: 54, color: Color(0xffE6E6E6)),
-                        // _buildSection(
-                        //     number: 2,
-                        //     AppStrings.curencytype.tr,
-                        //     allCurrencyModel: controller.allCurrencyModel),
+                        CheckChipsWidget(
+                          onSelected: (id) {
+                            controller.selectedAllCurrency.contains(id)
+                                ? controller.selectedAllCurrency.remove(id)
+                                : controller.selectedAllCurrency.add(id);
+                          },
+                          allChips: ChipData.chipDataFromAllCurrency(
+                              controller.allCurrencyModel!),
+                          selectedIds: controller.selectedAllCurrency,
+                          title: AppStrings.curencytype.tr,
+                        ),
                         const Divider(height: 54, color: Color(0xffE6E6E6)),
                         _buildRangeSection(
                             AppStrings.pricesransee.tr,
@@ -80,16 +92,80 @@ class FilterWidget extends GetView<HomeControler> {
                             controller.maxValuetranactionlimit),
                         const CustomSliderTranactionWidget(),
                         const Divider(height: 54, color: Color(0xffE6E6E6)),
-                        const RatingWidget(),
-                        const RatingWidget(),
-                        const RatingWidget(),
-                        const Divider(height: 54, color: Color(0xffE6E6E6)),
-                        //   _buildSection(
-                        //       number: 3,
-                        //       AppStrings.paymentseected.tr,
-                        //       allpaymodel: controller.allPaymentMethod),
-                        //   const SizedBox(height: 20),
-                        //   _buildButtons(context),
+                        // const RatingWidget(),
+                        // const RatingWidget(),
+                        // const RatingWidget(),
+                        // const Divider(height: 54, color: Color(0xffE6E6E6)),
+                        CheckChipsWidget(
+                          onSelected: (id) {
+                            controller.selectedAllPayment.contains(id)
+                                ? controller.selectedAllPayment.remove(id)
+                                : controller.selectedAllPayment.add(id);
+                          },
+                          allChips: ChipData.chipDataFromAllPayment(
+                              controller.allPaymentMethod!),
+                          selectedIds: controller.selectedAllPayment,
+                          title: AppStrings.paymethod.tr,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 20.0),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: CustomButton(
+                                    onButtonPressed: () {
+                                      Get.back();
+                                      controller.activeIndex == 0
+                                          ? controller.getSellData(
+                                              requestModel: HomeDataRequest(
+                                                  offerType: OfferType.buy,
+                                                  minLimit: controller.minValuetranactionlimit.value
+                                                      .toInt(),
+                                                  maxLimit: controller
+                                                      .maxValuetranactionlimit
+                                                      .value
+                                                      .toInt(),
+                                                  minPrice: controller.minValuePricesRating.value
+                                                      .toInt(),
+                                                  maxPrice: controller
+                                                      .maxValuepricesRating
+                                                      .value
+                                                      .toInt(),
+                                                  paymentMethods: controller
+                                                      .selectedAllPayment,
+                                                  currencyType: controller
+                                                      .selectedAllCurrency,
+                                                  coinType: controller
+                                                      .selectedCoinTypes))
+                                          : controller.getBuyData(
+                                              requestModel: HomeDataRequest(
+                                                  offerType: OfferType.sell,
+                                                  minLimit: controller.minValuetranactionlimit.value.toInt(),
+                                                  maxLimit: controller.maxValuetranactionlimit.value.toInt(),
+                                                  minPrice: controller.minValuePricesRating.value.toInt(),
+                                                  maxPrice: controller.maxValuepricesRating.value.toInt(),
+                                                  paymentMethods: controller.selectedAllPayment,
+                                                  currencyType: controller.selectedAllCurrency,
+                                                  coinType: controller.selectedCoinTypes));
+                                    },
+                                    buttonText: AppStrings.search.tr),
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Expanded(
+                                child: CustomButton(
+                                    backgroundColor: AppColors.backGray,
+                                    borderColor: AppColors.backGray,
+                                    textColor: AppColors.black,
+                                    onButtonPressed: () {
+                                      Get.back();
+                                    },
+                                    buttonText: AppStrings.cancel.tr),
+                              )
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ),
