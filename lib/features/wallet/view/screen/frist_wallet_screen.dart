@@ -21,143 +21,6 @@ class FristWalletScreen extends GetView<WalletController> {
     Get.put(WalletController());
     return Scaffold(
       backgroundColor: AppColors.backGray,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
-        child: CustomButton(
-          buttonText: AppStrings.createNewWallet.tr,
-          onButtonPressed: () {
-            controller.getCryptoCurrency();
-            Get.bottomSheet(
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black.withOpacity(.25),
-                          blurRadius: 4,
-                          spreadRadius: -3)
-                    ],
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(35),
-                      topRight: Radius.circular(35),
-                    )),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-                  child: Obx(
-                    () => controller.isLoadingcurrency.value
-                        ? const CustomLoader()
-                        : controller.isErrorcurrency.value
-                            ? Center(
-                                child: RetryWidget(onRetry: () {
-                                  controller.getCryptoCurrency();
-                                }),
-                              )
-                            : controller.cryptoCurrencyModel.data!.isEmpty
-                                ? Padding(
-                                    padding:
-                                        EdgeInsets.only(top: Get.height * 0.3),
-                                    child: Center(
-                                      child: Text(AppStrings.nodata.tr,
-                                          style: AppStyles.semibold20(context)),
-                                    ),
-                                  )
-                                : SingleChildScrollView(
-                                    child: Column(children: [
-                                      Row(
-                                        children: [
-                                          Text(
-                                            AppStrings.walletType.tr,
-                                            style: AppStyles.semibold32(context)
-                                                .copyWith(
-                                                    fontSize: 28,
-                                                    color: Colors.black),
-                                          ),
-                                          const Spacer(),
-                                          GestureDetector(
-                                            onTap: () {
-                                              Get.back();
-                                            },
-                                            child: const CircleAvatar(
-                                              backgroundColor:
-                                                  AppColors.backGray,
-                                              child: Icon(Icons.close),
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      const SizedBox(
-                                        height: 32,
-                                      ),
-                                      ...List.generate(
-                                          controller.cryptoCurrencyModel.data
-                                                  ?.length ??
-                                              0,
-                                          (index) => Obx(
-                                                () => IteamChooseWallet(
-                                                  image: controller
-                                                          .cryptoCurrencyModel
-                                                          .data?[index]
-                                                          .image ??
-                                                      "",
-                                                  onTap: () {
-                                                    controller.choosewallet(
-                                                        index,
-                                                        controller
-                                                                .cryptoCurrencyModel
-                                                                .data?[index]
-                                                                .id ??
-                                                            0);
-                                                  },
-                                                  name: controller
-                                                          .cryptoCurrencyModel
-                                                          .data?[index]
-                                                          .name ??
-                                                      "",
-                                                  isActive: controller
-                                                          .selindex.value ==
-                                                      index,
-                                                ),
-                                              )),
-                                      Row(
-                                        children: [
-                                          Expanded(
-                                              child: CustomButton(
-                                                  onButtonPressed: () {
-                                                    Get.back();
-                                                    controller.createWallet();
-                                                    controller.selindex.value =
-                                                        -1;
-                                                  },
-                                                  buttonText:
-                                                      AppStrings.confrim.tr)),
-                                          const SizedBox(
-                                            width: 7,
-                                          ),
-                                          Expanded(
-                                              child: CustomButton(
-                                                  backgroundColor:
-                                                      AppColors.backGray,
-                                                  borderColor:
-                                                      AppColors.backGray,
-                                                  textColor:
-                                                      const Color(0xff333333),
-                                                  onButtonPressed: () {
-                                                    Get.back();
-                                                  },
-                                                  buttonText:
-                                                      AppStrings.cancel.tr))
-                                        ],
-                                      )
-                                    ]),
-                                  ),
-                  ),
-                ),
-              ),
-            );
-          },
-        ),
-      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -176,24 +39,172 @@ class FristWalletScreen extends GetView<WalletController> {
                                 style: AppStyles.semibold20(context)),
                           ),
                         )
-                      : ListView.separated(
-                          controller: controller.scrollController,
-                          separatorBuilder: (context, index) => const SizedBox(
-                            height: 16,
-                          ),
-                          padding: const EdgeInsets.all(16),
-                          itemCount:
-                              controller.getAllWalletModel.data?.data?.length ??
-                                  0,
-                          itemBuilder: (context, index) {
-                            return IteamFristWallet(
-                              onTap: () {
-                                Get.toNamed(Routes.walletScreen,
-                                    arguments: controller.getAllWalletModel.data
-                                        ?.data?[index].id);
-                              },
-                            );
-                          },
+                      : Column(
+                          children: [
+                            Expanded(
+                              child: ListView.separated(
+                                controller: controller.scrollController,
+                                separatorBuilder: (context, index) =>
+                                    const SizedBox(
+                                  height: 16,
+                                ),
+                                padding: const EdgeInsets.all(16),
+                                itemCount: controller
+                                        .getAllWalletModel.data?.data?.length ??
+                                    0,
+                                itemBuilder: (context, index) {
+                                  return IteamFristWallet(
+                                    onTap: () {
+                                      Get.toNamed(Routes.walletScreen,
+                                          arguments: controller
+                                              .getAllWalletModel
+                                              .data
+                                              ?.data?[index]
+                                              .id);
+                                    },
+                                  );
+                                },
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 20.0, vertical: 10),
+                              child: CustomButton(
+                                buttonText: AppStrings.createNewWallet.tr,
+                                onButtonPressed: () {
+                                  controller.getCryptoCurrency();
+                                  Get.bottomSheet(
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          boxShadow: [
+                                            BoxShadow(
+                                                color: Colors.black
+                                                    .withOpacity(.25),
+                                                blurRadius: 4,
+                                                spreadRadius: -3)
+                                          ],
+                                          borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(35),
+                                            topRight: Radius.circular(35),
+                                          )),
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 20, vertical: 30),
+                                        child: Obx(
+                                          () => controller
+                                                  .isLoadingcurrency.value
+                                              ? const CustomLoader()
+                                              : controller.isErrorcurrency.value
+                                                  ? Center(
+                                                      child: RetryWidget(
+                                                          onRetry: () {
+                                                        controller
+                                                            .getCryptoCurrency();
+                                                      }),
+                                                    )
+                                                  : controller
+                                                          .cryptoCurrencyModel
+                                                          .data!
+                                                          .isEmpty
+                                                      ? Padding(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  top:
+                                                                      Get.height *
+                                                                          0.3),
+                                                          child: Center(
+                                                            child: Text(
+                                                                AppStrings
+                                                                    .nodata.tr,
+                                                                style: AppStyles
+                                                                    .semibold20(
+                                                                        context)),
+                                                          ),
+                                                        )
+                                                      : SingleChildScrollView(
+                                                          child: Column(
+                                                              children: [
+                                                                Row(
+                                                                  children: [
+                                                                    Text(
+                                                                      AppStrings
+                                                                          .walletType
+                                                                          .tr,
+                                                                      style: AppStyles.semibold32(context).copyWith(
+                                                                          fontSize:
+                                                                              28,
+                                                                          color:
+                                                                              Colors.black),
+                                                                    ),
+                                                                    const Spacer(),
+                                                                    GestureDetector(
+                                                                      onTap:
+                                                                          () {
+                                                                        Get.back();
+                                                                      },
+                                                                      child:
+                                                                          const CircleAvatar(
+                                                                        backgroundColor:
+                                                                            AppColors.backGray,
+                                                                        child: Icon(
+                                                                            Icons.close),
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                                const SizedBox(
+                                                                  height: 32,
+                                                                ),
+                                                                ...List
+                                                                    .generate(
+                                                                        controller.cryptoCurrencyModel.data?.length ??
+                                                                            0,
+                                                                        (index) =>
+                                                                            Obx(
+                                                                              () => IteamChooseWallet(
+                                                                                image: controller.cryptoCurrencyModel.data?[index].image ?? "",
+                                                                                onTap: () {
+                                                                                  controller.choosewallet(index, controller.cryptoCurrencyModel.data?[index].id ?? 0);
+                                                                                },
+                                                                                name: controller.cryptoCurrencyModel.data?[index].name ?? "",
+                                                                                isActive: controller.selindex.value == index,
+                                                                              ),
+                                                                            )),
+                                                                Row(
+                                                                  children: [
+                                                                    Expanded(
+                                                                        child: CustomButton(
+                                                                            onButtonPressed: () {
+                                                                              Get.back();
+                                                                              controller.createWallet();
+                                                                              controller.selindex.value = -1;
+                                                                            },
+                                                                            buttonText: AppStrings.confrim.tr)),
+                                                                    const SizedBox(
+                                                                      width: 7,
+                                                                    ),
+                                                                    Expanded(
+                                                                        child: CustomButton(
+                                                                            backgroundColor: AppColors.backGray,
+                                                                            borderColor: AppColors.backGray,
+                                                                            textColor: const Color(0xff333333),
+                                                                            onButtonPressed: () {
+                                                                              Get.back();
+                                                                            },
+                                                                            buttonText: AppStrings.cancel.tr))
+                                                                  ],
+                                                                )
+                                                              ]),
+                                                        ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
                         ),
         ),
       ),
