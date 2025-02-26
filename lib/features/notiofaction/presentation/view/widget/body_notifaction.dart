@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/widget/custom_retry_widget.dart';
 import 'package:horsely_app/features/notiofaction/presentation/view/widget/iteam_notifaction.dart';
 
@@ -38,7 +39,7 @@ class BodyNotifaction extends GetView<NotificationsController> {
                           }),
                         )
                       : controller.notificationModel!.data!.data!.isEmpty
-                          ? const Center(child: Text('No Notification'))
+                          ? Center(child: Text(AppStrings.nodata.tr))
                           : Expanded(
                               child: ListView.builder(
                                   controller: controller.scrollController,

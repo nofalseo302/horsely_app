@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/features/auth/data/model/user_model/user_model.dart';
 import '../../../../core/models/errors/error_message_model.dart';
@@ -24,7 +25,7 @@ class LoginRepo {
         data: {
           'mobile_or_email': email,
           'password': password,
-          'fcm_token': "fdsfdf",
+          'fcm_token': await FirebaseMessaging.instance.getToken(),
           'mobile_country_code': mobileCountryCode,
         },
       );

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/widget/custom_image.dart';
+import 'package:horsely_app/features/chat_feature/view/screen/chat_list_screen.dart';
 import '../../../data/model/notification_model.dart';
 import '../../../logic/controller/notifcations_controller.dart';
 
@@ -40,6 +41,7 @@ class IteamNotifaction extends GetView<NotificationsController> {
         return result; // ارجع true لإكمال عملية السحب
       },
       child: Container(
+        width: Get.width * 0.95,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
@@ -57,7 +59,7 @@ class IteamNotifaction extends GetView<NotificationsController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                data.createdAt ?? "11-2-2025",
+                formatToMinutesAgo(data.createdAt ?? DateTime.now().toString()),
                 style: AppStyles.semibold12(context).copyWith(
                   fontWeight: FontWeight.w500,
                   fontSize: 14,
@@ -70,16 +72,16 @@ class IteamNotifaction extends GetView<NotificationsController> {
               FittedBox(
                 child: Row(
                   children: [
-                    CircleAvatar(
-                      backgroundColor: AppColors.backGray,
-                      radius: 25,
-                      child: CustomImage(path: image),
-                    ),
-                    const SizedBox(
-                      width: 15,
-                    ),
+                    // CircleAvatar(
+                    //   backgroundColor: AppColors.backGray,
+                    //   radius: 25,
+                    //   child: CustomImage(path: image),
+                    // ),
+                    // const SizedBox(
+                    //   width: 15,
+                    // ),
                     Text(
-                      (data.title ?? '') + "  ",
+                      "${data.title ?? ''}  ",
                       style: AppStyles.semibold14(context),
                     ),
                     Text(

@@ -28,6 +28,7 @@ class Data {
         data!.add(DataNotifications.fromJson(v));
       });
     }
+    // data = testNot;
     links = json['links'] != null ? Links.fromJson(json['links']) : null;
     meta = json['meta'] != null ? Meta.fromJson(json['meta']) : null;
   }
@@ -61,6 +62,18 @@ class DataNotifications {
     createdAt = json['created_at'];
   }
 }
+
+// List<DataNotifications> testNot = List.generate(
+//   8,
+//   (i) => DataNotifications(
+//       createdAt: DateTime.now().toString(),
+//       icon: '',
+//       id: 1,
+//       message: 'testttt',
+//       notificationType: 'a',
+//       params: 'aaa',
+//       title: 'alert'),
+// ).toList();
 
 class Links {
   String? first;

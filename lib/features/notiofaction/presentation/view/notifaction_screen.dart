@@ -12,7 +12,7 @@ class NotifactionScreen extends GetView<NotificationsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backGroundScaffold,
+      backgroundColor: AppColors.backGray,
       appBar: buildAppBar(titel: AppStrings.notifaction.tr, context: context),
       body: RefreshIndicator(
           onRefresh: () async {
