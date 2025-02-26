@@ -211,6 +211,8 @@ class AppAr {
     AppStrings.min: "دقيقة",
     AppStrings.upload: "رفع",
     AppStrings.ok: "حسنا",
+    AppStrings.addPaymentMethod: "إضافة طريقة الدفع",
+    AppStrings.choosePaymentMethod: "اختر طريقة الدفع",
     AppStrings.dropHeretoattachor: "أسقط هنا للربط أو",
     AppStrings.maxFilesize5MB: "الحد الأقصى لحجم الملف: 5 ميجا بايت",
     AppStrings.pleaseSelectafile: "يرجى اختيار ملف.",
