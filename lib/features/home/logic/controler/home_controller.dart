@@ -150,8 +150,8 @@ class HomeControler extends GetxController {
   }
 
   /////***************silder */
-  var minValuePricesRating = 20.0.obs;
-  var maxValuepricesRating = 80.0.obs;
+  var minValuePricesRating = 0.0.obs;
+  var maxValuepricesRating = 100000.0.obs;
 
   void updateValues(double newMin, double newMax) {
     minValuePricesRating.value = newMin;
