@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
+import 'package:horsely_app/features/home/data/model/request_model/buy_request.dart';
 import 'package:horsely_app/features/home/logic/controler/home_controller.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/buttom_filter.dart';
 
@@ -41,8 +42,26 @@ class FilterIcon extends GetView<HomeControler> {
               child: TextFormField(
                 obscureText: obscureText,
                 controller: searchController,
-
-                // onChanged: onSaved,
+                onChanged: (p0) {
+                  if (p0.isEmpty) {
+                    controller.activeIndex.value == 0
+                        ? controller.getBuyData(
+                            requestModel: HomeDataRequest(
+                                search: controller.activeIndex.value == 0
+                                    ? controller.buySearchController.text
+                                    : controller.sellSearchController.text,
+                                offerType: OfferType.buy,
+                                paymentMethods: controller.selectedAllPayment,
+                                currencyType: controller.selectedAllCurrency,
+                                coinType: controller.selectedCoinTypes))
+                        : controller.getSellData(
+                            requestModel: HomeDataRequest(
+                                offerType: OfferType.sell,
+                                paymentMethods: controller.selectedAllPayment,
+                                currencyType: controller.selectedAllCurrency,
+                                coinType: controller.selectedCoinTypes));
+                  }
+                },
                 onFieldSubmitted: onSaved,
                 validator: (value) {
                   if (value == null || value.isEmpty) {

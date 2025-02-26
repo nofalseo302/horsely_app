@@ -21,7 +21,7 @@ class TitelAndVule extends StatelessWidget {
         ),
         const SizedBox(width: 10), // مسافة صغيرة بين العنوان والقيمة
         Expanded(
-          flex: 3, // تخصيص نسبة لقيمة "vule"
+          flex: 20, // تخصيص نسبة لقيمة "vule"
           child: Text(
             ":$vule",
             style: AppStyles.semibold14(context),

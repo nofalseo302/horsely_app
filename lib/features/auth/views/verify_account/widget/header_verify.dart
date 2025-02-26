@@ -40,6 +40,9 @@ class HeaderVerify extends GetView<OtpController> {
                       .copyWith(color: Colors.white),
                 ),
                 SizedBox(
+                  height: 8,
+                ),
+                SizedBox(
                   width: context.width * .65,
                   child: RichText(
                     text: TextSpan(
