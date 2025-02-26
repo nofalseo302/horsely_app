@@ -51,7 +51,7 @@ class ListTileIteamHome extends StatelessWidget {
                       ),
                       const SizedBox(width: 9),
                       Text(
-                        "${dataItem.user?.orderCount ?? 0} ${AppStrings.complete.tr}",
+                        "${dataItem.user?.completedOrderCount ?? 0} ${AppStrings.complete.tr}",
                         style: AppStyles.semibold12(context)
                             .copyWith(color: const Color(0xff8A8A8A)),
                       ),

@@ -21,6 +21,9 @@ class BodyCompletData extends GetView<CompleteDataController> {
       child: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(
+              height: 8,
+            ),
             Container(
               width: double.infinity,
               decoration: BoxDecoration(

@@ -44,8 +44,29 @@ class HomeBody extends GetView<HomeControler> {
                           searchController: controller.buySearchController,
                           onSaved: (s) {
                             controller.getBuyData(
-                                requestModel:
-                                    HomeDataRequest(offerType: OfferType.sell));
+                                requestModel: HomeDataRequest(
+                                    minLimit: controller
+                                        .minValuetranactionlimit.value
+                                        .toInt(),
+                                    maxLimit: controller
+                                        .maxValuetranactionlimit.value
+                                        .toInt(),
+                                    minPrice: controller
+                                        .minValuePricesRating.value
+                                        .toInt(),
+                                    maxPrice: controller
+                                        .maxValuepricesRating.value
+                                        .toInt(),
+                                    paymentMethods:
+                                        controller.selectedAllPayment,
+                                    currencyType:
+                                        controller.selectedAllCurrency,
+                                    coinType: controller.selectedCoinTypes,
+                                    offerType: controller.activeIndex.value == 0
+                                        ? OfferType.buy
+                                        : OfferType.sell,
+                                    search:
+                                        controller.buySearchController.text));
                           },
                           hintText: "  ${AppStrings.transactionamount.tr}",
                           textInputType: TextInputType.multiline),
@@ -60,8 +81,27 @@ class HomeBody extends GetView<HomeControler> {
                           searchController: controller.sellSearchController,
                           onSaved: (s) {
                             controller.getSellData(
-                                requestModel:
-                                    HomeDataRequest(offerType: OfferType.sell));
+                                requestModel: HomeDataRequest(
+                                    minLimit: controller
+                                        .minValuetranactionlimit.value
+                                        .toInt(),
+                                    maxLimit: controller
+                                        .maxValuetranactionlimit.value
+                                        .toInt(),
+                                    minPrice: controller
+                                        .minValuePricesRating.value
+                                        .toInt(),
+                                    maxPrice: controller
+                                        .maxValuepricesRating.value
+                                        .toInt(),
+                                    paymentMethods:
+                                        controller.selectedAllPayment,
+                                    currencyType:
+                                        controller.selectedAllCurrency,
+                                    coinType: controller.selectedCoinTypes,
+                                    offerType: OfferType.sell,
+                                    search:
+                                        controller.sellSearchController.text));
                           },
                           hintText: "  ${AppStrings.transactionamount.tr}",
                           textInputType: TextInputType.multiline),

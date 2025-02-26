@@ -110,16 +110,27 @@ class FilterWidget extends GetView<HomeControler> {
                                     onButtonPressed: () {
                                       Get.back();
                                       controller.activeIndex == 0
-                                          ? controller.getSellData(
+                                          ? controller.getBuyData(
                                               requestModel: HomeDataRequest(
+                                                  search: controller.activeIndex.value == 0
+                                                      ? controller
+                                                          .buySearchController
+                                                          .text
+                                                      : controller
+                                                          .sellSearchController
+                                                          .text,
                                                   offerType: OfferType.buy,
-                                                  minLimit: controller.minValuetranactionlimit.value
+                                                  minLimit: controller
+                                                      .minValuetranactionlimit
+                                                      .value
                                                       .toInt(),
                                                   maxLimit: controller
                                                       .maxValuetranactionlimit
                                                       .value
                                                       .toInt(),
-                                                  minPrice: controller.minValuePricesRating.value
+                                                  minPrice: controller
+                                                      .minValuePricesRating
+                                                      .value
                                                       .toInt(),
                                                   maxPrice: controller
                                                       .maxValuepricesRating
@@ -127,21 +138,9 @@ class FilterWidget extends GetView<HomeControler> {
                                                       .toInt(),
                                                   paymentMethods: controller
                                                       .selectedAllPayment,
-                                                  currencyType: controller
-                                                      .selectedAllCurrency,
-                                                  coinType: controller
-                                                      .selectedCoinTypes))
-                                          : controller.getBuyData(
-                                              requestModel: HomeDataRequest(
-                                                
-                                                  offerType: OfferType.sell,
-                                                  minLimit: controller.minValuetranactionlimit.value.toInt(),
-                                                  maxLimit: controller.maxValuetranactionlimit.value.toInt(),
-                                                  minPrice: controller.minValuePricesRating.value.toInt(),
-                                                  maxPrice: controller.maxValuepricesRating.value.toInt(),
-                                                  paymentMethods: controller.selectedAllPayment,
                                                   currencyType: controller.selectedAllCurrency,
-                                                  coinType: controller.selectedCoinTypes));
+                                                  coinType: controller.selectedCoinTypes))
+                                          : controller.getSellData(requestModel: HomeDataRequest(offerType: OfferType.sell, minLimit: controller.minValuetranactionlimit.value.toInt(), maxLimit: controller.maxValuetranactionlimit.value.toInt(), minPrice: controller.minValuePricesRating.value.toInt(), maxPrice: controller.maxValuepricesRating.value.toInt(), paymentMethods: controller.selectedAllPayment, currencyType: controller.selectedAllCurrency, coinType: controller.selectedCoinTypes));
                                     },
                                     buttonText: AppStrings.search.tr),
                               ),
