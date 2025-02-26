@@ -23,7 +23,8 @@ class SellDataBody extends GetView<HomeControler> {
                     ? currentState.empty
                     : currentState.success,
         onFail: () async {
-          controller.getSellData(requestModel: HomeDataRequest(offerType: OfferType.sell));
+          controller.getSellData(
+              requestModel: HomeDataRequest(offerType: OfferType.sell));
         },
         animationType: AnimationType.skeletonizer,
         enable: controller.isLoading.value,
@@ -39,7 +40,9 @@ class SellDataBody extends GetView<HomeControler> {
                   isbay: false,
                   nameButttom: AppStrings.sell.tr,
                   onTap: () {
-                    Get.toNamed(Routes.selldetails);
+                    Get.toNamed(Routes.buydetails,
+                        arguments:
+                            controller.sellData.value!.data!.data![index]);
                   },
                 )))));
   }
