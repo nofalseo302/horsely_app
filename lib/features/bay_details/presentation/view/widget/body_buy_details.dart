@@ -72,6 +72,7 @@ class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
               TitleAndWidget(
                 title: AppStrings.paymentseected.tr,
                 childWidget: CustomDropDownFormField(
+                  icon: Icon(Icons.keyboard_arrow_down),
                   hintText: AppStrings.paymentseected.tr,
                   validator: (p0) =>
                       AppValidationFunctions.stringValidationFunction(
