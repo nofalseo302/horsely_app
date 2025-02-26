@@ -2,7 +2,7 @@ import 'package:horsely_app/core/services/network_service/endpoints.dart';
 
 class HomeDataRequest {
   final String? search;
-  final OfferType offerType;
+  OfferType offerType;
   final int? minPrice;
   final int? maxPrice;
   final int? minLimit;
@@ -13,7 +13,7 @@ class HomeDataRequest {
 
   HomeDataRequest({
     this.search,
-   required this.offerType,
+    required this.offerType,
     this.minPrice,
     this.maxPrice,
     this.minLimit,
@@ -25,7 +25,7 @@ class HomeDataRequest {
 
   Map<String, dynamic> toMap() {
     Map<String, dynamic> data = {'type': EndPoints.buy, "key_words": search};
-   data['type'] = offerType.name;
+    data['type'] = offerType.name;
     if (minPrice != null) data['min_price'] = minPrice;
     if (maxPrice != null) data['max_price'] = maxPrice;
     if (minLimit != null) data['min_limit'] = minLimit;
@@ -36,7 +36,6 @@ class HomeDataRequest {
 
     return data;
   }
-
 }
 
 enum OfferType {

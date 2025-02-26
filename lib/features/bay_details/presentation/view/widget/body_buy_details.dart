@@ -11,8 +11,6 @@ import 'package:horsely_app/core/widget/titel_widget.dart';
 import 'package:horsely_app/features/bay_details/logic/controller/buy_details_controller.dart';
 import 'package:horsely_app/features/bay_details/presentation/view/widget/comfrim_buttom_sheet.dart';
 import 'package:horsely_app/features/bay_details/presentation/view/widget/seller_info.dart';
-import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';
-import 'package:horsely_app/features/home/presentation/view/widget/drop_dawn.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/information_iteam_buy.dart';
 
 class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
@@ -116,7 +114,9 @@ class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
                     if (controller.formKey.currentState!.validate())
                       Get.bottomSheet(const ComfrimButtomSheet());
                   },
-                  buttonText: AppStrings.buy.tr),
+                  buttonText: controller.dataItem!.type == 'sell'
+                      ? AppStrings.sell.tr
+                      : AppStrings.buy.tr),
               const SizedBox(
                 height: 20,
               )

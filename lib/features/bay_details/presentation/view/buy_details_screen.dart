@@ -16,7 +16,7 @@ class BuyDetailsScreen extends GetView<BuyDetailsController> {
       backgroundColor: Colors.white,
       appBar: buildAppBar(
           titel:
-              "${AppStrings.buy.tr} ${controller.dataItem!.cryptoCurrency?.symbol.toString()}",
+              "${controller.dataItem!.type == 'sell' ? AppStrings.sell.tr : AppStrings.buy.tr} ${controller.dataItem!.cryptoCurrency?.symbol.toString()}",
           context: context),
       // ignore: prefer_const_constructors
       body: BodyBuyDetailsScreen(),

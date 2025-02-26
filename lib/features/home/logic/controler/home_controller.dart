@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/function/app_launge.dart';
@@ -82,7 +81,7 @@ class HomeControler extends GetxController {
   Future<void> getSellData(
       {bool? pageinate = false, required HomeDataRequest requestModel}) async {
     startLoad();
-
+requestModel.offerType=OfferType.sell;
     var result = await p2pHomeRepo.getHomeData(
         currentPage: sellDataCurrentPage, request: requestModel);
     result.fold((l) {
