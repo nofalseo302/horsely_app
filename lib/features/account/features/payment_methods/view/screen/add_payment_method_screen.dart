@@ -44,7 +44,13 @@ class AddPaymentMethodScreen extends GetView<AddPaymentMethodController> {
                         onChanged: (value) {
                           controller.paymentMethodsAnwers[index].text = value;
                         },
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
+                          hintText: controller.paymentMethodsModel!.value!.data!
+                              .firstWhere((element) =>
+                                  element.id.toString() ==
+                                  Get.arguments.toString().tr)
+                              .fields![index]
+                              .title!,
                           border: OutlineInputBorder(),
                         ),
                       ),
