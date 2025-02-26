@@ -167,7 +167,7 @@ class _TextFieldComponentState extends State<TextFieldComponent> {
               borderSide: BorderSide(color: widget.borderColor ?? Colors.grey)),
           errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: Colors.red.shade700)),
+              borderSide: BorderSide(color: Colors.red)),
           prefixIcon: widget.prefixIcon,
           filled: widget.fillColor != null,
           fillColor: widget.fillColor,
