@@ -159,8 +159,8 @@ class HomeControler extends GetxController {
   }
 
   //---------------------------------------------------Transaction Limits---------------------
-  var minValuetranactionlimit = 20.0.obs;
-  var maxValuetranactionlimit = 80.0.obs;
+  var minValuetranactionlimit = 0.0.obs;
+  var maxValuetranactionlimit = 100.0.obs;
 
   void updateValuestranactionlimit(double newMin, double newMax) {
     minValuetranactionlimit.value = newMin;
