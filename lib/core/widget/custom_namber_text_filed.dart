@@ -35,10 +35,18 @@ class CustomNumericTextFormField extends StatelessWidget {
         FilteringTextInputFormatter.digitsOnly
       ], // السماح بالأرقام فقط
       decoration: InputDecoration(
+        errorStyle: const TextStyle(
+          fontSize: 14.0,
+          color: Colors.red,
+          fontWeight: FontWeight.w400,
+        ),
         suffixIcon: suffixIcon,
         hintStyle: AppStyles.semibold14(context).copyWith(
           color: Colors.grey,
         ),
+        errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(color: Colors.red)),
         prefixIcon: prefix,
         hintText: hintText,
         filled: true,
@@ -49,14 +57,14 @@ class CustomNumericTextFormField extends StatelessWidget {
       ),
     );
   }
+}
 
-  OutlineInputBorder buildBorder([Color? borderColor]) {
-    return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(14),
-      borderSide: BorderSide(
-        width: 1,
-        color: borderColor ?? Colors.grey.shade400,
-      ),
-    );
-  }
+OutlineInputBorder buildBorder([Color? borderColor]) {
+  return OutlineInputBorder(
+    borderRadius: BorderRadius.circular(14),
+    borderSide: BorderSide(
+      width: .5,
+      color: borderColor ?? Colors.grey.shade400,
+    ),
+  );
 }

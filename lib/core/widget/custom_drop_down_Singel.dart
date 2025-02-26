@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
+import 'package:horsely_app/core/utils/app_text_styles.dart';
+import 'package:horsely_app/core/widget/custom_namber_text_filed.dart';
 
 // class CustomDropDownFormField extends StatelessWidget {
 //   const CustomDropDownFormField({
@@ -107,59 +109,33 @@ class CustomDropDownFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
+      validator: validator,
       items: items,
       style: Get.textTheme.bodySmall,
       onChanged: onChanged,
       value: value,
       icon: icon,
       decoration: InputDecoration(
-        hintText: hintText,
-        filled: true,
-        fillColor: color ?? Colors.white,
-        hintStyle: const TextStyle(
-          fontSize: 16.0,
-          color: Colors.grey,
-          fontWeight: FontWeight.w400,
-        ),
         errorStyle: const TextStyle(
-          fontSize: 16.0,
+          fontSize: 14.0,
           color: Colors.red,
           fontWeight: FontWeight.w400,
         ),
-        disabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: AppColors.backGray,
-          ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(8.0),
-          ),
+        // suffixIcon: suffixIcon,
+        hintStyle: AppStyles.semibold14(context).copyWith(
+          color: Colors.grey,
         ),
-        enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: AppColors.backGray,
-          ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(8.0),
-          ),
-        ),
-        focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: AppColors.backGray,
-          ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(8.0),
-          ),
-        ),
-        border: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: AppColors.backGray,
-          ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(8.0),
-          ),
-        ),
+        errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(14),
+            borderSide: BorderSide(color: Colors.red)),
+        // prefixIcon: prefix,
+        hintText: hintText,
+        filled: true,
+        fillColor: const Color(0xFFFFFFFF),
+        border: buildBorder(),
+        enabledBorder: buildBorder(),
+        focusedBorder: buildBorder(Colors.grey.shade900),
       ),
-      validator: validator,
     );
   }
 }
