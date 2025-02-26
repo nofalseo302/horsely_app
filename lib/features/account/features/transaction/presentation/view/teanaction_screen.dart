@@ -50,7 +50,7 @@ class TeanactionScreen extends GetView<TransactionController> {
                             key: controller.globalKey,
                             child: Column(
                               children: [
-                                SizedBox(
+                                const SizedBox(
                                   height: 8,
                                 ),
                                 // Toggle Tabs (Buy / Sell)
@@ -101,7 +101,7 @@ class TeanactionScreen extends GetView<TransactionController> {
                                 TitleAndWidget(
                                   title: AppStrings.conintype.tr,
                                   childWidget: CustomDropDownFormField(
-                                    icon: Icon(Icons.keyboard_arrow_down),
+                                    icon: const Icon(Icons.keyboard_arrow_down),
                                     validator: (p0) => AppValidationFunctions
                                         .stringValidationFunction(
                                             p0, AppStrings.conintype.tr),
@@ -166,7 +166,7 @@ class TeanactionScreen extends GetView<TransactionController> {
                                 TitleAndWidget(
                                   title: AppStrings.currency.tr,
                                   childWidget: CustomDropDownFormField(
-                                    icon: Icon(Icons.keyboard_arrow_down),
+                                    icon: const Icon(Icons.keyboard_arrow_down),
                                     validator: (p0) => AppValidationFunctions
                                         .stringValidationFunction(
                                             p0, AppStrings.currency.tr),

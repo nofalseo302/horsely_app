@@ -48,9 +48,9 @@ class ConfirmPasswordBottomSheet extends GetView<DeleteAccountController> {
                     Expanded(
                       child: GestureDetector(
                         onTap: () => Get.back(),
-                        child: CircleAvatar(
+                        child: const CircleAvatar(
                           backgroundColor: Color(0xffE9EFF5),
-                          child: Center(child: const Icon(Icons.close)),
+                          child: Center(child: Icon(Icons.close)),
                         ),
                       ),
                     ),

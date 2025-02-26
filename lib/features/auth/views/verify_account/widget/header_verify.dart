@@ -39,7 +39,7 @@ class HeaderVerify extends GetView<OtpController> {
                   style: AppStyles.semibold22(context)
                       .copyWith(color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 SizedBox(

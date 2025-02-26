@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
-import 'package:horsely_app/features/account/features/payment_methods/logic/controller/payment_method_controller.dart';
 import 'package:horsely_app/features/home/logic/controler/payment_controller.dart';
 import 'package:horsely_app/routes/routes.dart';
 
@@ -27,12 +26,12 @@ class AddPaymentBottomSheet extends GetView<PaymentController> {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 20),
+              padding: const EdgeInsets.symmetric(vertical: 20),
               child: Row(
                 children: [
                   Text(
                     AppStrings.choosePaymentMethod.tr,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: AppColors.black,
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
@@ -49,7 +48,7 @@ class AddPaymentBottomSheet extends GetView<PaymentController> {
                         color: AppColors.black.withOpacity(0.4),
                         shape: BoxShape.circle,
                       ),
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       child: const Icon(Icons.close),
                     ),
                   ),
@@ -81,7 +80,7 @@ class AddPaymentBottomSheet extends GetView<PaymentController> {
                       );
                     },
                     contentPadding:
-                        EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+                        const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
                     leading: ClipOval(
                       child: CustomImageHandler(
                         width: 48,

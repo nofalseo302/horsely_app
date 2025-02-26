@@ -66,7 +66,7 @@ class BodyIntro extends StatelessWidget {
                 onSlideComplete: () {
                   Get.toNamed(Routes.welcome);
                 }),
-            SizedBox(
+            const SizedBox(
               height: 20,
             )
             // Directionality(

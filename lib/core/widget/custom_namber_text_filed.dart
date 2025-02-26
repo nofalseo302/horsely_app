@@ -46,7 +46,7 @@ class CustomNumericTextFormField extends StatelessWidget {
         ),
         errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: Colors.red)),
+            borderSide: const BorderSide(color: Colors.red)),
         prefixIcon: prefix,
         hintText: hintText,
         filled: true,

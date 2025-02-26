@@ -51,7 +51,7 @@ class AddPaymentMethodScreen extends GetView<AddPaymentMethodController> {
                                   Get.arguments.toString().tr)
                               .fields![index]
                               .title!,
-                          border: OutlineInputBorder(),
+                          border: const OutlineInputBorder(),
                         ),
                       ),
                     ],

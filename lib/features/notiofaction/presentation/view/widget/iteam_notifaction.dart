@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
-import 'package:horsely_app/core/widget/custom_image.dart';
 import 'package:horsely_app/features/chat_feature/view/screen/chat_list_screen.dart';
 import '../../../data/model/notification_model.dart';
 import '../../../logic/controller/notifcations_controller.dart';

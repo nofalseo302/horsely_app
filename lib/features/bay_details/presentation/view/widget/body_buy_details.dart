@@ -42,8 +42,9 @@ class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
                   title: AppStrings.enteramount.tr,
                   childWidget: CustomNumericTextFormField(
                     validator: (p0) {
-                      if ((p0 ?? "").isEmpty)
+                      if ((p0 ?? "").isEmpty) {
                         return AppStrings.requiredField.tr;
+                      }
 
                       return null;
                     },
@@ -59,8 +60,9 @@ class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
                       : AppStrings.theamountofcurency.tr,
                   childWidget: CustomNumericTextFormField(
                     validator: (p0) {
-                      if ((p0 ?? "").isEmpty)
+                      if ((p0 ?? "").isEmpty) {
                         return AppStrings.requiredField.tr;
+                      }
 
                       return null;
                     },
@@ -74,7 +76,7 @@ class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
               TitleAndWidget(
                 title: AppStrings.paymentseected.tr,
                 childWidget: CustomDropDownFormField(
-                  icon: Icon(Icons.keyboard_arrow_down),
+                  icon: const Icon(Icons.keyboard_arrow_down),
                   hintText: AppStrings.paymentseected.tr,
                   validator: (p0) =>
                       AppValidationFunctions.stringValidationFunction(
@@ -116,8 +118,9 @@ class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
               ),
               CustomButton(
                   onButtonPressed: () {
-                    if (controller.formKey.currentState!.validate())
+                    if (controller.formKey.currentState!.validate()) {
                       Get.bottomSheet(const ComfrimButtomSheet());
+                    }
                   },
                   buttonText: controller.dataItem!.type == 'sell'
                       ? AppStrings.sell.tr
