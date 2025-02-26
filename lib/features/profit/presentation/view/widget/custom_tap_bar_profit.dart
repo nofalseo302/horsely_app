@@ -22,7 +22,7 @@ class CustomTapBarProfit extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(vertical: 16.0, horizontal: 4),
               child: ItamTapBarProfit(
-                nameiteam: AppStrings.day.tr,
+                nameiteam: AppStrings.daily.tr,
                 isactive: controller.activeIndex.value == 0,
                 onTap: () => controller.setActiveIndex(0),
               ),

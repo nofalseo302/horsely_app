@@ -110,7 +110,8 @@ class AppStrings {
   static const enteramount = "enteramount";
   static const paymentseected = "paymentseected";
   static const theamountofcurency = "theamountofcurency";
-  static const theamountofcurencySell =  "The amount of currency you want to sell";
+  static const theamountofcurencySell =
+      "The amount of currency you want to sell";
   static const chooseway = "chooseway";
   static const deposit = "deposit";
   static const withdraw = "withdraw";
@@ -126,6 +127,7 @@ class AppStrings {
   static const cardnumber = "cardnumber";
   static const expirydate = "expirydate";
   static const cvv = "cvv";
+  static const daily = "daily";
   static const day = "day";
   static const month = "month";
   static const year = "year";

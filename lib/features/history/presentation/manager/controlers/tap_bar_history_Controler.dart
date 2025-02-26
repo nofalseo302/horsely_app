@@ -3,7 +3,7 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 
 class TapBarHistoryControler extends GetxController {
   final List iteamtapbar = [
-    AppStrings.day.tr,
+    AppStrings.daily.tr,
     AppStrings.weekly.tr,
     AppStrings.month.tr,
     AppStrings.year.tr

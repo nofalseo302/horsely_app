@@ -15,10 +15,10 @@ class CustomSliderWidget extends GetView<HomeControler> {
         Obx(() {
           return SfRangeSlider(
             min: 0.0,
-            max: 100.0,
+            max: 100000.0,
             values: SfRangeValues(controller.minValuePricesRating.value,
                 controller.maxValuepricesRating.value),
-            interval: 20,
+            interval: 100,
             enableTooltip: true,
             activeColor: AppColors.primaryColor,
             inactiveColor: Colors.grey,

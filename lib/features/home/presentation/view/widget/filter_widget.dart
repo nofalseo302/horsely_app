@@ -174,7 +174,7 @@ class FilterWidget extends GetView<HomeControler> {
         Text(title, style: AppStyles.semibold18(Get.context!)),
         const Spacer(),
         Obx(() => Text(
-            "${minValue.value.toStringAsFixed(0)} - ${maxValue.value.toStringAsFixed(0)} AED",
+            "${minValue.value.toStringAsFixed(0)} - ${maxValue.value.toStringAsFixed(0)}",
             style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,

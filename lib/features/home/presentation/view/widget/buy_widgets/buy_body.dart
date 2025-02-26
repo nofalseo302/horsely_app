@@ -23,23 +23,35 @@ class BuyDataBody extends GetView<HomeControler> {
                     ? currentState.empty
                     : currentState.success,
         onFail: () async {
-          controller.getBuyData(requestModel: HomeDataRequest(offerType: OfferType.sell));
+          controller.getBuyData(
+              requestModel: HomeDataRequest(offerType: OfferType.sell));
         },
         animationType: AnimationType.skeletonizer,
         enable: controller.isLoading.value,
-        widget: ListView.builder(
-            key: ValueKey<int>(
-                controller.activeIndex.value), // مفتاح لتفادي الأخطاء
-            itemCount: controller.buyData.value?.data?.data?.length ??
-                0, // عدد العناصر
-            itemBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.only(bottom: 10.0),
-                child: IteamBuy(
-                    itemData: controller.buyData.value!.data!.data![index],
-                    isbay: true,
-                    nameButttom: AppStrings.buy.tr,
-                    onTap: () {
-                      Get.toNamed(Routes.buydetails,arguments: controller.buyData.value!.data!.data![index]);
-                    })))));
+        widget: RefreshIndicator(
+          onRefresh: () async {
+            controller.activeIndex.value == 0
+                ? controller.getBuyData(
+                    requestModel: HomeDataRequest(offerType: OfferType.buy))
+                : controller.getSellData(
+                    requestModel: HomeDataRequest(offerType: OfferType.sell));
+          },
+          child: ListView.builder(
+              key: ValueKey<int>(
+                  controller.activeIndex.value), // مفتاح لتفادي الأخطاء
+              itemCount: controller.buyData.value?.data?.data?.length ??
+                  0, // عدد العناصر
+              itemBuilder: (context, index) => Padding(
+                  padding: const EdgeInsets.only(bottom: 10.0),
+                  child: IteamBuy(
+                      itemData: controller.buyData.value!.data!.data![index],
+                      isbay: true,
+                      nameButttom: AppStrings.buy.tr,
+                      onTap: () {
+                        Get.toNamed(Routes.buydetails,
+                            arguments:
+                                controller.buyData.value!.data!.data![index]);
+                      }))),
+        )));
   }
 }
