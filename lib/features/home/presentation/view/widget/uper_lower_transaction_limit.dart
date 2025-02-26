@@ -16,10 +16,19 @@ class CustomSliderTranactionWidget extends GetView<HomeControler> {
           return SfRangeSlider(
             min: 0.0,
             max: 100.0,
-            values: SfRangeValues(controller.minValuetranactionlimit.value,
-                controller.maxValuetranactionlimit.value),
+
+            values: SfRangeValues(
+              controller.minValuetranactionlimit.value,
+              controller.maxValuetranactionlimit.value,
+            ),
             interval: 20,
+            labelPlacement: LabelPlacement.onTicks,
+            
+            enableIntervalSelection: true,
+            showTicks: false,
             enableTooltip: true,
+            // tooltipShape: const SfPaddleTooltipShape(),
+            minorTicksPerInterval: 100,
             activeColor: AppColors.primaryColor,
             inactiveColor: Colors.grey,
             onChanged: (SfRangeValues newValues) {
