@@ -88,6 +88,7 @@ class AppEn {
     AppStrings.enteramount: "Enter amount",
     AppStrings.paymentseected: "Select payment method",
     AppStrings.theamountofcurency: "The amount of currency you want to buy",
+    AppStrings.theamountofcurencySell:AppStrings.theamountofcurencySell,
     AppStrings.chooseway: "Choose payment method",
     AppStrings.seeall: "See all",
     AppStrings.lastTranaction: "Last transactions",

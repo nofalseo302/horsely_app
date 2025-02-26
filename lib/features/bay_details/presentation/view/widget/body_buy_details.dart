@@ -54,7 +54,9 @@ class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
                 height: 16,
               ),
               TitleAndWidget(
-                  title: AppStrings.theamountofcurency.tr,
+                  title: controller.dataItem!.type == 'sell'
+                      ? AppStrings.theamountofcurencySell.tr
+                      : AppStrings.theamountofcurency.tr,
                   childWidget: CustomNumericTextFormField(
                     validator: (p0) {
                       if ((p0 ?? "").isEmpty)
@@ -62,7 +64,9 @@ class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
 
                       return null;
                     },
-                    hintText: AppStrings.theamountofcurency.tr,
+                    hintText: controller.dataItem!.type == 'sell'
+                        ? AppStrings.theamountofcurencySell.tr
+                        : AppStrings.theamountofcurency.tr,
                   )),
               const SizedBox(
                 height: 16,

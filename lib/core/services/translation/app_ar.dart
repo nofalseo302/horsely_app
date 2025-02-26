@@ -15,6 +15,7 @@ class AppAr {
     AppStrings.inmarket: "في السوق",
     AppStrings.start: "ابدأ",
     AppStrings.hours: "ساعات",
+    AppStrings.theamountofcurencySell: "مقدار العملة المراد بيعها",
     AppStrings.messages: "الرسائل",
     AppStrings.message: "رسالة",
     AppStrings.noChats: "لا يوجد رسائل",
