@@ -43,6 +43,7 @@ class AppImages {
   static const email = "assets/svg/mail.svg";
   static const call = "assets/svg/call.svg";
   static const chats = "assets/svg/chat-notification.svg";
+  static const chatNotifications = "assets/png/chat-notification.png";
   static const exchange = "assets/svg/exchange.svg";
   static const restpin = "assets/svg/del.svg";
   static const filter = "assets/png/filter.png";

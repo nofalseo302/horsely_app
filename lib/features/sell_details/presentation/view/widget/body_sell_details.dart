@@ -21,13 +21,14 @@ class BodySellDetails extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
         child: Column(
           children: [
-            const SellerInformation(),
+            SellerInformation(
+              item: P2pItem(),
+            ),
             const SizedBox(
               height: 8,
             ),
             Infromation(
-        p2pItem:             P2pItem(),
-
+              p2pItem: P2pItem(),
             ),
             const SizedBox(
               height: 20,

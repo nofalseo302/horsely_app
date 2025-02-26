@@ -11,10 +11,12 @@ class CustomNumericTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.controller,
     this.validator,
+    this.prefix,
   });
   final TextEditingController? controller;
   final String hintText;
   final Widget? suffixIcon;
+  final Widget? prefix;
   final void Function(String?)? onSaved;
   final bool obscureText;
   final String? Function(String?)? validator;
@@ -24,6 +26,7 @@ class CustomNumericTextFormField extends StatelessWidget {
       controller: controller,
       obscureText: obscureText,
       onChanged: onSaved,
+
       validator: validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
 
@@ -36,6 +39,7 @@ class CustomNumericTextFormField extends StatelessWidget {
         hintStyle: AppStyles.semibold14(context).copyWith(
           color: Colors.grey,
         ),
+        prefixIcon: prefix,
         hintText: hintText,
         filled: true,
         fillColor: const Color(0xFFFFFFFF),

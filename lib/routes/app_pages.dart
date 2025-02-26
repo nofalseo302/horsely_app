@@ -11,6 +11,7 @@ import 'package:horsely_app/features/auth/logic/binding/local_auth_binding.dart'
 import 'package:horsely_app/features/auth/logic/binding/login_binding.dart';
 import 'package:horsely_app/features/auth/logic/binding/register_binding.dart';
 import 'package:horsely_app/features/auth/views/local_auth/screen/local_auth.dart';
+import 'package:horsely_app/features/bay_details/logic/controller/buy_details_controller.dart';
 import 'package:horsely_app/features/chat_feature/logic/binding/chat_binding.dart';
 import 'package:horsely_app/features/chat_feature/logic/binding/messages_binding.dart';
 import 'package:horsely_app/features/chat_feature/view/screen/chat_list_screen.dart';
@@ -145,6 +146,9 @@ class AppPages {
     GetPage(
       name: Routes.buydetails,
       page: () => const BuyDetailsScreen(),
+      binding: BindingsBuilder(
+        () => Get.lazyPut(() => BuyDetailsController()),
+      ),
       transition: Transition.leftToRight,
     ),
     GetPage(

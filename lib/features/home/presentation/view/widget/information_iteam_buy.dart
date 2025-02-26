@@ -40,17 +40,16 @@ class Infromation extends StatelessWidget {
               height: 16,
             ),
             TitelAndVule(
-              titel: AppStrings.amount.tr,
-              vule: (p2pItem.amount ?? "") +
-                  (p2pItem.cryptoCurrency?.symbol ?? ""),
+                titel: AppStrings.amount.tr,
+                vule:
+                    " ${p2pItem.amount ?? ""} ${p2pItem.cryptoCurrency?.symbol ?? ""} "),
+            const SizedBox(
+              height: 12,
             ),
-            // const SizedBox(
-            //   height: 12,
-            // ),
-            // TitelAndVule(
-            //   titel: AppStrings.available.tr,
-            //   vule: p2pItem.amount ?? "",
-            // ),
+            TitelAndVule(
+              titel: AppStrings.available.tr,
+              vule: "" ?? "",
+            ),
             const SizedBox(
               height: 12,
             ),

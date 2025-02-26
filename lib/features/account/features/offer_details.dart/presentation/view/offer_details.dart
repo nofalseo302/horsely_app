@@ -31,7 +31,7 @@ class BodyOfferDetails extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: 24),
-          const SellerInformation(),
+           SellerInformation(item: P2pItem(),),
           const SizedBox(height: 8),
           Infromation(
             p2pItem: P2pItem(),

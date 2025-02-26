@@ -39,7 +39,7 @@ class BuyDataBody extends GetView<HomeControler> {
                     isbay: true,
                     nameButttom: AppStrings.buy.tr,
                     onTap: () {
-                      Get.toNamed(Routes.buydetails);
+                      Get.toNamed(Routes.buydetails,arguments: controller.buyData.value!.data!.data![index]);
                     })))));
   }
 }
