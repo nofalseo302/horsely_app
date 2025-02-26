@@ -260,13 +260,13 @@ class AppValidationFunctions {
           : "$fieldName can't be empty!";
     }
 
-    // Regular expression to check for numbers only (1-50 digits)
-    final RegExp numberRegExp = RegExp(r'^\d{1,50}$');
+    // Regular expression to check for numbers only (integer or decimal)
+    final RegExp numberRegExp = RegExp(r'^\.?\d{1,50}(\.\d{1,50})?$');
 
     if (!numberRegExp.hasMatch(input)) {
       return Get.locale!.languageCode == 'ar'
-          ? 'الرجاء إدخال $fieldName صحيح (رقم يتكون من 1 إلى 50 خانة بدون نصوص)'
-          : 'Please enter a valid $fieldName (a number with 1-50 digits, no text allowed)';
+          ? 'الرجاء إدخال $fieldName صحيح (رقم يتكون من 1 إلى 50 خانة ويمكن أن يبدأ بعلامة عشرية)'
+          : 'Please enter a valid $fieldName (a number with 1-50 digits, can start with a decimal point)';
     }
 
     return null;

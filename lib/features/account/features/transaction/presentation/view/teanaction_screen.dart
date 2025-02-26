@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/app_validation_functions.dart';
 import 'package:horsely_app/core/widget/build_app_bar.dart';
@@ -22,6 +23,7 @@ class TeanactionScreen extends GetView<TransactionController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: buildAppBar(titel: AppStrings.transaction.tr, context: context),
       body: Obx(
         () => controller.isolating.value
@@ -35,244 +37,271 @@ class TeanactionScreen extends GetView<TransactionController> {
                     }),
                   )
                 : SingleChildScrollView(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Form(
-                      key: controller.globalKey,
-                      child: Column(
-                        children: [
-                          // Toggle Tabs (Buy / Sell)
-                          Container(
-                            decoration: BoxDecoration(
-                              color: const Color(0xff4d221e0d).withOpacity(.05),
-                              borderRadius: BorderRadius.circular(17),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    child: GestureDetector(
-                                      onTap: () => controller.toggleTab(0),
-                                      child: Obx(
-                                        () => IteamOrderTapBar(
-                                          active:
-                                              controller.activeIndex.value == 0,
-                                          title: AppStrings.buy.tr,
+                    child: Column(
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          height: 8,
+                          color: AppColors.backGroundScaffold,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Form(
+                            key: controller.globalKey,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 8,
+                                ),
+                                // Toggle Tabs (Buy / Sell)
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xff4d221e0d)
+                                        .withOpacity(.05),
+                                    borderRadius: BorderRadius.circular(17),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          child: GestureDetector(
+                                            onTap: () =>
+                                                controller.toggleTab(0),
+                                            child: Obx(
+                                              () => IteamOrderTapBar(
+                                                active: controller
+                                                        .activeIndex.value ==
+                                                    0,
+                                                title: AppStrings.buy.tr,
+                                              ),
+                                            ),
+                                          ),
                                         ),
-                                      ),
+                                        Expanded(
+                                          child: GestureDetector(
+                                            onTap: () =>
+                                                controller.toggleTab(1),
+                                            child: Obx(
+                                              () => IteamOrderTapBar(
+                                                active: controller
+                                                        .activeIndex.value ==
+                                                    1,
+                                                title: AppStrings.sell.tr,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  Expanded(
-                                    child: GestureDetector(
-                                      onTap: () => controller.toggleTab(1),
-                                      child: Obx(
-                                        () => IteamOrderTapBar(
-                                          active:
-                                              controller.activeIndex.value == 1,
-                                          title: AppStrings.sell.tr,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 8),
+                                ),
+                                const SizedBox(height: 8),
 
-                          TitleAndWidget(
-                            title: AppStrings.conintype.tr,
-                            childWidget: CustomDropDownFormField(
-                              validator: (p0) => AppValidationFunctions
-                                  .stringValidationFunction(
-                                      p0, AppStrings.conintype.tr),
-                              items: controller.currencyModel.value.data
-                                  ?.map((currency) {
-                                return DropdownMenuItem<String>(
-                                  value: currency
-                                      .name, // ✅ Set the correct unique value
-                                  child: Text(
-                                    currency.name ?? "",
-                                    style:
-                                        AppStyles.regulare10(context).copyWith(
-                                      fontSize: 14,
-                                      color: const Color(0xff00070D),
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily: "DIN Next",
-                                    ),
+                                TitleAndWidget(
+                                  title: AppStrings.conintype.tr,
+                                  childWidget: CustomDropDownFormField(
+                                    icon: Icon(Icons.keyboard_arrow_down),
+                                    validator: (p0) => AppValidationFunctions
+                                        .stringValidationFunction(
+                                            p0, AppStrings.conintype.tr),
+                                    items: controller.currencyModel.value.data
+                                        ?.map((currency) {
+                                      return DropdownMenuItem<String>(
+                                        value: currency
+                                            .name, // ✅ Set the correct unique value
+                                        child: Text(
+                                          currency.name ?? "",
+                                          style: AppStyles.regulare10(context)
+                                              .copyWith(
+                                            fontSize: 14,
+                                            color: const Color(0xff00070D),
+                                            fontWeight: FontWeight.w500,
+                                            fontFamily: "DIN Next",
+                                          ),
+                                        ),
+                                      );
+                                    }).toList(),
+                                    value: controller
+                                            .selectedCurrencyId.value.isNotEmpty
+                                        ? controller.selectedCurrencyId.value
+                                        : null, // ✅ Ensure selected value exists in the list
+                                    onChanged: (newValue) {
+                                      if (newValue != null) {
+                                        controller.selectedCurrencyId.value =
+                                            newValue;
+                                        for (var e in controller
+                                                .currencyModel.value.data ??
+                                            []) {
+                                          if (e.name == newValue) {
+                                            controller.cerid.value =
+                                                e.id.toString();
+
+                                            print(controller.cerid);
+                                          }
+                                        }
+                                      }
+                                    },
                                   ),
-                                );
-                              }).toList(),
-                              value: controller
-                                      .selectedCurrencyId.value.isNotEmpty
-                                  ? controller.selectedCurrencyId.value
-                                  : null, // ✅ Ensure selected value exists in the list
-                              onChanged: (newValue) {
-                                if (newValue != null) {
-                                  controller.selectedCurrencyId.value =
-                                      newValue;
-                                  for (var e
-                                      in controller.currencyModel.value.data ??
+                                ),
+
+                                // Available Coin Input
+                                CustomTextFormField(
+                                  validator: (p0) {
+                                    return AppValidationFunctions
+                                        .numValidationFunction(
+                                            p0, AppStrings.price);
+                                  },
+                                  controller: controller.price,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'^\d*\.?\d*$'))
+                                  ],
+                                  title: AppStrings.availbelcoin.tr,
+                                  hintText: '',
+                                  spacing: 8,
+                                  textInputType: TextInputType.number,
+                                ),
+
+                                TitleAndWidget(
+                                  title: AppStrings.currency.tr,
+                                  childWidget: CustomDropDownFormField(
+                                    icon: Icon(Icons.keyboard_arrow_down),
+                                    validator: (p0) => AppValidationFunctions
+                                        .stringValidationFunction(
+                                            p0, AppStrings.currency.tr),
+                                    items: controller.allCurrency.value.data
+                                        ?.map((currency) {
+                                      return DropdownMenuItem<String>(
+                                        value: currency.name,
+                                        child: Text(
+                                          currency.name ?? "",
+                                          style: AppStyles.regulare10(context)
+                                              .copyWith(
+                                            fontSize: 14,
+                                            color: const Color(0xff00070D),
+                                            fontWeight: FontWeight.w500,
+                                            fontFamily: "DIN Next",
+                                          ),
+                                        ),
+                                      );
+                                    }).toList(),
+                                    value: controller.currency.value.isNotEmpty
+                                        ? controller.currency.value
+                                        : null,
+                                    onChanged: (newValue) {
+                                      if (newValue != null) {
+                                        controller.currency.value = newValue;
+                                      }
+                                      for (var e in controller
+                                              .allCurrency.value.data ??
                                           []) {
-                                    if (e.name == newValue) {
-                                      controller.cerid.value = e.id.toString();
-
-                                      print(controller.cerid);
-                                    }
-                                  }
-                                }
-                              },
-                            ),
-                          ),
-
-                          // Available Coin Input
-                          CustomTextFormField(
-                            validator: (p0) {
-                              return AppValidationFunctions
-                                  .numValidationFunction(p0, AppStrings.price);
-                            },
-                            controller: controller.price,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                  RegExp(r'^\d*\.?\d*$'))
-                            ],
-                            title: AppStrings.availbelcoin.tr,
-                            hintText: '',
-                            spacing: 8,
-                            textInputType: TextInputType.number,
-                          ),
-
-                          TitleAndWidget(
-                            title: AppStrings.currency.tr,
-                            childWidget: CustomDropDownFormField(
-                              validator: (p0) => AppValidationFunctions
-                                  .stringValidationFunction(
-                                      p0, AppStrings.currency.tr),
-                              items: controller.allCurrency.value.data
-                                  ?.map((currency) {
-                                return DropdownMenuItem<String>(
-                                  value: currency.name,
-                                  child: Text(
-                                    currency.name ?? "",
-                                    style:
-                                        AppStyles.regulare10(context).copyWith(
-                                      fontSize: 14,
-                                      color: const Color(0xff00070D),
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily: "DIN Next",
-                                    ),
+                                        if (e.name == newValue) {
+                                          controller.currencyId.value =
+                                              e.id.toString();
+                                        }
+                                      }
+                                    },
                                   ),
-                                );
-                              }).toList(),
-                              value: controller.currency.value.isNotEmpty
-                                  ? controller.currency.value
-                                  : null,
-                              onChanged: (newValue) {
-                                if (newValue != null) {
-                                  controller.currency.value = newValue;
-                                }
-                                for (var e
-                                    in controller.allCurrency.value.data ??
-                                        []) {
-                                  if (e.name == newValue) {
-                                    controller.currencyId.value =
-                                        e.id.toString();
-                                  }
-                                }
-                              },
+                                ),
+
+                                // Amount of Currency Input
+                                CustomTextFormField(
+                                  validator: (p0) => AppValidationFunctions
+                                      .numValidationFunction(
+                                          p0, AppStrings.amountofcurency.tr),
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'^\d*\.?\d*$'))
+                                  ],
+                                  title: AppStrings.amountofcurency.tr,
+                                  hintText: '',
+                                  spacing: 8,
+                                  controller: controller.amount,
+                                  textInputType: TextInputType.text,
+                                ),
+                                CustomTextFormField(
+                                  validator: (p0) => AppValidationFunctions
+                                      .numValidationFunction(
+                                          p0, AppStrings.maxlimit.tr),
+                                  controller: controller.uper,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'^\d*\.?\d*$'))
+                                  ],
+                                  title: AppStrings.maxlimit.tr,
+                                  hintText: '',
+                                  spacing: 8,
+                                  textInputType: TextInputType.text,
+                                ),
+                                CustomTextFormField(
+                                  validator: (p0) {
+                                    if (controller.uper.text.isEmpty) {
+                                      return null;
+                                    }
+                                    if ((int.tryParse(
+                                                controller.uper.text.trim()) ??
+                                            0) <
+                                        (int.tryParse(
+                                                controller.limit.text.trim()) ??
+                                            0)) {
+                                      return Get.locale!.languageCode == 'ar'
+                                          ? "الحد الادني اكبر من الاقصي"
+                                          : "The minimum is greater than the maximum";
+                                    }
+                                    return null;
+                                  },
+                                  controller: controller.limit,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'^\d*\.?\d*$'))
+                                  ],
+                                  title: AppStrings.minlimit.tr,
+                                  hintText: '',
+                                  spacing: 8,
+                                  textInputType: TextInputType.text,
+                                ),
+
+                                // Payment Method Dropdown
+                                TitleAndWidget(
+                                  title: AppStrings.paymethod.tr,
+                                  childWidget: CustomDropDownMultiSelect(
+                                    onSelect: (s) => (controller
+                                        .selectedPaymentMethods
+                                        .value = controller
+                                            .allPaymentMethod?.data
+                                            ?.where((e) => s.contains(e.name))
+                                            .toList() ??
+                                        []),
+                                    initialValue: (controller
+                                            .selectedPaymentMethods
+                                            .map((e) => e.name!)
+                                            .toList() ??
+                                        []),
+                                    nameOfAllOptions: controller
+                                            .allPaymentMethod?.data
+                                            ?.map((e) => e.name)
+                                            .toList() ??
+                                        [],
+                                  ),
+                                ),
+
+                                CustomTextFormField(
+                                  validator: (p0) => AppValidationFunctions
+                                      .stringValidationFunction(
+                                          p0, AppStrings.description.tr),
+                                  controller: controller.decoration,
+                                  title: AppStrings.description.tr,
+                                  hintText: '',
+                                  spacing: 8,
+                                  maxLines: 5,
+                                  textInputType: TextInputType.text,
+                                ),
+                              ],
                             ),
                           ),
-
-                          // Amount of Currency Input
-                          CustomTextFormField(
-                            validator: (p0) =>
-                                AppValidationFunctions.numValidationFunction(
-                                    p0, AppStrings.amountofcurency.tr),
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                  RegExp(r'^\d*\.?\d*$'))
-                            ],
-                            title: AppStrings.amountofcurency.tr,
-                            hintText: '',
-                            spacing: 8,
-                            controller: controller.amount,
-                            textInputType: TextInputType.text,
-                          ),
-                          CustomTextFormField(
-                            validator: (p0) =>
-                                AppValidationFunctions.numValidationFunction(
-                                    p0, AppStrings.maxlimit.tr),
-                            controller: controller.uper,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                  RegExp(r'^\d*\.?\d*$'))
-                            ],
-                            title: AppStrings.maxlimit.tr,
-                            hintText: '',
-                            spacing: 8,
-                            textInputType: TextInputType.text,
-                          ),
-                          CustomTextFormField(
-                            validator: (p0) {
-                              if (controller.uper.text.isEmpty) {
-                                return null;
-                              }
-                              if ((int.tryParse(controller.uper.text.trim()) ??
-                                      0) <
-                                  (int.tryParse(controller.limit.text.trim()) ??
-                                      0)) {
-                                return Get.locale!.languageCode == 'ar'
-                                    ? "الحد الادني اكبر من الاقصي"
-                                    : "The minimum is greater than the maximum";
-                              }
-                              return null;
-                            },
-                            controller: controller.limit,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                  RegExp(r'^\d*\.?\d*$'))
-                            ],
-                            title: AppStrings.minlimit.tr,
-                            hintText: '',
-                            spacing: 8,
-                            textInputType: TextInputType.text,
-                          ),
-
-                          // Payment Method Dropdown
-                          TitleAndWidget(
-                            title: AppStrings.paymethod.tr,
-                            childWidget: CustomDropDownMultiSelect(
-                              onSelect: (s) => (controller
-                                  .selectedPaymentMethods
-                                  .value = controller.allPaymentMethod?.data
-                                      ?.where((e) => s.contains(e.name))
-                                      .toList() ??
-                                  []),
-                              initialValue: (controller.selectedPaymentMethods
-                                      .map((e) => e.name!)
-                                      .toList() ??
-                                  []),
-                              nameOfAllOptions: controller
-                                      .allPaymentMethod?.data
-                                      ?.map((e) => e.name)
-                                      .toList() ??
-                                  [],
-                            ),
-                          ),
-
-                          CustomTextFormField(
-                            validator: (p0) =>
-                                AppValidationFunctions.stringValidationFunction(
-                                    p0, AppStrings.description.tr),
-                            controller: controller.decoration,
-                            title: AppStrings.description.tr,
-                            hintText: '',
-                            spacing: 8,
-                            maxLines: 5,
-                            textInputType: TextInputType.text,
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
       ),

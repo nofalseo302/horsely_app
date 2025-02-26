@@ -10,7 +10,7 @@ class BodyTransactionHistoryScreen extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(
-          height: 15,
+          height: 8,
         ),
         Expanded(
           child: Container(

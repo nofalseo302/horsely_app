@@ -29,47 +29,61 @@ class PaymentMethodScreen extends GetView<PaymentController> {
                   )
                 : RefreshIndicator(
                     onRefresh: () async => await controller.getAllPayment(),
-                    child: ListView.builder(
-                      itemCount: controller.allpaymodel.value.data!.length,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          contentPadding: const EdgeInsets.symmetric(
-                              vertical: 8, horizontal: 20),
-                          leading: ClipOval(
-                            child: CustomImageHandler(
-                              width: 48,
-                              height: 48,
-                              controller.allpaymodel.value.data![index].image!,
-                            ),
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 8,
+                          width: double.infinity,
+                          color: AppColors.backGroundScaffold,
+                        ),
+                        Expanded(
+                          child: ListView.builder(
+                            itemCount:
+                                controller.allpaymodel.value.data!.length,
+                            itemBuilder: (context, index) {
+                              return ListTile(
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 8, horizontal: 20),
+                                leading: ClipOval(
+                                  child: CustomImageHandler(
+                                    width: 48,
+                                    height: 48,
+                                    controller
+                                        .allpaymodel.value.data![index].image!,
+                                  ),
+                                ),
+                                title: Text(
+                                  controller
+                                      .allpaymodel.value.data![index].name!,
+                                ),
+                                trailing: SizedBox(
+                                  width: 100,
+                                  child: CustomButton(
+                                    buttonText: controller.allpaymodel.value
+                                            .data![index].isDefault!
+                                        ? AppStrings.defaultbtn.tr
+                                        : AppStrings.setdefault.tr,
+                                    backgroundColor: controller.allpaymodel
+                                            .value.data![index].isDefault!
+                                        ? Colors.white
+                                        : AppColors.primaryColor,
+                                    textColor: !controller.allpaymodel.value
+                                            .data![index].isDefault!
+                                        ? Colors.white
+                                        : AppColors.primaryColor,
+                                    onButtonPressed: () {
+                                      controller.setDefault(
+                                        paymentMethodId: controller
+                                            .allpaymodel.value.data![index].id!,
+                                      );
+                                    },
+                                  ),
+                                ),
+                              );
+                            },
                           ),
-                          title: Text(
-                            controller.allpaymodel.value.data![index].name!,
-                          ),
-                          trailing: SizedBox(
-                            width: 100,
-                            child: CustomButton(
-                              buttonText: controller
-                                      .allpaymodel.value.data![index].isDefault!
-                                  ? AppStrings.defaultbtn.tr
-                                  : AppStrings.setdefault.tr,
-                              backgroundColor: controller
-                                      .allpaymodel.value.data![index].isDefault!
-                                  ? Colors.white
-                                  : AppColors.primaryColor,
-                              textColor: !controller
-                                      .allpaymodel.value.data![index].isDefault!
-                                  ? Colors.white
-                                  : AppColors.primaryColor,
-                              onButtonPressed: () {
-                                controller.setDefault(
-                                  paymentMethodId: controller
-                                      .allpaymodel.value.data![index].id!,
-                                );
-                              },
-                            ),
-                          ),
-                        );
-                      },
+                        ),
+                      ],
                     ),
                   ),
       ),
