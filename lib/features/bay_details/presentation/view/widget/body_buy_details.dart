@@ -75,7 +75,7 @@ class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
                         return AppStrings.requiredField.tr;
                       } else if ((double.tryParse(
                                   controller.amountController.text) ??
-                              0) >=
+                              0) >
                           (controller.dataItem?.avaliableAmount ?? 0)) {
                         return AppStrings.notava;
                       }

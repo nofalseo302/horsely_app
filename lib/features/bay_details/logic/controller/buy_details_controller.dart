@@ -11,11 +11,12 @@ class BuyDetailsController extends GetxController {
   TextEditingController price = TextEditingController();
 
   void callData() {
-    var priceItem = (dataItem?.price ?? 0) / (dataItem?.avaliableAmount ?? 1);
-    print(priceItem);
+    var itemPrice = (dataItem?.price ?? 0) / (dataItem?.avaliableAmount ?? 1);
+
     var priceEnter = double.tryParse(price.text) ?? 0.0;
 
-    amountController.text = (priceEnter * priceItem).toString();
+    amountController.text =
+        itemPrice == 0 ? "0" : (priceEnter / itemPrice).toString();
   }
 
   @override
