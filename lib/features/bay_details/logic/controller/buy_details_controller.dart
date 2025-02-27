@@ -7,6 +7,12 @@ class BuyDetailsController extends GetxController {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   RxString selectedCurrencyId = "".obs;
   RxString cerid = "".obs;
+  TextEditingController amountController = TextEditingController();
+  TextEditingController price = TextEditingController();
+
+  void callData() {
+
+  }
 
   @override
   void onInit() {
