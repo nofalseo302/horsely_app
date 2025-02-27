@@ -4,6 +4,7 @@ class AppStrings {
       'your data has been rejected kindly check your data then apply again';
 
   static const String no = 'No';
+  static const String notava = "Not Available";
   static const String tryAgain = 'tryAgain';
   static const String noChats = 'noChats';
   static const String messages = 'messages';
