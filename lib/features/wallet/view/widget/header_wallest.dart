@@ -55,40 +55,37 @@ class HeaderWallet extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Expanded(
-                          child: IteamEstimatedBalnce(
+                      IteamEstimatedBalnce(
                         onTap: () {
                           Get.toNamed(Routes.withdraw);
                         },
                         image: 'assets/png/money-profit.png',
                         titel: AppStrings.withdraw.tr,
-                      )),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Expanded(
-                        child: IteamEstimatedBalnce(
-                          onTap: () {
-                            Get.bottomSheet(
-                              const SendBottomSheet(),
-                            );
-                          },
-                          image: 'assets/png/transfer.png',
-                          titel: AppStrings.send.tr,
-                        ),
                       ),
                       const SizedBox(
                         width: 5,
                       ),
-                      Expanded(
-                        child: IteamEstimatedBalnce(
-                          onTap: () {
-                            Get.toNamed(Routes.deposit);
-                          },
-                          image: 'assets/png/money-income.png',
-                          titel: AppStrings.deposit.tr,
-                        ),
+                      IteamEstimatedBalnce(
+                        onTap: () {
+                          Get.bottomSheet(
+                            const SendBottomSheet(),
+                          );
+                        },
+                        image: 'assets/png/transfer.png',
+                        titel: AppStrings.send.tr,
                       ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      // Expanded(
+                      //   child: IteamEstimatedBalnce(
+                      //     onTap: () {
+                      //       Get.toNamed(Routes.deposit);
+                      //     },
+                      //     image: 'assets/png/money-income.png',
+                      //     titel: AppStrings.deposit.tr,
+                      //   ),
+                      // ),
                     ],
                   )
                 ],

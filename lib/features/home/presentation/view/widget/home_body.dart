@@ -62,7 +62,7 @@ class HomeBody extends GetView<HomeControler> {
                                     currencyType:
                                         controller.selectedAllCurrency,
                                     coinType: controller.selectedCoinTypes,
-                                    offerType: controller.activeIndex.value == 0
+                                    offerType: controller.activeIndex.value != 0
                                         ? OfferType.buy
                                         : OfferType.sell,
                                     search:
@@ -116,7 +116,7 @@ class HomeBody extends GetView<HomeControler> {
             return Expanded(
               child: AnimatedSwitcher(
                   duration: const Duration(milliseconds: 300),
-                  child: controller.activeIndex.value == 0
+                  child: controller.activeIndex.value == 1
                       ? const BuyDataBody()
                       : const SellDataBody() // واجهة Sell
                   ),

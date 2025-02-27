@@ -55,7 +55,7 @@ class Infromation extends StatelessWidget {
             ),
             TitelAndVule(
               titel: AppStrings.orderlimit.tr,
-              vule: '\$${p2pItem.minLimit}-\$${p2pItem.maxLimit}',
+              vule: '${p2pItem.minLimit} - ${p2pItem.maxLimit}',
             ),
             const SizedBox(
               height: 12,

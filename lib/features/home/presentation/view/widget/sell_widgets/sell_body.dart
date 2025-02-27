@@ -38,7 +38,7 @@ class SellDataBody extends GetView<HomeControler> {
                 child: IteamBuy(
                   itemData: controller.sellData.value!.data!.data![index],
                   isbay: false,
-                  nameButttom: AppStrings.sell.tr,
+                  nameButttom: AppStrings.buy.tr,
                   onTap: () {
                     Get.toNamed(Routes.buydetails,
                         arguments:

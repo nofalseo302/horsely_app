@@ -4,19 +4,24 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
+import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
+import 'package:horsely_app/features/bay_details/logic/controller/buy_details_controller.dart';
 import 'package:horsely_app/features/bay_details/presentation/view/widget/information_about_transaction.dart';
 import 'package:horsely_app/features/wallet/view/widget/header_buttom_sheet.dart';
 
-class ComfrimButtomSheet extends StatelessWidget {
-  const ComfrimButtomSheet({
-    super.key,
-  });
-
+class ConfirmBottomSheet extends GetView<OffersController> {
+  const ConfirmBottomSheet(
+      {super.key,
+      required this.price,
+      required this.tax,
+      required this.totalAmount,
+      required this.cur});
+  final String price, tax, totalAmount, cur;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * .45,
+      // height: MediaQuery.of(context).size.height * .45,
       decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -32,7 +37,12 @@ class ComfrimButtomSheet extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              const InformationAboutTranformation(),
+              InformationAboutTranformation(
+                price: price,
+                tax: tax,
+                cur: cur,
+                totalAmount: totalAmount,
+              ),
               const SizedBox(
                 height: 35,
               ),
@@ -40,47 +50,9 @@ class ComfrimButtomSheet extends StatelessWidget {
                 children: [
                   Expanded(
                       child: CustomButton(
-                          onButtonPressed: () {
+                          onButtonPressed: () async {
                             Get.back();
-                            Get.bottomSheet(Container(
-                              height: MediaQuery.of(context).size.height * .4,
-                              decoration: const BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(35),
-                                      topRight: Radius.circular(35))),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  const SizedBox(
-                                    height: 30,
-                                  ),
-                                  Image.asset(AppImages.sucesstranaction),
-                                  const SizedBox(
-                                    height: 16,
-                                  ),
-                                  Text(
-                                    AppStrings.messagesucess.tr,
-                                    style: AppStyles.semibold24(context),
-                                  ),
-                                  const SizedBox(
-                                    height: 16,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 20.0),
-                                    child: CustomButton(
-                                        onButtonPressed: () {
-                                          Get.back();
-                                        },
-                                        buttonText: AppStrings.ok.tr),
-                                  ),
-                                  const SizedBox(
-                                    height: 20,
-                                  )
-                                ],
-                              ),
-                            ));
+                            controller.creatOffer();
                           },
                           buttonText: AppStrings.confrim.tr)),
                   const SizedBox(
@@ -96,6 +68,83 @@ class ComfrimButtomSheet extends StatelessWidget {
                           },
                           buttonText: AppStrings.cancel.tr)),
                 ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class StatusSheet extends StatelessWidget {
+  const StatusSheet(
+      {super.key, required this.success, required this.onRetry, this.message});
+  final bool success;
+  final String? message;
+  final Function onRetry;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(35), topRight: Radius.circular(35))),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(
+                height: 30,
+              ),
+              success
+                  ? Image.asset(AppImages.successTransaction)
+                  : const CustomImageHandler(AppImages.remove),
+              const SizedBox(
+                height: 16,
+              ),
+              Text(
+                success
+                    ? AppStrings.confrimMess.tr
+                    : message ??
+                        AppStrings.somethingentwrongpleaseTryAgainLater.tr,
+                textAlign: TextAlign.center,
+                style: AppStyles.semibold24(context),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              success
+                  ? CustomButton(
+                      onButtonPressed: () async {
+                        Get.back();
+                      },
+                      buttonText: AppStrings.ok.tr)
+                  : Column(
+                      children: [
+                        CustomButton(
+                            backgroundColor: AppColors.redColor,
+                            onButtonPressed: () async {
+                              onRetry();
+                              Get.back();
+                            },
+                            buttonText: AppStrings.tryAgain.tr),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        CustomButton(
+                            backgroundColor: AppColors.backGray,
+                            textColor: Colors.black,
+                            onButtonPressed: () async {
+                              Get.back();
+                            },
+                            buttonText: AppStrings.later.tr)
+                      ],
+                    ),
+              const SizedBox(
+                height: 20,
               )
             ],
           ),

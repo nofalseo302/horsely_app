@@ -11,7 +11,7 @@ class HeaderButtomSheet extends StatelessWidget {
       children: [
         Text(
           titel,
-          style: AppStyles.semibold20(context),
+          style: AppStyles.semibold20(context).copyWith(fontSize: 28),
         ),
         const Spacer(),
         CircleAvatar(

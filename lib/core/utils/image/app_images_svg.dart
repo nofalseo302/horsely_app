@@ -24,13 +24,14 @@ class AppImages {
   static const bankaccount = "assets/png/bankaccount.png";
   static const time = "assets/svg/time 1.svgassets/svg/time 1.svg";
   static const star = "assets/svg/star.svg";
-  static const sucesstranaction = "assets/png/correct 1.png";
+  static const successTransaction = "assets/png/correct 1.png";
 
   static const banktransfer = "assets/png/banktransfer.png";
   static const seting = "assets/svg/setting.svg";
   static const logout = "assets/svg/logout 01.svg";
   static const notifaction = "assets/svg/notification 03.svg";
   static const pincode = "assets/svg/pincode.svg";
+  static const remove = "assets/png/remove.png";
   static const stauts = "assets/svg/file-reload.svg";
   static const notifactionHome = "assets/png/homeNotifaction.png";
 

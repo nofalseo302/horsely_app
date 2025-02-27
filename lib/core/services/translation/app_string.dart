@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class AppStrings {
   static const String nextButton = 'next';
   static const String yourDataHasBeenRejected =
@@ -6,6 +8,7 @@ class AppStrings {
   static const String no = 'No';
   static const String notava = "Not Available";
   static const String tryAgain = 'tryAgain';
+  static const String later = 'Later';
   static const String noChats = 'noChats';
   static const String messages = 'messages';
   static const String message = 'message';
@@ -128,6 +131,7 @@ class AppStrings {
   static const cardnumber = "cardnumber";
   static const expirydate = "expirydate";
   static const cvv = "cvv";
+  static const String  confrimMess= "The request has been sent successfully.";
   static const daily = "daily";
   static const day = "day";
   static const month = "month";
@@ -185,6 +189,7 @@ class AppStrings {
   static const totalamount = "totalamount";
   static const ok = "ok";
   static const messagesucess = "messagesucess ";
+  static const somethingentwrongpleaseTryAgainLater = "Something went wrong, please try again later.";
   static const selectyouroption = "selectyouroption";
   static const bankaccount = "bankaccount";
   static const banktransfer = "banktransfer";

@@ -147,7 +147,7 @@ class AppPages {
       name: Routes.buydetails,
       page: () => const BuyDetailsScreen(),
       binding: BindingsBuilder(
-        () => Get.lazyPut(() => BuyDetailsController()),
+        () => Get.lazyPut(() => OffersController()),
       ),
       transition: Transition.leftToRight,
     ),

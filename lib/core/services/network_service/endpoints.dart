@@ -26,6 +26,7 @@ class EndPoints {
   static const checkCredential = '/forget-password/check-credential';
   static const forgetPasswordCheckOtp = '/forget-password/check-otp';
   static const forgetPasswordReset = '/forget-password/reset-password';
+  static const createOffer = '/P2P/create-offer';
   static const chat = '/chat';
   static const p2p = '/P2P';
   static const sell = 'sell';

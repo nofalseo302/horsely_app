@@ -38,7 +38,7 @@ class IteamBuy extends StatelessWidget {
           children: [
             HeaderIteamBuy(
               isbuy: isbay,
-              item:itemData,
+              item: itemData,
               namebuttom: nameButttom,
               onTap: onTap,
             ),
@@ -58,9 +58,7 @@ class IteamBuy extends StatelessWidget {
               height: 20,
             ),
             Infromation(
-           
               p2pItem: itemData,
-             
             )
           ],
         ),

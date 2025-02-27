@@ -164,7 +164,10 @@ class AppAr {
     AppStrings.messagesucess: "تم ارسال الطلب بنجاح.",
     AppStrings.cardnumber: "رقم البطاقة",
     AppStrings.selectyouroption: "حدد خيارك",
+    AppStrings.somethingentwrongpleaseTryAgainLater:
+        "حدث خطأ ما يرجى المحاولة مرة أخرى لاحقا",
     AppStrings.bankaccount: "حساب بنكي",
+    AppStrings.later: "لاحقا",
     AppStrings.pleaseEnterPhoneNamber: "ادخل رقم الهاتف",
     AppStrings.passwordDoesNotMatch: "كلمة المرور غير متطابقة",
     AppStrings.banktransfer: "تحويل بنكي",
@@ -172,6 +175,7 @@ class AppAr {
     AppStrings.suretransfer: "هل أنت متأكد أنك تريد الإرسال إلى",
     AppStrings.tax: "الضريبة",
     AppStrings.close: "اغلاق",
+    AppStrings.confrimMess: "تم ارسال الطلب بنجاح.",
     AppStrings.enterdata: "ادخل البيانات",
     AppStrings.time: "الوقت",
     AppStrings.percentage: "النسبة المئوية",

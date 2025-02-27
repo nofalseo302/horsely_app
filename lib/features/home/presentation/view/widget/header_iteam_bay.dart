@@ -36,7 +36,7 @@ class HeaderIteamBuy extends StatelessWidget {
           onTap: onTap,
           child: Container(
             decoration: BoxDecoration(
-                color: isbuy ? AppColors.primaryColor : Colors.red,
+                color: !isbuy ? AppColors.primaryColor : Colors.red,
                 borderRadius: BorderRadius.circular(10)),
             child: Padding(
               padding:

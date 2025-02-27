@@ -23,14 +23,17 @@ class BuyDataBody extends GetView<HomeControler> {
                     ? currentState.empty
                     : currentState.success,
         onFail: () async {
-          controller.getBuyData(
-              requestModel: HomeDataRequest(offerType: OfferType.sell));
+          controller.activeIndex.value == 1
+              ? controller.getBuyData(
+                  requestModel: HomeDataRequest(offerType: OfferType.buy))
+              : controller.getSellData(
+                  requestModel: HomeDataRequest(offerType: OfferType.sell));
         },
         animationType: AnimationType.skeletonizer,
         enable: controller.isLoading.value,
         widget: RefreshIndicator(
           onRefresh: () async {
-            controller.activeIndex.value == 0
+            controller.activeIndex.value == 1
                 ? controller.getBuyData(
                     requestModel: HomeDataRequest(offerType: OfferType.buy))
                 : controller.getSellData(
@@ -46,7 +49,7 @@ class BuyDataBody extends GetView<HomeControler> {
                   child: IteamBuy(
                       itemData: controller.buyData.value!.data!.data![index],
                       isbay: true,
-                      nameButttom: AppStrings.buy.tr,
+                      nameButttom: AppStrings.sell.tr,
                       onTap: () {
                         Get.toNamed(Routes.buydetails,
                             arguments:

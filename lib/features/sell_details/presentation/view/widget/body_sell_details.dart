@@ -63,7 +63,9 @@ class BodySellDetails extends StatelessWidget {
             ),
             CustomButton(
                 onButtonPressed: () {
-                  Get.bottomSheet(const ComfrimButtomSheet());
+                  // Get.bottomSheet(const ComfrimButtomSheet(
+
+                  // ));
                 },
                 buttonText: AppStrings.sell.tr),
             const SizedBox(

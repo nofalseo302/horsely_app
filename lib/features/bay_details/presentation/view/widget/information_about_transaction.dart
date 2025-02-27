@@ -6,7 +6,12 @@ import 'package:horsely_app/features/bay_details/presentation/view/widget/iteam_
 class InformationAboutTranformation extends StatelessWidget {
   const InformationAboutTranformation({
     super.key,
+    required this.price,
+    required this.tax,
+    required this.totalAmount,
+    required this.cur,
   });
+  final String price, tax, totalAmount, cur;
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +26,14 @@ class InformationAboutTranformation extends StatelessWidget {
           children: [
             IteamButtomSheetInfo(
               titel: AppStrings.purchaseprice.tr,
-              vule: '123.08 AED',
+              vule: '$price $cur ',
             ),
             const SizedBox(
               height: 6,
             ),
             IteamButtomSheetInfo(
-              titel: AppStrings.taxnamber.tr,
-              vule: '10 AED',
+              titel: AppStrings.tax.tr,
+              vule: '$tax $cur ',
               istax: true,
             ),
             const SizedBox(
@@ -36,7 +41,7 @@ class InformationAboutTranformation extends StatelessWidget {
             ),
             IteamButtomSheetInfo(
               titel: AppStrings.totalamount.tr,
-              vule: '150 AED',
+              vule: '$price $cur ',
             ),
           ],
         ),

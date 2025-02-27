@@ -7,7 +7,7 @@ import 'package:horsely_app/features/bay_details/logic/controller/buy_details_co
 
 import 'package:horsely_app/features/bay_details/presentation/view/widget/body_buy_details.dart';
 
-class BuyDetailsScreen extends GetView<BuyDetailsController> {
+class BuyDetailsScreen extends GetView<OffersController> {
   const BuyDetailsScreen({super.key});
 
   @override
@@ -16,7 +16,7 @@ class BuyDetailsScreen extends GetView<BuyDetailsController> {
       backgroundColor: Colors.white,
       appBar: buildAppBar(
           titel:
-              "${controller.dataItem!.type == 'sell' ? AppStrings.sell.tr : AppStrings.buy.tr} ${controller.dataItem!.cryptoCurrency?.symbol.toString()}",
+              "${controller.dataItem!.type == 'buy' ? AppStrings.sell.tr : AppStrings.buy.tr} ${controller.dataItem!.cryptoCurrency?.symbol.toString()}",
           context: context),
       // ignore: prefer_const_constructors
       body: BodyBuyDetailsScreen(),

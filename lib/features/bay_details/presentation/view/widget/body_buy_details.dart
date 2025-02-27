@@ -14,7 +14,7 @@ import 'package:horsely_app/features/bay_details/presentation/view/widget/comfri
 import 'package:horsely_app/features/bay_details/presentation/view/widget/seller_info.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/information_iteam_buy.dart';
 
-class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
+class BodyBuyDetailsScreen extends GetView<OffersController> {
   const BodyBuyDetailsScreen({super.key});
 
   @override
@@ -40,11 +40,11 @@ class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
                 height: 20,
               ),
               TitleAndWidget(
-                  title: AppStrings.enteramount.tr,
+                  title: AppStrings.price.tr,
                   childWidget: CustomNumericTextFormField(
                     controller: controller.price,
                     onSaved: (p0) {
-                      controller.callData();
+                      controller.claculateRequiredAmount();
                     },
                     validator: (p0) {
                       if ((p0 ?? "").isEmpty) {
@@ -64,7 +64,7 @@ class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
                 height: 16,
               ),
               TitleAndWidget(
-                  title: controller.dataItem!.type == 'sell'
+                  title: controller.dataItem!.type != 'sell'
                       ? AppStrings.theamountofcurencySell.tr
                       : AppStrings.theamountofcurency.tr,
                   childWidget: CustomNumericTextFormField(
@@ -135,10 +135,15 @@ class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
               CustomButton(
                   onButtonPressed: () {
                     if (controller.formKey.currentState!.validate()) {
-                      Get.bottomSheet(const ComfrimButtomSheet());
+                      Get.bottomSheet(ConfirmBottomSheet(
+                        price: controller.price.text.toString(),
+                        tax: '0',
+                        cur: controller.dataItem?.currency?.symbol ?? "",
+                        totalAmount: controller.price.text.toString(),
+                      ));
                     }
                   },
-                  buttonText: controller.dataItem!.type == 'sell'
+                  buttonText: controller.dataItem!.type == 'buy'
                       ? AppStrings.sell.tr
                       : AppStrings.buy.tr),
               const SizedBox(
