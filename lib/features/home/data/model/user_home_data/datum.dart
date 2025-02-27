@@ -4,12 +4,12 @@ import 'user.dart';
 
 class P2pItem {
   int? id;
-  String? price;
+  double? price;
   Currency? currency;
-  String? amount;
-  String? avaliableAmount;
-  String? minLimit;
-  String? maxLimit;
+  double? amount;
+  double? avaliableAmount;
+  double? minLimit;
+  double? maxLimit;
   String? type;
   String? description;
   String? status;
@@ -37,17 +37,17 @@ class P2pItem {
 
   factory P2pItem.fromJson(Map<String, dynamic> json) => P2pItem(
         id: json['id'] as int?,
-        price: json['price'] as String?,
+        price: (double.tryParse(json['price']) ?? 0.0),
         currency: json['currency'] == null
             ? null
             : Currency.fromJson(json['currency'] as Map<String, dynamic>),
-        amount: json['amount'] as String?,
-        minLimit: json['min_limit'] as String?,
-        maxLimit: json['max_limit'] as String?,
+        amount: (double.tryParse(json['amount']) ?? 0.0),
+        minLimit: (double.tryParse(json['min_limit']) ?? 0.0),
+        maxLimit: (double.tryParse(json['max_limit']) ?? 0.0),
         type: json['type'] as String?,
         description: json['description'] as String?,
         status: json['status'] as String?,
-        avaliableAmount: json['avaliable_amount'] as String?,
+        avaliableAmount: (double.tryParse(json['avaliable_amount']) ?? 0.0),
         createdAtFormat: json['created_at'] as String?,
         user: json['user'] == null
             ? null
