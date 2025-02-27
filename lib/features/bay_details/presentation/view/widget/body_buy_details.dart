@@ -41,6 +41,10 @@ class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
               TitleAndWidget(
                   title: AppStrings.enteramount.tr,
                   childWidget: CustomNumericTextFormField(
+                    controller: controller.price,
+                    onSaved: (p0) {
+                      controller.callData();
+                    },
                     validator: (p0) {
                       if ((p0 ?? "").isEmpty) {
                         return AppStrings.requiredField.tr;
@@ -59,6 +63,8 @@ class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
                       ? AppStrings.theamountofcurencySell.tr
                       : AppStrings.theamountofcurency.tr,
                   childWidget: CustomNumericTextFormField(
+                    readOnly: true,
+                    controller: controller.amountController,
                     validator: (p0) {
                       if ((p0 ?? "").isEmpty) {
                         return AppStrings.requiredField.tr;
