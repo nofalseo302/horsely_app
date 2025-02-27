@@ -12,6 +12,7 @@ class CustomNumericTextFormField extends StatelessWidget {
     this.controller,
     this.validator,
     this.prefix,
+    this.readOnly=false
   });
   final TextEditingController? controller;
   final String hintText;
@@ -20,13 +21,15 @@ class CustomNumericTextFormField extends StatelessWidget {
   final void Function(String?)? onSaved;
   final bool obscureText;
   final String? Function(String?)? validator;
+  final bool readOnly ;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      
       controller: controller,
       obscureText: obscureText,
       onChanged: onSaved,
-
+       readOnly: readOnly,
       validator: validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
 
