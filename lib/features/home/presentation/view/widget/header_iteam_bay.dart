@@ -20,14 +20,14 @@ class HeaderIteamBuy extends StatelessWidget {
     return Row(
       children: [
         Text(
-          item.price.toString(),
+          item.amount.toString(),
           style: AppStyles.semibold18(context),
         ),
         const SizedBox(
           width: 2,
         ),
         Text(
-          " ${item.currency?.name ?? ""} ",
+          " ${item.cryptoCurrency?.symbol ?? ""} ",
           style: AppStyles.semibold14(context)
               .copyWith(color: const Color(0xff545454)),
         ),

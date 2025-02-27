@@ -40,9 +40,9 @@ class Infromation extends StatelessWidget {
               height: 16,
             ),
             TitelAndVule(
-                titel: AppStrings.amount.tr,
+                titel: AppStrings.price.tr,
                 vule:
-                    " ${p2pItem.amount ?? ""} ${p2pItem.cryptoCurrency?.symbol ?? ""} "),
+                    " ${p2pItem.price ?? ""} ${p2pItem.currency?.symbol ?? ""} "),
             const SizedBox(
               height: 12,
             ),
