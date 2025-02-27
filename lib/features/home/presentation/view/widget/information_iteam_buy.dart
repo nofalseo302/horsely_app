@@ -48,7 +48,7 @@ class Infromation extends StatelessWidget {
             ),
             TitelAndVule(
               titel: AppStrings.available.tr,
-              vule: "" ?? "",
+              vule: " ${p2pItem.avaliableAmount ?? ""} " ?? "",
             ),
             const SizedBox(
               height: 12,

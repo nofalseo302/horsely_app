@@ -7,6 +7,7 @@ class P2pItem {
   String? price;
   Currency? currency;
   String? amount;
+  String? avaliableAmount;
   String? minLimit;
   String? maxLimit;
   String? type;
@@ -30,6 +31,7 @@ class P2pItem {
     this.createdAtFormat,
     this.user,
     this.cryptoCurrency,
+    this.avaliableAmount,
     this.paymentMethod,
   });
 
@@ -45,6 +47,7 @@ class P2pItem {
         type: json['type'] as String?,
         description: json['description'] as String?,
         status: json['status'] as String?,
+        avaliableAmount: json['avaliable_amount'] as String?,
         createdAtFormat: json['created_at'] as String?,
         user: json['user'] == null
             ? null
@@ -70,6 +73,7 @@ class P2pItem {
         'type': type,
         'description': description,
         'status': status,
+        'avaliable_amount': avaliableAmount,
         'created_at_format': createdAtFormat,
         'user': user?.toJson(),
         'crypto_currency': cryptoCurrency?.toJson(),
