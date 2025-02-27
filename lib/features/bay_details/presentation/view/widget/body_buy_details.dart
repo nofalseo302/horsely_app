@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/app_validation_functions.dart';
+import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
 
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/custom_drop_down_Singel.dart';
@@ -53,7 +54,11 @@ class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
                       return null;
                     },
                     hintText: AppStrings.amount.tr,
-                    prefix: const Icon(Icons.attach_money_rounded),
+                    prefix: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 15.0, horizontal: 5),
+                      child: Text(controller.dataItem?.currency?.symbol ?? ""),
+                    ),
                   )),
               const SizedBox(
                 height: 16,
@@ -68,6 +73,11 @@ class BodyBuyDetailsScreen extends GetView<BuyDetailsController> {
                     validator: (p0) {
                       if ((p0 ?? "").isEmpty) {
                         return AppStrings.requiredField.tr;
+                      } else if ((double.tryParse(
+                                  controller.amountController.text) ??
+                              0) >=
+                          (controller.dataItem?.avaliableAmount ?? 0)) {
+                        return AppStrings.notava;
                       }
 
                       return null;

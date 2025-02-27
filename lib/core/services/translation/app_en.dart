@@ -19,6 +19,7 @@ class AppEn {
     AppStrings.hours: AppStrings.hours,
     AppStrings.subtitelpageview1: AppStrings.subtitelpageview1,
     AppStrings.start: AppStrings.start,
+    AppStrings.notava: AppStrings.notava,
     AppStrings.noChats: AppStrings.noChats,
     AppStrings.create: "Create",
     AppStrings.approvedMessage: "Congrats, your account has been approved",
