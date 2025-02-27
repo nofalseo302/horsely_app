@@ -54,6 +54,8 @@ class FristWalletScreen extends GetView<WalletController> {
                                     0,
                                 itemBuilder: (context, index) {
                                   return IteamFristWallet(
+                                    currency: controller.getAllWalletModel.data!
+                                        .data![index].cryptoCurrency!,
                                     onTap: () {
                                       Get.toNamed(Routes.walletScreen,
                                           arguments: controller

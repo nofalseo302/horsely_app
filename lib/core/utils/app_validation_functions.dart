@@ -230,6 +230,32 @@ class AppValidationFunctions {
     return null;
   }
 
+  static String? nummaxValidationFunction(String? value, String fieldName) {
+    if (value == null || value.isEmpty) {
+      return Get.locale!.languageCode == 'ar'
+          ? '$fieldName لا يمكن أن يكون فارغًا!'
+          : "$fieldName can't be empty!";
+    }
+
+    // Regular expression to allow integers and decimal numbers
+    final RegExp numRegExp = RegExp(r'^\d+(\.\d+)?$');
+
+    if (!numRegExp.hasMatch(value)) {
+      return Get.locale!.languageCode == 'ar'
+          ? 'الرجاء إدخال $fieldName صحيح (رقم صحيح أو عشري)'
+          : 'Please enter a valid $fieldName (integer or decimal number)';
+    }
+
+    // تحويل القيمة إلى رقم والتحقق من أنها ليست 0
+    if (double.tryParse(value) == 0) {
+      return Get.locale!.languageCode == 'ar'
+          ? '$fieldName لا يمكن أن يكون 0!'
+          : "$fieldName can't be 0!";
+    }
+
+    return null;
+  }
+
   static String? stringValidationFunctionWithLength(
       String? input, String fieldName, int minLength, int maxLength) {
     if (input == null || input.isEmpty) {

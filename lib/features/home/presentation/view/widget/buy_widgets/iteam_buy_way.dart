@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 
 class IteamPayWay extends StatelessWidget {
-  const IteamPayWay({
-    super.key,
-    required this.title
-  });
-final  String title;
+  const IteamPayWay({super.key, required this.title});
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Container(

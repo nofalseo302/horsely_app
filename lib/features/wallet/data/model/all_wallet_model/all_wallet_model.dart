@@ -1,20 +1,15 @@
 import 'data.dart';
 
-class GetAllWalletModel {
+class AllWalletModel {
   bool? status;
   int? statusCode;
   Data? data;
   String? message;
 
-  GetAllWalletModel({
-    this.status,
-    this.statusCode,
-    this.data,
-    this.message,
-  });
+  AllWalletModel({this.status, this.statusCode, this.data, this.message});
 
-  factory GetAllWalletModel.fromJson(Map<String, dynamic> json) {
-    return GetAllWalletModel(
+  factory AllWalletModel.fromJson(Map<String, dynamic> json) {
+    return AllWalletModel(
       status: json['status'] as bool?,
       statusCode: json['status_code'] as int?,
       data: json['data'] == null

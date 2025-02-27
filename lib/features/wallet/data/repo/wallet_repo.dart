@@ -5,8 +5,9 @@ import 'package:horsely_app/core/models/errors/exceptions.dart';
 import 'package:horsely_app/core/services/network_service/api_service.dart';
 import 'package:horsely_app/core/services/network_service/endpoints.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/features/wallet/data/model/all_wallet_model/all_wallet_model.dart';
 import 'package:horsely_app/features/wallet/data/model/create_wallet_response/create_wallet_response.dart';
-import 'package:horsely_app/features/wallet/data/model/get_all_wallet_model/get_all_wallet_model.dart';
+
 import 'package:horsely_app/features/wallet/data/model/get_blance_model/get_blance_model.dart';
 
 class GetAllRepoRepo {
@@ -17,7 +18,7 @@ class GetAllRepoRepo {
   }
   final DioImpl _dioHelper = DioImpl();
 
-  Future<Either<ResponseMessage, GetAllWalletModel>> getData({
+  Future<Either<ResponseMessage, AllWalletModel>> getData({
     int? page = 1,
   }) async {
     try {
@@ -25,7 +26,7 @@ class GetAllRepoRepo {
           await _dioHelper.get(endPoint: "${EndPoints.allWallet}?page=$page");
 
       if (req.statusCode == 200) {
-        return Right(GetAllWalletModel.fromJson(req.data));
+        return Right(AllWalletModel.fromJson(req.data));
       } else {
         return Left(ResponseMessage.fromJson(req.data));
       }

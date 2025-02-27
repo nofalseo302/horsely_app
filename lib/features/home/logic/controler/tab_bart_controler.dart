@@ -1,5 +1,3 @@
 import 'package:get/get.dart';
 
-class TapBarController extends GetxController {
- 
-}
+class TapBarController extends GetxController {}

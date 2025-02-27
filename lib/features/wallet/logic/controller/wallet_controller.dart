@@ -4,13 +4,14 @@ import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/home/data/repo/payment_repo.dart';
 import 'package:horsely_app/features/home/data/model/crypto_currency_model/crypto_currency_model.dart';
-import 'package:horsely_app/features/wallet/data/model/get_all_wallet_model/get_all_wallet_model.dart';
+import 'package:horsely_app/features/wallet/data/model/all_wallet_model/all_wallet_model.dart';
+
 import 'package:horsely_app/features/wallet/data/repo/currency_repo.dart';
 import 'package:horsely_app/features/wallet/data/repo/wallet_repo.dart';
 
 class WalletController extends GetxController {
   final GetAllRepoRepo wallet = GetAllRepoRepo();
-  GetAllWalletModel getAllWalletModel = GetAllWalletModel();
+  AllWalletModel getAllWalletModel = AllWalletModel();
   RxInt? walletid = RxInt(0);
   PaymentRepo paymentRepo = PaymentRepo();
   ScrollController scrollController = ScrollController();
