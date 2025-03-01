@@ -23,7 +23,7 @@ class CustomSliderTranactionWidget extends GetView<HomeControler> {
             ),
             interval: 20,
             labelPlacement: LabelPlacement.onTicks,
-            
+
             enableIntervalSelection: true,
             showTicks: false,
             enableTooltip: true,

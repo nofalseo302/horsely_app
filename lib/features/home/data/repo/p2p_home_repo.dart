@@ -19,17 +19,15 @@ class P2pHomeRepo {
   final DioImpl _dioImpl = DioImpl();
 
   Future<Either<String, UserHomeData>> getHomeData({
-    required HomeDataRequest request, 
-    int currentPage = 1, 
+    required HomeDataRequest request,
+    int currentPage = 1,
   }) async {
     try {
-    
       Map<String, dynamic> data = request.toMap();
 
       var response = await _dioImpl.post(
         data: data,
-        endPoint:
-            '${EndPoints.p2p}?page=$currentPage', 
+        endPoint: '${EndPoints.p2p}?page=$currentPage',
       );
 
       if (response.statusCode == 200) {

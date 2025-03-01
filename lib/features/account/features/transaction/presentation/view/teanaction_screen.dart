@@ -109,9 +109,9 @@ class TeanactionScreen extends GetView<TransactionController> {
                                         ?.map((currency) {
                                       return DropdownMenuItem<String>(
                                         value: currency
-                                            .name, // ✅ Set the correct unique value
+                                            .symbol, // ✅ Set the correct unique value
                                         child: Text(
-                                          currency.name ?? "",
+                                          currency.symbol ?? "",
                                           style: AppStyles.regulare10(context)
                                               .copyWith(
                                             fontSize: 14,
@@ -150,7 +150,7 @@ class TeanactionScreen extends GetView<TransactionController> {
                                   validator: (p0) {
                                     return AppValidationFunctions
                                         .numValidationFunction(
-                                            p0, AppStrings.price);
+                                            p0, AppStrings.availbelcoin.tr);
                                   },
                                   controller: controller.price,
                                   inputFormatters: [
@@ -239,7 +239,7 @@ class TeanactionScreen extends GetView<TransactionController> {
                                       )),
                                 CustomTextFormField(
                                   validator: (p0) => AppValidationFunctions
-                                      .numValidationFunction(
+                                      .nummaxValidationFunction(
                                           p0, AppStrings.maxlimit.tr),
                                   controller: controller.uper,
                                   inputFormatters: [
@@ -253,18 +253,20 @@ class TeanactionScreen extends GetView<TransactionController> {
                                 ),
                                 CustomTextFormField(
                                   validator: (p0) {
-                                    if (controller.uper.text.isEmpty) {
+                                    if (p0!.isEmpty) {
+                                      return AppStrings.thisFieldIsRequired.tr;
+                                    } else if (controller.uper.text.isEmpty) {
                                       return null;
                                     }
                                     if ((int.tryParse(
                                                 controller.uper.text.trim()) ??
-                                            0) <
+                                            0) <=
                                         (int.tryParse(
                                                 controller.limit.text.trim()) ??
                                             0)) {
                                       return Get.locale!.languageCode == 'ar'
-                                          ? "الحد الادني اكبر من الاقصي"
-                                          : "The minimum is greater than the maximum";
+                                          ? "   الحد الادني يجي ان يكون اقل من الحد الاقصي  "
+                                          : "The minimum limit must be less than the maximum limit.";
                                     }
                                     return null;
                                   },
