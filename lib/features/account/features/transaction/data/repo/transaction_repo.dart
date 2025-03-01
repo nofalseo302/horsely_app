@@ -25,9 +25,10 @@ class TransactionRepo {
     required String cyreptoCurrencyId,
     required String description,
     required String type,
+    required String? profits,
   }) async {
     try {
-      var req = await _dioHelper.post(endPoint: EndPoints.createsell, data: {
+      var data = {
         'crypto_currency_id': cyreptoCurrencyId,
         "currency_id": currencyId,
         "amount": amount,
@@ -37,7 +38,12 @@ class TransactionRepo {
         "min_limit": minLimit,
         "max_limit": maxLimit,
         "payment_methods": paymentMethod.toSet().toList()
-      });
+      };
+      if (profits != null) {
+        data.addAll({'profit': profits});
+      }
+      var post = _dioHelper.post(endPoint: EndPoints.createsell, data: data);
+      var req = await post;
 
       if (req.statusCode == 200) {
         return Right(Creatp2pModel.fromJson(req.data));

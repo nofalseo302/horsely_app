@@ -220,6 +220,23 @@ class TeanactionScreen extends GetView<TransactionController> {
                                   controller: controller.amount,
                                   textInputType: TextInputType.text,
                                 ),
+                                Obx(() => controller.activeIndex.value == 0
+                                    ? const SizedBox()
+                                    : CustomTextFormField(
+                                        validator: (p0) =>
+                                            AppValidationFunctions
+                                                .numValidationFunction(
+                                                    p0, AppStrings.profits.tr),
+                                        inputFormatters: [
+                                          FilteringTextInputFormatter.allow(
+                                              RegExp(r'^\d*\.?\d*$'))
+                                        ],
+                                        title: AppStrings.profits.tr,
+                                        hintText: '',
+                                        spacing: 8,
+                                        controller: controller.profits,
+                                        textInputType: TextInputType.text,
+                                      )),
                                 CustomTextFormField(
                                   validator: (p0) => AppValidationFunctions
                                       .numValidationFunction(

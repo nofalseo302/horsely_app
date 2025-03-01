@@ -31,6 +31,7 @@ class TransactionController extends GetxController {
   RxBool isfail = false.obs;
   TextEditingController decoration = TextEditingController();
   TextEditingController amount = TextEditingController();
+  TextEditingController profits = TextEditingController();
   TextEditingController price = TextEditingController();
   TextEditingController limit = TextEditingController();
   TextEditingController uper = TextEditingController();
@@ -84,6 +85,7 @@ class TransactionController extends GetxController {
         currencyId: currencyId.value,
         minLimit: limit.text,
         maxLimit: uper.text,
+        profits: activeIndex.value == 0 ? null : profits.text,
         cyreptoCurrencyId: cerid.value,
         description: decoration.text,
         type: activeIndex.value == 0 ? "buy" : "sell");
