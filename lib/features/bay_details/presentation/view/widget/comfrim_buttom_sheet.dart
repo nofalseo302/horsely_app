@@ -10,7 +10,7 @@ import 'package:horsely_app/features/bay_details/logic/controller/buy_details_co
 import 'package:horsely_app/features/bay_details/presentation/view/widget/information_about_transaction.dart';
 import 'package:horsely_app/features/wallet/view/widget/header_buttom_sheet.dart';
 
-class ConfirmBottomSheet extends GetView<OffersController> {
+class ConfirmBottomSheet extends GetView<TransactionsController> {
   const ConfirmBottomSheet(
       {super.key,
       required this.price,

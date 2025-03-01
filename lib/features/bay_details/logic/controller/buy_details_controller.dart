@@ -6,7 +6,7 @@ import 'package:horsely_app/features/bay_details/data/repo/create_offer_repo.dar
 import 'package:horsely_app/features/bay_details/presentation/view/widget/comfrim_buttom_sheet.dart';
 import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';
 
-class OffersController extends GetxController {
+class TransactionsController extends GetxController {
   P2pItem? dataItem;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   RxString selectedCurrencyId = "".obs;

@@ -6,6 +6,7 @@ import 'package:horsely_app/features/account/features/myorder/logic/controler/my
 import 'package:horsely_app/features/account/features/myorder/presentation/widget/order_tap_bar.dart';
 import 'package:horsely_app/features/account/features/offer/presentation/view/offer_screen.dart';
 import 'package:horsely_app/features/profit/presentation/view/widget/iteam_transaction.dart';
+import 'package:horsely_app/routes/routes.dart';
 
 class BodyMyOrder extends GetView<MyOrderController> {
   const BodyMyOrder({super.key});
@@ -52,7 +53,9 @@ class BodyMyOrder extends GetView<MyOrderController> {
                                   itemData: controller
                                       .buyData.value!.data!.data![index],
                                   onTap: () {
-                                    Get.to(() => const OfferScreen());
+                                    Get.toNamed(Routes.offers,
+                                        arguments: controller.buyData.value!
+                                            .data!.data![index].id);
                                   },
                                 );
                               }),
@@ -94,7 +97,9 @@ class BodyMyOrder extends GetView<MyOrderController> {
                                   itemData: controller
                                       .sellData.value!.data!.data![index],
                                   onTap: () {
-                                    Get.to(() => const OfferScreen());
+                                    Get.toNamed(Routes.offers,
+                                        arguments: controller.buyData.value!
+                                            .data!.data![index].id);
                                   },
                                 );
                               }),

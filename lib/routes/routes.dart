@@ -40,4 +40,5 @@ class Routes {
   static const walletScreen = "/WalletScreen";
   static const PaymentScreen = "/paymentScreeen";
   static const addPaymentMethod = "/addPaymentMethod";
+  static const offers = "/offers";
 }

@@ -63,6 +63,7 @@ class EndPoints {
   static const sendMessage = '$baseUrl/chat/send';
   static const settings = '$baseUrl/data/settings';
   static const createOrder = '$baseUrl/client/orders/create';
+  static const offers = '$baseUrl/profile/my-offers/';
   //-----------Pusher Data-------------//
   static String realtimePusherAppId = "1940246";
   static String realtimePusherAppKey = "7c047960c5355676edd4";

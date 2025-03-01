@@ -7,7 +7,7 @@ import 'package:horsely_app/features/bay_details/logic/controller/buy_details_co
 
 import 'package:horsely_app/features/bay_details/presentation/view/widget/body_buy_details.dart';
 
-class BuyDetailsScreen extends GetView<OffersController> {
+class BuyDetailsScreen extends GetView<TransactionsController> {
   const BuyDetailsScreen({super.key});
 
   @override

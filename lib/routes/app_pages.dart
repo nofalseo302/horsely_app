@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:horsely_app/features/account/features/information_user/logic/binding/account_settings.dart';
 import 'package:horsely_app/features/account/features/myorder/logic/binding/my_order_binding.dart';
+import 'package:horsely_app/features/account/features/offer/logic/bindings/offer_bindings.dart';
+import 'package:horsely_app/features/account/features/offer/presentation/view/offer_screen.dart';
 import 'package:horsely_app/features/account/features/pincode/logic/binding/pin_code_binding.dart';
 import 'package:horsely_app/features/account/features/transaction/logic/binding/transaction_binding.dart';
 import 'package:horsely_app/features/account/features/verification_status/logic/binding/verification_status_binding.dart';
@@ -147,7 +149,7 @@ class AppPages {
       name: Routes.buydetails,
       page: () => const BuyDetailsScreen(),
       binding: BindingsBuilder(
-        () => Get.lazyPut(() => OffersController()),
+        () => Get.lazyPut(() => TransactionsController()),
       ),
       transition: Transition.leftToRight,
     ),
@@ -298,6 +300,11 @@ class AppPages {
       name: Routes.addPaymentMethod,
       binding: AddPaymentMethodBinding(),
       page: () => const AddPaymentMethodScreen(),
+    ),
+    GetPage(
+      name: Routes.offers,
+      binding:OffersBindings(),
+      page: () => const OfferScreen(),
     ),
   ];
 }

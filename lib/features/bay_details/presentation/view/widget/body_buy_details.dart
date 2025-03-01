@@ -14,7 +14,7 @@ import 'package:horsely_app/features/bay_details/presentation/view/widget/comfri
 import 'package:horsely_app/features/bay_details/presentation/view/widget/seller_info.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/information_iteam_buy.dart';
 
-class BodyBuyDetailsScreen extends GetView<OffersController> {
+class BodyBuyDetailsScreen extends GetView<TransactionsController> {
   const BodyBuyDetailsScreen({super.key});
 
   @override
