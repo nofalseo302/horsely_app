@@ -6,11 +6,10 @@ import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/wallet/data/model/get_blance_model/get_blance_model.dart';
 import 'package:horsely_app/features/wallet/data/repo/wallet_repo.dart';
 
-class BlancController extends GetxController {
+class WalletDataController extends GetxController {
   bool isObscured = true; // حالة النص إذا كان مشفّرًا أو مرئيًا
-  String data = "This is  "; // النص الذي تريد عرضه
   GetAllRepoRepo walletRepo = GetAllRepoRepo();
-  GetBlancModel blancModel = GetBlancModel();
+  GetBlancModel walletModel = GetBlancModel();
   RxBool isLoading = false.obs;
   RxBool isError = false.obs;
   TextEditingController amount = TextEditingController();
@@ -20,7 +19,8 @@ class BlancController extends GetxController {
   }
 
   void copyText() {
-    Clipboard.setData(ClipboardData(text: data));
+    Clipboard.setData(
+        ClipboardData(text: walletModel.data?[0].privateKey ?? ''));
   }
 
   void getBalance() async {
@@ -32,7 +32,7 @@ class BlancController extends GetxController {
       isError.value = true;
       ToastManager.showError(l.message);
     }, (r) {
-      blancModel = r;
+      walletModel = r;
       // ToastManager.showSuccess(r.message ?? "", true);
       print(r);
     });
@@ -49,8 +49,8 @@ class BlancController extends GetxController {
     startLoading();
     var res = await walletRepo.transfer(
         amount: amount.text,
-        toAdderss: blancModel.data?[0].address ?? "",
-        id: blancModel.data?[0].id ?? 0);
+        toAdderss: walletModel.data?[0].address ?? "",
+        id: walletModel.data?[0].id ?? 0);
     stopLoading();
     res.fold((l) {
       amount.text = "";

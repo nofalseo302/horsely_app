@@ -13,6 +13,7 @@ class P2pItem {
   String? type;
   String? description;
   String? status;
+  double? profit;
   String? createdAtFormat;
   User? user;
   CryptoCurrency? cryptoCurrency;
@@ -30,6 +31,7 @@ class P2pItem {
     this.status,
     this.createdAtFormat,
     this.user,
+    this.profit,
     this.cryptoCurrency,
     this.avaliableAmount,
     this.paymentMethod,
@@ -42,8 +44,12 @@ class P2pItem {
             ? null
             : Currency.fromJson(json['currency'] as Map<String, dynamic>),
         amount: (double.tryParse(json['amount']) ?? 0.0),
-        minLimit: (double.tryParse(json['min_limit']) ?? 0.0),
-        maxLimit: (double.tryParse(json['max_limit']) ?? 0.0),
+        minLimit: json['min_limit'] == null
+            ? null
+            : (double.tryParse(json['min_limit']) ?? 0.0),
+        maxLimit: json['max_limit'] == null
+            ? null
+            : (double.tryParse(json['max_limit']) ?? 0.0),
         type: json['type'] as String?,
         description: json['description'] as String?,
         status: json['status'] as String?,
@@ -61,6 +67,7 @@ class P2pItem {
             : (json['payment_method'] as List<dynamic>)
                 .map((e) => PaymentMethod.fromJson(e as Map<String, dynamic>))
                 .toList(),
+        profit: json['profit'] == null ? null : (json['profit'].toDouble()),
       );
 
   Map<String, dynamic> toJson() => {

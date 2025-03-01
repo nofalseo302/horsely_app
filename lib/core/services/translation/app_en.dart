@@ -155,7 +155,8 @@ class AppEn {
     AppStrings.later: AppStrings.later,
     AppStrings.taxnamber: "Tax number",
     AppStrings.transactiondetails: "Transaction details",
-    AppStrings.somethingentwrongpleaseTryAgainLater: AppStrings.somethingentwrongpleaseTryAgainLater,
+    AppStrings.somethingentwrongpleaseTryAgainLater:
+        AppStrings.somethingentwrongpleaseTryAgainLater,
     AppStrings.purchaseprice: "Purchase price",
     AppStrings.totalamount: "Total amount",
     AppStrings.messagesucess: "Request sent successfully.",

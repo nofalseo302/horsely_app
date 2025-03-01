@@ -5,23 +5,32 @@ import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/features/wallet/logic/controller/code_Controler.dart';
 
-class EncryptedTextRow extends StatelessWidget {
+class EncryptedTextRow extends GetView<WalletDataController> {
   const EncryptedTextRow({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // استخدام GetX لإيجاد Controller
-    final BlancController controller = Get.put(BlancController());
-
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            GetBuilder<BlancController>(
-              builder: (_) => Text(
-                controller.isObscured ? '••••••••' : controller.data,
-                style: AppStyles.semibold14(context).copyWith(
-                    color: AppColors.primaryColor), // عرض النص مشفر أو مرئي
+            GetBuilder<WalletDataController>(
+              builder: (_) => Container(
+                alignment: Alignment.center,
+                height: 50,
+                width: Get.width * 0.6,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Text(
+                    controller.isObscured
+                        ? '•••••••••••••••••••••••••••••••••••••'
+                        : controller.walletModel.data?[0].privateKey ?? "",
+                    style: AppStyles.semibold14(context).copyWith(
+                        color: AppColors.primaryColor), // عرض النص مشفر أو مرئي
+                  ),
+                ),
               ),
             ),
             IconButton(
@@ -38,7 +47,7 @@ class EncryptedTextRow extends StatelessWidget {
         const Spacer(),
         GestureDetector(onTap: () {
           controller.toggleVisibility(); // تبديل حالة إخفاء/إظهار النص
-        }, child: GetBuilder<BlancController>(builder: (controller) {
+        }, child: GetBuilder<WalletDataController>(builder: (controller) {
           return Image.asset(
               controller.isObscured ? AppImages.eye : AppImages.eyeDisable);
         })),

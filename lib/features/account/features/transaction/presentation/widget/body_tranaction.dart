@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';
 import 'package:horsely_app/features/profit/presentation/view/widget/iteam_transaction.dart';
 import 'package:horsely_app/features/transactions/tranaction_details/presentation/view/transaction_details_screen.dart';
 
@@ -18,6 +19,7 @@ class BodyTransaction extends StatelessWidget {
             mainAxisSpacing: 9,
           ),
           itemBuilder: (context, index) => IteamTransaction(
+                itemData: P2pItem(),
                 onTap: () {
                   Get.to(const TransactionDetailsScreen());
                 },

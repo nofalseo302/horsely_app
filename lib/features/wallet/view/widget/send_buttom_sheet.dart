@@ -7,7 +7,7 @@ import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/text_filed_builder.dart';
 import 'package:horsely_app/features/wallet/logic/controller/code_Controler.dart';
 
-class SendBottomSheet extends GetView<BlancController> {
+class SendBottomSheet extends GetView<WalletDataController> {
   const SendBottomSheet({super.key});
 
   @override

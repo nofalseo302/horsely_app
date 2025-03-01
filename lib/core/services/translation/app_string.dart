@@ -131,7 +131,7 @@ class AppStrings {
   static const cardnumber = "cardnumber";
   static const expirydate = "expirydate";
   static const cvv = "cvv";
-  static const String  confrimMess= "The request has been sent successfully.";
+  static const String confrimMess = "The request has been sent successfully.";
   static const daily = "daily";
   static const day = "day";
   static const month = "month";
@@ -189,7 +189,8 @@ class AppStrings {
   static const totalamount = "totalamount";
   static const ok = "ok";
   static const messagesucess = "messagesucess ";
-  static const somethingentwrongpleaseTryAgainLater = "Something went wrong, please try again later.";
+  static const somethingentwrongpleaseTryAgainLater =
+      "Something went wrong, please try again later.";
   static const selectyouroption = "selectyouroption";
   static const bankaccount = "bankaccount";
   static const banktransfer = "banktransfer";

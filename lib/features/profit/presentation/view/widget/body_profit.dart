@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
+import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/features/profit/presentation/manager/controler/tap_bar_profit_controler.dart';
 import 'package:horsely_app/features/profit/presentation/view/widget/header_profit.dart';
@@ -52,6 +53,7 @@ class BodyProfit extends StatelessWidget {
                     child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5.0),
                   child: IteamTransaction(
+                    itemData: P2pItem(),
                     onTap: () {
                       Get.toNamed(Routes.transactiondetails);
                     },

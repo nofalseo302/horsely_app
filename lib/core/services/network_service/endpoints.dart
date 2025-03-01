@@ -31,6 +31,7 @@ class EndPoints {
   static const p2p = '/P2P';
   static const sell = 'sell';
   static const buy = 'buy';
+  static const myOrders = '/profile/my-orders/';
 
   ///                 home         ////////////////////
   static const homeUser = "/client/home";

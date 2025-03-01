@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
+import 'package:horsely_app/features/wallet/logic/controller/code_Controler.dart';
 import 'package:horsely_app/features/wallet/view/widget/send_buttom_sheet.dart';
 import 'package:horsely_app/routes/routes.dart';
 
 import 'package:horsely_app/features/wallet/view/widget/iteam_estimlation.dart';
 import 'package:horsely_app/features/wallet/view/widget/user_code.dart';
 
-class HeaderWallet extends StatelessWidget {
-  const HeaderWallet({
-    super.key,
-    required this.blance,
-  });
-  final String blance;
+class HeaderWallet extends GetView<WalletDataController> {
+  const HeaderWallet({super.key, required this.blance, required this.currency});
+  final String blance, currency;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,8 +46,25 @@ class HeaderWallet extends StatelessWidget {
                     height: 8,
                   ),
                   Text(
-                    "\$$blance",
+                    "$currency $blance",
                     style: AppStyles.semibold32(context),
+                  ),
+                  const SizedBox(
+                    height: 18,
+                  ),
+                  FittedBox(
+                    child: GestureDetector(
+                      onTap: () {
+                        Clipboard.setData(ClipboardData(
+                            text:
+                                controller.walletModel.data?[0].address ?? ""));
+                      },
+                      child: Text(
+                        controller.walletModel.data?[0].address ?? "",
+                        style: AppStyles.semibold16(context)
+                            .copyWith(color: Colors.white),
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 18,
