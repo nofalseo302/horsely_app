@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
-import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/bay_details/data/repo/create_offer_repo.dart';
 import 'package:horsely_app/features/bay_details/presentation/view/widget/comfrim_buttom_sheet.dart';
 import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';

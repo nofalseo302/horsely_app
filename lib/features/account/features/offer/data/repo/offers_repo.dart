@@ -5,7 +5,6 @@ import 'package:horsely_app/core/services/network_service/api_service.dart';
 import 'package:horsely_app/core/services/network_service/endpoints.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/features/account/features/myorder/data/model/my_orders_model/my_orders_model.dart';
-import 'package:horsely_app/features/home/data/model/request_model/buy_request.dart';
 
 class OffersRepo {
   static OffersRepo? _instantance;

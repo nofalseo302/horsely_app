@@ -4,7 +4,6 @@ import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/account/features/myorder/data/model/my_orders_model/my_orders_model.dart';
 import 'package:horsely_app/features/account/features/offer/data/repo/offers_repo.dart';
-import 'package:horsely_app/features/home/data/model/request_model/buy_request.dart';
 
 class OffersController extends GetxController {
   //get buy sell

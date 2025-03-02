@@ -4,7 +4,6 @@ import 'package:horsely_app/core/widget/custom_skeletonizer.dart';
 
 import 'package:horsely_app/features/account/features/myorder/logic/controler/my_order_controller.dart';
 import 'package:horsely_app/features/account/features/myorder/presentation/widget/order_tap_bar.dart';
-import 'package:horsely_app/features/account/features/offer/presentation/view/offer_screen.dart';
 import 'package:horsely_app/features/profit/presentation/view/widget/iteam_transaction.dart';
 import 'package:horsely_app/routes/routes.dart';
 

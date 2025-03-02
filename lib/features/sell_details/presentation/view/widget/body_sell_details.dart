@@ -5,7 +5,6 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/core/widget/custom_text_filed.dart';
 import 'package:horsely_app/core/widget/titel_widget.dart';
-import 'package:horsely_app/features/bay_details/presentation/view/widget/comfrim_buttom_sheet.dart';
 import 'package:horsely_app/features/bay_details/presentation/view/widget/seller_info.dart';
 import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/drop_dawn.dart';

@@ -6,7 +6,6 @@ import 'package:horsely_app/core/widget/build_app_bar.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/custom_retry_widget.dart';
 import 'package:horsely_app/features/wallet/logic/controller/code_Controler.dart';
-import 'package:horsely_app/features/wallet/logic/controller/wallet_controller.dart';
 
 import 'package:horsely_app/features/wallet/view/widget/header_section.dart';
 import 'package:horsely_app/features/wallet/view/widget/header_wallest.dart';
