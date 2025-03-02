@@ -115,13 +115,15 @@ class MessagesController extends GetxController {
       (r) async {
         if (page == null) {
           chatModel.value = r;
+          chatModel.value!.data!.messages!.data =
+              chatModel.value!.data!.messages!.data!.reversed.toList();
           await PusherRemoteDataSource().subscribeToMessage(
             chatId: r.data!.chatData!.id!,
             userId: userID,
           );
         } else {
           chatModel.value!.data!.messages!.data!
-              .insertAll(0, r.data!.messages!.data!);
+              .insertAll(0, r.data!.messages!.data!.reversed.toList());
           chatModel.value!.data!.messages!.currentPage =
               r.data!.messages!.currentPage;
           chatModel.value!.data!.messages!.from = r.data!.messages!.from;

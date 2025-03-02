@@ -5,6 +5,7 @@ class Datum {
   String? address;
   String? privateKey;
   int? balance;
+
   CryptoCurrency? cryptoCurrency;
 
   Datum({

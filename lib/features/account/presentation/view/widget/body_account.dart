@@ -46,24 +46,24 @@ class BodyAccount extends StatelessWidget {
               },
             ),
           ),
-          IteamAccount(
-            trailing: CircleAvatar(
-              backgroundColor: AppColors.primaryColor,
-              radius: 15,
-              child: Text(
-                "3",
-                style:
-                    AppStyles.semibold12(context).copyWith(color: Colors.white),
-              ),
-            ),
-            accountEntity: AccountEntity(
-              titel: AppStrings.myorder.tr,
-              image: AppImages.myOrder,
-              onPressed: () {
-                Get.toNamed(Routes.myorder);
-              },
-            ),
-          ),
+          // IteamAccount(
+          //   trailing: CircleAvatar(
+          //     backgroundColor: AppColors.primaryColor,
+          //     radius: 15,
+          //     child: Text(
+          //       "3",
+          //       style:
+          //           AppStyles.semibold12(context).copyWith(color: Colors.white),
+          //     ),
+          //   ),
+          //   accountEntity: AccountEntity(
+          //     titel: AppStrings.myorder.tr,
+          //     image: AppImages.myOrder,
+          //     onPressed: () {
+          //       Get.toNamed(Routes.myorder);
+          //     },
+          //   ),
+          // ),
           IteamAccount(
             accountEntity: AccountEntity(
               titel: AppStrings.transactionhistory.tr,

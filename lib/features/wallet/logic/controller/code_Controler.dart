@@ -15,6 +15,7 @@ class WalletDataController extends GetxController {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController amount = TextEditingController();
   TextEditingController address = TextEditingController();
+
   void toggleVisibility() {
     isObscured = !isObscured;
     update(); // لتحديث الواجهة

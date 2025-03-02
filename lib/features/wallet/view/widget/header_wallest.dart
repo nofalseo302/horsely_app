@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/features/wallet/logic/controller/code_Controler.dart';
@@ -13,8 +14,12 @@ import 'package:horsely_app/features/wallet/view/widget/iteam_estimlation.dart';
 import 'package:horsely_app/features/wallet/view/widget/user_code.dart';
 
 class HeaderWallet extends GetView<WalletDataController> {
-  const HeaderWallet({super.key, required this.blance, required this.currency});
-  final String blance, currency;
+  const HeaderWallet(
+      {super.key,
+      required this.blance,
+      required this.net,
+      required this.currency});
+  final String blance, currency, net;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,7 +35,7 @@ class HeaderWallet extends GetView<WalletDataController> {
                 borderRadius: BorderRadius.circular(15),
                 image: const DecorationImage(
                     image: AssetImage(AppImages.walletBackground),
-                    fit: BoxFit.cover)),
+                    fit: BoxFit.fill)),
             child: Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
@@ -49,6 +54,12 @@ class HeaderWallet extends GetView<WalletDataController> {
                     "$currency $blance",
                     style: AppStyles.semibold32(context),
                   ),
+                  if (net.isNotEmpty)
+                    Text(
+                      net,
+                      style: AppStyles.semibold24(context)
+                          .copyWith(color: AppColors.backGroundScaffold),
+                    ),
                   // const SizedBox(
                   //   height: 18,
                   // ),

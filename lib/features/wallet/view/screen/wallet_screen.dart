@@ -41,6 +41,9 @@ class WalletScreen extends GetView<WalletDataController> {
                           children: [
                             const SizedBox(height: 30),
                             HeaderWallet(
+                              net: controller.walletModel.data?[0]
+                                      .cryptoCurrency?.net ??
+                                  "",
                               blance: controller.walletModel.data?[0].balance
                                       .toString() ??
                                   "",
