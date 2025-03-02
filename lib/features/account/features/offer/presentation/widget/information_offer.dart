@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
+import 'package:horsely_app/features/account/features/offer/data/model/offers_model/datum.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/buy_widgets/iteam_buy_way.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/titel_and_vule.dart';
 import 'package:horsely_app/features/account/features/offer_details.dart/presentation/view/offer_details.dart';
@@ -11,8 +12,9 @@ import '../../../../../../core/utils/app_text_styles.dart';
 class InformationOffer extends StatelessWidget {
   const InformationOffer({
     super.key,
+    required this.offer,
   });
-
+  final OfferModel offer;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,26 +40,21 @@ class InformationOffer extends StatelessWidget {
               height: 16,
             ),
             TitelAndVule(
-              titel: AppStrings.lowprice.tr,
-              vule: '\$910.10',
+              titel: AppStrings.price.tr,
+              vule: '${offer.currency?.symbol ?? ""} ${offer.price ?? ""}',
             ),
             const SizedBox(
               height: 12,
             ),
             TitelAndVule(
-              titel: AppStrings.higherprice.tr,
-              vule: '\$870.52',
+              titel: AppStrings.wants.tr,
+              vule:
+                  '${offer.amount ?? ""} ${offer.cryptoCurrency?.symbol ?? ""}',
             ),
             const SizedBox(
               height: 12,
             ),
-            TitelAndVule(
-              titel: '${AppStrings.profit.tr} (%)',
-              vule: '6.32%',
-            ),
-            const SizedBox(
-              height: 12,
-            ),
+
             FittedBox(
               child: Row(
                 children: [
@@ -66,13 +63,9 @@ class InformationOffer extends StatelessWidget {
                     style: AppStyles.semibold14(context)
                         .copyWith(color: const Color(0xff8A8A8A)),
                   ),
-                  const IteamPayWay(
-                    title: "",
+                  IteamPayWay(
+                    title: offer.paymentMethod ?? '',
                   ),
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  const IteamPayWay(title: " "),
                 ],
               ),
             ),

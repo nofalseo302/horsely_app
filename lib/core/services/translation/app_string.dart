@@ -1,4 +1,3 @@
-
 class AppStrings {
   static const String nextButton = 'next';
   static const String yourDataHasBeenRejected =
@@ -9,9 +8,11 @@ class AppStrings {
   static const String tryAgain = 'tryAgain';
   static const String later = 'Later';
   static const String noChats = 'noChats';
+  static const String noTransactionsYet = 'ther is no transactions yet';
   static const String messages = 'messages';
   static const String message = 'message';
   static const String hours = 'hours';
+  static const String wants = 'wants';
   static const String withdrawMeathods = "withdrawMeathods";
   static const String attachment = 'Attachment';
   static const String enterThePasswordToDelete = 'أدخل كلمة السر لحذف الحساب';

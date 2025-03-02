@@ -26,7 +26,7 @@ class EncryptedTextRow extends GetView<WalletDataController> {
                   child: Text(
                     controller.isObscured
                         ? '•••••••••••••••••••••••••••••••••••••'
-                        : controller.walletModel.data?[0].privateKey ?? "",
+                        : controller.walletModel.data?[0].address ?? "",
                     style: AppStyles.semibold14(context).copyWith(
                         color: AppColors.primaryColor), // عرض النص مشفر أو مرئي
                   ),

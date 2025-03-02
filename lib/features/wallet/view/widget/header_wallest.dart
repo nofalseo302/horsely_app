@@ -49,23 +49,23 @@ class HeaderWallet extends GetView<WalletDataController> {
                     "$currency $blance",
                     style: AppStyles.semibold32(context),
                   ),
-                  const SizedBox(
-                    height: 18,
-                  ),
-                  FittedBox(
-                    child: GestureDetector(
-                      onTap: () {
-                        Clipboard.setData(ClipboardData(
-                            text:
-                                controller.walletModel.data?[0].address ?? ""));
-                      },
-                      child: Text(
-                        controller.walletModel.data?[0].address ?? "",
-                        style: AppStyles.semibold16(context)
-                            .copyWith(color: Colors.white),
-                      ),
-                    ),
-                  ),
+                  // const SizedBox(
+                  //   height: 18,
+                  // ),
+                  // FittedBox(
+                  //   child: GestureDetector(
+                  //     onTap: () {
+                  //       Clipboard.setData(ClipboardData(
+                  //           text:
+                  //               controller.walletModel.data?[0].address ?? ""));
+                  //     },
+                  //     child: Text(
+                  //       controller.walletModel.data?[0].address ?? "",
+                  //       style: AppStyles.semibold16(context)
+                  //           .copyWith(color: Colors.white),
+                  //     ),
+                  //   ),
+                  // ),
                   const SizedBox(
                     height: 18,
                   ),

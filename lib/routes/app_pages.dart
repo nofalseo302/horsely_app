@@ -303,7 +303,7 @@ class AppPages {
     ),
     GetPage(
       name: Routes.offers,
-      binding:OffersBindings(),
+      binding: OffersBindings(),
       page: () => const OfferScreen(),
     ),
   ];

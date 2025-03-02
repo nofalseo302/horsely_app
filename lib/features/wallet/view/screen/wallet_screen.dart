@@ -51,13 +51,19 @@ class WalletScreen extends GetView<WalletDataController> {
                             const SizedBox(height: 40),
                             HeaderSection(titel: AppStrings.lastTranaction.tr),
                             Expanded(
-                              child: ListView.builder(
-                                itemBuilder: (BuildContext context, int index) {
-                                  return IteamLastTranaction(
-                                      isincome: index % 2 == 0);
-                                },
+                                child: Center(
+                              child: Text(
+                                AppStrings.noTransactionsYet.tr,
+                                style: AppStyles.semibold20(context),
                               ),
                             )
+                                //  ListView.builder(
+                                //   itemBuilder: (BuildContext context, int index) {
+                                //     return IteamLastTranaction(
+                                //         isincome: index % 2 == 0);
+                                //   },
+                                // ),
+                                )
                           ],
                         ),
                       ),

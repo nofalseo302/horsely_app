@@ -66,24 +66,6 @@ class SellerInformation extends StatelessWidget {
                   color: const Color(0xff199800).withOpacity(.15)),
               child: const CustomImageHandler(AppImages.chatNotifications),
             )
-            // Badge(
-            //   padding: const EdgeInsets.all(5),
-            //   offset: const Offset(-2, -5),
-            //   label: Text(
-            //     "1",
-            //     style:
-            //         AppStyles.semibold12(context).copyWith(color: Colors.white),
-            //   ),
-            //   backgroundColor: AppColors.primaryColor,
-            //   child: Container(
-            //     padding: const EdgeInsets.all(10),
-            //     width: 48,
-            //     decoration: BoxDecoration(
-            //         borderRadius: BorderRadius.circular(10),
-            //         color: const Color(0xff199800).withOpacity(.15)),
-            //     child: const CustomImageHandler(AppImages.chats),
-            //   ),
-            // ),
             ),
       ),
     );

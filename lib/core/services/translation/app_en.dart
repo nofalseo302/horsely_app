@@ -153,11 +153,13 @@ class AppEn {
     AppStrings.companyname: "Company name",
     AppStrings.workaddress: "Work address",
     AppStrings.later: AppStrings.later,
+    AppStrings.wants: AppStrings.wants,
     AppStrings.taxnamber: "Tax number",
     AppStrings.transactiondetails: "Transaction details",
     AppStrings.somethingentwrongpleaseTryAgainLater:
         AppStrings.somethingentwrongpleaseTryAgainLater,
     AppStrings.purchaseprice: "Purchase price",
+    AppStrings.noTransactionsYet: AppStrings.noTransactionsYet,
     AppStrings.totalamount: "Total amount",
     AppStrings.messagesucess: "Request sent successfully.",
     AppStrings.cardnumber: "Card number",

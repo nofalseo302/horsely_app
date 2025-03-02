@@ -52,9 +52,12 @@ class BodyMyOrder extends GetView<MyOrderController> {
                                   itemData: controller
                                       .buyData.value!.data!.data![index],
                                   onTap: () {
-                                    Get.toNamed(Routes.offers,
-                                        arguments: controller.buyData.value!
-                                            .data!.data![index].id);
+                                    Get.toNamed(Routes.offers, arguments: {
+                                      'id': controller
+                                          .buyData.value!.data!.data![index].id,
+                                      'title': controller.buyData.value!.data!
+                                          .data![index].cryptoCurrency?.name
+                                    });
                                   },
                                 );
                               }),
@@ -96,9 +99,12 @@ class BodyMyOrder extends GetView<MyOrderController> {
                                   itemData: controller
                                       .sellData.value!.data!.data![index],
                                   onTap: () {
-                                    Get.toNamed(Routes.offers,
-                                        arguments: controller.buyData.value!
-                                            .data!.data![index].id);
+                                    Get.toNamed(Routes.offers, arguments: {
+                                      'id': controller
+                                          .buyData.value!.data!.data![index].id,
+                                      'title': controller.buyData.value!.data!
+                                          .data![index].cryptoCurrency?.name
+                                    });
                                   },
                                 );
                               }),

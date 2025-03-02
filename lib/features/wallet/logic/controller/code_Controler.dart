@@ -12,15 +12,16 @@ class WalletDataController extends GetxController {
   GetBlancModel walletModel = GetBlancModel();
   RxBool isLoading = false.obs;
   RxBool isError = false.obs;
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController amount = TextEditingController();
+  TextEditingController address = TextEditingController();
   void toggleVisibility() {
     isObscured = !isObscured;
     update(); // لتحديث الواجهة
   }
 
   void copyText() {
-    Clipboard.setData(
-        ClipboardData(text: walletModel.data?[0].privateKey ?? ''));
+    Clipboard.setData(ClipboardData(text: walletModel.data?[0].address ?? ''));
   }
 
   void getBalance() async {
@@ -46,20 +47,24 @@ class WalletDataController extends GetxController {
   }
 
   Future<void> transfer() async {
-    startLoading();
-    var res = await walletRepo.transfer(
-        amount: amount.text,
-        toAdderss: walletModel.data?[0].address ?? "",
-        id: walletModel.data?[0].id ?? 0);
-    stopLoading();
-    res.fold((l) {
-      amount.text = "";
-      Get.back();
-      ToastManager.showError(l.message);
-    }, (r) {
-      amount.text = "";
-      Get.back();
-      ToastManager.showSuccess(r.message, true);
-    });
+    if (formKey.currentState!.validate()) {
+      startLoading();
+      var res = await walletRepo.transfer(
+          amount: amount.text,
+          toAdderss: address.text,
+          id: walletModel.data?[0].id ?? 0);
+      stopLoading();
+      res.fold((l) {
+        amount.text = "";
+        address.text = "";
+        Get.back();
+        ToastManager.showError(l.message);
+      }, (r) {
+        amount.text = "";
+        address.text = "";
+        Get.back();
+        ToastManager.showSuccess(r.message, true);
+      });
+    }
   }
 }

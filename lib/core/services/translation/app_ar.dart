@@ -164,10 +164,12 @@ class AppAr {
     AppStrings.messagesucess: "تم ارسال الطلب بنجاح.",
     AppStrings.cardnumber: "رقم البطاقة",
     AppStrings.selectyouroption: "حدد خيارك",
+    AppStrings.wants: "المطلوب",
     AppStrings.somethingentwrongpleaseTryAgainLater:
         "حدث خطأ ما يرجى المحاولة مرة أخرى لاحقا",
     AppStrings.bankaccount: "حساب بنكي",
     AppStrings.later: "لاحقا",
+    AppStrings.noTransactionsYet: "لا يوجد معاملات حتى الان",
     AppStrings.pleaseEnterPhoneNamber: "ادخل رقم الهاتف",
     AppStrings.passwordDoesNotMatch: "كلمة المرور غير متطابقة",
     AppStrings.banktransfer: "تحويل بنكي",

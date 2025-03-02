@@ -1,22 +1,24 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
-import 'package:horsely_app/features/account/features/myorder/data/model/my_orders_model/my_orders_model.dart';
+import 'package:horsely_app/features/account/features/offer/data/model/offers_model/offers_model.dart';
 import 'package:horsely_app/features/account/features/offer/data/repo/offers_repo.dart';
 
 class OffersController extends GetxController {
   //get buy sell
-  Rxn<MyOrdersModel?> sellData = Rxn<MyOrdersModel?>();
+  Rxn<OffersModel?> offersData = Rxn<OffersModel?>();
   int sellDataCurrentPage = 1;
   OffersRepo offersRepo = OffersRepo.instance;
-  ScrollController sellDataScrollController = ScrollController();
+  ScrollController offersDataScrollController = ScrollController();
   void _sellScrollListener() async {
-    if (sellData.value != null &&
-        sellData.value!.data!.meta!.lastPage! >= sellDataCurrentPage &&
-        sellDataScrollController.offset >=
-            sellDataScrollController.position.maxScrollExtent &&
-        !sellDataScrollController.position.outOfRange) {
+    if (offersData.value != null &&
+        offersData.value!.data!.offers!.meta!.lastPage! >=
+            sellDataCurrentPage &&
+        offersDataScrollController.offset >=
+            offersDataScrollController.position.maxScrollExtent &&
+        !offersDataScrollController.position.outOfRange) {
       await getOffers(
         pageinate: true,
       );
@@ -35,10 +37,11 @@ class OffersController extends GetxController {
       ToastManager.showError(l);
     }, (r) {
       if (!pageinate!) {
-        sellData.value = r;
+        offersData.value = r;
       } else {
         sellDataCurrentPage++;
-        sellData.value!.data!.data?.addAll(r.data?.data ?? []);
+        offersData.value!.data!.offers?.data
+            ?.addAll(r.data?.offers?.data ?? []);
       }
     });
     stopLoad();
@@ -46,7 +49,7 @@ class OffersController extends GetxController {
 
   RxBool isLoading = false.obs;
   startLoad() {
-    if (sellData.value == null) {
+    if (offersData.value == null) {
       isLoading.value = true;
     } else {
       startLoading();
@@ -63,10 +66,14 @@ class OffersController extends GetxController {
     }
   }
 
+  String title=AppStrings.totaloffer.tr;
+
   @override
   void onInit() {
     if (Get.arguments != null) {
-      id = Get.arguments;
+      id = Get.arguments['id'];
+      title = Get.arguments['title'];
+      
       getOffers();
     }
 
