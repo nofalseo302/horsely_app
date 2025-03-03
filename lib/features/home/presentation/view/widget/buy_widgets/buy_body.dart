@@ -34,7 +34,7 @@ class BuyDataBody extends GetView<HomeControler> {
                     itemData: P2pItem(),
                     nameButttom: 'buy',
                   )),
-          state: controller.state.value,
+          state: controller.state.value!,
           onFail: () async {
             controller.activeIndex.value == 1
 

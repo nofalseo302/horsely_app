@@ -19,7 +19,7 @@ class CreateWalletButton extends GetView<WalletController> {
         onButtonPressed: () {
           controller.getCryptoCurrency();
           Get.bottomSheet(
-            BottomSheetCreatWallet(),
+            const BottomSheetCreatWallet(),
           );
         },
       ),

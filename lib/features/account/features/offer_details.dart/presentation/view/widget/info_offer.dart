@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/features/account/features/offer/data/model/offers_model/datum.dart';
-import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/buy_widgets/iteam_buy_way.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/titel_and_vule.dart';
 

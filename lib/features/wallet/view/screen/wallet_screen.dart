@@ -6,6 +6,7 @@ import 'package:horsely_app/core/widget/build_app_bar.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
 import 'package:horsely_app/core/widget/custom_retry_widget.dart';
 import 'package:horsely_app/features/wallet/logic/controller/code_Controler.dart';
+import 'package:horsely_app/features/wallet/view/widget/creat_wallet_buttom.dart';
 
 import 'package:horsely_app/features/wallet/view/widget/header_section.dart';
 import 'package:horsely_app/features/wallet/view/widget/header_wallest.dart';
@@ -27,12 +28,18 @@ class WalletScreen extends GetView<WalletDataController> {
                     }),
                   )
                 : controller.walletModel.data!.isEmpty
-                    ? Padding(
-                        padding: EdgeInsets.only(top: Get.height * 0.3),
-                        child: Center(
-                          child: Text(AppStrings.nodata.tr,
-                              style: AppStyles.semibold20(context)),
-                        ),
+                    ? Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(top: Get.height * 0.3),
+                            child: Center(
+                              child: Text(AppStrings.nodata.tr,
+                                  style: AppStyles.semibold20(context)),
+                            ),
+                          ),
+                          const Spacer(),
+                          const CreateWalletButton()
+                        ],
                       )
                     : Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),

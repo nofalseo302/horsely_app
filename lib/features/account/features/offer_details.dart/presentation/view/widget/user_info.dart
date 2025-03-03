@@ -5,7 +5,6 @@ import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/utils/image/app_images_svg.dart';
 import 'package:horsely_app/core/utils/image/custom_image_handler.dart';
 import 'package:horsely_app/features/account/features/offer/data/model/offers_model/datum.dart';
-import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';
 import 'package:horsely_app/routes/routes.dart';
 
 class Selinfo extends StatelessWidget {

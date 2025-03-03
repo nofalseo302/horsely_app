@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
-import 'package:horsely_app/core/models/errors/error_message_model.dart';
+import 'package:horsely_app/core/models/errors/exceptions.dart';
 import 'package:horsely_app/core/services/network_service/api_service.dart';
 import 'package:horsely_app/core/services/network_service/endpoints.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
@@ -29,7 +29,7 @@ class MyOrdersRepo {
       } else {
         return Left(response.data['message']);
       }
-    } on ResponseMessage catch (e) {
+    } on PrimaryServerException catch (e) {
       return Left(e.message);
     } catch (e) {
       return Left(AppStrings.connectionError.tr);
