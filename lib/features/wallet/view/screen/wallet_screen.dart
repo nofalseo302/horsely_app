@@ -9,7 +9,6 @@ import 'package:horsely_app/features/wallet/logic/controller/code_Controler.dart
 
 import 'package:horsely_app/features/wallet/view/widget/header_section.dart';
 import 'package:horsely_app/features/wallet/view/widget/header_wallest.dart';
-import 'package:horsely_app/features/wallet/view/widget/iteam_last_tranaction.dart';
 
 class WalletScreen extends GetView<WalletDataController> {
   const WalletScreen({super.key});
