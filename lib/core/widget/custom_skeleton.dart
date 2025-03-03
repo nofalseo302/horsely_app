@@ -33,9 +33,7 @@ class CustomSkeletonizer extends StatelessWidget {
         return Skeletonizer(
             enabled: true,
             effect: ShimmerEffect(highlightColor: Colors.green.shade400),
-            child: ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) => emptyLoadWidget));
+            child: emptyLoadWidget ?? Container());
 
       case CustomState.success:
         return child;

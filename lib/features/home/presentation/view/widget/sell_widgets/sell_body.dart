@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
+import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/widget/custom_skeleton.dart';
 import 'package:horsely_app/features/home/data/model/request_model/buy_request.dart';
 import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';
@@ -16,8 +17,15 @@ class SellDataBody extends GetView<HomeControler> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => CustomSkeletonizer(
-        emptyLoadWidget:
-            IteamBuy(isbay: false, itemData: P2pItem(), nameButttom: "sell"),
+      emptyWidget: Center(
+                        child: Text(
+                      AppStrings.nodata.tr,
+                      style: AppStyles.semibold20(context),
+                    )),
+        emptyLoadWidget: ListView.builder(
+            itemCount: 5,
+            itemBuilder: (context, index) => IteamBuy(
+                isbay: false, itemData: P2pItem(), nameButttom: "sell")),
         state: controller.sellState.value,
         onFail: () async {
           controller.getSellData(

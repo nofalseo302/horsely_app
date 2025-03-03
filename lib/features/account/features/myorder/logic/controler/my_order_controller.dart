@@ -58,7 +58,7 @@ class MyOrderController extends GetxController {
       ToastManager.showError(l);
       sellState = CustomState.failure.obs;
     }, (r) {
-      if (r.data == null) {
+      if (r.data?.data?.isEmpty ?? false) {
         sellState = CustomState.empty.obs;
       } else {
         sellState = CustomState.success.obs;
@@ -78,8 +78,8 @@ class MyOrderController extends GetxController {
     var result = await ordersRepo.getMyOrdersData(
         currentPage: sellDataCurrentPage, type: OfferType.buy);
     result.fold((l) {
-      ToastManager.showError(l);
       buyState = CustomState.failure.obs;
+      ToastManager.showError(l);
     }, (r) {
       if (r.data == null) {
         buyState = CustomState.empty.obs;
