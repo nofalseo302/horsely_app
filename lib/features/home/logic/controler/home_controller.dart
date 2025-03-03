@@ -129,7 +129,6 @@ class HomeControler extends GetxController {
         currentPage: sellDataCurrentPage, request: requestModel);
     result.fold((l) {
       state = CustomState.failure.obs;
-      ToastManager.showError(l);
     }, (r) {
       if (r.data == null) {
         state = CustomState.empty.obs;
@@ -143,7 +142,6 @@ class HomeControler extends GetxController {
         buyData.value!.data!.data?.addAll(r.data?.data ?? []);
       }
     });
-    stopLoad();
   }
 
   startLoad() {
