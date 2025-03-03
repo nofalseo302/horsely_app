@@ -81,18 +81,18 @@ class HomeControler extends GetxController {
 
   Future<void> getSellData(
       {bool? pageinate = false, required HomeDataRequest requestModel}) async {
-    sellState = CustomState.loading.obs;
+    sellState.value = CustomState.loading;
     requestModel.offerType = OfferType.sell;
     var result = await p2pHomeRepo.getHomeData(
         currentPage: sellDataCurrentPage, request: requestModel);
     result.fold((l) {
       ToastManager.showError(l);
-      sellState = CustomState.failure.obs;
+      sellState.value = CustomState.failure;
     }, (r) {
       if (r.data == null) {
-        sellState = CustomState.empty.obs;
+        sellState.value = CustomState.empty;
       } else {
-        sellState = CustomState.success.obs;
+        sellState.value = CustomState.success;
       }
       if (!pageinate!) {
         sellData.value = r;
@@ -119,22 +119,22 @@ class HomeControler extends GetxController {
     }
   }
 
-  var state = CustomState.loading.obs;
-  var sellState = CustomState.loading.obs;
+  Rxn<CustomState> state = Rxn<CustomState>(CustomState.loading);
+  Rxn<CustomState> sellState = Rxn<CustomState>(CustomState.loading);
 
   Future<void> getBuyData(
       {bool? pageinate = false, required HomeDataRequest requestModel}) async {
-    state = CustomState.loading.obs;
+    state.value = CustomState.loading;
     var result = await p2pHomeRepo.getHomeData(
         currentPage: sellDataCurrentPage, request: requestModel);
     result.fold((l) {
-      state = CustomState.failure.obs;
+      state.value = CustomState.failure;
       ToastManager.showError(l);
     }, (r) {
       if (r.data == null) {
-        state = CustomState.empty.obs;
+        state.value = CustomState.empty;
       } else {
-        state = CustomState.success.obs;
+        state.value = CustomState.success;
       }
       if (!pageinate!) {
         buyData.value = r;

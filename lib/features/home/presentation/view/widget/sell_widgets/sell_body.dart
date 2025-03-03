@@ -17,16 +17,16 @@ class SellDataBody extends GetView<HomeControler> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => CustomSkeletonizer(
-      emptyWidget: Center(
-                        child: Text(
-                      AppStrings.nodata.tr,
-                      style: AppStyles.semibold20(context),
-                    )),
+        emptyWidget: Center(
+            child: Text(
+          AppStrings.nodata.tr,
+          style: AppStyles.semibold20(context),
+        )),
         emptyLoadWidget: ListView.builder(
             itemCount: 5,
             itemBuilder: (context, index) => IteamBuy(
                 isbay: false, itemData: P2pItem(), nameButttom: "sell")),
-        state: controller.sellState.value,
+        state: controller.sellState.value!,
         onFail: () async {
           controller.getSellData(
               requestModel: HomeDataRequest(offerType: OfferType.sell));
