@@ -37,6 +37,8 @@ class BuyDataBody extends GetView<HomeControler> {
           state: controller.state.value!,
           onFail: () async {
             controller.activeIndex.value == 1
+
+            
                 ? controller.getBuyData(
                     requestModel: HomeDataRequest(offerType: OfferType.buy))
                 : controller.getSellData(

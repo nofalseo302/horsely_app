@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
+import 'package:horsely_app/core/widget/custom_loader.dart';
+import 'package:horsely_app/core/widget/custom_retry_widget.dart';
 import 'package:horsely_app/core/widget/custom_skeleton.dart';
 import 'package:horsely_app/core/widget/custom_anmtion_loading.dart';
 
@@ -20,120 +22,156 @@ class BodyMyOrder extends GetView<MyOrderController> {
       children: [
         const OrderTapBar(),
         Obx(() => controller.activeIndex.value == 0
-            ? Expanded(
-                child: CustomSkeletonizer(
-                    emptyLoadWidget: GridView.builder(
-                      itemBuilder: (context, index) => IteamTransaction(
-                        itemData: P2pItem(),
-                        onTap: () {},
+            ? controller.isLoading.value
+                ? Column(
+                    children: [
+                      SizedBox(
+                        height: Get.height * .5,
                       ),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 9,
-                        crossAxisSpacing: 9,
-                        childAspectRatio: 1.1,
-                      ),
-                    ),
-                    emptyWidget: Center(
-                        child: Text(
-                      AppStrings.nodata.tr,
-                      style: AppStyles.semibold20(context),
-                    )),
-                    state: controller.buyState.value,
-                    onFail: () async {
-                      controller.getBuyData();
-                    },
-                    child: RefreshIndicator(
-                        onRefresh: () async {
-                          controller.getBuyData();
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: GridView.builder(
-                              itemCount: controller
-                                      .buyData.value?.data?.data?.length ??
-                                  0,
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                mainAxisSpacing: 9,
-                                crossAxisSpacing: 9,
-                                childAspectRatio: 1 / .82,
+                      const CustomLoader(),
+                    ],
+                  )
+                : controller.isFailBuy.value
+                    ? Column(
+                        children: [
+                          SizedBox(
+                            height: Get.height * .3,
+                          ),
+                          RetryWidget(onRetry: () {
+                            controller.getBuyData();
+                          }),
+                        ],
+                      )
+                    : controller.buyData.value?.data?.data?.isEmpty ?? false
+                        ? Column(
+                            children: [
+                              SizedBox(
+                                height: Get.height * .5,
                               ),
-                              itemBuilder: (context, index) {
-                                return IteamTransaction(
-                                  itemData: controller
-                                      .buyData.value!.data!.data![index],
-                                  onTap: () {
-                                    Get.toNamed(Routes.offers, arguments: {
-                                      'id': controller
-                                          .buyData.value!.data!.data![index].id,
-                                      'title': controller.buyData.value!.data!
-                                          .data![index].cryptoCurrency?.name
-                                    });
-                                  },
-                                );
-                              }),
-                        ))),
-              )
-            : Expanded(
-                child: CustomSkeletonizer(
-                    emptyWidget: Center(
-                        child: Text(
-                      AppStrings.nodata.tr,
-                      style: AppStyles.semibold20(context),
-                    )),
-                    emptyLoadWidget: GridView.builder(
-                      itemBuilder: (context, index) => IteamTransaction(
-                        itemData: P2pItem(),
-                        onTap: () {},
+                              Text(AppStrings.nodata.tr,
+                                  style: AppStyles.semibold20(context)),
+                            ],
+                          )
+                        : Expanded(
+                            child: RefreshIndicator(
+                                onRefresh: () async {
+                                  controller.getBuyData();
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0),
+                                  child: GridView.builder(
+                                      itemCount: controller.buyData.value?.data
+                                              ?.data?.length ??
+                                          0,
+                                      gridDelegate:
+                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 2,
+                                        mainAxisSpacing: 9,
+                                        crossAxisSpacing: 9,
+                                        childAspectRatio: 1 / .82,
+                                      ),
+                                      itemBuilder: (context, index) {
+                                        return IteamTransaction(
+                                          itemData: controller.buyData.value!
+                                              .data!.data![index],
+                                          onTap: () {
+                                            Get.toNamed(Routes.offers,
+                                                arguments: {
+                                                  'id': controller
+                                                      .buyData
+                                                      .value!
+                                                      .data!
+                                                      .data![index]
+                                                      .id,
+                                                  'title': controller
+                                                      .buyData
+                                                      .value!
+                                                      .data!
+                                                      .data![index]
+                                                      .cryptoCurrency
+                                                      ?.name
+                                                });
+                                          },
+                                        );
+                                      }),
+                                )),
+                          )
+            : controller.isLoading.value
+                ? Column(
+                    children: [
+                      SizedBox(
+                        height: Get.height * .5,
                       ),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 9,
-                        crossAxisSpacing: 9,
-                        childAspectRatio: 1.1,
-                      ),
-                    ),
-                    state: controller.sellState.value,
-                    onFail: () async {
-                      controller.getSellData();
-                    },
-                    child: RefreshIndicator(
-                        onRefresh: () async {
-                          controller.getSellData();
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: GridView.builder(
-                              itemCount: controller
-                                      .sellData.value?.data?.data?.length ??
-                                  0,
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                mainAxisSpacing: 9,
-                                crossAxisSpacing: 9,
-                                childAspectRatio: 1.1,
+                      const CustomLoader(),
+                    ],
+                  )
+                : controller.isFailSell.value
+                    ? Column(
+                        children: [
+                          SizedBox(
+                            height: Get.height * .3,
+                          ),
+                          RetryWidget(onRetry: () {
+                            controller.getSellData();
+                          }),
+                        ],
+                      )
+                    : controller.sellData.value?.data?.data?.isEmpty ?? false
+                        ? Column(
+                            children: [
+                              SizedBox(
+                                height: Get.height * .5,
                               ),
-                              itemBuilder: (context, index) {
-                                return IteamTransaction(
-                                  itemData: controller
-                                      .sellData.value!.data!.data![index],
-                                  onTap: () {
-                                    Get.toNamed(Routes.offers, arguments: {
-                                      'id': controller
-                                          .buyData.value!.data!.data![index].id,
-                                      'title': controller.buyData.value!.data!
-                                          .data![index].cryptoCurrency?.name
-                                    });
-                                  },
-                                );
-                              }),
-                        ))),
-              ))
+                              Text(AppStrings.nodata.tr,
+                                  style: AppStyles.semibold20(context)),
+                            ],
+                          )
+                        : Expanded(
+                            child: RefreshIndicator(
+                                onRefresh: () async {
+                                  controller.getSellData();
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0),
+                                  child: GridView.builder(
+                                      itemCount: controller.sellData.value?.data
+                                              ?.data?.length ??
+                                          0,
+                                      gridDelegate:
+                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 2,
+                                        mainAxisSpacing: 9,
+                                        crossAxisSpacing: 9,
+                                        childAspectRatio: 1.1,
+                                      ),
+                                      itemBuilder: (context, index) {
+                                        return IteamTransaction(
+                                          itemData: controller.sellData.value!
+                                              .data!.data![index],
+                                          onTap: () {
+                                            Get.toNamed(Routes.offers,
+                                                arguments: {
+                                                  'id': controller
+                                                      .buyData
+                                                      .value!
+                                                      .data!
+                                                      .data![index]
+                                                      .id,
+                                                  'title': controller
+                                                      .buyData
+                                                      .value!
+                                                      .data!
+                                                      .data![index]
+                                                      .cryptoCurrency
+                                                      ?.name
+                                                });
+                                          },
+                                        );
+                                      }),
+                                )),
+                          ))
       ],
     );
   }

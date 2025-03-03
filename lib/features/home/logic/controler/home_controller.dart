@@ -143,7 +143,6 @@ class HomeControler extends GetxController {
         buyData.value!.data!.data?.addAll(r.data?.data ?? []);
       }
     });
-    stopLoad();
   }
 
   startLoad() {
