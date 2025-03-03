@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
+import 'package:horsely_app/core/widget/custom_skeleton.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/account/features/myorder/data/model/my_orders_model/my_orders_model.dart';
 import 'package:horsely_app/features/account/features/myorder/data/repo/my_orders_repo.dart';
@@ -46,13 +47,22 @@ class MyOrderController extends GetxController {
     }
   }
 
+  var sellState = CustomState.loading.obs;
+  var buyState = CustomState.loading.obs;
+
   Future<void> getSellData({bool? pageinate = false}) async {
     startLoad();
     var result = await ordersRepo.getMyOrdersData(
         currentPage: sellDataCurrentPage, type: OfferType.sell);
     result.fold((l) {
       ToastManager.showError(l);
+      sellState = CustomState.failure.obs;
     }, (r) {
+      if (r.data?.data?.isEmpty ?? false) {
+        sellState = CustomState.empty.obs;
+      } else {
+        sellState = CustomState.success.obs;
+      }
       if (!pageinate!) {
         sellData.value = r;
       } else {
@@ -60,17 +70,22 @@ class MyOrderController extends GetxController {
         sellData.value!.data!.data?.addAll(r.data?.data ?? []);
       }
     });
-    stopLoad();
   }
 
   Future<void> getBuyData({bool? pageinate = false, withLoading = true}) async {
-    if (withLoading) startLoad();
+    if (withLoading) buyState = CustomState.loading.obs;
 
     var result = await ordersRepo.getMyOrdersData(
         currentPage: sellDataCurrentPage, type: OfferType.buy);
     result.fold((l) {
+      buyState = CustomState.failure.obs;
       ToastManager.showError(l);
     }, (r) {
+      if (r.data == null) {
+        buyState = CustomState.empty.obs;
+      } else {
+        buyState = CustomState.success.obs;
+      }
       if (!pageinate!) {
         buyData.value = r;
       } else {

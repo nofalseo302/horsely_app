@@ -33,8 +33,6 @@ class HomeBody extends GetView<HomeControler> {
           ),
           const SizedBox(height: 16),
 
-          // AnimatedSwitcher to switch between different text fields
-
           Obx(() => controller.activeIndex.value == 0
               ? Row(
                   key: const ValueKey<int>(0), // مفتاح للتحويل بين الودجت
