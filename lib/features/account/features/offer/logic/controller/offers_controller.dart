@@ -57,7 +57,7 @@ class OffersController extends GetxController {
       ToastManager.showError(l);
     }, (r) {
       stopLoad();
-
+      Get.back();
       ToastManager.showError(r);
       getOffers();
     });
