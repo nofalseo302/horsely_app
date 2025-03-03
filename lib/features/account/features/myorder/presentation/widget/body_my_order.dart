@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:horsely_app/core/widget/custom_skeletonizer.dart';
+import 'package:horsely_app/core/widget/custom_skeleton.dart';
+import 'package:horsely_app/core/widget/custom_anmtion_loading.dart';
 
 import 'package:horsely_app/features/account/features/myorder/logic/controler/my_order_controller.dart';
 import 'package:horsely_app/features/account/features/myorder/presentation/widget/order_tap_bar.dart';
+import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';
 import 'package:horsely_app/features/profit/presentation/view/widget/iteam_transaction.dart';
 import 'package:horsely_app/routes/routes.dart';
 
@@ -17,20 +19,16 @@ class BodyMyOrder extends GetView<MyOrderController> {
         const OrderTapBar(),
         Obx(() => controller.activeIndex.value == 0
             ? Expanded(
-                child: CustomLoadingAnimation(
-                    state: controller.isLoading.value
-                        ? currentState.loading
-                        : controller.buyData.value?.data?.data == null
-                            ? currentState.failure
-                            : controller.buyData.value!.data!.data!.isEmpty
-                                ? currentState.empty
-                                : currentState.success,
+                child: CustomSkeletonizer(
+                    emptyLoadWidget: IteamTransaction(
+                      itemData: P2pItem(),
+                      onTap: () {},
+                    ),
+                    state: controller.buyState.value,
                     onFail: () async {
                       controller.getBuyData();
                     },
-                    animationType: AnimationType.skeletonizer,
-                    enable: controller.isLoading.value,
-                    widget: RefreshIndicator(
+                    child: RefreshIndicator(
                         onRefresh: () async {
                           controller.getBuyData();
                         },
@@ -64,20 +62,16 @@ class BodyMyOrder extends GetView<MyOrderController> {
                         ))),
               )
             : Expanded(
-                child: CustomLoadingAnimation(
-                    state: controller.isLoading.value
-                        ? currentState.loading
-                        : controller.sellData.value?.data?.data == null
-                            ? currentState.failure
-                            : controller.sellData.value!.data!.data!.isEmpty
-                                ? currentState.empty
-                                : currentState.success,
+                child: CustomSkeletonizer(
+                    emptyLoadWidget: IteamTransaction(
+                      itemData: P2pItem(),
+                      onTap: () {},
+                    ),
+                    state: controller.sellState.value,
                     onFail: () async {
                       controller.getSellData();
                     },
-                    animationType: AnimationType.skeletonizer,
-                    enable: controller.isLoading.value,
-                    widget: RefreshIndicator(
+                    child: RefreshIndicator(
                         onRefresh: () async {
                           controller.getSellData();
                         },

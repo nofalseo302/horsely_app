@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horsely_app/core/function/app_launge.dart';
 import 'package:horsely_app/core/widget/custom_loader.dart';
+import 'package:horsely_app/core/widget/custom_skeleton.dart';
 import 'package:horsely_app/core/widget/toast_manager_widget.dart';
 import 'package:horsely_app/features/home/data/model/all_currency_model/all_currency_model.dart';
 import 'package:horsely_app/features/home/data/model/all_payment_method/all_payment_method.dart';
@@ -80,13 +81,19 @@ class HomeControler extends GetxController {
 
   Future<void> getSellData(
       {bool? pageinate = false, required HomeDataRequest requestModel}) async {
-    startLoad();
+    sellState = CustomState.loading.obs;
     requestModel.offerType = OfferType.sell;
     var result = await p2pHomeRepo.getHomeData(
         currentPage: sellDataCurrentPage, request: requestModel);
     result.fold((l) {
       ToastManager.showError(l);
+      sellState = CustomState.failure.obs;
     }, (r) {
+      if (r.data == null) {
+        sellState = CustomState.empty.obs;
+      } else {
+        sellState = CustomState.success.obs;
+      }
       if (!pageinate!) {
         sellData.value = r;
       } else {
@@ -112,15 +119,23 @@ class HomeControler extends GetxController {
     }
   }
 
+  var state = CustomState.loading.obs;
+  var sellState = CustomState.loading.obs;
+
   Future<void> getBuyData(
       {bool? pageinate = false, required HomeDataRequest requestModel}) async {
-    startLoad();
-
+    state = CustomState.loading.obs;
     var result = await p2pHomeRepo.getHomeData(
         currentPage: sellDataCurrentPage, request: requestModel);
     result.fold((l) {
+      state = CustomState.failure.obs;
       ToastManager.showError(l);
     }, (r) {
+      if (r.data == null) {
+        state = CustomState.empty.obs;
+      } else {
+        state = CustomState.success.obs;
+      }
       if (!pageinate!) {
         buyData.value = r;
       } else {
@@ -188,6 +203,7 @@ class HomeControler extends GetxController {
 
   @override
   void onInit() async {
+    isLoading.value = true;
     isLoadingpay.value = true;
     await getBuyData(requestModel: HomeDataRequest(offerType: OfferType.buy));
     buyDataScrollController.addListener(_buyScrollListener);

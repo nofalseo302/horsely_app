@@ -27,7 +27,8 @@ class ListTileIteamHome extends StatelessWidget {
                 // backgroundImage: const AssetImage("assets/png/company.png"),
                 child: CustomImageHandler(
                   width: Get.width * 0.125,
-                  dataItem.user?.image,
+                  dataItem.user?.image ??
+                      "https://crepto.codeella.com/upload-test/payment-methods/bank_account.png",
                   fit: BoxFit.fill,
                 ),
               ),
