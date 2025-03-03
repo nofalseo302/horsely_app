@@ -19,7 +19,8 @@ class MyOrderController extends GetxController {
   Rxn<MyOrdersModel?> buyData = Rxn<MyOrdersModel?>();
   int sellDataCurrentPage = 1;
   int buyDataCurrentPage = 1;
-
+  RxBool isFailBuy = false.obs;
+  RxBool isFailSell = false.obs;
   ScrollController sellDataScrollController = ScrollController();
   ScrollController buyDataScrollController = ScrollController();
   void _sellScrollListener() async {
@@ -51,6 +52,7 @@ class MyOrderController extends GetxController {
     var result = await ordersRepo.getMyOrdersData(
         currentPage: sellDataCurrentPage, type: OfferType.sell);
     result.fold((l) {
+      isFailSell.value = true;
       ToastManager.showError(l);
     }, (r) {
       if (!pageinate!) {
@@ -69,6 +71,7 @@ class MyOrderController extends GetxController {
     var result = await ordersRepo.getMyOrdersData(
         currentPage: sellDataCurrentPage, type: OfferType.buy);
     result.fold((l) {
+      isFailBuy.value = true;
       ToastManager.showError(l);
     }, (r) {
       if (!pageinate!) {
