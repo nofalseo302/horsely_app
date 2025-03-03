@@ -20,7 +20,7 @@ class WalletScreen extends GetView<WalletDataController> {
       appBar: buildAppBar(titel: AppStrings.wallet.tr, context: context),
       body: Obx(
         () => controller.isLoading.value
-            ? const Expanded(child: CustomLoader())
+            ? const CustomLoader()
             : controller.isError.value
                 ? Center(
                     child: RetryWidget(onRetry: () {
