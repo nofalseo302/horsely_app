@@ -9,6 +9,7 @@ class OfferModel {
   String? price;
   String? tax;
   String? messageCount;
+  String? status;
 
   int? totalPrice;
   Currency? currency;
@@ -26,6 +27,7 @@ class OfferModel {
     this.currency,
     this.cryptoCurrency,
     this.paymentMethod,
+    this.status
   });
 
   factory OfferModel.fromJson(Map<String, dynamic> json) => OfferModel(
@@ -43,6 +45,7 @@ class OfferModel {
         messageCount: json['message_count'] == null
             ? null
             : (json['message_count'].toString()),
+          status:json['status']as String?,
         cryptoCurrency: json['crypto_currency'] == null
             ? null
             : CryptoCurrency.fromJson(

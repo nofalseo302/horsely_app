@@ -85,7 +85,7 @@ class ChatRepo {
       } else {
         return Left(response.data['message']);
       }
-    } on ResponseMessage catch (e) {
+    } on PrimaryServerException catch (e) {
       return Left(e.message);
     } catch (e) {
       return Left(AppStrings.connectionError.tr);

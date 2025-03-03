@@ -47,6 +47,22 @@ class OffersController extends GetxController {
     stopLoad();
   }
 
+  Future<void> acceptRejectOffer(
+      {required String status, required int id}) async {
+    startLoad();
+    var result = await offersRepo.acceptRejectOffer(status: status, id: id);
+    result.fold((l) {
+      stopLoad();
+
+      ToastManager.showError(l);
+    }, (r) {
+      stopLoad();
+
+      ToastManager.showError(r);
+      getOffers();
+    });
+  }
+
   RxBool isLoading = false.obs;
   startLoad() {
     if (offersData.value == null) {
@@ -66,14 +82,14 @@ class OffersController extends GetxController {
     }
   }
 
-  String title=AppStrings.totaloffer.tr;
+  String title = AppStrings.totaloffer.tr;
 
   @override
   void onInit() {
     if (Get.arguments != null) {
       id = Get.arguments['id'];
       title = Get.arguments['title'];
-      
+
       getOffers();
     }
 

@@ -5,10 +5,9 @@ import 'package:horsely_app/core/utils/app_colors.dart';
 import 'package:horsely_app/core/widget/build_app_bar.dart';
 import 'package:horsely_app/core/widget/custom_button.dart';
 import 'package:horsely_app/features/account/features/offer/data/model/offers_model/datum.dart';
+import 'package:horsely_app/features/account/features/offer/logic/controller/offers_controller.dart';
 import 'package:horsely_app/features/account/features/offer_details.dart/presentation/view/widget/info_offer.dart';
 import 'package:horsely_app/features/account/features/offer_details.dart/presentation/view/widget/user_info.dart';
-import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';
-import 'package:horsely_app/features/home/presentation/view/widget/information_iteam_buy.dart';
 
 class OfferDetails extends StatelessWidget {
   const OfferDetails({super.key, required this.offer});
@@ -27,7 +26,7 @@ class OfferDetails extends StatelessWidget {
   }
 }
 
-class BodyOfferDetails extends StatelessWidget {
+class BodyOfferDetails extends GetView<OffersController> {
   const BodyOfferDetails({super.key, required this.offer});
   final OfferModel offer;
   @override
@@ -44,17 +43,26 @@ class BodyOfferDetails extends StatelessWidget {
           InfoOffer(
             p2pItem: offer,
           ),
-          const Spacer(),
-          CustomButton(
-              onButtonPressed: () {}, buttonText: AppStrings.accept.tr),
-          const SizedBox(height: 16),
-          CustomButton(
-            onButtonPressed: () {},
-            buttonText: AppStrings.reject.tr,
-            backgroundColor: const Color(0xFFD20000).withOpacity(.05),
-            textColor: Colors.red,
-          ),
-          const SizedBox(height: 16)
+          if (offer.status == null || offer.status == "draft") ...[
+            const Spacer(),
+            CustomButton(
+                onButtonPressed: () {
+                  controller.acceptRejectOffer(
+                      status: 'accepted', id: offer.id!);
+                },
+                buttonText: AppStrings.accept.tr),
+            const SizedBox(height: 16),
+            CustomButton(
+              onButtonPressed: () {
+                controller.acceptRejectOffer(
+                    status: 'cancelled', id: offer.id!);
+              },
+              buttonText: AppStrings.reject.tr,
+              backgroundColor: const Color(0xFFD20000).withOpacity(.05),
+              textColor: Colors.red,
+            ),
+            const SizedBox(height: 16)
+          ]
         ],
       ),
     );

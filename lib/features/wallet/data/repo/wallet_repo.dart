@@ -30,8 +30,8 @@ class GetAllRepoRepo {
       } else {
         return Left(ResponseMessage.fromJson(req.data));
       }
-    } on ResponseMessage catch (e) {
-      return Left(e);
+    } on PrimaryServerException catch (e) {
+      return Left(ResponseMessage(message: e.message, status: false));
     } catch (e) {
       return Left(ResponseMessage(
           message: AppStrings.connectionError.tr, status: false));
@@ -71,8 +71,8 @@ class GetAllRepoRepo {
       } else {
         return Left(ResponseMessage.fromJson(req.data));
       }
-    } on ResponseMessage catch (e) {
-      return Left(e);
+    } on PrimaryServerException catch (e) {
+      return Left(ResponseMessage(message: e.message, status: false));
     } catch (e) {
       return Left(ResponseMessage(
           message: AppStrings.connectionError.tr, status: false));
@@ -91,8 +91,6 @@ class GetAllRepoRepo {
       } else {
         return Left(ResponseMessage.fromJson(req.data));
       }
-    } on ResponseMessage catch (e) {
-      return Left(e);
     } on PrimaryServerException catch (e) {
       return Left(ResponseMessage(message: e.message.tr, status: false));
     } catch (e) {
