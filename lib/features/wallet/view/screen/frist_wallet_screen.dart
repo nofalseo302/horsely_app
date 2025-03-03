@@ -166,6 +166,7 @@ class FristWalletScreen extends GetView<WalletController> {
                                                                             Obx(
                                                                               () => IteamChooseWallet(
                                                                                 image: controller.cryptoCurrencyModel.data?[index].image ?? "",
+                                                                                net: controller.cryptoCurrencyModel.data?[index].net ?? "",
                                                                                 onTap: () {
                                                                                   controller.choosewallet(index, controller.cryptoCurrencyModel.data?[index].id ?? 0);
                                                                                 },
@@ -221,8 +222,10 @@ class IteamChooseWallet extends StatelessWidget {
     required this.isActive,
     this.onTap,
     required this.image,
+    required this.net,
   });
   final String name;
+  final String? net;
   final bool isActive;
   final void Function()? onTap;
   final String image;
@@ -233,9 +236,17 @@ class IteamChooseWallet extends StatelessWidget {
       child: ListTile(
           trailing: CustomImageHandler(
               isActive ? AppImages.active : AppImages.notactive),
-          title: Text(
-            name,
-            style: AppStyles.semibold18(context),
+          title: Row(
+            children: [
+              Text(
+                name,
+                style: AppStyles.semibold18(context),
+              ),
+              Text(
+                net??'',
+                style: AppStyles.semibold18(context),
+              ),
+            ],
           ),
           leading: CircleAvatar(
             backgroundColor: AppColors.backGray,

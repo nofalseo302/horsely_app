@@ -48,10 +48,11 @@ class GetAllRepoRepo {
       if (req.statusCode == 200) {
         return Right(CreateWalletResponse.fromJson(req.data));
       } else {
-        return Left(ResponseMessage.fromJson(req.data));
+        return Left(
+            ResponseMessage(message: req.data['message'], status: false));
       }
-    } on ResponseMessage catch (e) {
-      return Left(e);
+    } on PrimaryServerException catch (e) {
+      return Left(ResponseMessage(message: e.message, status: false));
     } catch (e) {
       return Left(ResponseMessage(
           message: AppStrings.connectionError.tr, status: false));
