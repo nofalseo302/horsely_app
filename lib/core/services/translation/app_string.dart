@@ -13,6 +13,7 @@ class AppStrings {
   static const String message = 'message';
   static const String hours = 'hours';
   static const String wants = 'wants';
+  static const status="status";
   static const String withdrawMeathods = "withdrawMeathods";
   static const String attachment = 'Attachment';
   static const String enterThePasswordToDelete = 'أدخل كلمة السر لحذف الحساب';

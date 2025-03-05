@@ -54,6 +54,14 @@ class InformationOffer extends StatelessWidget {
             const SizedBox(
               height: 12,
             ),
+            if (offer.status != null && offer.status != "draft")
+              TitelAndVule(
+                titel: AppStrings.status.tr,
+                vule: '${offer.status ?? ""}',
+              ),
+            SizedBox(
+              height: 12,
+            ),
 
             FittedBox(
               child: Row(

@@ -38,7 +38,7 @@ class OffersRepo {
   Future<Either<String, String>> acceptRejectOffer(
       {required String status, required int id}) async {
     try {
-      var response = await _dioImpl.get(
+      var response = await _dioImpl.post(
           endPoint: '${EndPoints.acceptOrReject}$id', data: {'action': status});
 
       if (response.statusCode == 200) {

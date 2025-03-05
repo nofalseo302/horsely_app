@@ -88,6 +88,7 @@ class AppAr {
     AppStrings.available: 'متوفر',
     AppStrings.order: "طلب",
     AppStrings.complete: "مكتمل",
+    AppStrings.status: "الحالة",
     AppStrings.transactionamount: "مبلغ المعاملة",
     AppStrings.enteramount: "أدخل المبلغ",
     AppStrings.paymentseected: "حدد طريقة الدفع",
