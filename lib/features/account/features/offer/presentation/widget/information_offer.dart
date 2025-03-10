@@ -59,7 +59,7 @@ class InformationOffer extends StatelessWidget {
                 titel: AppStrings.status.tr,
                 vule: '${offer.status ?? ""}',
               ),
-            SizedBox(
+            const SizedBox(
               height: 12,
             ),
 

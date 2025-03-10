@@ -127,13 +127,14 @@ class TeanactionScreen extends GetView<TransactionController> {
                                         ? controller.selectedCurrencyId.value
                                         : null, // ✅ Ensure selected value exists in the list
                                     onChanged: (newValue) {
+                                      print(controller.cerid);
                                       if (newValue != null) {
                                         controller.selectedCurrencyId.value =
                                             newValue;
                                         for (var e in controller
                                                 .currencyModel.value.data ??
                                             []) {
-                                          if (e.name == newValue) {
+                                          if (e.symbol == newValue) {
                                             controller.cerid.value =
                                                 e.id.toString();
 
@@ -141,6 +142,7 @@ class TeanactionScreen extends GetView<TransactionController> {
                                           }
                                         }
                                       }
+                                      print(controller.cerid);
                                     },
                                   ),
                                 ),

@@ -89,7 +89,7 @@ class HomeControler extends GetxController {
       ToastManager.showError(l);
       sellState.value = CustomState.failure;
     }, (r) {
-      if (r.data == null) {
+      if (r.data?.data?.isEmpty ?? false) {
         sellState.value = CustomState.empty;
       } else {
         sellState.value = CustomState.success;
@@ -131,7 +131,7 @@ class HomeControler extends GetxController {
       state.value = CustomState.failure;
       ToastManager.showError(l);
     }, (r) {
-      if (r.data == null) {
+      if (r.data?.data?.isEmpty ?? false) {
         state.value = CustomState.empty;
       } else {
         state.value = CustomState.success;

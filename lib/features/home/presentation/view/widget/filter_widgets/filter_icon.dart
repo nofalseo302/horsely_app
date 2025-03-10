@@ -45,7 +45,7 @@ class FilterIcon extends GetView<HomeControler> {
                 onChanged: (p0) {
                   if (p0.isEmpty) {
                     controller.activeIndex.value == 0
-                        ? controller.getBuyData(
+                        ? controller.getSellData(
                             requestModel: HomeDataRequest(
                                 search: controller.activeIndex.value == 0
                                     ? controller.buySearchController.text
@@ -54,7 +54,7 @@ class FilterIcon extends GetView<HomeControler> {
                                 paymentMethods: controller.selectedAllPayment,
                                 currencyType: controller.selectedAllCurrency,
                                 coinType: controller.selectedCoinTypes))
-                        : controller.getSellData(
+                        : controller.getBuyData(
                             requestModel: HomeDataRequest(
                                 offerType: OfferType.sell,
                                 paymentMethods: controller.selectedAllPayment,

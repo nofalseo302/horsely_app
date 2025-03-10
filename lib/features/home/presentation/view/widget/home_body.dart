@@ -41,7 +41,7 @@ class HomeBody extends GetView<HomeControler> {
                       child: FilterIcon(
                           searchController: controller.buySearchController,
                           onSaved: (s) {
-                            controller.getBuyData(
+                            controller.getSellData(
                                 requestModel: HomeDataRequest(
                                     minLimit: controller
                                         .minValuetranactionlimit.value
@@ -78,7 +78,7 @@ class HomeBody extends GetView<HomeControler> {
                       child: FilterIcon(
                           searchController: controller.sellSearchController,
                           onSaved: (s) {
-                            controller.getSellData(
+                            controller.getBuyData(
                                 requestModel: HomeDataRequest(
                                     minLimit: controller
                                         .minValuetranactionlimit.value

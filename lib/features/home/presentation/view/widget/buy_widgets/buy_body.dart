@@ -4,14 +4,11 @@ import 'package:horsely_app/core/services/translation/app_string.dart';
 import 'package:horsely_app/core/utils/app_text_styles.dart';
 import 'package:horsely_app/core/widget/custom_skeleton.dart';
 import 'package:horsely_app/features/home/data/model/request_model/buy_request.dart';
-import 'package:horsely_app/features/home/data/model/user_home_data/crypto_currency.dart';
 
 import 'package:horsely_app/features/home/logic/controler/home_controller.dart';
 import 'package:horsely_app/routes/routes.dart';
 import 'package:horsely_app/features/home/presentation/view/widget/buy_widgets/iteam_buy.dart';
 
-import '../../../../data/model/user_home_data/currency.dart';
-import '../../../../data/model/user_home_data/user.dart';
 import 'package:horsely_app/features/home/data/model/user_home_data/datum.dart';
 
 class BuyDataBody extends GetView<HomeControler> {
@@ -37,8 +34,6 @@ class BuyDataBody extends GetView<HomeControler> {
           state: controller.state.value!,
           onFail: () async {
             controller.activeIndex.value == 1
-
-            
                 ? controller.getBuyData(
                     requestModel: HomeDataRequest(offerType: OfferType.buy))
                 : controller.getSellData(
