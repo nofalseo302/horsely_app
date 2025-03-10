@@ -109,7 +109,7 @@ class FilterWidget extends GetView<HomeControler> {
                                 child: CustomButton(
                                     onButtonPressed: () {
                                       Get.back();
-                                      controller.activeIndex == 0
+                                      !(controller.activeIndex.value == 0)
                                           ? controller.getBuyData(
                                               requestModel: HomeDataRequest(
                                                   search: controller.activeIndex.value == 0
